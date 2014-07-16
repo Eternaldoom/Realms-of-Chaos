@@ -62,5 +62,4 @@ public class BlockCharwoodLeaves extends OverworldBlock{
         return true;
     }
 	
-	
 }
