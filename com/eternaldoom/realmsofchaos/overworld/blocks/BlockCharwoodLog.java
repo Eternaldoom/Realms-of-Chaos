@@ -19,6 +19,7 @@ public class BlockCharwoodLog extends OverworldBlock{
 	protected BlockCharwoodLog() {
 		super(Material.rock, "realmsofchaos:charwood_log", "logCharwood", 1.5f, 1000000.0f);
 		setTickRandomly(true);
+              setStepSound("soundTypePiston");
 	}
 
     @Override
