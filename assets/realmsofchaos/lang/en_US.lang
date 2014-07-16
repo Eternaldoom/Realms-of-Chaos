@@ -1,8 +1,11 @@
 tile.oreCitronite.name=Citronite Ore
 tile.logCharwood.name=Charwood
 tile.leavesCharwood.name=Charwood Leaves
+tile.saplingCharwood.name=Charwood Sapling
+tile.bricksHellrock.name=Netherrack Bricks
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
+itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items

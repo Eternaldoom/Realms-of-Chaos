@@ -14,7 +14,7 @@ public class OverworldBlock extends Block{
 		this.setBlockName(name);
 		this.setHardness(hard);
 		this.setResistance(resist);
-		this.setCreativeTab(ROCTabs.ROCOverworldBlocks);
+		this.setCreativeTab(ROCTabs.OverworldBlocks);
 	}
 	
 	public void register(String nam){
