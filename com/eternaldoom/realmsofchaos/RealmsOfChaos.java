@@ -1,6 +1,7 @@
 package com.eternaldoom.realmsofchaos;
 
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
 
 import cpw.mods.fml.common.Mod;
@@ -8,6 +9,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
 public class RealmsOfChaos {
@@ -19,7 +21,7 @@ public class RealmsOfChaos {
 		System.out.println("[Realms of Chaos] Initializing mod.");
 		ROCBlocks.init();
 		ROCOverworldItems.init();
-		
+		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 	}
 	
 	@EventHandler

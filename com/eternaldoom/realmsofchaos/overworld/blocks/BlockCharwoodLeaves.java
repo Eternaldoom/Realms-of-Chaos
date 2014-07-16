@@ -27,8 +27,7 @@ public class BlockCharwoodLeaves extends OverworldBlock{
 	@SideOnly(Side.CLIENT)
     public boolean shouldSideBeRendered(IBlockAccess par1IBA, int par2, int par3, int par4, int par5)
     {
-        Block block = par1IBA.getBlock(par2, par3, par4);
-        return !this.idk && block == this ? false : super.shouldSideBeRendered(par1IBA, par2, par3, par4, par5);
+        return true;
     }
 	
 	@Override
