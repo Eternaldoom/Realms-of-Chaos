@@ -1,5 +1,8 @@
 tile.oreCitronite.name=Citronite Ore
+tile.logCharwood.name=Charwood
+tile.leavesCharwood.name=Charwood Leaves
 
 item.gemCitronite.name=Citronite Gem
+item.dustAsh.name=Ash Dust
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
