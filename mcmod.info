@@ -1,0 +1,16 @@
+[
+{
+  "modid": "realmsofchaos",
+  "name": "Realms of Chaos",
+  "description": "Create New and Original Weapons to Conquer New Worlds, Build Beautiful Castles and Houses, and Explore the Depths. Realms of Chaos is a Mod Like no Other.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Eternaldoom (Doomturd)"],
+  "credits": "Thanks to the DivineRPG developers for paving the way for adventure mods, and to Wuppy29 for his incredibly useful Forge tutorials. And of course, thanks to the Forge team for creating the API that made this mod possible.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
