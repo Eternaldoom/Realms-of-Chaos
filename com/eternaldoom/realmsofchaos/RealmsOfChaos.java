@@ -7,6 +7,7 @@ import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +17,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class RealmsOfChaos {
 	public static final String MODID = "realmsofchaos";
 	public static final String VERSION = "Alpha 1.0 pre 1";
+	
+	@Instance(MODID)
+	public static RealmsOfChaos instance;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt){
