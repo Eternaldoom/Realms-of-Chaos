@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 public class BlockCitroniteOre extends OverworldBlock {
 
 	public BlockCitroniteOre() {
-		super(Material.rock, "realmsofchaos:citronite_ore", "oreCitronite", 5.0f, 1000000.0f);
+		super(Material.rock, "realmsofchaos:citronite_ore", "oreCitronite", 5.0f, 1000000.0f, soundTypePiston);
 	}
 	
 	@Override

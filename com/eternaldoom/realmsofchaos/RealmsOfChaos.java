@@ -1,6 +1,7 @@
 package com.eternaldoom.realmsofchaos;
 
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
 import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
 
@@ -22,6 +23,7 @@ public class RealmsOfChaos {
 		ROCBlocks.init();
 		ROCOverworldItems.init();
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
+		OverworldCrafting.initRecipes();
 	}
 	
 	@EventHandler

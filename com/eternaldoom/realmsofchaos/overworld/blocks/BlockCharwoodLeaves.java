@@ -20,8 +20,7 @@ public class BlockCharwoodLeaves extends OverworldBlock {
 
 	public BlockCharwoodLeaves() {
 		super(Material.cloth, "realmsofchaos:charwood_leaves",
-				"leavesCharwood", 0.0f, 5.0f);
-		setStepSound(soundTypeCloth);
+				"leavesCharwood", 0.0f, 5.0f, soundTypeCloth);
 		setLightOpacity(1);
 		setTickRandomly(true);
 	}
@@ -71,9 +70,13 @@ public class BlockCharwoodLeaves extends OverworldBlock {
 	@Override
 	public Item getItemDropped(int par1, Random rand, int par3) {
 
-		int dustDropChance = rand.nextInt(20);
-		if (dustDropChance == 10) {
+		int dropChance = rand.nextInt(40);
+		if (dropChance == 10 || dropChance == 20) {
 			return ROCOverworldItems.ash_dust;
+		}
+		
+		if (dropChance == 30){
+			return Item.getItemFromBlock(ROCBlocks.charwood_sapling);
 		}
 		
 		return Item.getItemFromBlock(Blocks.air);

@@ -17,9 +17,8 @@ public class BlockCharwoodLog extends OverworldBlock{
     private IIcon iconLogSide;
 
 	protected BlockCharwoodLog() {
-		super(Material.rock, "realmsofchaos:charwood_log", "logCharwood", 1.5f, 1000000.0f);
+		super(Material.rock, "realmsofchaos:charwood_log", "logCharwood", 1.5f, 1000000.0f, soundTypePiston);
 		setTickRandomly(true);
-              setStepSound("soundTypePiston");
 	}
 
     @Override

@@ -3,6 +3,8 @@ tile.logCharwood.name=Charwood
 tile.leavesCharwood.name=Charwood Leaves
 tile.saplingCharwood.name=Charwood Sapling
 tile.bricksHellrock.name=Netherrack Bricks
+tile.planksCharwood.name=Charwood Planks
+tile.blockCitronite.name=Citronite Block
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

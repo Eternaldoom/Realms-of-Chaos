@@ -8,7 +8,7 @@ import com.eternaldoom.realmsofchaos.ROCTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
 public class OverworldBlock extends Block{
 
-	public OverworldBlock(Material mat, String tex, String name, float hard, float resist) {
+	public OverworldBlock(Material mat, String tex, String name, float hard, float resist, SoundType sound) {
 		super(mat);
 		this.setBlockTextureName(tex);
 		this.setBlockName(name);
