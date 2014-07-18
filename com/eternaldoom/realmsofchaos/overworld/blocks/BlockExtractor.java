@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.GUIHandler;
@@ -27,6 +30,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockExtractor extends BlockContainer {
 
+	@SideOnly(Side.CLIENT)
+    private IIcon iconTop;
+    @SideOnly(Side.CLIENT)
+    private IIcon iconSide;
+    
 	private final Random FurnaceRand = new Random();
 	private final boolean isActive;
 	private static boolean keepFurnaceInventory;
@@ -39,7 +47,8 @@ public class BlockExtractor extends BlockContainer {
 		setHardness(20.0F);
 		setResistance(6000000.0F);
 		setHarvestLevel("pickaxe", 17);
-		setBlockTextureName("realmsofchaos:energy_reactor");
+		setBlockName("extractor");
+		setBlockTextureName("realmsofchaos:extractor");
 		isActive = active;
 		if(!active){
 			setCreativeTab(ROCTabs.OverworldBlocks);
@@ -47,22 +56,6 @@ public class BlockExtractor extends BlockContainer {
 			setCreativeTab(null);
 		}
 	}
-
-	@Override
-    public int getRenderType() {
-            return -1;
-    }
-    
-    //It's not an opaque cube, so you need this.
-    @Override
-    public boolean isOpaqueCube() {
-            return false;
-    }
-    
-    //It's not a normal block, so you need this too.
-    public boolean renderAsNormalBlock() {
-            return false;
-    }
     
 	@Override
 	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9) {
@@ -76,7 +69,7 @@ public class BlockExtractor extends BlockContainer {
 
 	public Item func_149650_a(int par1, Random par2Random, int par3)
 	{
-		return Item.getItemFromBlock(Blocks.air); //TODO: change
+		return Item.getItemFromBlock(ROCBlocks.extractor);
 	}
 
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)
@@ -189,19 +182,19 @@ public class BlockExtractor extends BlockContainer {
 
 			if (l == 4)
 			{
-				par1World.spawnParticle("waterDrip", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+				par1World.spawnParticle("lava", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 			}
 			else if (l == 5)
 			{
-				par1World.spawnParticle("waterDrip", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+				par1World.spawnParticle("lava", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
 			}
 			else if (l == 2)
 			{
-				par1World.spawnParticle("waterDrip", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
+				par1World.spawnParticle("lava", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
 			}
 			else if (l == 3)
 			{
-				par1World.spawnParticle("waterDrip", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
+				par1World.spawnParticle("lava", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
@@ -277,4 +270,34 @@ public class BlockExtractor extends BlockContainer {
 		return new TileEntityExtractor();
 	}
 
+	@SideOnly(Side.CLIENT)
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
+    {
+        return p_149691_1_ == 1 ? this.iconTop : (p_149691_1_ == 0 ? this.iconTop : this.blockIcon);
+    }
+
+
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(IBlockAccess p_149673_1_, int p_149673_2_, int p_149673_3_, int p_149673_4_, int p_149673_5_)
+    {
+        if (p_149673_5_ == 1)
+        {
+            return this.iconTop;
+        }
+        else if (p_149673_5_ == 0)
+        {
+            return this.iconTop;
+        }
+        else
+        {
+            return this.blockIcon;
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister p_149651_1_)
+    {
+        this.blockIcon = p_149651_1_.registerIcon(this.getTextureName() + "_side");
+        this.iconTop = p_149651_1_.registerIcon(this.getTextureName() + "_top");
+    }
 }

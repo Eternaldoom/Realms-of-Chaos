@@ -35,10 +35,10 @@ public class GUIExtractor extends GuiContainer {
 
         if (this.furnaceInventory.isBurning()) {
             i1 = this.furnaceInventory.getBurnTimeRemainingScaled(12);
-            this.drawTexturedModalRect(k + 57, l + 33 + 16 - i1, 176, 12 - i1, 14, i1 + 2);
+            this.drawTexturedModalRect(k + 88, l + 32 + 16 - i1, 176, 12 - i1, 14, i1 + 2);
         }
 
         i1 = this.furnaceInventory.getCookProgressScaled(24);
-        this.drawTexturedModalRect(k + 80, l + 34, 176, 14, i1 + 1, 16);
+        this.drawTexturedModalRect(k + 82, l + 17, 176, 14, i1 + 1, 16);
     }
 }

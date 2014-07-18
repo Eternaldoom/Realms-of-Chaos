@@ -1,5 +1,7 @@
 package com.eternaldoom.realmsofchaos.overworld.blocks;
 
+import com.eternaldoom.realmsofchaos.overworld.crafting.ExtractorRecipes;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
@@ -163,7 +165,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
     @SideOnly(Side.CLIENT)
     public int getCookProgressScaled(int p_145953_1_)
     {
-        return this.furnaceCookTime * p_145953_1_ / 200;
+        return this.furnaceCookTime * p_145953_1_ / 120;
     }
 
     @SideOnly(Side.CLIENT)
@@ -218,7 +220,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
             {
                 ++this.furnaceCookTime;
 
-                if (this.furnaceCookTime == 200)
+                if (this.furnaceCookTime == 120)
                 {
                     this.furnaceCookTime = 0;
                     this.smeltItem();
@@ -294,7 +296,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         {
             Item item = p_145952_0_.getItem();
 
-            if (item == Items.water_bucket) return 1000;
+            if (item == Items.lava_bucket) return 240;
             return GameRegistry.getFuelValue(p_145952_0_);
         }
     }
