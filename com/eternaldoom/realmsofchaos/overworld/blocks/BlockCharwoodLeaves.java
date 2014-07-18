@@ -16,8 +16,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockCharwoodLeaves extends OverworldBlock {
 
-	private boolean idk = false;
-
 	public BlockCharwoodLeaves() {
 		super(Material.cloth, "realmsofchaos:charwood_leaves", "leavesCharwood", 0.0f, 5.0f, soundTypeCloth);
 		setLightOpacity(1);

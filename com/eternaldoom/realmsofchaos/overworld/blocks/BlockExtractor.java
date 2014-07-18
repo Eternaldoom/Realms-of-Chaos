@@ -25,6 +25,7 @@ import com.eternaldoom.realmsofchaos.GUIHandler;
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -299,5 +300,10 @@ public class BlockExtractor extends BlockContainer {
     {
         this.blockIcon = p_149651_1_.registerIcon(this.getTextureName() + "_side");
         this.iconTop = p_149651_1_.registerIcon(this.getTextureName() + "_top");
+    }
+    
+    public Block register(String name){
+    	GameRegistry.registerBlock(this, name);
+    	return this;
     }
 }

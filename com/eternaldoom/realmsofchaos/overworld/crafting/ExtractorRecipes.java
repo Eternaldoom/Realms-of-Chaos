@@ -17,8 +17,8 @@ public class ExtractorRecipes
     /**
      * The list of smelting results.
      */
-    private Map smeltingList = new HashMap();
-    private Map experienceList = new HashMap();
+    private static Map smeltingList = new HashMap();
+    private static Map experienceList = new HashMap();
 
     /**
      * Used to call methods addSmelting and getSmeltingResult.
@@ -30,7 +30,6 @@ public class ExtractorRecipes
 
     public ExtractorRecipes()
     {
-    	addItemRecipe(ROCOverworldItems.xylite_crystal, new ItemStack(ROCOverworldItems.xylite_ingot), 10.0f);
     }
 
     public void addBlockEnergyRecipe(Block p_151393_1_, ItemStack p_151393_2_, float p_151393_3_)
@@ -38,15 +37,15 @@ public class ExtractorRecipes
         this.addItemRecipe(Item.getItemFromBlock(p_151393_1_), p_151393_2_, p_151393_3_);
     }
 
-    public void addItemRecipe(Item p_151396_1_, ItemStack p_151396_2_, float p_151396_3_)
+    public static void addItemRecipe(Item p_151396_1_, ItemStack p_151396_2_, float p_151396_3_)
     {
-        this.addStuff(new ItemStack(p_151396_1_, 1, 32767), p_151396_2_, p_151396_3_);
+        addStuff(new ItemStack(p_151396_1_, 1, 32767), p_151396_2_, p_151396_3_);
     }
 
-    public void addStuff(ItemStack p_151394_1_, ItemStack p_151394_2_, float p_151394_3_)
+    public static void addStuff(ItemStack p_151394_1_, ItemStack p_151394_2_, float p_151394_3_)
     {
-        this.smeltingList.put(p_151394_1_, p_151394_2_);
-        this.experienceList.put(p_151394_2_, Float.valueOf(p_151394_3_));
+        smeltingList.put(p_151394_1_, p_151394_2_);
+        experienceList.put(p_151394_2_, Float.valueOf(p_151394_3_));
     }
 
     /**

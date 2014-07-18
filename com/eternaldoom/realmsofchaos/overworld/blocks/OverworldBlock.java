@@ -17,7 +17,8 @@ public class OverworldBlock extends Block{
 		this.setCreativeTab(ROCTabs.OverworldBlocks);
 	}
 	
-	public void register(String nam){
+	public OverworldBlock register(String nam){
 		GameRegistry.registerBlock(this, nam);
+		return this;
 	}
 }

@@ -6,11 +6,15 @@ tile.bricksHellrock.name=Netherrack Bricks
 tile.planksCharwood.name=Charwood Planks
 tile.blockCitronite.name=Citronite Block
 tile.extractor.name=Extractor
+tile.oreXylite.name=Xylite Ore
+tile.blockXylite.name=Xylite Block
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
 item.crystalXylite.name=Xylite Crystal
 item.ingotXylite.name=Xylite Ingot
+item.stoneCitronite.name=Citronite Stone
+item.stoneFlame.name=Flame Stone
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items
