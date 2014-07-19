@@ -1,11 +1,15 @@
 package com.eternaldoom.realmsofchaos;
 
+import net.minecraft.block.Block;
+import net.minecraftforge.common.MinecraftForge;
+
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.overworld.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
 import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -32,6 +36,7 @@ public class RealmsOfChaos {
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 		OverworldCrafting.initRecipes();
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
+		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
 	}
 	
 	@EventHandler

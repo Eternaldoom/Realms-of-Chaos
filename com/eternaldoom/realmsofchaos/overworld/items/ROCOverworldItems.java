@@ -1,14 +1,36 @@
 package com.eternaldoom.realmsofchaos.overworld.items;
 
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class ROCOverworldItems {
+	
+	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
+	
+	public static final ArmorMaterial CITRONITE = addArmorMaterial("CITRONITE", 2651, new int[]{3, 5, 4, 2}, 10);
+	public static final ArmorMaterial HELIOTROPE = addArmorMaterial("HELIOTROPE", 3151, new int[]{3, 5, 4, 2}, 20);
+	public static final ArmorMaterial XYLITE = addArmorMaterial("XYLITE", 3651, new int[]{3, 5, 5, 3}, 15);
 
 	//Overworld
 	public static OverworldItem citronite_gem;
 	public static OverworldItem xylite_crystal;
 	public static OverworldItem xylite_ingot;
 	public static OverworldItem citronite_stone;
+	
+	public static ItemROCArmor citronite_helmet;
+	public static ItemROCArmor citronite_chestplate;
+	public static ItemROCArmor citronite_leggings;
+	public static ItemROCArmor citronite_boots;
+	
+	public static ItemROCArmor heliotrope_helmet;
+	public static ItemROCArmor heliotrope_chestplate;
+	public static ItemROCArmor heliotrope_leggings;
+	public static ItemROCArmor heliotrope_boots;
+	
+	public static ItemROCArmor xylite_helmet;
+	public static ItemROCArmor xylite_chestplate;
+	public static ItemROCArmor xylite_leggings;
+	public static ItemROCArmor xylite_boots;
 	
 	//Nether
 	public static OverworldItem ash_dust;
@@ -22,6 +44,21 @@ public class ROCOverworldItems {
 		citronite_stone = new OverworldItem("realmsofchaos:citronite_stone", "stoneCitronite");
 		flame_stone = new OverworldItem("realmsofchaos:flame_stone", "stoneFlame");
 		
+		citronite_helmet = new ItemROCArmor(CITRONITE, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite").register("citronite_helmet");
+		citronite_chestplate = new ItemROCArmor(CITRONITE, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite").register("citronite_chestplate");
+		citronite_leggings = new ItemROCArmor(CITRONITE, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite").register("citronite_leggings");
+		citronite_boots = new ItemROCArmor(CITRONITE, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite").register("citronite_boots");
+		
+		heliotrope_helmet = new ItemROCArmor(HELIOTROPE, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetheliotrope").register("heliotrope_helmet");
+		heliotrope_chestplate = new ItemROCArmor(HELIOTROPE, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateheliotrope").register("heliotrope_chestplate");
+		heliotrope_leggings = new ItemROCArmor(HELIOTROPE, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsheliotrope").register("heliotrope_leggings");
+		heliotrope_boots = new ItemROCArmor(HELIOTROPE, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsheliotrope").register("heliotrope_boots");
+		
+		xylite_helmet = new ItemROCArmor(XYLITE, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetxylite").register("xylite_helmet");
+		xylite_chestplate = new ItemROCArmor(XYLITE, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplatexylite").register("xylite_chestplate");
+		xylite_leggings = new ItemROCArmor(XYLITE, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsxylite").register("xylite_leggings");
+		xylite_boots = new ItemROCArmor(XYLITE, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsxylite").register("xylite_boots");
+
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");
 		xylite_crystal.register("xylite_crystal");
@@ -29,4 +66,9 @@ public class ROCOverworldItems {
 		citronite_stone.register("citronite_stone");
 		flame_stone.register("flame_stone");
 	}
+	
+	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)
+	{
+        return EnumHelper.addEnum(ArmorMaterial.class, name, durability/14, damReduct, enchantability);
+    }
 }

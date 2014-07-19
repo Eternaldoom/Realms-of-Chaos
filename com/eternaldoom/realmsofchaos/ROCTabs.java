@@ -9,15 +9,22 @@ import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
 public class ROCTabs {
 	public static final CreativeTabs OverworldBlocks = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldBlocks"){
 		@Override
-		public Item getTabIconItem() {
+		public Item getTabIconItem(){
 			return Item.getItemFromBlock(ROCBlocks.citronite_ore);
 		}
 	};
 
 	public static final CreativeTabs OverworldItems = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldItems"){
 		@Override
-		public Item getTabIconItem() {
+		public Item getTabIconItem(){
 			return ROCOverworldItems.ash_dust;
+		}
+	};
+	
+	public static final CreativeTabs Combat = new CreativeTabs(CreativeTabs.getNextID(), "ROCCombat"){
+		@Override
+		public Item getTabIconItem(){
+			return ROCOverworldItems.citronite_helmet;
 		}
 	};
 }
