@@ -24,7 +24,7 @@ public class ROCTabs {
 	public static final CreativeTabs Combat = new CreativeTabs(CreativeTabs.getNextID(), "ROCCombat"){
 		@Override
 		public Item getTabIconItem(){
-			return ROCOverworldItems.citronite_helmet;
+			return ROCOverworldItems.heliotrope_helmet;
 		}
 	};
 }
