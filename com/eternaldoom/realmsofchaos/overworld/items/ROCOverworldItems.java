@@ -8,6 +8,8 @@ public class ROCOverworldItems {
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	
+	public static final ArmorMaterial IRONa = addArmorMaterial("IRON", 206, new int[]{2, 4, 3, 2}, 9);
+	public static final ArmorMaterial DIAMONDa = addArmorMaterial("DIAMOND", 454, new int[]{3, 7, 6, 3}, 10);
 	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 2651, new int[]{3, 5, 4, 2}, 10);
 	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 3151, new int[]{3, 5, 4, 2}, 20);
 	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{3, 5, 5, 3}, 15);
@@ -63,6 +65,8 @@ public class ROCOverworldItems {
 	public static ItemROCPickaxe iron_pickaxe;
 	public static ItemROCShovel diamond_shovel;
 	public static ItemROCShovel iron_shovel;
+	public static ItemROCArmor iron_helmet, iron_chestplate, iron_leggings, iron_boots;
+	public static ItemROCArmor diamond_helmet, diamond_chestplate, diamond_leggings, diamond_boots;
 	
 	//Nether
 	public static OverworldItem ash_dust;
@@ -76,20 +80,20 @@ public class ROCOverworldItems {
 		citronite_stone = new OverworldItem("realmsofchaos:citronite_stone", "stoneCitronite");
 		flame_stone = new OverworldItem("realmsofchaos:flame_stone", "stoneFlame");
 		
-		citronite_helmet = new ItemROCArmor(CITRONITEa, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite").register("citronite_helmet");
-		citronite_chestplate = new ItemROCArmor(CITRONITEa, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite").register("citronite_chestplate");
-		citronite_leggings = new ItemROCArmor(CITRONITEa, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite").register("citronite_leggings");
-		citronite_boots = new ItemROCArmor(CITRONITEa, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite").register("citronite_boots");
+		citronite_helmet = new ItemROCArmor(CITRONITEa, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite", false).register("citronite_helmet");
+		citronite_chestplate = new ItemROCArmor(CITRONITEa, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite", false).register("citronite_chestplate");
+		citronite_leggings = new ItemROCArmor(CITRONITEa, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite", false).register("citronite_leggings");
+		citronite_boots = new ItemROCArmor(CITRONITEa, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite", false).register("citronite_boots");
 		
-		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope").register("heliotrope_helmet");
-		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope").register("heliotrope_chestplate");
-		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope").register("heliotrope_leggings");
-		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope").register("heliotrope_boots");
+		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", false).register("heliotrope_helmet");
+		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", false).register("heliotrope_chestplate");
+		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope", false).register("heliotrope_leggings");
+		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope", false).register("heliotrope_boots");
 		
-		xylite_helmet = new ItemROCArmor(XYLITEa, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetXylite").register("xylite_helmet");
-		xylite_chestplate = new ItemROCArmor(XYLITEa, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplateXylite").register("xylite_chestplate");
-		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite").register("xylite_leggings");
-		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite").register("xylite_boots");
+		xylite_helmet = new ItemROCArmor(XYLITEa, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetXylite", false).register("xylite_helmet");
+		xylite_chestplate = new ItemROCArmor(XYLITEa, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplateXylite", false).register("xylite_chestplate");
+		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite", false).register("xylite_leggings");
+		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite", false).register("xylite_boots");
 		
 		citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
 		citronite_axe = new ItemROCAxe(CITRONITEt, "realmsofchaos:citronite_axe", "axeCitronite", false).register("citronite_axe");
@@ -114,6 +118,14 @@ public class ROCOverworldItems {
 		iron_pickaxe = new ItemROCPickaxe(IRONt, "minecraft:iron_pickaxe", "pickaxeIron", true).register("iron_pickaxe");
 		diamond_shovel = new ItemROCShovel(DIAMONDt, "minecraft:diamond_shovel", "shovelDiamond", true).register("diamond_shovel");
 		iron_shovel = new ItemROCShovel(IRONt, "minecraft:iron_shovel", "shovelIron", true).register("iron_shovel");
+		iron_helmet = new ItemROCArmor(IRONa, HELMET, "iron", "minecraft:iron_helmet", "helmetIron", true).register("iron_helmet");
+		iron_chestplate = new ItemROCArmor(IRONa, CHESTPLATE, "iron", "minecraft:iron_chestplate", "chestplateIron", true).register("iron_chestplate");
+		iron_leggings = new ItemROCArmor(IRONa, LEGGINGS, "iron", "minecraft:iron_leggings", "leggingsIron", true).register("iron_leggings");
+		iron_boots = new ItemROCArmor(IRONa, BOOTS, "iron", "minecraft:iron_boots", "bootsIron", true).register("iron_boots");
+		diamond_helmet = new ItemROCArmor(DIAMONDa, HELMET, "diamond", "minecraft:diamond_helmet", "helmetDiamond", true).register("diamond_helmet");
+		diamond_chestplate = new ItemROCArmor(DIAMONDa, CHESTPLATE, "diamond", "minecraft:diamond_chestplate", "chestplateDiamond", true).register("diamond_chestplate");
+		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", true).register("diamond_leggings");
+		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", true).register("diamond_boots");
 
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");

@@ -10,19 +10,22 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ItemROCArmor extends ItemArmor{
 
 	public String texture;
+	public boolean vanilla;
 	
-	public ItemROCArmor(ArmorMaterial par1armorMaterial, int piece, String type, String tex, String name) {
+	public ItemROCArmor(ArmorMaterial par1armorMaterial, int piece, String type, String tex, String name, boolean isVanilla) {
 		super(par1armorMaterial, 3, piece);
 		setTextureName(tex);
 		setUnlocalizedName(name);
-		setCreativeTab(ROCTabs.Combat);
+		if(!isVanilla) setCreativeTab(ROCTabs.Combat); else setCreativeTab(null);
 		
 		texture = type;
+		vanilla = isVanilla;
 	}
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
 	{
+		if(!vanilla){
 		    if (slot == 2)
 		    {
 		      return "realmsofchaos:textures/armor/" + this.texture + "_2.png";
@@ -30,6 +33,15 @@ public class ItemROCArmor extends ItemArmor{
 
 		    return "realmsofchaos:textures/armor/" + this.texture + "_1.png";
 		    }
+		}else{
+			if (slot == 2)
+		    {
+		      return "minecraft:textures/models/armor/" + this.texture + "_layer_2.png";
+		    }else{
+
+		    return "minecraft:textures/models/armor/" + this.texture + "_layer_1.png";
+		    }
+		}
 	}
 	
 	public ItemROCArmor register(String name){

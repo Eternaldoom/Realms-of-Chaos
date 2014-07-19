@@ -52,6 +52,46 @@ public class ItemReplaceEvent {
 					evt.player.inventory.consumeInventoryItem(Items.iron_shovel);
 					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.iron_shovel));
 				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_helmet){
+					evt.player.inventory.consumeInventoryItem(Items.iron_helmet);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.iron_helmet));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_chestplate){
+					evt.player.inventory.consumeInventoryItem(Items.iron_chestplate);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.iron_chestplate));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_leggings){
+					evt.player.inventory.consumeInventoryItem(Items.iron_leggings);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.iron_leggings));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_boots){
+					evt.player.inventory.consumeInventoryItem(Items.iron_boots);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.iron_boots));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_helmet){
+					evt.player.inventory.consumeInventoryItem(Items.diamond_helmet);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.diamond_helmet));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_chestplate){
+					evt.player.inventory.consumeInventoryItem(Items.diamond_chestplate);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.diamond_chestplate));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_leggings){
+					evt.player.inventory.consumeInventoryItem(Items.diamond_leggings);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.diamond_leggings));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_boots){
+					evt.player.inventory.consumeInventoryItem(Items.diamond_boots);
+					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCOverworldItems.diamond_boots));
+				}
 			}	
 		}
 	}
