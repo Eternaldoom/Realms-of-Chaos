@@ -14,7 +14,8 @@ public class OverworldItem extends Item{
 		setCreativeTab(ROCTabs.OverworldItems);
 	}
 
-	public void register(String name){
+	public OverworldItem register(String name){
 		GameRegistry.registerItem(this, name);
+		return this;
 	}
 }

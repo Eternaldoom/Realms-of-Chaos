@@ -27,4 +27,11 @@ public class ROCTabs {
 			return ROCOverworldItems.heliotrope_helmet;
 		}
 	};
+	
+	public static final CreativeTabs Tools = new CreativeTabs(CreativeTabs.getNextID(), "ROCTools"){
+		@Override
+		public Item getTabIconItem(){
+			return ROCOverworldItems.xylite_pickaxe;
+		}
+	};
 }
