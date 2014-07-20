@@ -8,6 +8,8 @@ tile.blockCitronite.name=Citronite Block
 tile.extractor.name=Extractor
 tile.oreXylite.name=Xylite Ore
 tile.blockXylite.name=Xylite Block
+tile.oreHeliotrope.name=Heliotrope Ore
+tile.blockHeliotrope.name=Heliotrope Block
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
@@ -39,6 +41,7 @@ item.helmetXylite.name=Xylite Helmet
 item.chestplateXylite.name=Xylite Chestplate
 item.leggingsXylite.name=Xylite Leggings
 item.bootsXylite.name=Xylite Boots
+item.heliotrope.name=Heliotrope
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items

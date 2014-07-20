@@ -10,14 +10,14 @@ public class ROCOverworldItems {
 	
 	public static final ArmorMaterial IRONa = addArmorMaterial("IRON", 206, new int[]{2, 4, 3, 2}, 9);
 	public static final ArmorMaterial DIAMONDa = addArmorMaterial("DIAMOND", 454, new int[]{3, 7, 6, 3}, 10);
-	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 2651, new int[]{3, 5, 4, 2}, 10);
-	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 3151, new int[]{3, 5, 4, 2}, 20);
+	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 2651, new int[]{3, 5, 4, 2}, 10);
+	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, new int[]{3, 5, 4, 2}, 20);
 	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{3, 5, 5, 3}, 15);
 	
 	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
-	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 4, 2651, 12.0f, 2.0f, 10);
-	public static final ToolMaterial HELIOTROPEt = EnumHelper.addToolMaterial("HELIOTROPE", 5, 3151, 12.0f, 2.0f, 20);
+	public static final ToolMaterial HELIOTROPEt = EnumHelper.addToolMaterial("HELIOTROPE", 4, 2651, 12.0f, 2.0f, 10);
+	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 5, 3151, 12.0f, 2.0f, 20);
 	public static final ToolMaterial XYLITEt = EnumHelper.addToolMaterial("XYLITE", 6, 3651, 14.0f, 3.5f, 15);
 	
 	//Overworld
@@ -25,6 +25,7 @@ public class ROCOverworldItems {
 	public static OverworldItem xylite_crystal;
 	public static OverworldItem xylite_ingot;
 	public static OverworldItem citronite_stone;
+	public static OverworldItem heliotrope;
 	
 	public static ItemROCArmor citronite_helmet;
 	public static ItemROCArmor citronite_chestplate;
@@ -79,21 +80,22 @@ public class ROCOverworldItems {
 		xylite_ingot = new OverworldItem("realmsofchaos:xylite_ingot", "ingotXylite");
 		citronite_stone = new OverworldItem("realmsofchaos:citronite_stone", "stoneCitronite");
 		flame_stone = new OverworldItem("realmsofchaos:flame_stone", "stoneFlame");
+		heliotrope = new OverworldItem("realmsofchaos:heliotrope", "heliotrope");
 		
-		citronite_helmet = new ItemROCArmor(CITRONITEa, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite", false).register("citronite_helmet");
-		citronite_chestplate = new ItemROCArmor(CITRONITEa, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite", false).register("citronite_chestplate");
-		citronite_leggings = new ItemROCArmor(CITRONITEa, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite", false).register("citronite_leggings");
-		citronite_boots = new ItemROCArmor(CITRONITEa, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite", false).register("citronite_boots");
+		citronite_helmet = new ItemROCArmor(CITRONITEa, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite", false);
+		citronite_chestplate = new ItemROCArmor(CITRONITEa, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite", false);
+		citronite_leggings = new ItemROCArmor(CITRONITEa, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite", false);
+		citronite_boots = new ItemROCArmor(CITRONITEa, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite", false);
 		
-		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", false).register("heliotrope_helmet");
-		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", false).register("heliotrope_chestplate");
-		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope", false).register("heliotrope_leggings");
-		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope", false).register("heliotrope_boots");
+		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", false);
+		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", false);
+		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope", false);
+		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope", false);
 		
-		xylite_helmet = new ItemROCArmor(XYLITEa, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetXylite", false).register("xylite_helmet");
-		xylite_chestplate = new ItemROCArmor(XYLITEa, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplateXylite", false).register("xylite_chestplate");
-		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite", false).register("xylite_leggings");
-		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite", false).register("xylite_boots");
+		xylite_helmet = new ItemROCArmor(XYLITEa, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetXylite", false);
+		xylite_chestplate = new ItemROCArmor(XYLITEa, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplateXylite", false);
+		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite", false);
+		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite", false);
 		
 		citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
 		citronite_axe = new ItemROCAxe(CITRONITEt, "realmsofchaos:citronite_axe", "axeCitronite", false).register("citronite_axe");
@@ -133,6 +135,22 @@ public class ROCOverworldItems {
 		xylite_ingot.register("xylite_ingot");
 		citronite_stone.register("citronite_stone");
 		flame_stone.register("flame_stone");
+		heliotrope.register("heliotrope");
+		
+		heliotrope_helmet.register("heliotrope_helmet");
+		heliotrope_chestplate.register("heliotrope_chestplate");
+		heliotrope_leggings.register("heliotrope_leggings");
+		heliotrope_boots.register("heliotrope_boots");
+		
+		citronite_helmet.register("citronite_helmet");
+		citronite_chestplate.register("citronite_chestplate");
+		citronite_leggings.register("citronite_leggings");
+		citronite_boots.register("citronite_boots");
+		
+		xylite_helmet.register("xylite_helmet");
+		xylite_chestplate.register("xylite_chestplate");
+		xylite_leggings.register("xylite_leggings");
+		xylite_boots.register("xylite_boots");
 	}
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)

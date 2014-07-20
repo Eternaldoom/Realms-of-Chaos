@@ -1,11 +1,13 @@
 package com.eternaldoom.realmsofchaos.overworld.items;
 
+import java.util.List;
 import java.util.Set;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -20,6 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemROCTool extends OverworldItem
 {
+	private ToolMaterial t;
     private Set field_150914_c;
     protected float efficiencyOnProperMaterial = 4.0F;
     /**
@@ -31,15 +34,16 @@ public class ItemROCTool extends OverworldItem
      */
     protected Item.ToolMaterial toolMaterial;
 
-    public ItemROCTool(float p_i45333_1_, Item.ToolMaterial p_i45333_2_, Set p_i45333_3_, String tex, String name, boolean vanilla)
+    public ItemROCTool(float p_i45333_1_, Item.ToolMaterial tool, Set p_i45333_3_, String tex, String name, boolean vanilla)
     {
     	super(tex, name);
-        this.toolMaterial = p_i45333_2_;
+        this.toolMaterial = tool;
         this.field_150914_c = p_i45333_3_;
         this.maxStackSize = 1;
-        this.setMaxDamage(p_i45333_2_.getMaxUses());
-        this.efficiencyOnProperMaterial = p_i45333_2_.getEfficiencyOnProperMaterial();
+        this.setMaxDamage(tool.getMaxUses());
+        this.efficiencyOnProperMaterial = tool.getEfficiencyOnProperMaterial();
         this.damageVsEntity = p_i45333_1_;
+        t = tool;
         if(!vanilla) setCreativeTab(ROCTabs.Tools); else setCreativeTab(null);
         if (this instanceof ItemROCPickaxe)
         {
@@ -54,7 +58,13 @@ public class ItemROCTool extends OverworldItem
             toolClass = "shovel";
         }
     }
-
+    
+    @Override
+    public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
+        infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
+        infoList.add(this.t.getEfficiencyOnProperMaterial() + " Efficiency");
+    }
+    
     @Override
     public float func_150893_a(ItemStack p_150893_1_, Block p_150893_2_)
     {
@@ -128,7 +138,7 @@ public class ItemROCTool extends OverworldItem
      * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
      */
     @Override
-    public Multimap getItemAttributeModifiers()
+    public Multimap getAttributeModifiers(ItemStack stack)
     {
         Multimap multimap = super.getItemAttributeModifiers();
         multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", (double)this.damageVsEntity, 0));

@@ -2,20 +2,27 @@ package com.eternaldoom.realmsofchaos.overworld.items;
 
 import java.util.List;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
+import com.eternaldoom.realmsofchaos.ROCTabs;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+
 public class ItemROCSword extends ItemSword{
+	private ToolMaterial t;
 	
-    public ItemROCSword(ToolMaterial par2EnumToolMaterial, String tex, String name, boolean isVanilla) {
-		super(par2EnumToolMaterial);
+    public ItemROCSword(ToolMaterial tool, String tex, String name, boolean isVanilla) {
+		super(tool);
 		setTextureName(tex);
 		setUnlocalizedName(name);
 		if (!isVanilla) setCreativeTab(ROCTabs.Combat); else setCreativeTab(null);
+		t = tool;
 	}
 
 	@Override
@@ -31,6 +38,8 @@ public class ItemROCSword extends ItemSword{
 		else {
 			infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
 		}
+		
+		infoList.add(t.getDamageVsEntity() + 4 + " Attack Damage");
 	}
 	
 	public ItemROCSword register(String name){

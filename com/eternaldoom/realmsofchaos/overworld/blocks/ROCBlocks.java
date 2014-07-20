@@ -12,6 +12,8 @@ public class ROCBlocks {
     public static Block extractor_on;
     public static OverworldBlock xylite_ore;
     public static OverworldBlock xylite_block;
+    public static OverworldBlock heliotrope_ore;
+    public static OverworldBlock heliotrope_block;
 	
     //Nether
 	public static OverworldBlock charwood_leaves;
@@ -32,6 +34,8 @@ public class ROCBlocks {
         extractor_on = new BlockExtractor(true).register("extractor_on");
         xylite_ore = new BlockXyliteOre().register("xylite_ore");
         xylite_block = new OverworldBlock(Material.iron, "realmsofchaos:xylite_block", "blockXylite", 7.5f, 13.5f, OverworldBlock.soundTypeMetal).register("xylite_block");
+        heliotrope_ore = new OverworldBlock(Material.rock, "realmsofchaos:heliotrope_ore", "oreHeliotrope", 5.0f, 14.5f, OverworldBlock.soundTypePiston).register("heliotrope_ore");
+        heliotrope_block = new OverworldBlock(Material.rock, "realmsofchaos:heliotrope_block", "blockHeliotrope", 5.5f, 1000000.0f, OverworldBlock.soundTypePiston).register("heliotrope_block");
 	}
 
 }

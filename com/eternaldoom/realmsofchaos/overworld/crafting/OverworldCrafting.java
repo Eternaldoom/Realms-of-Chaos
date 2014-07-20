@@ -24,6 +24,16 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.xylite_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCOverworldItems.xylite_ingot});
 		GameRegistry.addRecipe(new ItemStack(ROCOverworldItems.xylite_ingot, 9), new Object[]{"X", 'X', ROCBlocks.xylite_block});
 		
+		RecipeHelper.addArmorRecipe(ROCOverworldItems.heliotrope_helmet, ROCOverworldItems.heliotrope_chestplate, ROCOverworldItems.heliotrope_leggings, ROCOverworldItems.heliotrope_boots, ROCOverworldItems.heliotrope);
+		RecipeHelper.addArmorRecipe(ROCOverworldItems.citronite_helmet, ROCOverworldItems.citronite_chestplate, ROCOverworldItems.citronite_leggings, ROCOverworldItems.citronite_boots, ROCOverworldItems.citronite_gem);
+		RecipeHelper.addArmorRecipe(ROCOverworldItems.xylite_helmet, ROCOverworldItems.xylite_chestplate, ROCOverworldItems.xylite_leggings, ROCOverworldItems.xylite_boots, ROCOverworldItems.xylite_ingot);
+		
+		RecipeHelper.addToolRecipe(ROCOverworldItems.heliotrope_sword, ROCOverworldItems.heliotrope_pickaxe, ROCOverworldItems.heliotrope_axe, ROCOverworldItems.heliotrope_shovel, ROCOverworldItems.heliotrope);
+		RecipeHelper.addToolRecipe(ROCOverworldItems.citronite_sword, ROCOverworldItems.citronite_pickaxe, ROCOverworldItems.citronite_axe, ROCOverworldItems.citronite_shovel, ROCOverworldItems.citronite_stone);
+		RecipeHelper.addToolRecipe(ROCOverworldItems.xylite_sword, ROCOverworldItems.xylite_pickaxe, ROCOverworldItems.xylite_axe, ROCOverworldItems.xylite_shovel, ROCOverworldItems.xylite_ingot);
+		
     	ExtractorRecipes.addItemRecipe(ROCOverworldItems.xylite_crystal, new ItemStack(ROCOverworldItems.xylite_ingot), 10.0f);
+    	
+    	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCOverworldItems.heliotrope), 5.0f);
 	}
 }
