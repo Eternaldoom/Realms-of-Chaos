@@ -8,6 +8,7 @@ public class ClientProxy {
 	
 	public void init(){
 		System.out.println("[Realms of Chaos] Registering Renderers");
+		ROCKeyBindings.init();
 	}
 
 }
