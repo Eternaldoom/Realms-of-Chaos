@@ -5,16 +5,21 @@ import java.util.List;
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.ISpecialArmor;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ItemROCArmor extends ItemArmor{
+public class ItemROCArmor extends ItemArmor implements ISpecialArmor{
 
 	public String texture;
 	public boolean vanilla;
 	private ArmorMaterial a;
+	private double damageReduction;
 	
 	public ItemROCArmor(ArmorMaterial par1armorMaterial, int piece, String type, String tex, String name, boolean isVanilla) {
 		super(par1armorMaterial, 3, piece);
@@ -25,6 +30,8 @@ public class ItemROCArmor extends ItemArmor{
 		texture = type;
 		vanilla = isVanilla;
 		a =  par1armorMaterial;
+		
+		damageReduction = par1armorMaterial.getDamageReductionAmount(this.armorType)/4D;
 	}
 
 	@Override
@@ -57,10 +64,28 @@ public class ItemROCArmor extends ItemArmor{
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List infoList, boolean par4) {
 		if(a.getDurability(1) == -1) {
-			infoList.add("Infinite Uses");
+			infoList.add(EnumChatFormatting.BLUE + "Infinite Uses");
 		}
 		else {
-			infoList.add(stack.getMaxDamage() - stack.getItemDamage() + " Uses Remaining");
+			infoList.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
 		}
+		infoList.add(EnumChatFormatting.GOLD + "" + (damageReduction * 4) + "% Damage Reduction");
+	}
+
+	@Override
+	public ArmorProperties getProperties(EntityLivingBase player,
+			ItemStack armor, DamageSource source, double damage, int slot) {
+		return new ISpecialArmor.ArmorProperties(0, damageReduction, 50000);
+	}
+
+	@Override
+	public int getArmorDisplay(EntityPlayer player, ItemStack armor, int slot) {
+		return slot = (int) Math.round((damageReduction*100)/4);
+	}
+
+	@Override
+	public void damageArmor(EntityLivingBase entity, ItemStack stack,
+			DamageSource source, int damage, int slot) {
+		if (!source.isFireDamage()) stack.damageItem(1, entity);
 	}
 }

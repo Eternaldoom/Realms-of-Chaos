@@ -7,6 +7,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.util.EnumChatFormatting;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.google.common.collect.HashMultimap;
@@ -36,10 +37,10 @@ public class ItemROCSword extends ItemSword{
 			infoList.add("Infinite Uses");
 		}
 		else {
-			infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
+			infoList.add(EnumChatFormatting.GREEN + "" + (item.getMaxDamage() - item.getItemDamage()) + " Uses Remaining");
 		}
 		
-		infoList.add(t.getDamageVsEntity() + 4 + " Attack Damage");
+		infoList.add(EnumChatFormatting.DARK_RED + "" + (t.getDamageVsEntity() + 4.0f) + " Attack Damage");
 	}
 	
 	public ItemROCSword register(String name){

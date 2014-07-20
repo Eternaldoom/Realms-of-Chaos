@@ -42,6 +42,14 @@ item.chestplateXylite.name=Xylite Chestplate
 item.leggingsXylite.name=Xylite Leggings
 item.bootsXylite.name=Xylite Boots
 item.heliotrope.name=Heliotrope
+item.helmetFlame.name=Flamestone Helmet
+item.chestplateFlame.name=Flamestone Chestplate
+item.leggingsFlame.name=Flamestone Leggings
+item.bootsFlame.name=Flamestone Boots
+item.swordFlame.name=Flamestone Sword
+item.pickaxeFlame.name=Flamestone Pickaxe
+item.axeFlame.name=Flamestone Axe
+item.shovelFlame.name=Flamestone Shovel
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items

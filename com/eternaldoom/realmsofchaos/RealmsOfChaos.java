@@ -37,6 +37,8 @@ public class RealmsOfChaos {
 		OverworldCrafting.initRecipes();
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
+		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
+		MinecraftForge.EVENT_BUS.register(new TooltipHideEvent());
 	}
 	
 	@EventHandler

@@ -10,6 +10,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -61,8 +62,12 @@ public class ItemROCTool extends OverworldItem
     
     @Override
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-        infoList.add(item.getMaxDamage() - item.getItemDamage() + " Uses Remaining");
-        infoList.add(this.t.getEfficiencyOnProperMaterial() + " Efficiency");
+        infoList.add(EnumChatFormatting.GREEN + "" + (item.getMaxDamage() - item.getItemDamage()) + " Uses Remaining");
+        infoList.add(EnumChatFormatting.RED + "" + this.t.getEfficiencyOnProperMaterial() + " Efficiency");
+        
+		if (this instanceof ItemROCPickaxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/4) + " Attack Damage");
+		if (this instanceof ItemROCAxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/4) + " Attack Damage");
+		if (this instanceof ItemROCShovel) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/5) + " Attack Damage");
     }
     
     @Override

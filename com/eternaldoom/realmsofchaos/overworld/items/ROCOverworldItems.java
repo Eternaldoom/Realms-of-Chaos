@@ -8,17 +8,19 @@ public class ROCOverworldItems {
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	
-	public static final ArmorMaterial IRONa = addArmorMaterial("IRON", 206, new int[]{2, 4, 3, 2}, 9);
-	public static final ArmorMaterial DIAMONDa = addArmorMaterial("DIAMOND", 454, new int[]{3, 7, 6, 3}, 10);
-	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 2651, new int[]{3, 5, 4, 2}, 10);
-	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, new int[]{3, 5, 4, 2}, 20);
-	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{3, 5, 5, 3}, 15);
+	public static final ArmorMaterial IRONa = addArmorMaterial("IRON", 206, new int[]{11, 11, 11, 11}, 9);
+	public static final ArmorMaterial DIAMONDa = addArmorMaterial("DIAMOND", 454, new int[]{13, 13, 13, 13}, 10);
+	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 2651, new int[]{14, 14, 14, 14}, 10);
+	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, new int[]{14, 14, 14, 14}, 20);
+	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{15, 15, 15, 15}, 15);
+	public static final ArmorMaterial FLAMEa = addArmorMaterial("FLAME", 2151, new int[]{16, 16, 16, 16}, 12);
 	
 	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
 	public static final ToolMaterial HELIOTROPEt = EnumHelper.addToolMaterial("HELIOTROPE", 4, 2651, 12.0f, 2.0f, 10);
 	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 5, 3151, 12.0f, 2.0f, 20);
 	public static final ToolMaterial XYLITEt = EnumHelper.addToolMaterial("XYLITE", 6, 3651, 14.0f, 3.5f, 15);
+	public static final ToolMaterial FLAMEt = EnumHelper.addToolMaterial("FLAME", 7, 2151, 15.5f, 5.0f, 12);
 	
 	//Overworld
 	public static OverworldItem citronite_gem;
@@ -41,6 +43,13 @@ public class ROCOverworldItems {
 	public static ItemROCArmor xylite_chestplate;
 	public static ItemROCArmor xylite_leggings;
 	public static ItemROCArmor xylite_boots;
+	
+	public static ItemROCArmor flame_helmet, flame_chestplate, flame_leggings, flame_boots;
+	
+	public static ItemROCSword flame_sword;
+	public static ItemROCPickaxe flame_pickaxe;
+	public static ItemROCAxe flame_axe;
+	public static ItemROCShovel flame_shovel;
 	
 	public static ItemROCSword citronite_sword;
 	public static ItemROCAxe citronite_axe;
@@ -97,6 +106,11 @@ public class ROCOverworldItems {
 		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite", false);
 		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite", false);
 		
+		flame_helmet = new ItemROCArmor(FLAMEa, HELMET, "flame", "realmsofchaos:flame_helmet", "helmetFlame", false);
+		flame_chestplate = new ItemROCArmor(FLAMEa, CHESTPLATE, "flame", "realmsofchaos:flame_chestplate", "chestplateFlame", false);
+		flame_leggings = new ItemROCArmor(FLAMEa, LEGGINGS, "flame", "realmsofchaos:flame_leggings", "leggingsFlame", false);
+		flame_boots = new ItemROCArmor(FLAMEa, BOOTS, "flame", "realmsofchaos:flame_boots", "bootsFlame", false);
+
 		citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
 		citronite_axe = new ItemROCAxe(CITRONITEt, "realmsofchaos:citronite_axe", "axeCitronite", false).register("citronite_axe");
 		citronite_pickaxe = new ItemROCPickaxe(CITRONITEt, "realmsofchaos:citronite_pickaxe", "pickaxeCitronite", false).register("citronite_pickaxe");
@@ -112,6 +126,11 @@ public class ROCOverworldItems {
 		xylite_pickaxe = new ItemROCPickaxe(XYLITEt, "realmsofchaos:xylite_pickaxe", "pickaxeXylite", false).register("xylite_pickaxe");
 		xylite_shovel = new ItemROCShovel(XYLITEt, "realmsofchaos:xylite_shovel", "shovelXylite", false).register("xylite_shovel");
 		
+		flame_sword = new ItemROCSword(FLAMEt, "realmsofchaos:flame_sword", "swordFlame", false);
+		flame_pickaxe = new ItemROCPickaxe(FLAMEt, "realmsofchaos:flame_pickaxe", "pickaxeFlame", false);
+		flame_axe = new ItemROCAxe(FLAMEt, "realmsofchaos:flame_axe", "axeFlame", false);
+		flame_shovel = new ItemROCShovel(FLAMEt, "realmsofchaos:flame_shovel", "shovelFlame", false);
+
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
 		diamond_axe = new ItemROCAxe(DIAMONDt, "minecraft:diamond_axe", "hatchetDiamond", true).register("diamond_axe");
@@ -151,6 +170,16 @@ public class ROCOverworldItems {
 		xylite_chestplate.register("xylite_chestplate");
 		xylite_leggings.register("xylite_leggings");
 		xylite_boots.register("xylite_boots");
+		
+		flame_helmet.register("flamestone_helmet");
+		flame_chestplate.register("flamestone_chestplate");
+		flame_leggings.register("flamestone_leggings");
+		flame_boots.register("flamestone_boots");
+		
+		flame_sword.register("flamestone_sword");
+		flame_pickaxe.register("flamestone_pickaxe");
+		flame_axe.register("flamestone_axe");
+		flame_shovel.register("flamestone_shovel");
 	}
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)
