@@ -1,6 +1,7 @@
 package com.eternaldoom.realmsofchaos;
 
-import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
@@ -8,6 +9,8 @@ import com.eternaldoom.realmsofchaos.overworld.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
 import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
+import com.eternaldoom.realmsofchaos.water.gen.WorldProviderWater;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -26,10 +29,19 @@ public class RealmsOfChaos {
 	
 	@Instance(MODID)
 	public static RealmsOfChaos instance;
+	
+	public static int waterDimID = 23;
 
+	public static BiomeGenBase waterBiome;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt){
 		System.out.println("[Realms of Chaos] Initializing mod.");
+		DimensionManager.registerProviderType(waterDimID, WorldProviderWater.class, true);
+    	DimensionManager.registerDimension(waterDimID, waterDimID);
+    	
+    	waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
+    	
 		ROCBlocks.init();
 		ROCOverworldItems.init();
 		TERegistry.init();
