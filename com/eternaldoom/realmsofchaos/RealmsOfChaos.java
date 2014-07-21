@@ -4,6 +4,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 
+import com.eternaldoom.realmsofchaos.client.ClientProxy;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.overworld.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
@@ -47,6 +48,7 @@ public class RealmsOfChaos {
 		TERegistry.init();
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 		OverworldCrafting.initRecipes();
+		if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());

@@ -12,13 +12,21 @@ public class TooltipHideEvent {
 	@SubscribeEvent
 	public void tooltipEvent(ItemTooltipEvent evt){
 		if (evt.itemStack.getItem() instanceof ItemROCSword){
-		evt.toolTip.remove(4);
-		evt.toolTip.remove(3);
+			for(int i = 0; i < evt.toolTip.size(); i++){
+				if(evt.toolTip.get(i).contains("Attack Damage") && evt.toolTip.get(i).contains("+")){
+					evt.toolTip.remove(i);
+					evt.toolTip.remove(i - 1);
+				}
+			}
 		}
 		
 		if (evt.itemStack.getItem() instanceof ItemROCTool){
-			evt.toolTip.remove(5);
-			evt.toolTip.remove(4);
+			for(int i = 0; i < evt.toolTip.size(); i++){
+				if(evt.toolTip.get(i).contains("Attack Damage") && evt.toolTip.get(i).contains("+")){
+					evt.toolTip.remove(i);
+					evt.toolTip.remove(i - 1);
+				}
+			}
 		}
 	}
 

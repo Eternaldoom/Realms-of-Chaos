@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ClientProxy {
 	
-	public void init(){
+	public static void init(){
 		System.out.println("[Realms of Chaos] Registering Renderers");
 		ROCKeyBindings.init();
 	}
