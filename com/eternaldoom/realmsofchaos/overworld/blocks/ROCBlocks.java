@@ -15,6 +15,8 @@ public class ROCBlocks {
     public static OverworldBlock heliotrope_ore;
     public static OverworldBlock heliotrope_block;
     public static Block water_portal;
+    public static OverworldBlock ocean_stone;
+    public static OverworldBlock ocean_cobblestone;
 	
     //Nether
 	public static OverworldBlock charwood_leaves;
@@ -38,6 +40,9 @@ public class ROCBlocks {
         heliotrope_ore = new OverworldBlock(Material.rock, "realmsofchaos:heliotrope_ore", "oreHeliotrope", 5.0f, 14.5f, OverworldBlock.soundTypePiston).register("heliotrope_ore");
         heliotrope_block = new OverworldBlock(Material.rock, "realmsofchaos:heliotrope_block", "blockHeliotrope", 5.5f, 1000000.0f, OverworldBlock.soundTypePiston).register("heliotrope_block");
         water_portal = new BlockWaterPortal();
+        ocean_stone = new BlockOceanStone();
+        ocean_cobblestone = new OverworldBlock(Material.rock, "realmsofchaos:ocean_cobblestone", "cobblestoneOcean", 8.5f, 4.5f, OverworldBlock.soundTypePiston).register("ocean_cobblestone");
+        
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
 
