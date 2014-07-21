@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Eternaldoom (Doomturd)"],
-  "credits": "Thanks to the DivineRPG developers for paving the way for adventure mods, and to Wuppy29 for his incredibly useful Forge tutorials. And of course, thanks to the Forge team for creating the API that made this mod possible.",
+  "authorList": ["Eternaldoom (Doomturd)",LegoShokwave123],
+  "credits": "Thanks to the Forge team for making this mod possible, and to Wuppy29 for his Forge tutorials.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
