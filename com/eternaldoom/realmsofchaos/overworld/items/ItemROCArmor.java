@@ -63,7 +63,7 @@ public class ItemROCArmor extends ItemArmor implements ISpecialArmor{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List infoList, boolean par4) {
-		if(a.getDurability(1) == -1) {
+		if(stack.getMaxDamage() == 0) {
 			infoList.add(EnumChatFormatting.BLUE + "Infinite Uses");
 		}
 		else {
@@ -75,6 +75,7 @@ public class ItemROCArmor extends ItemArmor implements ISpecialArmor{
 	@Override
 	public ArmorProperties getProperties(EntityLivingBase player,
 			ItemStack armor, DamageSource source, double damage, int slot) {
+		System.out.println(damageReduction);
 		return new ISpecialArmor.ArmorProperties(0, damageReduction, 50000);
 	}
 

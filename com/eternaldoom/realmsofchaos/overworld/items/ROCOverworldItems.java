@@ -14,6 +14,7 @@ public class ROCOverworldItems {
 	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, new int[]{14, 14, 14, 14}, 20);
 	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{15, 15, 15, 15}, 15);
 	public static final ArmorMaterial FLAMEa = addArmorMaterial("FLAME", 2151, new int[]{16, 16, 16, 16}, 12);
+	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", -1, new int[]{17, 17, 17, 17}, 6);
 	
 	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
@@ -21,6 +22,7 @@ public class ROCOverworldItems {
 	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 5, 3151, 12.0f, 2.0f, 20);
 	public static final ToolMaterial XYLITEt = EnumHelper.addToolMaterial("XYLITE", 6, 3651, 14.0f, 3.5f, 15);
 	public static final ToolMaterial FLAMEt = EnumHelper.addToolMaterial("FLAME", 7, 2151, 15.5f, 5.0f, 12);
+	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 8, -1, 20.0f, 8.0f, 8);
 	
 	//Overworld
 	public static OverworldItem citronite_gem;
@@ -65,6 +67,13 @@ public class ROCOverworldItems {
 	public static ItemROCAxe xylite_axe;
 	public static ItemROCPickaxe xylite_pickaxe;
 	public static ItemROCShovel xylite_shovel;
+	
+	public static ItemROCArmor aquatic_helmet, aquatic_chestplate, aquatic_leggings, aquatic_boots;
+	
+	public static ItemROCSword aquatic_sword;
+	public static ItemROCAxe aquatic_axe;
+	public static ItemROCPickaxe aquatic_pickaxe;
+	public static ItemROCShovel aquatic_shovel;
 	
 	//Replaced vanilla items
 	public static ItemROCSword diamond_sword;
@@ -130,6 +139,16 @@ public class ROCOverworldItems {
 		flame_pickaxe = new ItemROCPickaxe(FLAMEt, "realmsofchaos:flame_pickaxe", "pickaxeFlame", false);
 		flame_axe = new ItemROCAxe(FLAMEt, "realmsofchaos:flame_axe", "axeFlame", false);
 		flame_shovel = new ItemROCShovel(FLAMEt, "realmsofchaos:flame_shovel", "shovelFlame", false);
+		
+		aquatic_helmet = new ItemROCArmor(AQUATICa, HELMET, "aquatic", "realmsofchaos:aquatic_helmet", "helmetAquatic", false);
+		aquatic_chestplate = new ItemROCArmor(AQUATICa, CHESTPLATE, "aquatic", "realmsofchaos:aquatic_chestplate", "chestplateAquatic", false);
+		aquatic_leggings = new ItemROCArmor(AQUATICa, LEGGINGS, "aquatic", "realmsofchaos:aquatic_leggings", "leggingsAquatic", false);
+		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", false);
+		
+		aquatic_sword = new ItemROCSword(AQUATICt, "realmsofchaos:aquatic_sword", "swordAquatic", false);
+		aquatic_pickaxe = new ItemROCPickaxe(AQUATICt, "realmsofchaos:aquatic_pickaxe", "pickaxeAquatic", false);
+		aquatic_axe = new ItemROCAxe(AQUATICt, "realmsofchaos:aquatic_axe", "axeAquatic", false);
+		aquatic_shovel = new ItemROCShovel(AQUATICt, "realmsofchaos:aquatic_shovel", "shovelAquatic", false);
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
@@ -147,6 +166,9 @@ public class ROCOverworldItems {
 		diamond_chestplate = new ItemROCArmor(DIAMONDa, CHESTPLATE, "diamond", "minecraft:diamond_chestplate", "chestplateDiamond", true).register("diamond_chestplate");
 		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", true).register("diamond_leggings");
 		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", true).register("diamond_boots");
+		
+		flame_sword.register("flamestone_sword");
+		aquatic_sword.register("aquatic_sword");
 
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");
@@ -176,10 +198,18 @@ public class ROCOverworldItems {
 		flame_leggings.register("flamestone_leggings");
 		flame_boots.register("flamestone_boots");
 		
-		flame_sword.register("flamestone_sword");
+		aquatic_helmet.register("aquatic_helmet");
+		aquatic_chestplate.register("aquatic_chestplate");
+		aquatic_leggings.register("aquatic_leggings");
+		aquatic_boots.register("aquatic_boots");
+		
 		flame_pickaxe.register("flamestone_pickaxe");
 		flame_axe.register("flamestone_axe");
 		flame_shovel.register("flamestone_shovel");
+		
+		aquatic_pickaxe.register("aquatic_pickaxe");
+		aquatic_axe.register("aquatic_axe");
+		aquatic_shovel.register("aquatic_shovel");
 	}
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)

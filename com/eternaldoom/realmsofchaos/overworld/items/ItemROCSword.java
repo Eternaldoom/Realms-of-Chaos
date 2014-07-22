@@ -34,7 +34,7 @@ public class ItemROCSword extends ItemSword{
 	@Override
 	public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
 		if(item.getMaxDamage() == -1) {
-			infoList.add("Infinite Uses");
+			infoList.add(EnumChatFormatting.BLUE + "Infinite Uses");
 		}
 		else {
 			infoList.add(EnumChatFormatting.GREEN + "" + (item.getMaxDamage() - item.getItemDamage()) + " Uses Remaining");

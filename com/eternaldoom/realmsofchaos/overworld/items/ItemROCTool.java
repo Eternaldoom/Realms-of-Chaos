@@ -62,7 +62,13 @@ public class ItemROCTool extends OverworldItem
     
     @Override
     public void addInformation(ItemStack item, EntityPlayer player, List infoList, boolean par4) {
-        infoList.add(EnumChatFormatting.GREEN + "" + (item.getMaxDamage() - item.getItemDamage()) + " Uses Remaining");
+    	if(item.getMaxDamage() == -1){
+    		infoList.add(EnumChatFormatting.BLUE + "Infinite Uses");
+    	}
+    	else{
+    		infoList.add(EnumChatFormatting.GREEN + "" + (item.getMaxDamage() - item.getItemDamage()) + " Uses Remaining");
+    	}
+        
         infoList.add(EnumChatFormatting.RED + "" + this.t.getEfficiencyOnProperMaterial() + " Efficiency");
         
 		if (this instanceof ItemROCPickaxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/4) + " Attack Damage");
