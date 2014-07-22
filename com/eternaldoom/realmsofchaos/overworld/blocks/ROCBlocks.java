@@ -1,8 +1,10 @@
 package com.eternaldoom.realmsofchaos.overworld.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ROCBlocks {
 	//Overworld
@@ -17,6 +19,7 @@ public class ROCBlocks {
     public static Block water_portal;
     public static OverworldBlock ocean_stone;
     public static OverworldBlock ocean_cobblestone;
+    public static OverworldBlock oceanstone_bricks;
 	
     //Nether
 	public static OverworldBlock charwood_leaves;
@@ -24,8 +27,13 @@ public class ROCBlocks {
 	public static OverworldBlock charwood_sapling;
 	public static OverworldBlock netherrack_bricks;
     public static OverworldBlock charwood_planks;
+    
+    public static Fluid waterportal;
 
 	public static void init() {
+		waterportal = new FluidWaterPortal();
+		FluidRegistry.registerFluid(waterportal);
+		
 		citronite_ore = new BlockCitroniteOre().register("citronite_ore");
 		charwood_leaves = new BlockCharwoodLeaves().register("charwood_leaves");
 		charwood_log = new BlockCharwoodLog().register("charwood");
@@ -36,12 +44,13 @@ public class ROCBlocks {
         extractor = new BlockExtractor(false).register("extractor");
         extractor_on = new BlockExtractor(true).register("extractor_on");
         xylite_ore = new BlockXyliteOre().register("xylite_ore");
-        xylite_block = new OverworldBlock(Material.iron, "realmsofchaos:xylite_block", "blockXylite", 7.5f, 13.5f, OverworldBlock.soundTypeMetal).register("xylite_block");
+        xylite_block = new BlockXylite();
         heliotrope_ore = new OverworldBlock(Material.rock, "realmsofchaos:heliotrope_ore", "oreHeliotrope", 5.0f, 14.5f, OverworldBlock.soundTypePiston).register("heliotrope_ore");
         heliotrope_block = new OverworldBlock(Material.rock, "realmsofchaos:heliotrope_block", "blockHeliotrope", 5.5f, 1000000.0f, OverworldBlock.soundTypePiston).register("heliotrope_block");
         water_portal = new BlockWaterPortal();
         ocean_stone = new BlockOceanStone();
         ocean_cobblestone = new OverworldBlock(Material.rock, "realmsofchaos:ocean_cobblestone", "cobblestoneOcean", 8.5f, 4.5f, OverworldBlock.soundTypePiston).register("ocean_cobblestone");
+        oceanstone_bricks = new OverworldBlock(Material.rock, "realmsofchaos:oceanstone_bricks", "bricksOceanstone", 8.5f, 5.5f, OverworldBlock.soundTypePiston).register("oceanstone_bricks");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
