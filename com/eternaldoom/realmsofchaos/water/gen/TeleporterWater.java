@@ -60,13 +60,45 @@ public class TeleporterWater extends Teleporter
                         int l1 = j + j1;
                         int i2 = k + i1 * b1 - l * b0;
                         boolean flag = j1 < 0;
-                        this.worldServerInstance.setBlock(i, j, k, ROCBlocks.oceanstone_bricks);
-                        this.worldServerInstance.setBlock(i, j+1, k, ROCBlocks.oceanstone_bricks);
-                        this.worldServerInstance.setBlock(i+1, j, k, ROCBlocks.oceanstone_bricks);
-                        this.worldServerInstance.setBlock(i+2, j, k, ROCBlocks.oceanstone_bricks);
-                        this.worldServerInstance.setBlock(i+1, j+1, k, ROCBlocks.oceanstone_bricks);
-                        this.worldServerInstance.setBlock(i+2, j+1, k, ROCBlocks.oceanstone_bricks);
-                        this.worldServerInstance.setBlock(i+1, j+1, k+1, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        
+                        this.worldServerInstance.setBlock(i-1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+101, k-1, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i+1, j+101, k-2, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i, j+101, k-1, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i, j+101, k-2, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+99, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+99, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+99, k-1, ROCBlocks.ocean_cobblestone);
+                        this.worldServerInstance.setBlock(i, j+99, k-2, ROCBlocks.oceanstone_bricks);
+
                     }
                 }
             }
@@ -265,7 +297,7 @@ public class TeleporterWater extends Teleporter
         byte b0 = 16;
         double d0 = -1.0D;
         int i = MathHelper.floor_double(par1Entity.posX);
-        int j = MathHelper.floor_double(par1Entity.posY);
+        int j = 25;
         int k = MathHelper.floor_double(par1Entity.posZ);
         int l = i;
         int i1 = j;
@@ -448,8 +480,44 @@ public class TeleporterWater extends Teleporter
                         i4 = j2 + k3;
                         j4 = k2 + (j3 - 1) * l2 - i3 * l5;
                         flag = k3 < 0;
-                        this.worldServerInstance.setBlock(l3, i4, j4, flag ? ROCBlocks.oceanstone_bricks : Blocks.air);
-                    }
+                        this.worldServerInstance.setBlock(i, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        
+                        this.worldServerInstance.setBlock(i-1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i-1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+101, k-1, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i+1, j+101, k-2, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i, j+101, k-1, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i, j+101, k-2, ROCBlocks.water_portal);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+101, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+2, j+100, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+99, k-1, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i+1, j+99, k-2, ROCBlocks.oceanstone_bricks);
+                        this.worldServerInstance.setBlock(i, j+99, k-1, ROCBlocks.ocean_cobblestone);
+                        this.worldServerInstance.setBlock(i, j+99, k-2, ROCBlocks.oceanstone_bricks);
                 }
             }
         }
@@ -464,13 +532,44 @@ public class TeleporterWater extends Teleporter
                     i4 = j2 + k3;
                     j4 = k2 + (j3 - 1) * l2;
                     flag = j3 == 0 || j3 == 3 || k3 == -1 || k3 == 3;
-                    this.worldServerInstance.setBlock(i, j, k, ROCBlocks.oceanstone_bricks);
-                    this.worldServerInstance.setBlock(i, j+1, k, ROCBlocks.oceanstone_bricks);
-                    this.worldServerInstance.setBlock(i+1, j, k, ROCBlocks.oceanstone_bricks);
-                    this.worldServerInstance.setBlock(i+2, j, k, ROCBlocks.oceanstone_bricks);
-                    this.worldServerInstance.setBlock(i+1, j+1, k, ROCBlocks.oceanstone_bricks);
-                    this.worldServerInstance.setBlock(i+2, j+1, k, ROCBlocks.oceanstone_bricks);
-                    this.worldServerInstance.setBlock(i+1, j+1, k+1, ROCBlocks.water_portal);
+                    this.worldServerInstance.setBlock(i, j+100, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i, j+101, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+100, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+100, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+101, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+101, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+101, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+100, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+100, k-1, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+100, k-2, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+101, k-2, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                    
+                    this.worldServerInstance.setBlock(i-1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i-1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+100, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+101, k-3, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+101, k-1, ROCBlocks.water_portal);
+                    this.worldServerInstance.setBlock(i+1, j+101, k-2, ROCBlocks.water_portal);
+                    this.worldServerInstance.setBlock(i, j+101, k-1, ROCBlocks.water_portal);
+                    this.worldServerInstance.setBlock(i, j+101, k-2, ROCBlocks.water_portal);
+                    this.worldServerInstance.setBlock(i+2, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+100, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+101, k, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+101, k-1, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+100, k-1, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+101, k-2, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+2, j+100, k-2, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+99, k-1, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i+1, j+99, k-2, ROCBlocks.oceanstone_bricks);
+                    this.worldServerInstance.setBlock(i, j+99, k-1, ROCBlocks.ocean_cobblestone);
+                    this.worldServerInstance.setBlock(i, j+99, k-2, ROCBlocks.oceanstone_bricks);
                 }
             }
 
@@ -485,8 +584,9 @@ public class TeleporterWater extends Teleporter
                 }
             }
         }
-
+        }
         return true;
+        
     }
 
     public void removeStalePortalLocations(long par1)

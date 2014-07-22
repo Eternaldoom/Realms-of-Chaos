@@ -7,6 +7,9 @@ import net.minecraft.world.chunk.IChunkProvider;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class WorldProviderWater extends WorldProvider{
 
 	@Override
@@ -18,6 +21,12 @@ public class WorldProviderWater extends WorldProvider{
 	public IChunkProvider createChunkGenerator()
     {
         return new ChunkProviderWater(worldObj, worldObj.getSeed(), true);
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public float getCloudHeight()
+    {
+        return 225;
     }
 	
 	@Override

@@ -81,7 +81,7 @@ public class BlockXylite extends OverworldBlock {
 			world.setBlock(i - 1, j, k - 1, ROCBlocks.water_portal);
 			world.setBlock(i - 1, j + 1, k - 1, ROCBlocks.water_portal);
 		}
-
+		world.scheduleBlockUpdate(i, j, k, this, 4);
 		return p_149660_9_;
 	}
 	
