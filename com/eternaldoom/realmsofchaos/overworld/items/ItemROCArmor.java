@@ -75,12 +75,7 @@ public class ItemROCArmor extends ItemArmor implements ISpecialArmor{
 	@Override
 	public ArmorProperties getProperties(EntityLivingBase player,
 			ItemStack armor, DamageSource source, double damage, int slot) {
-<<<<<<< HEAD
-		System.out.println(damageReduction);
-		return new ISpecialArmor.ArmorProperties(0, damageReduction, 50000);
-=======
 		return new ISpecialArmor.ArmorProperties(0, damageReduction/100, 50000);
->>>>>>> FETCH_HEAD
 	}
 
 	@Override

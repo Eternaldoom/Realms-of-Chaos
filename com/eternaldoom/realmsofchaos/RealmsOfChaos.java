@@ -53,6 +53,8 @@ public class RealmsOfChaos {
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
 		MinecraftForge.EVENT_BUS.register(new TooltipHideEvent());
+		
+		if(FMLCommonHandler.instance().getSide().isClient()) MinecraftForge.EVENT_BUS.register(new OverlayEvent());
 	}
 	
 	@EventHandler

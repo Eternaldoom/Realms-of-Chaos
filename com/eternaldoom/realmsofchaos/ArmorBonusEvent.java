@@ -1,21 +1,20 @@
 package com.eternaldoom.realmsofchaos;
 
-import com.eternaldoom.realmsofchaos.client.ROCKeyBindings;
-import com.eternaldoom.realmsofchaos.overworld.items.ItemROCArmor;
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
-
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+
+import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ArmorBonusEvent {
 	public boolean lavaWPressed, lavaAPressed, lavaSPressed, lavaDPressed;
+	public static boolean hasAquatic;
 	@SubscribeEvent
 	public void tickEvent(PlayerTickEvent evt){
 		Item helmet = null, chestplate = null, leggings = null, boots = null;
@@ -50,6 +49,24 @@ public class ArmorBonusEvent {
 				}
 			}
 		}
+		
+		if (helmet == ROCOverworldItems.aquatic_helmet && chestplate == ROCOverworldItems.aquatic_chestplate && leggings == ROCOverworldItems.aquatic_leggings && boots == ROCOverworldItems.aquatic_boots){
+			hasAquatic = true;
+			if(evt.player.isInWater()){
+				evt.player.capabilities.isFlying = true;
+				evt.player.addPotionEffect(new PotionEffect(13, 1, 0, true));
+			}else{
+				if(!evt.player.capabilities.isCreativeMode){
+					evt.player.capabilities.isFlying = false;
+				}
+			}
+		}else{
+			hasAquatic = false;
+		}
+	}
+	
+	public static boolean getAquatic(){
+		return hasAquatic;
 	}
 
 	@SubscribeEvent
