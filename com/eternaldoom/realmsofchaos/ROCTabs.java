@@ -4,7 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 public class ROCTabs {
 	public static final CreativeTabs OverworldBlocks = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldBlocks"){
@@ -17,21 +17,21 @@ public class ROCTabs {
 	public static final CreativeTabs OverworldItems = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldItems"){
 		@Override
 		public Item getTabIconItem(){
-			return ROCOverworldItems.ash_dust;
+			return ROCItems.ash_dust;
 		}
 	};
 	
 	public static final CreativeTabs Combat = new CreativeTabs(CreativeTabs.getNextID(), "ROCCombat"){
 		@Override
 		public Item getTabIconItem(){
-			return ROCOverworldItems.heliotrope_helmet;
+			return ROCItems.heliotrope_helmet;
 		}
 	};
 	
 	public static final CreativeTabs Tools = new CreativeTabs(CreativeTabs.getNextID(), "ROCTools"){
 		@Override
 		public Item getTabIconItem(){
-			return ROCOverworldItems.xylite_pickaxe;
+			return ROCItems.xylite_pickaxe;
 		}
 	};
 }

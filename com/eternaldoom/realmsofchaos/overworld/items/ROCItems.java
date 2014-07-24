@@ -4,7 +4,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class ROCOverworldItems {
+public class ROCItems {
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	
@@ -14,7 +14,8 @@ public class ROCOverworldItems {
 	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, new int[]{14, 14, 14, 14}, 20);
 	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{15, 15, 15, 15}, 15);
 	public static final ArmorMaterial FLAMEa = addArmorMaterial("FLAME", 2151, new int[]{16, 16, 16, 16}, 12);
-	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", -1, new int[]{17, 17, 17, 17}, 6);
+	public static final ArmorMaterial NEPTUNITEa = addArmorMaterial("NEPTUNITE", -1, new int[]{0, 0, 0, 0}, 12);
+	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", 3651, new int[]{17, 17, 17, 17}, 6);
 	
 	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
@@ -69,7 +70,8 @@ public class ROCOverworldItems {
 	public static ItemROCShovel xylite_shovel;
 	
 	public static ItemROCArmor aquatic_helmet, aquatic_chestplate, aquatic_leggings, aquatic_boots;
-	
+	public static ItemROCArmor neptunite_helmet, neptunite_chestplate, neptunite_leggings, neptunite_boots;
+
 	public static ItemROCSword aquatic_sword;
 	public static ItemROCAxe aquatic_axe;
 	public static ItemROCPickaxe aquatic_pickaxe;
@@ -100,25 +102,25 @@ public class ROCOverworldItems {
 		flame_stone = new OverworldItem("realmsofchaos:flame_stone", "stoneFlame");
 		heliotrope = new OverworldItem("realmsofchaos:heliotrope", "heliotrope");
 		
-		citronite_helmet = new ItemROCArmor(CITRONITEa, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite", false);
-		citronite_chestplate = new ItemROCArmor(CITRONITEa, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite", false);
-		citronite_leggings = new ItemROCArmor(CITRONITEa, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite", false);
-		citronite_boots = new ItemROCArmor(CITRONITEa, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite", false);
+		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", 54D);
+		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", 54D);
+		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope", 54D);
+		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope", 54D);
 		
-		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", false);
-		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", false);
-		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope", false);
-		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope", false);
+		citronite_helmet = new ItemROCArmor(CITRONITEa, HELMET, "citronite", "realmsofchaos:citronite_helmet", "helmetCitronite", 56D);
+		citronite_chestplate = new ItemROCArmor(CITRONITEa, CHESTPLATE, "citronite", "realmsofchaos:citronite_chestplate", "chestplateCitronite", 56D);
+		citronite_leggings = new ItemROCArmor(CITRONITEa, LEGGINGS, "citronite", "realmsofchaos:citronite_leggings", "leggingsCitronite", 56D);
+		citronite_boots = new ItemROCArmor(CITRONITEa, BOOTS, "citronite", "realmsofchaos:citronite_boots", "bootsCitronite", 56D);
 		
-		xylite_helmet = new ItemROCArmor(XYLITEa, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetXylite", false);
-		xylite_chestplate = new ItemROCArmor(XYLITEa, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplateXylite", false);
-		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite", false);
-		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite", false);
+		xylite_helmet = new ItemROCArmor(XYLITEa, HELMET, "xylite", "realmsofchaos:xylite_helmet", "helmetXylite", 60D);
+		xylite_chestplate = new ItemROCArmor(XYLITEa, CHESTPLATE, "xylite", "realmsofchaos:xylite_chestplate", "chestplateXylite", 60D);
+		xylite_leggings = new ItemROCArmor(XYLITEa, LEGGINGS, "xylite", "realmsofchaos:xylite_leggings", "leggingsXylite", 60D);
+		xylite_boots = new ItemROCArmor(XYLITEa, BOOTS, "xylite", "realmsofchaos:xylite_boots", "bootsXylite", 60D);
 		
-		flame_helmet = new ItemROCArmor(FLAMEa, HELMET, "flame", "realmsofchaos:flame_helmet", "helmetFlame", false);
-		flame_chestplate = new ItemROCArmor(FLAMEa, CHESTPLATE, "flame", "realmsofchaos:flame_chestplate", "chestplateFlame", false);
-		flame_leggings = new ItemROCArmor(FLAMEa, LEGGINGS, "flame", "realmsofchaos:flame_leggings", "leggingsFlame", false);
-		flame_boots = new ItemROCArmor(FLAMEa, BOOTS, "flame", "realmsofchaos:flame_boots", "bootsFlame", false);
+		flame_helmet = new ItemROCArmor(FLAMEa, HELMET, "flame", "realmsofchaos:flame_helmet", "helmetFlame", 63.5D);
+		flame_chestplate = new ItemROCArmor(FLAMEa, CHESTPLATE, "flame", "realmsofchaos:flame_chestplate", "chestplateFlame", 63.5D);
+		flame_leggings = new ItemROCArmor(FLAMEa, LEGGINGS, "flame", "realmsofchaos:flame_leggings", "leggingsFlame", 63.5D);
+		flame_boots = new ItemROCArmor(FLAMEa, BOOTS, "flame", "realmsofchaos:flame_boots", "bootsFlame", 63.5D);
 
 		citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
 		citronite_axe = new ItemROCAxe(CITRONITEt, "realmsofchaos:citronite_axe", "axeCitronite", false).register("citronite_axe");
@@ -140,10 +142,15 @@ public class ROCOverworldItems {
 		flame_axe = new ItemROCAxe(FLAMEt, "realmsofchaos:flame_axe", "axeFlame", false);
 		flame_shovel = new ItemROCShovel(FLAMEt, "realmsofchaos:flame_shovel", "shovelFlame", false);
 		
-		aquatic_helmet = new ItemROCArmor(AQUATICa, HELMET, "aquatic", "realmsofchaos:aquatic_helmet", "helmetAquatic", false);
-		aquatic_chestplate = new ItemROCArmor(AQUATICa, CHESTPLATE, "aquatic", "realmsofchaos:aquatic_chestplate", "chestplateAquatic", false);
-		aquatic_leggings = new ItemROCArmor(AQUATICa, LEGGINGS, "aquatic", "realmsofchaos:aquatic_leggings", "leggingsAquatic", false);
-		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", false);
+		neptunite_helmet = new ItemROCArmor(NEPTUNITEa, HELMET, "neptunite", "realmsofchaos:neptunite_helmet", "helmetNeptunite", 65D);
+		neptunite_chestplate = new ItemROCArmor(NEPTUNITEa, CHESTPLATE, "neptunite", "realmsofchaos:neptunite_chestplate", "chestplateNeptunite", 65D);
+		neptunite_leggings = new ItemROCArmor(NEPTUNITEa, LEGGINGS, "neptunite", "realmsofchaos:neptunite_leggings", "leggingsNeptunite", 65D);
+		neptunite_boots = new ItemROCArmor(NEPTUNITEa, BOOTS, "neptunite", "realmsofchaos:neptunite_boots", "bootsNeptunite", 65D);
+		
+		aquatic_helmet = new ItemROCArmor(AQUATICa, HELMET, "aquatic", "realmsofchaos:aquatic_helmet", "helmetAquatic", 66.5D);
+		aquatic_chestplate = new ItemROCArmor(AQUATICa, CHESTPLATE, "aquatic", "realmsofchaos:aquatic_chestplate", "chestplateAquatic", 66.6D);
+		aquatic_leggings = new ItemROCArmor(AQUATICa, LEGGINGS, "aquatic", "realmsofchaos:aquatic_leggings", "leggingsAquatic", 66.5D);
+		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", 66.5D);
 		
 		aquatic_sword = new ItemROCSword(AQUATICt, "realmsofchaos:aquatic_sword", "swordAquatic", false);
 		aquatic_pickaxe = new ItemROCPickaxe(AQUATICt, "realmsofchaos:aquatic_pickaxe", "pickaxeAquatic", false);
@@ -158,14 +165,14 @@ public class ROCOverworldItems {
 		iron_pickaxe = new ItemROCPickaxe(IRONt, "minecraft:iron_pickaxe", "pickaxeIron", true).register("iron_pickaxe");
 		diamond_shovel = new ItemROCShovel(DIAMONDt, "minecraft:diamond_shovel", "shovelDiamond", true).register("diamond_shovel");
 		iron_shovel = new ItemROCShovel(IRONt, "minecraft:iron_shovel", "shovelIron", true).register("iron_shovel");
-		iron_helmet = new ItemROCArmor(IRONa, HELMET, "iron", "minecraft:iron_helmet", "helmetIron", true).register("iron_helmet");
-		iron_chestplate = new ItemROCArmor(IRONa, CHESTPLATE, "iron", "minecraft:iron_chestplate", "chestplateIron", true).register("iron_chestplate");
-		iron_leggings = new ItemROCArmor(IRONa, LEGGINGS, "iron", "minecraft:iron_leggings", "leggingsIron", true).register("iron_leggings");
-		iron_boots = new ItemROCArmor(IRONa, BOOTS, "iron", "minecraft:iron_boots", "bootsIron", true).register("iron_boots");
-		diamond_helmet = new ItemROCArmor(DIAMONDa, HELMET, "diamond", "minecraft:diamond_helmet", "helmetDiamond", true).register("diamond_helmet");
-		diamond_chestplate = new ItemROCArmor(DIAMONDa, CHESTPLATE, "diamond", "minecraft:diamond_chestplate", "chestplateDiamond", true).register("diamond_chestplate");
-		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", true).register("diamond_leggings");
-		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", true).register("diamond_boots");
+		iron_helmet = new ItemROCArmor(IRONa, HELMET, "iron", "minecraft:iron_helmet", "helmetIron", 44D).register("iron_helmet");
+		iron_chestplate = new ItemROCArmor(IRONa, CHESTPLATE, "iron", "minecraft:iron_chestplate", "chestplateIron", 44D).register("iron_chestplate");
+		iron_leggings = new ItemROCArmor(IRONa, LEGGINGS, "iron", "minecraft:iron_leggings", "leggingsIron", 44D).register("iron_leggings");
+		iron_boots = new ItemROCArmor(IRONa, BOOTS, "iron", "minecraft:iron_boots", "bootsIron", 44D).register("iron_boots");
+		diamond_helmet = new ItemROCArmor(DIAMONDa, HELMET, "diamond", "minecraft:diamond_helmet", "helmetDiamond", 52D).register("diamond_helmet");
+		diamond_chestplate = new ItemROCArmor(DIAMONDa, CHESTPLATE, "diamond", "minecraft:diamond_chestplate", "chestplateDiamond", 52D).register("diamond_chestplate");
+		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", 52D).register("diamond_leggings");
+		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", 52D).register("diamond_boots");
 		
 		flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
@@ -197,6 +204,11 @@ public class ROCOverworldItems {
 		flame_chestplate.register("flamestone_chestplate");
 		flame_leggings.register("flamestone_leggings");
 		flame_boots.register("flamestone_boots");
+		
+		neptunite_helmet.register("neptunite_helmet");
+		neptunite_chestplate.register("neptunite_chestplate");
+		neptunite_leggings.register("neptunite_leggings");
+		neptunite_boots.register("neptunite_boots");
 		
 		aquatic_helmet.register("aquatic_helmet");
 		aquatic_chestplate.register("aquatic_chestplate");

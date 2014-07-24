@@ -9,7 +9,7 @@ import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.overworld.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
 import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 import com.eternaldoom.realmsofchaos.water.gen.WorldProviderWater;
 
@@ -44,7 +44,7 @@ public class RealmsOfChaos {
     	waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
     	
 		ROCBlocks.init();
-		ROCOverworldItems.init();
+		ROCItems.init();
 		TERegistry.init();
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 		OverworldCrafting.initRecipes();

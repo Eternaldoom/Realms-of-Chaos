@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

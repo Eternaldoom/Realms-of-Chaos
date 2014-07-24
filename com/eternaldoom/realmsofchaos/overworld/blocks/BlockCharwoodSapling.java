@@ -9,7 +9,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.overworld.gen.WorldGenCharwoodTree;
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 public class BlockCharwoodSapling extends OverworldBlock{
 
@@ -69,7 +69,7 @@ public class BlockCharwoodSapling extends OverworldBlock{
 		WorldGenCharwoodTree o = new WorldGenCharwoodTree();
 		
 		if (!w.isRemote){
-			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == ROCOverworldItems.ash_dust){
+			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == ROCItems.ash_dust){
 				if(!player.capabilities.isCreativeMode) --player.getCurrentEquippedItem().stackSize;
 				Random r = new Random(); int growChance = r.nextInt(5);
 				

@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
@@ -28,7 +28,7 @@ public class ArmorBonusEvent {
 		if(stackLeggings != null) leggings = stackLeggings.getItem();
 		if(stackBoots != null) boots = stackBoots.getItem();
 		
-		if (helmet == ROCOverworldItems.flame_helmet && chestplate == ROCOverworldItems.flame_chestplate && leggings == ROCOverworldItems.flame_leggings && boots == ROCOverworldItems.flame_boots){
+		if (helmet == ROCItems.flame_helmet && chestplate == ROCItems.flame_chestplate && leggings == ROCItems.flame_leggings && boots == ROCItems.flame_boots){
 			evt.player.addPotionEffect(new PotionEffect(12, 20, 0, true));
 			if (evt.player.worldObj.getBlock((int)evt.player.posX, (int)evt.player.posY - 1, (int)evt.player.posZ) == Blocks.lava){
 				if (evt.player.motionX < 0.2f && evt.player.motionX > -0.2f){
@@ -50,7 +50,7 @@ public class ArmorBonusEvent {
 			}
 		}
 		
-		if (helmet == ROCOverworldItems.aquatic_helmet && chestplate == ROCOverworldItems.aquatic_chestplate && leggings == ROCOverworldItems.aquatic_leggings && boots == ROCOverworldItems.aquatic_boots){
+		if (helmet == ROCItems.aquatic_helmet && chestplate == ROCItems.aquatic_chestplate && leggings == ROCItems.aquatic_leggings && boots == ROCItems.aquatic_boots){
 			hasAquatic = true;
 			if(evt.player.isInWater()){
 				evt.player.capabilities.isFlying = true;

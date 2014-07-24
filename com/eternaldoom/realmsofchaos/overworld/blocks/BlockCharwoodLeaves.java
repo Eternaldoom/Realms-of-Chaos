@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -69,7 +69,7 @@ public class BlockCharwoodLeaves extends OverworldBlock {
 
 		int dropChance = rand.nextInt(40);
 		if (dropChance == 10 || dropChance == 20) {
-			return ROCOverworldItems.ash_dust;
+			return ROCItems.ash_dust;
 		}
 		
 		if (dropChance == 30){

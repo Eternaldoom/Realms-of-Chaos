@@ -2,7 +2,7 @@ package com.eternaldoom.realmsofchaos.overworld.blocks;
 
 import java.util.Random;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCOverworldItems;
+import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -15,7 +15,7 @@ public class BlockXyliteOre extends OverworldBlock {
 	
 	@Override
 	public Item getItemDropped(int par1, Random par2random, int par3){
-		return ROCOverworldItems.xylite_crystal;
+		return ROCItems.xylite_crystal;
 	}
 	@Override
 	public int quantityDroppedWithBonus(int p_149679_1_, Random p_149679_2_)
