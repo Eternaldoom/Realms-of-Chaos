@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.overworld.blocks;
 
+import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.water.gen.TeleporterWater;
 
 import net.minecraft.block.BlockPortal;
@@ -31,10 +32,10 @@ public class BlockWaterPortal extends BlockFluidClassic{
             else if (thePlayer.dimension == 0 || thePlayer.dimension == -1 || thePlayer.dimension == 1)
             {
                 thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 23, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(23)));
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.waterDimID, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.waterDimID)));
             }
             
-            else if (thePlayer.dimension == 23)
+            else if (thePlayer.dimension == RealmsOfChaos.waterDimID)
             {
                 thePlayer.timeUntilPortal = 10;
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(0)));

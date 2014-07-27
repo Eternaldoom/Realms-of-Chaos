@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 
 import cpw.mods.fml.common.IWorldGenerator;
@@ -22,6 +23,8 @@ public class OverworldGen implements IWorldGenerator{
 				case -1:
 					generateNether(world, random, chunkX * 16, chunkZ * 16);
 					break;
+				case 23:
+					generateWater(world, random, chunkX * 16, chunkZ * 16);
 		
 	}
 	}
@@ -60,5 +63,15 @@ public class OverworldGen implements IWorldGenerator{
 			
 			(new WorldGenCharwoodTree()).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}	
+	}
+	
+	public void generateWater(World world, Random random, int chunkX, int chunkZ){
+		for (int i = 0; i < 4; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(40);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			new WorldGenMinable(ROCBlocks.neptunite_ore, 5, ROCBlocks.ocean_stone).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
 	}
 }

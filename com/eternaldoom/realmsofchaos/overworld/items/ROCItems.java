@@ -31,6 +31,9 @@ public class ROCItems {
 	public static OverworldItem xylite_ingot;
 	public static OverworldItem citronite_stone;
 	public static OverworldItem heliotrope;
+	public static OverworldItem aquatic_shard;
+	public static OverworldItem aquatic_orb;
+	public static OverworldItem neptunite_ingot;
 	
 	public static ItemROCArmor citronite_helmet;
 	public static ItemROCArmor citronite_chestplate;
@@ -101,6 +104,9 @@ public class ROCItems {
 		citronite_stone = new OverworldItem("realmsofchaos:citronite_stone", "stoneCitronite");
 		flame_stone = new OverworldItem("realmsofchaos:flame_stone", "stoneFlame");
 		heliotrope = new OverworldItem("realmsofchaos:heliotrope", "heliotrope");
+		aquatic_shard = new OverworldItem("realmsofchaos:aquatic_shard", "shardAquatic");
+		aquatic_orb = new OverworldItem("realmsofchaos:aquatic_orb", "orbAquatic");
+		neptunite_ingot = new OverworldItem("realmsofchaos:neptunite_ingot", "ingotNeptunite");
 		
 		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", 54D);
 		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", 54D);
@@ -184,6 +190,9 @@ public class ROCItems {
 		citronite_stone.register("citronite_stone");
 		flame_stone.register("flame_stone");
 		heliotrope.register("heliotrope");
+		aquatic_shard.register("aquatic_shard");
+		aquatic_orb.register("aquatic_orb");
+		neptunite_ingot.register("neptunite_ingot");
 		
 		heliotrope_helmet.register("heliotrope_helmet");
 		heliotrope_chestplate.register("heliotrope_chestplate");

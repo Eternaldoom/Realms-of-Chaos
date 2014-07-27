@@ -17,9 +17,6 @@ public class ROCBlocks {
     public static OverworldBlock heliotrope_ore;
     public static OverworldBlock heliotrope_block;
     public static Block water_portal;
-    public static OverworldBlock ocean_stone;
-    public static OverworldBlock ocean_cobblestone;
-    public static OverworldBlock oceanstone_bricks;
 	
     //Nether
 	public static OverworldBlock charwood_leaves;
@@ -28,7 +25,12 @@ public class ROCBlocks {
 	public static OverworldBlock netherrack_bricks;
     public static OverworldBlock charwood_planks;
     
+    //Ocean
     public static Fluid waterportal;
+    public static OverworldBlock ocean_stone;
+    public static OverworldBlock ocean_cobblestone;
+    public static OverworldBlock oceanstone_bricks;
+    public static OverworldBlock neptunite_ore;
 
 	public static void init() {
 		waterportal = new FluidWaterPortal();
@@ -51,6 +53,7 @@ public class ROCBlocks {
         ocean_stone = new BlockOceanStone();
         ocean_cobblestone = new OverworldBlock(Material.rock, "realmsofchaos:ocean_cobblestone", "cobblestoneOcean", 8.5f, 4.5f, OverworldBlock.soundTypePiston).register("ocean_cobblestone");
         oceanstone_bricks = new OverworldBlock(Material.rock, "realmsofchaos:oceanstone_bricks", "bricksOceanstone", 8.5f, 5.5f, OverworldBlock.soundTypePiston).register("oceanstone_bricks");
+        neptunite_ore = new OverworldBlock(Material.rock, "realmsofchaos:neptunite_ore", "oreNeptunite", 11f, 1000000f, OverworldBlock.soundTypePiston).register("neptunite_ore");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

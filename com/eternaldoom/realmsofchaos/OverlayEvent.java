@@ -10,7 +10,6 @@ public class OverlayEvent {
 	@SubscribeEvent
 	public void addOverlay(RenderBlockOverlayEvent evt){
 		if(evt.overlayType == evt.overlayType.WATER && ArmorBonusEvent.getAquatic()){
-			System.out.println(ArmorBonusEvent.getAquatic());
 			evt.setCanceled(true);
 		}
 	}
