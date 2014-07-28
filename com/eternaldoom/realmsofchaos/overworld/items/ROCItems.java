@@ -23,7 +23,8 @@ public class ROCItems {
 	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 5, 3151, 12.0f, 2.0f, 20);
 	public static final ToolMaterial XYLITEt = EnumHelper.addToolMaterial("XYLITE", 6, 3651, 14.0f, 3.5f, 15);
 	public static final ToolMaterial FLAMEt = EnumHelper.addToolMaterial("FLAME", 7, 2151, 15.5f, 5.0f, 12);
-	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 8, -1, 20.0f, 8.0f, 8);
+	public static final ToolMaterial NEPTUNITEt = EnumHelper.addToolMaterial("NEPTUNITE", 8, -1, 18.0f, 6.5f, 12);
+	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 9, 3651, 20.0f, 8.0f, 6);
 	
 	//Overworld
 	public static OverworldItem citronite_gem;
@@ -79,6 +80,11 @@ public class ROCItems {
 	public static ItemROCAxe aquatic_axe;
 	public static ItemROCPickaxe aquatic_pickaxe;
 	public static ItemROCShovel aquatic_shovel;
+	
+	public static ItemROCSword neptunite_sword;
+	public static ItemROCAxe neptunite_axe;
+	public static ItemROCPickaxe neptunite_pickaxe;
+	public static ItemROCShovel neptunite_shovel;
 	
 	//Replaced vanilla items
 	public static ItemROCSword diamond_sword;
@@ -162,6 +168,11 @@ public class ROCItems {
 		aquatic_pickaxe = new ItemROCPickaxe(AQUATICt, "realmsofchaos:aquatic_pickaxe", "pickaxeAquatic", false);
 		aquatic_axe = new ItemROCAxe(AQUATICt, "realmsofchaos:aquatic_axe", "axeAquatic", false);
 		aquatic_shovel = new ItemROCShovel(AQUATICt, "realmsofchaos:aquatic_shovel", "shovelAquatic", false);
+		
+		neptunite_sword = new ItemROCSword(NEPTUNITEt, "realmsofchaos:neptunite_sword", "swordNeptunite", false);
+		neptunite_pickaxe = new ItemROCPickaxe(NEPTUNITEt, "realmsofchaos:neptunite_pickaxe", "pickaxeNeptunite", false);
+		neptunite_axe = new ItemROCAxe(NEPTUNITEt, "realmsofchaos:neptunite_axe", "axeNeptunite", false);
+		neptunite_shovel = new ItemROCShovel(NEPTUNITEt, "realmsofchaos:neptunite_shovel", "shovelNeptunite", false);
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
@@ -182,6 +193,7 @@ public class ROCItems {
 		
 		flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
+		neptunite_sword.register("neptunite_sword");
 
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");
@@ -231,6 +243,10 @@ public class ROCItems {
 		aquatic_pickaxe.register("aquatic_pickaxe");
 		aquatic_axe.register("aquatic_axe");
 		aquatic_shovel.register("aquatic_shovel");
+		
+		neptunite_pickaxe.register("neptunite_pickaxe");
+		neptunite_axe.register("neptunite_axe");
+		neptunite_shovel.register("neptunite_shovel");
 	}
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)
