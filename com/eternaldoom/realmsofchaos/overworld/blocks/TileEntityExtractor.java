@@ -296,7 +296,8 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         {
             Item item = p_145952_0_.getItem();
 
-            if (item == Items.lava_bucket) return 240;
+            if (item == Items.lava_bucket) return 250;
+            if (item == Item.getItemFromBlock(ROCBlocks.compressed_lava)) return 1200;
             return GameRegistry.getFuelValue(p_145952_0_);
         }
     }

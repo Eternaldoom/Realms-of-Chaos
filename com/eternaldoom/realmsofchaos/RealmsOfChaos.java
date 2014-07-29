@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos;
 
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,6 +35,8 @@ public class RealmsOfChaos {
 	public static int waterDimID = 23;
 
 	public static BiomeGenBase waterBiome;
+	
+	public static DamageSource molten = (new DamageSource("molten")).setFireDamage();
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt){

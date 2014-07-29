@@ -24,7 +24,28 @@ public class BlockXylite extends OverworldBlock {
 				&& world.getBlock(i, j, k + 1) == Blocks.water
 				&& world.getBlock(i, j + 1, k + 1) == Blocks.water
 				&& world.getBlock(i + 1, j, k + 1) == Blocks.water
-				&& world.getBlock(i + 1, j + 1, k + 1) == Blocks.water) {
+				&& world.getBlock(i + 1, j + 1, k + 1) == Blocks.water
+				&& world.getBlock(i, j, k+2) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k+2) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k+2) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k+2) == Blocks.stonebrick
+				&& world.getBlock(i+2, j, k) == Blocks.stonebrick
+				&& world.getBlock(i+2, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i+2, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+2, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j-1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j-1, k) == Blocks.stonebrick
+		){
 			world.setBlock(i, j + 1, k, ROCBlocks.water_portal);
 			world.setBlock(i + 1, j, k, ROCBlocks.water_portal);
 			world.setBlock(i + 1, j + 1, k, ROCBlocks.water_portal);
@@ -40,7 +61,28 @@ public class BlockXylite extends OverworldBlock {
 				&& world.getBlock(i, j, k + 1) == Blocks.water
 				&& world.getBlock(i, j + 1, k + 1) == Blocks.water
 				&& world.getBlock(i - 1, j, k + 1) == Blocks.water
-				&& world.getBlock(i - 1, j + 1, k + 1) == Blocks.water) {
+				&& world.getBlock(i - 1, j + 1, k + 1) == Blocks.water
+				&& world.getBlock(i, j, k+2) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k+2) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k+2) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k+2) == Blocks.stonebrick
+				&& world.getBlock(i-2, j, k) == Blocks.stonebrick
+				&& world.getBlock(i-2, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i-2, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-2, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j-1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j-1, k) == Blocks.stonebrick
+				) {
 			world.setBlock(i, j + 1, k, ROCBlocks.water_portal);
 			world.setBlock(i - 1, j, k, ROCBlocks.water_portal);
 			world.setBlock(i - 1, j + 1, k, ROCBlocks.water_portal);
@@ -56,7 +98,28 @@ public class BlockXylite extends OverworldBlock {
 				&& world.getBlock(i, j, k - 1) == Blocks.water
 				&& world.getBlock(i, j + 1, k - 1) == Blocks.water
 				&& world.getBlock(i + 1, j, k - 1) == Blocks.water
-				&& world.getBlock(i + 1, j + 1, k - 1) == Blocks.water) {
+				&& world.getBlock(i + 1, j + 1, k - 1) == Blocks.water
+				&& world.getBlock(i, j, k-2) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k-2) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k-2) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k-2) == Blocks.stonebrick
+				&& world.getBlock(i+2, j, k) == Blocks.stonebrick
+				&& world.getBlock(i+2, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i+2, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+2, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j-1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j-1, k) == Blocks.stonebrick
+				) {
 			world.setBlock(i, j + 1, k, ROCBlocks.water_portal);
 			world.setBlock(i + 1, j, k, ROCBlocks.water_portal);
 			world.setBlock(i + 1, j + 1, k, ROCBlocks.water_portal);
@@ -72,7 +135,29 @@ public class BlockXylite extends OverworldBlock {
 				&& world.getBlock(i, j, k - 1) == Blocks.water
 				&& world.getBlock(i, j + 1, k - 1) == Blocks.water
 				&& world.getBlock(i - 1, j, k - 1) == Blocks.water
-				&& world.getBlock(i - 1, j + 1, k - 1) == Blocks.water) {
+				&& world.getBlock(i - 1, j + 1, k - 1) == Blocks.water
+				
+				&& world.getBlock(i, j, k-2) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k-2) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k-2) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k-2) == Blocks.stonebrick
+				&& world.getBlock(i-2, j, k) == Blocks.stonebrick
+				&& world.getBlock(i-2, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i-2, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-2, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j, k+1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j+1, k+1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k) == Blocks.stonebrick
+				&& world.getBlock(i+1, j, k-1) == Blocks.stonebrick
+				&& world.getBlock(i+1, j+1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k) == Blocks.stonebrick
+				&& world.getBlock(i, j-1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j-1, k-1) == Blocks.stonebrick
+				&& world.getBlock(i-1, j-1, k) == Blocks.stonebrick
+				) {
 			world.setBlock(i, j + 1, k, ROCBlocks.water_portal);
 			world.setBlock(i - 1, j, k, ROCBlocks.water_portal);
 			world.setBlock(i - 1, j + 1, k, ROCBlocks.water_portal);

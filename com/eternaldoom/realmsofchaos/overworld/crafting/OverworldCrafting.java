@@ -25,6 +25,8 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.xylite_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.xylite_ingot});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.xylite_ingot, 9), new Object[]{"X", 'X', ROCBlocks.xylite_block});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.aquatic_orb), new Object[]{" A ", "A A", " A ", 'A', ROCItems.aquatic_shard});
+		GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ROCBlocks.compressed_lava)), new Object[]{"LL", "LL", 'L', Items.lava_bucket});
+		GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass_pane), 12), new Object[]{"GGG", "GGG", 'G', ROCBlocks.ocean_glass});
 
 		RecipeHelper.addArmorRecipe(ROCItems.heliotrope_helmet, ROCItems.heliotrope_chestplate, ROCItems.heliotrope_leggings, ROCItems.heliotrope_boots, ROCItems.heliotrope);
 		RecipeHelper.addArmorRecipe(ROCItems.citronite_helmet, ROCItems.citronite_chestplate, ROCItems.citronite_leggings, ROCItems.citronite_boots, ROCItems.citronite_gem);
@@ -37,12 +39,14 @@ public class OverworldCrafting {
 		RecipeHelper.addToolRecipe(ROCItems.citronite_sword, ROCItems.citronite_pickaxe, ROCItems.citronite_axe, ROCItems.citronite_shovel, ROCItems.citronite_stone);
 		RecipeHelper.addToolRecipe(ROCItems.xylite_sword, ROCItems.xylite_pickaxe, ROCItems.xylite_axe, ROCItems.xylite_shovel, ROCItems.xylite_ingot);
 		RecipeHelper.addToolRecipe(ROCItems.flame_sword, ROCItems.flame_pickaxe, ROCItems.flame_axe, ROCItems.flame_shovel, ROCItems.flame_stone);
+		RecipeHelper.addToolRecipe(ROCItems.neptunite_sword, ROCItems.neptunite_pickaxe, ROCItems.neptunite_axe, ROCItems.neptunite_shovel, ROCItems.neptunite_ingot);
 		RecipeHelper.addToolRecipe(ROCItems.aquatic_sword, ROCItems.aquatic_pickaxe, ROCItems.aquatic_axe, ROCItems.aquatic_shovel, ROCItems.aquatic_orb);
 
     	ExtractorRecipes.addItemRecipe(ROCItems.xylite_crystal, new ItemStack(ROCItems.xylite_ingot), 50.0f);
+    	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.neptunite_ore), new ItemStack(ROCItems.neptunite_ingot), 40.0f);
+    	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass)), 10.0f);
     	
     	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCItems.heliotrope), 30.0f);
     	GameRegistry.addSmelting(ROCBlocks.ocean_cobblestone, new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_stone)), 20.0f);
-    	GameRegistry.addSmelting(ROCBlocks.neptunite_ore, new ItemStack(ROCItems.neptunite_ingot), 40.0f);
 	}
 }

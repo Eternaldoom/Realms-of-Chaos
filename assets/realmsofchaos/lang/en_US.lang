@@ -14,6 +14,11 @@ tile.stoneOcean.name=Ocean Stone
 tile.cobblestoneOcean.name=Ocean Cobblestone
 tile.bricksOceanstone.name=Ocean Stone Bricks
 tile.oreNeptunite.name=Neptunite Ore
+tile.blockNeptunite.name=Neptunite Block
+tile.glassOcean.name=Ocean Glass
+tile.paneOcean.name=Ocean Glass Pane
+tile.chestOcean.name=Ocean Chest
+tile.lavaCompressed.name=Compressed Lava
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
@@ -69,8 +74,14 @@ item.shovelAquatic.name=Aquatic Shovel
 item.orbAquatic.name=Aquatic Orb
 item.shardAquatic.name=Aquatic Shard
 item.ingotNeptunite.name=Neptunite Ingot
+item.swordNeptunite.name=Neptunite Sword
+item.pickaxeNeptunite.name=Neptunite Pickaxe
+item.axeNeptunite.name=Neptunite Axe
+item.shovelNeptunite.name=Neptunite Shovel
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items
 itemGroup.ROCCombat=Realms of Chaos Combat
 itemGroup.ROCTools=Realms of Chaos Tools
+
+death.attack.molten=%1$s melted

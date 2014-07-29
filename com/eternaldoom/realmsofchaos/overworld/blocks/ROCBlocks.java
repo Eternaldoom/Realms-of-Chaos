@@ -17,6 +17,7 @@ public class ROCBlocks {
     public static OverworldBlock heliotrope_ore;
     public static OverworldBlock heliotrope_block;
     public static Block water_portal;
+    public static OverworldBlock compressed_lava;
 	
     //Nether
 	public static OverworldBlock charwood_leaves;
@@ -62,6 +63,7 @@ public class ROCBlocks {
         ocean_glass = new BlockOceanGlass().register("ocean_glass");
         ocean_glass_pane = new BlockOceanGlassPane().register("ocean_glass_pane");
         ocean_chest = new BlockOceanChest().register("ocean_chest");
+        compressed_lava = new BlockCompressedLava().register("compressed_lava");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
