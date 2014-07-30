@@ -365,7 +365,7 @@ public class WorldGenSurfaceDungeon {
 	
 	private String pickMobSpawner(Random p_76543_1_)
     {
-        return DungeonHooks.getRandomDungeonMob(p_76543_1_);
+        return "AquaticGolem";
     }
 
 }

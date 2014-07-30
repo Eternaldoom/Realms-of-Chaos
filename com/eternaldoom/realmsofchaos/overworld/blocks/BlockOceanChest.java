@@ -22,7 +22,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BlockOceanChest extends BlockContainer{
 	
 	protected BlockOceanChest() {
-		super(Material.glass);
+		super(Material.rock);
 		setCreativeTab(ROCTabs.OverworldBlocks);
 		setBlockTextureName("realmsofchaos:ocean_glass");
 		setHardness(12.0f);

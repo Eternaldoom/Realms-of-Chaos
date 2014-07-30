@@ -33,5 +33,9 @@ public class WorldProviderWater extends WorldProvider{
 	public String getDimensionName() {
 		return "Water"; //TODO: find a decent name for the dimension
 	}
-
+	
+	@Override
+	public boolean canRespawnHere(){
+		return false;
+	}
 }

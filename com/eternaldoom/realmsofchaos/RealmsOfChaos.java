@@ -6,6 +6,7 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
+import com.eternaldoom.realmsofchaos.entity.Entities;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.overworld.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
@@ -51,6 +52,7 @@ public class RealmsOfChaos {
 		TERegistry.init();
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 		OverworldCrafting.initRecipes();
+		Entities.init();
 		if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
