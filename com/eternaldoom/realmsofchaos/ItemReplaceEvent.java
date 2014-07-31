@@ -4,6 +4,8 @@ import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
@@ -91,6 +93,13 @@ public class ItemReplaceEvent {
 				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_boots){
 					evt.player.inventory.consumeInventoryItem(Items.diamond_boots);
 					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_boots));
+				}
+				
+				if(evt.player.inventory.getStackInSlot(i).getItem() == ROCItems.scorpion_stone_active){
+					evt.player.inventory.getStackInSlot(i).setItemDamage(evt.player.inventory.getStackInSlot(i).getItemDamage() + 1);
+					evt.player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5, 3, true));
+					evt.player.addPotionEffect(new PotionEffect(Potion.jump.id, 5, 3, true));
+					if(evt.player.inventory.getStackInSlot(i).getItemDamage() > 160) evt.player.inventory.setInventorySlotContents(i, null);
 				}
 			}	
 		}

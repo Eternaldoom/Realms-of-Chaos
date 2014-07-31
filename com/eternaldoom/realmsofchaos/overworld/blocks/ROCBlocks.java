@@ -18,6 +18,7 @@ public class ROCBlocks {
     public static OverworldBlock heliotrope_block;
     public static Block water_portal;
     public static OverworldBlock compressed_lava;
+    public static OverworldBlock aquatic_block;
 	
     //Nether
 	public static OverworldBlock charwood_leaves;
@@ -64,6 +65,7 @@ public class ROCBlocks {
         ocean_glass_pane = new BlockOceanGlassPane().register("ocean_glass_pane");
         ocean_chest = new BlockOceanChest().register("ocean_chest");
         compressed_lava = new BlockCompressedLava().register("compressed_lava");
+        aquatic_block = new OverworldBlock(Material.glass, "realmsofchaos:aquatic_block", "blockAquatic", 15f, 12f, OverworldBlock.soundTypeGlass).register("aquatic_block");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

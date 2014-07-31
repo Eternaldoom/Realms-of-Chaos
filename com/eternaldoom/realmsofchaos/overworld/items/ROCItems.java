@@ -1,7 +1,11 @@
 package com.eternaldoom.realmsofchaos.overworld.items;
 
+import com.eternaldoom.realmsofchaos.ROCTabs;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ROCItems {
@@ -85,6 +89,9 @@ public class ROCItems {
 	public static ItemROCAxe neptunite_axe;
 	public static ItemROCPickaxe neptunite_pickaxe;
 	public static ItemROCShovel neptunite_shovel;
+	
+	public static ItemFood raw_scorpion, cooked_scorpion;
+	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
 	//Replaced vanilla items
 	public static ItemROCSword diamond_sword;
@@ -173,6 +180,14 @@ public class ROCItems {
 		neptunite_pickaxe = new ItemROCPickaxe(NEPTUNITEt, "realmsofchaos:neptunite_pickaxe", "pickaxeNeptunite", false);
 		neptunite_axe = new ItemROCAxe(NEPTUNITEt, "realmsofchaos:neptunite_axe", "axeNeptunite", false);
 		neptunite_shovel = new ItemROCShovel(NEPTUNITEt, "realmsofchaos:neptunite_shovel", "shovelNeptunite", false);
+		
+		raw_scorpion = (ItemFood) new ItemFood(2, 0.2f, true).setTextureName("realmsofchaos:raw_scorpion").setUnlocalizedName("scorpionRaw").setCreativeTab(ROCTabs.OverworldItems);
+		GameRegistry.registerItem(raw_scorpion, "raw_scorpion");
+		cooked_scorpion = (ItemFood) new ItemFood(10, 1.0f, true).setTextureName("realmsofchaos:cooked_scorpion").setUnlocalizedName("scorpionCooked").setCreativeTab(ROCTabs.OverworldItems);
+		GameRegistry.registerItem(cooked_scorpion, "cooked_scorpion");
+		
+		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
+		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active");
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");

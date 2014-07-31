@@ -27,6 +27,10 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCItems.aquatic_orb), new Object[]{" A ", "A A", " A ", 'A', ROCItems.aquatic_shard});
 		GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ROCBlocks.compressed_lava)), new Object[]{"LL", "LL", 'L', Items.lava_bucket});
 		GameRegistry.addRecipe(new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass_pane), 12), new Object[]{"GGG", "GGG", 'G', ROCBlocks.ocean_glass});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.neptunite_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.neptunite_ingot});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.neptunite_ingot, 9), new Object[]{"X", 'X', ROCBlocks.neptunite_block});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.aquatic_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.aquatic_orb});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.aquatic_orb, 9), new Object[]{"X", 'X', ROCBlocks.aquatic_block});
 
 		RecipeHelper.addArmorRecipe(ROCItems.heliotrope_helmet, ROCItems.heliotrope_chestplate, ROCItems.heliotrope_leggings, ROCItems.heliotrope_boots, ROCItems.heliotrope);
 		RecipeHelper.addArmorRecipe(ROCItems.citronite_helmet, ROCItems.citronite_chestplate, ROCItems.citronite_leggings, ROCItems.citronite_boots, ROCItems.citronite_gem);
@@ -48,5 +52,6 @@ public class OverworldCrafting {
     	
     	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCItems.heliotrope), 30.0f);
     	GameRegistry.addSmelting(ROCBlocks.ocean_cobblestone, new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_stone)), 20.0f);
+    	GameRegistry.addSmelting(ROCItems.raw_scorpion, new ItemStack(ROCItems.cooked_scorpion), 20.0f);
 	}
 }

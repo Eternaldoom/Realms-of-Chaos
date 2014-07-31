@@ -19,6 +19,7 @@ tile.glassOcean.name=Ocean Glass
 tile.paneOcean.name=Ocean Glass Pane
 tile.chestOcean.name=Ocean Chest
 tile.lavaCompressed.name=Compressed Lava
+tile.blockAquatic.name=Aquatic Block
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
@@ -78,6 +79,9 @@ item.swordNeptunite.name=Neptunite Sword
 item.pickaxeNeptunite.name=Neptunite Pickaxe
 item.axeNeptunite.name=Neptunite Axe
 item.shovelNeptunite.name=Neptunite Shovel
+item.scorpionRaw.name=Raw Scorpion
+item.scorpionCooked.name=Cooked Scorpion
+ietm.stoneScorpion.name=Scorpion Stone
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items
@@ -85,3 +89,6 @@ itemGroup.ROCCombat=Realms of Chaos Combat
 itemGroup.ROCTools=Realms of Chaos Tools
 
 death.attack.molten=%1$s melted
+
+entity.AquaticGolem.name=Aquatic Golem
+entity.Scorpioid.name=Scorpioid
