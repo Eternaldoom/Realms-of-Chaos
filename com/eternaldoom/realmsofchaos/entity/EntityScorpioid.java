@@ -71,7 +71,9 @@ public class EntityScorpioid extends EntityMob{
     @Override
     protected Item getDropItem()
     {
-        return Items.apple;
+    	int i = this.rand.nextInt(10);
+    	if (i == 5) return ROCItems.scorpion_stone;
+        return isBurning() ? ROCItems.cooked_scorpion : ROCItems.raw_scorpion;
     }
     
     @Override
