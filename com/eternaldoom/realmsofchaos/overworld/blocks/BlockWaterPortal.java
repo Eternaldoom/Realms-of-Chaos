@@ -32,10 +32,10 @@ public class BlockWaterPortal extends BlockFluidClassic{
             else if (thePlayer.dimension == 0 || thePlayer.dimension == -1 || thePlayer.dimension == 1)
             {
                 thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.waterDimID, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.waterDimID)));
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.iceDimID, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.iceDimID)));
             }
             
-            else if (thePlayer.dimension == RealmsOfChaos.waterDimID)
+            else if (thePlayer.dimension == RealmsOfChaos.iceDimID)
             {
                 thePlayer.timeUntilPortal = 10;
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(0)));

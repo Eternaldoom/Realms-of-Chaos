@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenGiantIceSpike;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.water.gen.WorldGenSurfaceDungeon;
 
@@ -25,10 +26,22 @@ public class OverworldGen implements IWorldGenerator{
 					break;
 				case 23:
 					generateWater(world, random, chunkX * 16, chunkZ * 16);
+				case 24:
+					generateIceRuins(world, random, chunkX * 16, chunkZ * 16);
 		
 	}
 	}
 	
+	private void generateIceRuins(World world, Random random, int chunkX, int chunkZ) {
+		for (int i = 0; i < 2; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(16);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			new WorldGenGiantIceSpike().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
+	}
+
 	public void generateOverworld(World world, Random random, int chunkX, int chunkZ){
 		for (int i = 0; i < 2; i++){
 			int Xcoord1 = chunkX + random.nextInt(16);

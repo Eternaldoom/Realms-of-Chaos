@@ -11,6 +11,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
 import com.eternaldoom.realmsofchaos.entity.Entities;
+import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.overworld.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.overworld.crafting.OverworldCrafting;
@@ -41,8 +43,10 @@ public class RealmsOfChaos {
 	public static RealmsOfChaos instance;
 	
 	public static int waterDimID = 23;
+	public static int iceDimID = 24;
 
 	public static BiomeGenBase waterBiome;
+	public static BiomeGenBase iceBiome;
 	
 	public static DamageSource molten = (new DamageSource("molten")).setFireDamage();
 	
@@ -51,9 +55,12 @@ public class RealmsOfChaos {
 		System.out.println("[Realms of Chaos] Initializing mod.");
 		DimensionManager.registerProviderType(waterDimID, WorldProviderWater.class, true);
     	DimensionManager.registerDimension(waterDimID, waterDimID);
+    	DimensionManager.registerProviderType(iceDimID, WorldProviderIceRuins.class, true);
+    	DimensionManager.registerDimension(iceDimID, iceDimID);
     	
     	waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
-    	
+    	iceBiome = new BiomeGenIceRuins(56).setColor(48).setBiomeName("Ice Ruins").setHeight(new BiomeGenBase.Height(0.2f, 0.2f));  
+
 		ROCBlocks.init();
 		ROCItems.init();
 		TERegistry.init();
