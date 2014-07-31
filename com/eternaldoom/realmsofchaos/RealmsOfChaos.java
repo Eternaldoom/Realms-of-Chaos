@@ -72,7 +72,7 @@ public class RealmsOfChaos {
 	@EventHandler
 	public void init(FMLInitializationEvent evt){
 		try{
-			InputStream is = DevCapes.getInstance().getStreamForURL(new URL("https://raw.githubusercontent.com/Eternaldoom/Realms-of-Chaos/master/capes.json"));
+			InputStream is = DevCapes.getInstance().getStreamForURL(new URL("https://dl.dropboxusercontent.com/s/b1dc1vykv0hfseg/capes.json"));
 			CapeConfig config = CapeConfigManager.INSTANCE.parseFromStream(is);
 			CapeConfigManager.INSTANCE.addConfig(CapeConfigManager.getUniqueId(), config);
 		}catch (MalformedURLException e){
