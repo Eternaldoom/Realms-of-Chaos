@@ -39,6 +39,7 @@ public class ROCBlocks {
     public static BlockOceanChest ocean_chest;
     
     //Ice Ruins
+    public static OverworldBlock ice_portal;
     public static OverworldBlock fractonite_ore;
     public static OverworldBlock fractonite_block;
 
@@ -69,8 +70,9 @@ public class ROCBlocks {
         ocean_glass_pane = new BlockOceanGlassPane().register("ocean_glass_pane");
         ocean_chest = new BlockOceanChest().register("ocean_chest");
         compressed_lava = new BlockCompressedLava().register("compressed_lava");
-        aquatic_block = new OverworldBlock(Material.glass, "realmsofchaos:aquatic_block", "blockAquatic", 15f, 12f, OverworldBlock.soundTypeGlass).register("aquatic_block");
+        aquatic_block = new BlockAquatic().register("aquatic_block");
         fractonite_ore = new OverworldBlock(Material.rock, "realmsofchaos:fractonite_ore", "oreFractonite", 0f, 0f, OverworldBlock.soundTypeGlass).register("fractonite_ore");
+        ice_portal = new BlockIcePortal().register("ice_ruins_portal");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
