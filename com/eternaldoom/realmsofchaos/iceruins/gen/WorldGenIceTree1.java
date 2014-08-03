@@ -18,7 +18,7 @@ public class WorldGenIceTree1 extends WorldGenerator {
 	public boolean generate(World world, Random rand, int i, int yCoord, int k) {
 		if (world.getBlock(i+3, yCoord, k+2) == Blocks.air
 				&& world.getBlock(i+3, yCoord - 1, k+3) == Blocks.snow) {
-			int height = rand.nextInt(4) + 4;
+			int height = rand.nextInt(6) + 2;
 			for (int o = yCoord; o < yCoord + height; o++) {
 				world.setBlock(i+3, o, k+3, Blocks.log);
 			}

@@ -9,7 +9,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenBigRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenGiantIceSpike;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceTree1;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsHouse;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsStatue;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsTower;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsWell;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.water.gen.WorldGenSurfaceDungeon;
 
@@ -50,6 +53,30 @@ public class OverworldGen implements IWorldGenerator{
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
 			new WorldGenRuinsStatue().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
+		
+		for (int i = 0; i < 4; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(256);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			new WorldGenRuinsTower().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
+		
+		for (int i = 0; i < 2; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(256);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			new WorldGenRuinsHouse().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
+		
+		for (int i = 0; i < 4; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(256);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			new WorldGenRuinsWell().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}
 		
 		for (int i = 0; i < 2; i++){

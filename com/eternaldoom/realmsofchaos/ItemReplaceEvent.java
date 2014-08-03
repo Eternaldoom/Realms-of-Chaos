@@ -96,7 +96,7 @@ public class ItemReplaceEvent {
 				}
 				
 				if(evt.player.inventory.getStackInSlot(i).getItem() == ROCItems.scorpion_stone_active){
-					evt.player.inventory.getStackInSlot(i).setItemDamage(evt.player.inventory.getStackInSlot(i).getItemDamage() + 1);
+					if(!evt.player.capabilities.isCreativeMode) evt.player.inventory.getStackInSlot(i).setItemDamage(evt.player.inventory.getStackInSlot(i).getItemDamage() + 1);
 					evt.player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5, 3, true));
 					evt.player.addPotionEffect(new PotionEffect(Potion.jump.id, 5, 3, true));
 					if(evt.player.inventory.getStackInSlot(i).getItemDamage() > 160) evt.player.inventory.setInventorySlotContents(i, null);
