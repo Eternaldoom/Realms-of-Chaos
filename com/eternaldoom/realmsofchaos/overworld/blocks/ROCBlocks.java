@@ -42,6 +42,7 @@ public class ROCBlocks {
     public static OverworldBlock ice_portal;
     public static OverworldBlock fractonite_ore;
     public static OverworldBlock fractonite_block;
+    public static OverworldBlock frozen_stone;
 
 	public static void init() {
 		waterportal = new FluidWaterPortal();
@@ -73,6 +74,7 @@ public class ROCBlocks {
         aquatic_block = new BlockAquatic().register("aquatic_block");
         fractonite_ore = new OverworldBlock(Material.rock, "realmsofchaos:fractonite_ore", "oreFractonite", 0f, 0f, OverworldBlock.soundTypeGlass).register("fractonite_ore");
         ice_portal = new BlockIcePortal().register("ice_ruins_portal");
+        frozen_stone = new OverworldBlock(Material.rock, "realmsofchaos:frozen_stone", "stoneFrozen", 18f, 0f, OverworldBlock.soundTypePiston).register("frozen_stone");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

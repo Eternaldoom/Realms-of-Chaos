@@ -44,6 +44,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
+import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
+
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderIceRuins implements IChunkProvider
@@ -182,7 +185,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
                             {
                                 if ((d15 += d16) > 0.0D)
                                 {
-                                    p_147424_3_[j3 += short1] = Blocks.stone;
+                                    p_147424_3_[j3 += short1] = ROCBlocks.frozen_stone;
                                 }
                                 else if (k2 * 8 + l2 < b0)
                                 {
