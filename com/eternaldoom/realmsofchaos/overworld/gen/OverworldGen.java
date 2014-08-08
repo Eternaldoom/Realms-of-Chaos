@@ -8,6 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenBigRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenGiantIceSpike;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceMountain;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceTree1;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsHouse;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsStatue;
@@ -93,6 +94,14 @@ public class OverworldGen implements IWorldGenerator{
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
 			new WorldGenIceTree1().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
+		
+		for (int i = 0; i < 1; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(256);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			if(random.nextInt(5) == 3) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}
 	}
 
