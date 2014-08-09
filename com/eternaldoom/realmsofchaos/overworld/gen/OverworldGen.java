@@ -101,7 +101,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			if(random.nextInt(5) == 3) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(3) == 1) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}
 	}
 
