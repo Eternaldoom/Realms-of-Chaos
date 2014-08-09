@@ -20,6 +20,11 @@ tile.paneOcean.name=Ocean Glass Pane
 tile.chestOcean.name=Ocean Chest
 tile.lavaCompressed.name=Compressed Lava
 tile.blockAquatic.name=Aquatic Block
+tile.oreFractonite.name=Fractonite Ore
+tile.blockFractonite.name=Fractonite Block
+tile.stoneFrozen.name=Frozen Stone
+tile.cobblestoneFrozen.name=Frozen Cobblestone
+tile.stoneBricksFrozen.name=Frozen Stone Bricks
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

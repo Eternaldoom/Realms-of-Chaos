@@ -43,6 +43,8 @@ public class ROCBlocks {
     public static OverworldBlock fractonite_ore;
     public static OverworldBlock fractonite_block;
     public static OverworldBlock frozen_stone;
+    public static OverworldBlock frozen_cobblestone;
+    public static OverworldBlock frozen_stone_bricks;
 
 	public static void init() {
 		waterportal = new FluidWaterPortal();
@@ -73,10 +75,12 @@ public class ROCBlocks {
         compressed_lava = new BlockCompressedLava().register("compressed_lava");
         aquatic_block = new BlockAquatic().register("aquatic_block");
         fractonite_ore = new OverworldBlock(Material.rock, "realmsofchaos:fractonite_ore", "oreFractonite", 0f, 0f, OverworldBlock.soundTypeGlass).register("fractonite_ore");
+        fractonite_block = new OverworldBlock(Material.ice, "realmsofchaos:fractonite_block", "blockFractonite", 19.5f, 1000000f, OverworldBlock.soundTypePiston).register("fractonite_block");
         ice_portal = new BlockIcePortal().register("ice_ruins_portal");
-        frozen_stone = new OverworldBlock(Material.rock, "realmsofchaos:frozen_stone", "stoneFrozen", 18f, 0f, OverworldBlock.soundTypePiston).register("frozen_stone");
+        frozen_stone = new BlockFrozenStone().register("frozen_stone");
+        frozen_cobblestone = new OverworldBlock(Material.rock, "realmsofchaos:frozen_cobblestone", "cobblestoneFrozen", 18f, 5f, OverworldBlock.soundTypePiston).register("frozen_cobblestone");
+        frozen_stone_bricks = new OverworldBlock(Material.rock, "realmsofchaos:frozen_stone_bricks", "stoneBricksFrozen", 18.5f, 7.5f, OverworldBlock.soundTypePiston).register("frozen_stone_bricks");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
-
 }
