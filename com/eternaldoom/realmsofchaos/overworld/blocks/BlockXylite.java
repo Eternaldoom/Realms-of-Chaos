@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class BlockXylite extends OverworldBlock {
+public class BlockXylite extends ROCModBlock {
 
 	public BlockXylite() {
 		super(Material.iron, "realmsofchaos:xylite_block", "blockXylite", 7.5f,

@@ -15,7 +15,7 @@ import com.eternaldoom.realmsofchaos.iceruins.gen.TeleporterIceRuins;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockIcePortal extends OverworldBlock{
+public class BlockIcePortal extends ROCModBlock{
 	
 	public BlockIcePortal() {
 		super(Material.ice, "minecraft:ice", "portalIceRuins", 0f, 0f, soundTypeGlass);

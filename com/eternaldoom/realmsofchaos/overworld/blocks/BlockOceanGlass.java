@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.Facing;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockOceanGlass extends OverworldBlock{
+public class BlockOceanGlass extends ROCModBlock{
 
 	public BlockOceanGlass() {
 		super(Material.glass, "realmsofchaos:ocean_glass", "glassOcean", 3.5f, 0.1f, soundTypeGlass);

@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockCharwoodLog extends OverworldBlock{
+public class BlockCharwoodLog extends ROCModBlock{
 	
 	@SideOnly(Side.CLIENT)
     private IIcon iconLogTop;

@@ -11,7 +11,7 @@ import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceMountain;
 import com.eternaldoom.realmsofchaos.overworld.gen.WorldGenCharwoodTree;
 import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 
-public class BlockCharwoodSapling extends OverworldBlock{
+public class BlockCharwoodSapling extends ROCModBlock{
 
 	public BlockCharwoodSapling() {
 		super(Material.rock, "realmsofchaos:charwood_sapling", "saplingCharwood", 0.0f, 2.5f, null);

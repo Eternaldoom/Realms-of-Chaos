@@ -14,7 +14,7 @@ import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockCharwoodLeaves extends OverworldBlock {
+public class BlockCharwoodLeaves extends ROCModBlock {
 
 	public BlockCharwoodLeaves() {
 		super(Material.cloth, "realmsofchaos:charwood_leaves", "leavesCharwood", 0.0f, 5.0f, soundTypeCloth);

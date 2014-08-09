@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 
-public class BlockCompressedLava extends OverworldBlock{
+public class BlockCompressedLava extends ROCModBlock{
 
 	public BlockCompressedLava() {
 		super(Material.rock, "realmsofchaos:compressed_lava", "lavaCompressed", 2.5f, 5.5f, soundTypePiston);

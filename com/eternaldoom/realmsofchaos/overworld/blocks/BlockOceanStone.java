@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
-public class BlockOceanStone extends OverworldBlock{
+public class BlockOceanStone extends ROCModBlock{
 
 	public BlockOceanStone() {
 		super(Material.rock, "realmsofchaos:ocean_stone", "stoneOcean", 8.5f, 3.5f, soundTypePiston);

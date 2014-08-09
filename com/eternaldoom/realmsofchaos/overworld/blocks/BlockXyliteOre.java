@@ -7,7 +7,7 @@ import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
-public class BlockXyliteOre extends OverworldBlock {
+public class BlockXyliteOre extends ROCModBlock {
 
 	public BlockXyliteOre() {
 		super(Material.rock, "realmsofchaos:xylite_ore", "oreXylite", 7.0f, 1000000.0f, soundTypePiston);

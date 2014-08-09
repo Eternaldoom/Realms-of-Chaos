@@ -6,11 +6,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class BlockAquatic extends OverworldBlock {
+public class BlockAquatic extends ROCModBlock {
 
 	public BlockAquatic() {
 		super(Material.glass, "realmsofchaos:aquatic_block", "blockAquatic",
-				15f, 12f, OverworldBlock.soundTypeGlass);
+				15f, 12f, soundTypeGlass);
 	}
 
 	@Override

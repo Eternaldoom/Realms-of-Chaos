@@ -7,7 +7,7 @@ import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
-public class BlockCitroniteOre extends OverworldBlock {
+public class BlockCitroniteOre extends ROCModBlock {
 
 	public BlockCitroniteOre() {
 		super(Material.rock, "realmsofchaos:citronite_ore", "oreCitronite", 5.0f, 1000000.0f, soundTypePiston);

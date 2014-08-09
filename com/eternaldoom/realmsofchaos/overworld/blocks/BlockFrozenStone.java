@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
-public class BlockFrozenStone extends OverworldBlock{
+public class BlockFrozenStone extends ROCModBlock{
 
 	public BlockFrozenStone() {
 		super(Material.rock, "realmsofchaos:frozen_stone", "stoneFrozen", 18f, 0f,soundTypePiston);
