@@ -11,6 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
 import com.eternaldoom.realmsofchaos.entity.Entities;
+import com.eternaldoom.realmsofchaos.entity.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
@@ -32,6 +33,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
@@ -66,7 +68,7 @@ public class RealmsOfChaos {
 		TERegistry.init();
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 		OverworldCrafting.initRecipes();
-		Entities.init();
+		Entities.preinit();
 		if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
@@ -74,10 +76,13 @@ public class RealmsOfChaos {
 		MinecraftForge.EVENT_BUS.register(new TooltipHideEvent());
 		
 		if(FMLCommonHandler.instance().getSide().isClient()) MinecraftForge.EVENT_BUS.register(new OverlayEvent());
+		EntityRegistry.registerGlobalEntityID(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId(), this, 64, 1, true);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent evt){
+		Entities.init();
 	}
 	
 	@EventHandler
