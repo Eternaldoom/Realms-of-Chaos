@@ -4,6 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+
+import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ROCBlocks {
@@ -45,6 +48,8 @@ public class ROCBlocks {
     public static ROCModBlock frozen_stone;
     public static ROCModBlock frozen_cobblestone;
     public static ROCModBlock frozen_stone_bricks;
+    
+    private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
 	public static void init() {
 		waterportal = new FluidWaterPortal();
@@ -66,7 +71,7 @@ public class ROCBlocks {
         water_portal = new BlockWaterPortal();
         ocean_stone = new BlockOceanStone();
         ocean_cobblestone = new ROCModBlock(Material.rock, "realmsofchaos:ocean_cobblestone", "cobblestoneOcean", 8.5f, 4.5f, ROCModBlock.soundTypePiston).register("ocean_cobblestone");
-        oceanstone_bricks = new ROCModBlock(Material.rock, "realmsofchaos:oceanstone_bricks", "bricksOceanstone", 8.5f, 5.5f, ROCModBlock.soundTypePiston).register("oceanstone_bricks");
+        oceanstone_bricks = new ROCMetadataBlock(3, modStoneBricksTextures, Material.rock, "realmsofchaos:oceanstone_bricks", "bricksOceanstone", 8.5f, 5.5f, ROCModBlock.soundTypePiston).register(ItemBlockModStoneBrick.class, "oceanstone_bricks");
         neptunite_ore = new ROCModBlock(Material.rock, "realmsofchaos:neptunite_ore", "oreNeptunite", 11f, 1000000f, ROCModBlock.soundTypePiston).register("neptunite_ore");
         neptunite_block = new ROCModBlock(Material.iron, "realmsofchaos:neptunite_block", "blockNeptunite", 14f, 14f, ROCModBlock.soundTypeMetal).register("neptunite_block");
         ocean_glass = new BlockOceanGlass().register("ocean_glass");
@@ -79,7 +84,7 @@ public class ROCBlocks {
         ice_portal = new BlockIcePortal().register("ice_ruins_portal");
         frozen_stone = new BlockFrozenStone().register("frozen_stone");
         frozen_cobblestone = new ROCModBlock(Material.rock, "realmsofchaos:frozen_cobblestone", "cobblestoneFrozen", 18f, 5f, ROCModBlock.soundTypePiston).register("frozen_cobblestone");
-        frozen_stone_bricks = new BlockFrozenStoneBricks().register("frozen_stone_bricks");
+        frozen_stone_bricks = new ROCMetadataBlock(3, modStoneBricksTextures, Material.rock, "realmsofchaos:frozen_stone_bricks", "stoneBricksFrozen", 18.5f, 7.5f, ROCModBlock.soundTypePiston).register(ItemBlockModStoneBrick.class, "frozen_stone_bricks");
         
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

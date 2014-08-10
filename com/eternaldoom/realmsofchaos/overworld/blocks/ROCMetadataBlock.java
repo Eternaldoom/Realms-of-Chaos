@@ -6,23 +6,29 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+
+import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFrozenStoneBricks extends ROCModBlock
+public class ROCMetadataBlock extends ROCModBlock
 {
-    public static final String[] tileNames = new String[] {"default", "cracked", "chiseled"};
-    public static final String[] textureNames = new String[] {null, "cracked", "carved"};
+	private String[] textureNames;
     @SideOnly(Side.CLIENT)
     private IIcon[] theIcon;
+    public int metaCount;
 
-    public BlockFrozenStoneBricks()
+    public ROCMetadataBlock(int blockCount, String[] textureExtensions, Material mat, String tex, String name, float hard, float resist, SoundType sound)
     {
-        super(Material.rock, "realmsofchaos:frozen_stone_bricks", "stoneBricksFrozen", 18.5f, 7.5f, soundTypePiston);
+        super(mat, tex, name, hard, resist, sound);
+        
+        this.metaCount = blockCount;
+        this.textureNames = textureExtensions;
     }
 
     @Override
@@ -46,7 +52,7 @@ public class BlockFrozenStoneBricks extends ROCModBlock
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
-        for (int i = 0; i < 3; ++i)
+        for (int i = 0; i < metaCount; ++i)
         {
             list.add(new ItemStack(item, 1, i));
         }
@@ -71,8 +77,8 @@ public class BlockFrozenStoneBricks extends ROCModBlock
         }
     }
     
-    public BlockFrozenStoneBricks register(String name){
-    	GameRegistry.registerBlock(this, ItemBlockFrozenStoneBrick.class, name);
+    public ROCMetadataBlock register(Class<? extends ItemBlock> ib, String name){
+    	GameRegistry.registerBlock(this, ib, name);
     	return this;
     }
 }

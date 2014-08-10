@@ -1,11 +1,11 @@
-package com.eternaldoom.realmsofchaos.overworld.blocks;
+package com.eternaldoom.realmsofchaos.itemblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockFrozenStoneBrick extends ItemBlock {
-	public ItemBlockFrozenStoneBrick(Block block) {
+public class ItemBlockModStoneBrick extends ItemBlock {
+	public ItemBlockModStoneBrick(Block block) {
 		super(block);
 		setHasSubtypes(true);
 	}
