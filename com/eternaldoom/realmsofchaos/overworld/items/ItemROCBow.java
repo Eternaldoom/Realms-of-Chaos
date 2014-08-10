@@ -14,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
@@ -43,75 +45,35 @@ public class ItemROCBow extends OverworldItem
 
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int time)
     {
-        int j = this.getMaxItemUseDuration(stack) - time;
-
-        boolean infinite = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
-
-        if (infinite || player.inventory.hasItem(ammo))
-        {
-            float f = (float)j / 20.0F;
-            f = (f * f + f * 2.0F) / 3.0F;
-
-            if ((double)f < 0.1D)
-            {
-                return;
-            }
-
-            if (f > 1.0F)
-            {
-                f = 1.0F;
-            }
-
+    	int maxItemUse = getMaxItemUseDuration(stack) - time;
+        ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled()) return;
+        maxItemUse = event.charge;
+        boolean infiniteAmmo = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
+        if (infiniteAmmo || player.inventory.hasItem(ammo)) {
+            float scaledItemUse = (float) maxItemUse / 20.0F;
+            scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;
+            if ((double) scaledItemUse < 0.1) return;
+            if (scaledItemUse > 1) scaledItemUse = 1;
             EntityArrow entityarrow = null;
-            
-            try{
-            entityarrow = arrowClass.getConstructor(World.class, EntityLivingBase.class, float.class).newInstance(world, (EntityLivingBase)player, f * 2.0F);
-            }catch(Exception e){
-            	e.printStackTrace();
+            try {
+                entityarrow = arrowClass.getConstructor(World.class, EntityLivingBase.class, float.class).newInstance(world, player, scaledItemUse * 2);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            
             entityarrow.setDamage(damage);
-
-            if (f == 1.0F)
-            {
-                entityarrow.setIsCritical(true);
-            }
-
-            int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
-
-            if (k > 0)
-            {
-                entityarrow.setDamage(entityarrow.getDamage() + (double)k * 0.5D + 0.5D);
-            }
-
-            int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
-
-            if (l > 0)
-            {
-                entityarrow.setKnockbackStrength(l);
-            }
-
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0)
-            {
-                entityarrow.setFire(100);
-            }
-
+            if (scaledItemUse == 1) entityarrow.setIsCritical(true);
+            int powerLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
+            if (powerLevel > 0) entityarrow.setDamage(entityarrow.getDamage() + (double) powerLevel * 0.5 + 0.5);
+            int punchLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
+            if (punchLevel > 0) entityarrow.setKnockbackStrength(punchLevel);
+            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack) > 0) entityarrow.setFire(100);
             stack.damageItem(1, player);
-            world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-
-            if (infinite)
-            {
-                entityarrow.canBePickedUp = 2;
-            }
-            else
-            {
-                player.inventory.consumeInventoryItem(ammo);
-            }
-
-            if (!world.isRemote)
-            {
-                world.spawnEntityInWorld(entityarrow);
-            }
+            world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + scaledItemUse * 0.5F);
+            if (infiniteAmmo) entityarrow.canBePickedUp = 2;
+            else player.inventory.consumeInventoryItem(ammo);
+            if (!world.isRemote) world.spawnEntityInWorld(entityarrow);
         }
     }
 
@@ -172,12 +134,21 @@ public class ItemROCBow extends OverworldItem
     
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-    	list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + "Uses Remaining");
-    	list.add(EnumChatFormatting.RED + "" + damage + "Ranged Damage");
+    	list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
+    	list.add(EnumChatFormatting.RED + "" + damage + " Ranged Damage");
     }
     
     @Override
     public boolean isFull3D(){
     	return true;
+    }
+    
+    @Override
+    public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
+        if (player.getItemInUse() == null) return itemIcon;
+        int pulling = stack.getMaxItemUseDuration() - useRemaining;
+        if (pulling >= 18) return iconArray[2];
+        if (pulling > 13) return iconArray[1];
+        return iconArray[0];
     }
 }

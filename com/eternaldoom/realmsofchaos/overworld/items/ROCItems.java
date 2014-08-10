@@ -193,7 +193,7 @@ public class ROCItems {
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
 		
-		iron_bow = new ItemROCBow("minecraft:bow", "bowIron", Items.arrow, EntityIronArrow.class, 150, 3);
+		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", Items.arrow, EntityIronArrow.class, 150, 3);
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
