@@ -19,6 +19,7 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -150,5 +151,11 @@ public class ItemROCBow extends OverworldItem
         if (pulling >= 18) return iconArray[2];
         if (pulling > 13) return iconArray[1];
         return iconArray[0];
+    }
+    
+    @Override
+    public ItemROCBow register(String name){
+    	GameRegistry.registerItem(this, name);
+    	return this;
     }
 }

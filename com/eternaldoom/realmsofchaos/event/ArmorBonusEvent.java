@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos;
+package com.eternaldoom.realmsofchaos.event;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;

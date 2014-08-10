@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos;
+package com.eternaldoom.realmsofchaos.event;
 
 import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
 

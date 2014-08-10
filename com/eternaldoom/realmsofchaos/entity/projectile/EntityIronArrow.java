@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos.entity;
+package com.eternaldoom.realmsofchaos.entity.projectile;
 
 import java.util.List;
 
@@ -40,11 +40,10 @@ public class EntityIronArrow extends EntityArrow
     public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
-    private double damage = 2.0D;
+    private double damage = 3.0D;
     /** The amount of knockback an arrow applies when it hits a mob. */
     private int knockbackStrength;
-    private static final String __OBFID = "CL_00001715";
-
+    
     public EntityIronArrow(World p_i1753_1_)
     {
         super(p_i1753_1_);

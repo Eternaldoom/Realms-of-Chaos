@@ -91,6 +91,8 @@ item.shovelNeptunite.name=Neptunite Shovel
 item.scorpionRaw.name=Raw Scorpion
 item.scorpionCooked.name=Cooked Scorpion
 item.stoneScorpion.name=Scorpion Stone
+item.bowIron.name=Iron Bow
+item.bowDiamond.name=Diamond Bow
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items

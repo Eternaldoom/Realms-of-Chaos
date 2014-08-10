@@ -1,14 +1,16 @@
 package com.eternaldoom.realmsofchaos.overworld.items;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-import com.eternaldoom.realmsofchaos.entity.EntityIronArrow;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.common.util.EnumHelper;
+
+import com.eternaldoom.realmsofchaos.ROCTabs;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ROCItems {
 	
@@ -96,6 +98,7 @@ public class ROCItems {
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
 	public static ItemROCBow iron_bow;
+	public static ItemROCBow diamond_bow;
 	
 	//Replaced vanilla items
 	public static ItemROCSword diamond_sword;
@@ -193,7 +196,8 @@ public class ROCItems {
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
 		
-		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", Items.arrow, EntityIronArrow.class, 150, 3);
+		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", Items.arrow, EntityIronArrow.class, 425, 3);
+		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", Items.arrow, EntityDiamondArrow.class, 700, 5);
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
@@ -269,7 +273,8 @@ public class ROCItems {
 		neptunite_axe.register("neptunite_axe");
 		neptunite_shovel.register("neptunite_shovel");
 		
-		GameRegistry.registerItem(iron_bow, "iron_bow");
+		iron_bow.register("iron_bow");
+		diamond_bow.register("diamond_bow");
 	}
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)

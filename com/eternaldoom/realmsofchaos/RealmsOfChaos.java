@@ -11,7 +11,11 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
 import com.eternaldoom.realmsofchaos.entity.Entities;
-import com.eternaldoom.realmsofchaos.entity.EntityIronArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
+import com.eternaldoom.realmsofchaos.event.ArmorBonusEvent;
+import com.eternaldoom.realmsofchaos.event.ItemReplaceEvent;
+import com.eternaldoom.realmsofchaos.event.OverlayEvent;
+import com.eternaldoom.realmsofchaos.event.TooltipEvent;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
@@ -73,11 +77,9 @@ public class RealmsOfChaos {
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
-		MinecraftForge.EVENT_BUS.register(new TooltipHideEvent());
+		MinecraftForge.EVENT_BUS.register(new TooltipEvent());
 		
 		if(FMLCommonHandler.instance().getSide().isClient()) MinecraftForge.EVENT_BUS.register(new OverlayEvent());
-		EntityRegistry.registerGlobalEntityID(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId(), this, 64, 1, true);
 	}
 	
 	@EventHandler

@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos;
+package com.eternaldoom.realmsofchaos.event;
 
 import net.minecraft.init.Blocks;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
