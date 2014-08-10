@@ -26,7 +26,9 @@ tile.stoneFrozen.name=Frozen Stone
 tile.cobblestoneFrozen.name=Frozen Cobblestone
 tile.stoneBricksFrozen.name=Frozen Stone Bricks
 tile.stoneBricksFrozenCracked.name=Cracked Frozen Stone Bricks
-tile.stoneBricksFrozenCarved.name=Chisled Frozen Stone Bricks
+tile.stoneBricksFrozenCarved.name=Chiseled Frozen Stone Bricks
+tile.bricksOceanStoneCracked.name=Cracked Ocean Stone Bricks
+tile.bricksOceanStoneCarved.name=Chiseled Ocean Stone Bricks
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
