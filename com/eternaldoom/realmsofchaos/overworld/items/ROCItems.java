@@ -8,7 +8,9 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -16,14 +18,15 @@ public class ROCItems {
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	
-	public static final ArmorMaterial IRONa = addArmorMaterial("IRON", 206, new int[]{11, 11, 11, 11}, 9);
-	public static final ArmorMaterial DIAMONDa = addArmorMaterial("DIAMOND", 454, new int[]{13, 13, 13, 13}, 10);
-	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 2651, new int[]{14, 14, 14, 14}, 10);
-	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, new int[]{14, 14, 14, 14}, 20);
-	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, new int[]{15, 15, 15, 15}, 15);
-	public static final ArmorMaterial FLAMEa = addArmorMaterial("FLAME", 2151, new int[]{16, 16, 16, 16}, 12);
-	public static final ArmorMaterial NEPTUNITEa = addArmorMaterial("NEPTUNITE", -1, new int[]{0, 0, 0, 0}, 12);
-	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", 3651, new int[]{17, 17, 17, 17}, 6);
+	public static final ArmorMaterial IRONa = addArmorMaterial("IRON", 206, 9);
+	public static final ArmorMaterial DIAMONDa = addArmorMaterial("DIAMOND", 454, 10);
+	public static final ArmorMaterial HELIOTROPEa = addArmorMaterial("HELIOTROPE", 2651, 10);
+	public static final ArmorMaterial CITRONITEa = addArmorMaterial("CITRONITE", 3151, 20);
+	public static final ArmorMaterial XYLITEa = addArmorMaterial("XYLITE", 3651, 15);
+	public static final ArmorMaterial FLAMEa = addArmorMaterial("FLAME", 2151, 12);
+	public static final ArmorMaterial NEPTUNITEa = addArmorMaterial("NEPTUNITE", -1, 12);
+	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", 3651, 6);
+	public static final ArmorMaterial FRACTONITEa = addArmorMaterial("FRACTONITE", -1, 20);
 	
 	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
@@ -54,10 +57,7 @@ public class ROCItems {
 	public static ItemROCArmor heliotrope_leggings;
 	public static ItemROCArmor heliotrope_boots;
 	
-	public static ItemROCArmor xylite_helmet;
-	public static ItemROCArmor xylite_chestplate;
-	public static ItemROCArmor xylite_leggings;
-	public static ItemROCArmor xylite_boots;
+	public static ItemROCArmor xylite_helmet, xylite_chestplate, xylite_leggings, xylite_boots;
 	
 	public static ItemROCArmor flame_helmet, flame_chestplate, flame_leggings, flame_boots;
 	
@@ -83,6 +83,10 @@ public class ROCItems {
 	
 	public static ItemROCArmor aquatic_helmet, aquatic_chestplate, aquatic_leggings, aquatic_boots;
 	public static ItemROCArmor neptunite_helmet, neptunite_chestplate, neptunite_leggings, neptunite_boots;
+	
+	public static OverworldItem fractonite_stone;
+	
+	public static ItemROCArmor fractonite_helmet, fractonite_chestplate, fractonite_leggings, fractonite_boots;
 
 	public static ItemROCSword aquatic_sword;
 	public static ItemROCAxe aquatic_axe;
@@ -97,8 +101,11 @@ public class ROCItems {
 	public static ItemFood raw_scorpion, cooked_scorpion;
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
-	public static ItemROCBow iron_bow;
-	public static ItemROCBow diamond_bow;
+	public static ItemROCBow iron_bow, diamond_bow;
+	public static OverworldItem iron_arrow, diamond_arrow;
+	
+	public static ItemCannon iron_cannon, diamond_cannon;
+	public static OverworldItem iron_bullet, diamond_bullet;
 	
 	//Replaced vanilla items
 	public static ItemROCSword diamond_sword;
@@ -115,7 +122,7 @@ public class ROCItems {
 	//Nether
 	public static OverworldItem ash_dust;
 	public static OverworldItem flame_stone;
-	
+		
 	public static void init(){
 		citronite_gem = new OverworldItem("realmsofchaos:citronite_gem", "gemCitronite");
 		ash_dust = new OverworldItem("realmsofchaos:ash_dust", "dustAsh");
@@ -174,9 +181,16 @@ public class ROCItems {
 		neptunite_boots = new ItemROCArmor(NEPTUNITEa, BOOTS, "neptunite", "realmsofchaos:neptunite_boots", "bootsNeptunite", 65D);
 		
 		aquatic_helmet = new ItemROCArmor(AQUATICa, HELMET, "aquatic", "realmsofchaos:aquatic_helmet", "helmetAquatic", 66.5D);
-		aquatic_chestplate = new ItemROCArmor(AQUATICa, CHESTPLATE, "aquatic", "realmsofchaos:aquatic_chestplate", "chestplateAquatic", 66.6D);
+		aquatic_chestplate = new ItemROCArmor(AQUATICa, CHESTPLATE, "aquatic", "realmsofchaos:aquatic_chestplate", "chestplateAquatic", 66.5D);
 		aquatic_leggings = new ItemROCArmor(AQUATICa, LEGGINGS, "aquatic", "realmsofchaos:aquatic_leggings", "leggingsAquatic", 66.5D);
 		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", 66.5D);
+		
+		fractonite_stone = new OverworldItem("realmsofchaos:fractonite_stone", "stoneFractonite");
+		
+		fractonite_helmet = new ItemROCArmor(FRACTONITEa, HELMET, "fractonite", "realmsofchaos:fractonite_helmet", "helmetFractonite", 70D);
+		fractonite_chestplate = new ItemROCArmor(FRACTONITEa, CHESTPLATE, "fractonite", "realmsofchaos:fractonite_chestplate", "chestplateFractonite", 70D);
+		fractonite_leggings = new ItemROCArmor(FRACTONITEa, LEGGINGS, "fractonite", "realmsofchaos:fractonite_leggings", "leggingsFractonite", 70D);
+		fractonite_boots = new ItemROCArmor(FRACTONITEa, BOOTS, "fractonite", "realmsofchaos:fractonite_boots", "bootsFractonite", 70D);
 		
 		aquatic_sword = new ItemROCSword(AQUATICt, "realmsofchaos:aquatic_sword", "swordAquatic", false);
 		aquatic_pickaxe = new ItemROCPickaxe(AQUATICt, "realmsofchaos:aquatic_pickaxe", "pickaxeAquatic", false);
@@ -198,6 +212,15 @@ public class ROCItems {
 		
 		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", Items.arrow, EntityIronArrow.class, 425, 3);
 		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", Items.arrow, EntityDiamondArrow.class, 700, 5);
+		
+		iron_arrow = new OverworldItem("realmsofchaos:iron_arrow", "arrowIron");
+		diamond_arrow = new OverworldItem("realmsofchaos:diamond_arrow", "arrowDiamond");
+
+		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class);
+		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 550, diamond_bullet, EntityDiamondBullet.class);
+		
+		iron_bullet = new OverworldItem("realmsofchaos:iron_bullet", "bulletIron");
+		diamond_bullet = new OverworldItem("realmsofchaos:diamond_bullet", "bulletDiamond");
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
@@ -230,6 +253,7 @@ public class ROCItems {
 		aquatic_shard.register("aquatic_shard");
 		aquatic_orb.register("aquatic_orb");
 		neptunite_ingot.register("neptunite_ingot");
+		fractonite_stone.register("fractonite_stone");
 		
 		heliotrope_helmet.register("heliotrope_helmet");
 		heliotrope_chestplate.register("heliotrope_chestplate");
@@ -261,6 +285,11 @@ public class ROCItems {
 		aquatic_leggings.register("aquatic_leggings");
 		aquatic_boots.register("aquatic_boots");
 		
+		fractonite_helmet.register("fractonite_helmet");
+		fractonite_chestplate.register("fractonite_chestplate");
+		fractonite_leggings.register("fractonite_leggings");
+		fractonite_boots.register("fractonite_boots");
+		
 		flame_pickaxe.register("flamestone_pickaxe");
 		flame_axe.register("flamestone_axe");
 		flame_shovel.register("flamestone_shovel");
@@ -275,10 +304,19 @@ public class ROCItems {
 		
 		iron_bow.register("iron_bow");
 		diamond_bow.register("diamond_bow");
+		
+		iron_arrow.register("iron_arrow");
+		diamond_arrow.register("diamond_arrow");
+		
+		iron_cannon.register("iron_cannon");
+		diamond_cannon.register("diamond_cannon");
+		
+		iron_bullet.register("iron_bullet");
+		diamond_bullet.register("diamond_bullet");
 	}
 	
-	public static ArmorMaterial addArmorMaterial(String name, int durability, int[] damReduct, int enchantability)
+	public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability)
 	{
-        return EnumHelper.addEnum(ArmorMaterial.class, name, durability/14, damReduct, enchantability);
+        return EnumHelper.addEnum(ArmorMaterial.class, name, durability/14, new int[]{0, 0, 0, 0}, enchantability);
     }
 }

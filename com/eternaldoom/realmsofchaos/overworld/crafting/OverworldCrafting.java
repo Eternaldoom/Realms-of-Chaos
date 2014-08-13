@@ -31,6 +31,8 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCItems.neptunite_ingot, 9), new Object[]{"X", 'X', ROCBlocks.neptunite_block});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.aquatic_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.aquatic_orb});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.aquatic_orb, 9), new Object[]{"X", 'X', ROCBlocks.aquatic_block});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.fractonite_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.fractonite_stone});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.fractonite_stone, 9), new Object[]{"X", 'X', ROCBlocks.fractonite_block});
 
 		RecipeHelper.addArmorRecipe(ROCItems.heliotrope_helmet, ROCItems.heliotrope_chestplate, ROCItems.heliotrope_leggings, ROCItems.heliotrope_boots, ROCItems.heliotrope);
 		RecipeHelper.addArmorRecipe(ROCItems.citronite_helmet, ROCItems.citronite_chestplate, ROCItems.citronite_leggings, ROCItems.citronite_boots, ROCItems.citronite_gem);
@@ -38,6 +40,7 @@ public class OverworldCrafting {
 		RecipeHelper.addArmorRecipe(ROCItems.flame_helmet, ROCItems.flame_chestplate, ROCItems.flame_leggings, ROCItems.heliotrope_boots, ROCItems.flame_stone);
 		RecipeHelper.addArmorRecipe(ROCItems.neptunite_helmet, ROCItems.neptunite_chestplate, ROCItems.neptunite_leggings, ROCItems.neptunite_boots, ROCItems.neptunite_ingot);
 		RecipeHelper.addArmorRecipe(ROCItems.aquatic_helmet, ROCItems.aquatic_chestplate, ROCItems.aquatic_leggings, ROCItems.aquatic_boots, ROCItems.aquatic_orb);
+		RecipeHelper.addArmorRecipe(ROCItems.fractonite_helmet, ROCItems.fractonite_chestplate, ROCItems.fractonite_leggings, ROCItems.fractonite_boots, ROCItems.fractonite_stone);
 		
 		RecipeHelper.addToolRecipe(ROCItems.heliotrope_sword, ROCItems.heliotrope_pickaxe, ROCItems.heliotrope_axe, ROCItems.heliotrope_shovel, ROCItems.heliotrope);
 		RecipeHelper.addToolRecipe(ROCItems.citronite_sword, ROCItems.citronite_pickaxe, ROCItems.citronite_axe, ROCItems.citronite_shovel, ROCItems.citronite_stone);
@@ -49,6 +52,7 @@ public class OverworldCrafting {
     	ExtractorRecipes.addItemRecipe(ROCItems.xylite_crystal, new ItemStack(ROCItems.xylite_ingot), 50.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.neptunite_ore), new ItemStack(ROCItems.neptunite_ingot), 40.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass)), 10.0f);
+    	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.fractonite_ore), new ItemStack(ROCItems.fractonite_stone), 65f);
     	
     	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCItems.heliotrope), 30.0f);
     	GameRegistry.addSmelting(ROCBlocks.ocean_cobblestone, new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_stone)), 20.0f);

@@ -93,6 +93,17 @@ item.scorpionCooked.name=Cooked Scorpion
 item.stoneScorpion.name=Scorpion Stone
 item.bowIron.name=Iron Bow
 item.bowDiamond.name=Diamond Bow
+item.cannonIron.name=Iron Cannon
+item.cannonDiamond.name=Diamond Cannon
+item.helmetFractonite.name=Fractonite Helmet
+item.chestplateFractonite.name=Fractonite Chestplate
+item.leggingsFractonite.name=Fractonite Leggings
+item.bootsFractonite.name=Fractonite Boots
+item.stoneFractonite.name=Fractonite Stone
+item.bulletIron.name=Iron Bullet
+item.bulletDiamond.name=Diamond Bullet
+item.arrowIron.name=Iron Arrow
+item.arrowDiamond.name=Diamond Arrow
 
 itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
 itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items
