@@ -66,15 +66,15 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	
 	@Override
 	public boolean onBlockActivated(World w, int i, int j, int k, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_){
-		WorldGenIceMountain o = new WorldGenIceMountain();
+		WorldGenIceMountain o = new WorldGenCharwoodTree();
 		
 		if (!w.isRemote){
 			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == ROCItems.ash_dust){
 				if(!player.capabilities.isCreativeMode) --player.getCurrentEquippedItem().stackSize;
 				Random r = new Random(); int growChance = r.nextInt(5);
 				
-				/*if (growChance == 3) */return o.generate(w, null, i - 2, j, k - 2);
-				/*else {
+				if (growChance == 3) return o.generate(w, null, i - 2, j, k - 2);
+				else {
 					for (int c = 0; c < 7; ++c)
 			        {
 			            double d0 = r.nextGaussian() * 0.02D;
@@ -82,7 +82,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
 			            double d2 = r.nextGaussian() * 0.02D;
 			            w.spawnParticle("smoke", i, j, k, d0, d1, d2);
 			        }
-				}*/
+				}
 			}
 		}
 		return false;
