@@ -16,6 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
@@ -32,14 +33,14 @@ public class ItemROCBow extends OverworldItem
     private Class<? extends EntityArrow> arrowClass;
     private int damage;
 
-    public ItemROCBow(String tex, String name, Item ammo, Class<? extends EntityArrow> arrow, int durability, int damage)
+    public ItemROCBow(String tex, String name, Item parAmmo, Class<? extends EntityArrow> arrow, int durability, int damage)
     {
     	super(tex, name);
         this.maxStackSize = 1;
         this.setMaxDamage(384);
         this.setCreativeTab(ROCTabs.Combat);
         this.setMaxDamage(durability);
-        this.ammo = ammo;
+        this.ammo = parAmmo;
         this.arrowClass = arrow;
         this.damage = damage;
     }
@@ -99,6 +100,12 @@ public class ItemROCBow extends OverworldItem
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
+    	ArrowNockEvent event = new ArrowNockEvent(player, stack);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled())
+        {
+            return event.result;
+        }
 
         if (player.capabilities.isCreativeMode || player.inventory.hasItem(ammo))
         {

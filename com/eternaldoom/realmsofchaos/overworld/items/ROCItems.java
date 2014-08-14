@@ -210,11 +210,11 @@ public class ROCItems {
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
 		
-		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", Items.arrow, EntityIronArrow.class, 425, 3);
-		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", Items.arrow, EntityDiamondArrow.class, 700, 5);
-		
 		iron_arrow = new OverworldItem("realmsofchaos:iron_arrow", "arrowIron");
 		diamond_arrow = new OverworldItem("realmsofchaos:diamond_arrow", "arrowDiamond");
+		
+		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", ROCItems.iron_arrow, EntityIronArrow.class, 425, 3);
+		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", ROCItems.diamond_arrow, EntityDiamondArrow.class, 700, 5);
 
 		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class);
 		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 550, diamond_bullet, EntityDiamondBullet.class);
