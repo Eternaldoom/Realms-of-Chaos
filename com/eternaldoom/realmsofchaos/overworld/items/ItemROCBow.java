@@ -31,9 +31,8 @@ public class ItemROCBow extends OverworldItem
     private IIcon[] iconArray;
     private Item ammo;
     private Class<? extends EntityArrow> arrowClass;
-    private int damage;
 
-    public ItemROCBow(String tex, String name, Item parAmmo, Class<? extends EntityArrow> arrow, int durability, int damage)
+    public ItemROCBow(String tex, String name, Item parAmmo, Class<? extends EntityArrow> arrow, int durability)
     {
     	super(tex, name);
         this.maxStackSize = 1;
@@ -42,7 +41,6 @@ public class ItemROCBow extends OverworldItem
         this.setMaxDamage(durability);
         this.ammo = parAmmo;
         this.arrowClass = arrow;
-        this.damage = damage;
     }
 
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int time)
@@ -64,7 +62,6 @@ public class ItemROCBow extends OverworldItem
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            entityarrow.setDamage(damage);
             if (scaledItemUse == 1) entityarrow.setIsCritical(true);
             int powerLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
             if (powerLevel > 0) entityarrow.setDamage(entityarrow.getDamage() + (double) powerLevel * 0.5 + 0.5);
@@ -142,6 +139,13 @@ public class ItemROCBow extends OverworldItem
     
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
+    	double damage = 0;
+    	try {
+            damage = arrowClass.getConstructor(World.class).newInstance(player.worldObj).getDamage();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    	
     	list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
     	list.add(EnumChatFormatting.RED + "" + damage + " Ranged Damage");
     }

@@ -66,7 +66,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	
 	@Override
 	public boolean onBlockActivated(World w, int i, int j, int k, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_){
-		WorldGenIceMountain o = new WorldGenCharwoodTree();
+		WorldGenCharwoodTree o = new WorldGenCharwoodTree();
 		
 		if (!w.isRemote){
 			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == ROCItems.ash_dust){

@@ -1,16 +1,23 @@
 package com.eternaldoom.realmsofchaos.overworld.items;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -110,8 +117,8 @@ public class ROCItems {
 	public static ItemFood raw_scorpion, cooked_scorpion;
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
-	public static ItemROCBow iron_bow, diamond_bow;
-	public static OverworldItem iron_arrow, diamond_arrow;
+	public static ItemROCBow iron_bow, diamond_bow, heliotrope_bow, citronite_bow, xylite_bow, flamestone_bow, neptunite_bow, aquatic_bow, osmaralt_bow, fractonite_bow;
+	public static OverworldItem iron_arrow, diamond_arrow, heliotrope_arrow, citronite_arrow, xylite_arrow, flamestone_arrow, neptunite_arrow, aquatic_arrow, osmaralt_arrow, fractonite_arrow;
 	
 	public static ItemCannon iron_cannon, diamond_cannon;
 	public static OverworldItem iron_bullet, diamond_bullet;
@@ -231,9 +238,25 @@ public class ROCItems {
 		
 		iron_arrow = new OverworldItem("realmsofchaos:iron_arrow", "arrowIron");
 		diamond_arrow = new OverworldItem("realmsofchaos:diamond_arrow", "arrowDiamond");
+		heliotrope_arrow = new OverworldItem("realmsofchaos:heliotrope_arrow", "arrowHeliotrope");
+		citronite_arrow = new OverworldItem("realmsofchaos:citronite_arrow", "arrowCitronite");
+		xylite_arrow = new OverworldItem("realmsofchaos:xylite_arrow", "arrowXylite");
+		flamestone_arrow = new OverworldItem("realmsofchaos:flamestone_arrow", "arrowFlamestone");
+	    neptunite_arrow = new OverworldItem("realmsofchaos:neptunite_arrow", "arrowNeptunite");
+		aquatic_arrow = new OverworldItem("realmsofchaos:aquatic_arrow", "arrowAquatic");
+		osmaralt_arrow = new OverworldItem("realmsofchaos:osmaralt_arrow", "arrowOsmaralt");
+		fractonite_arrow = new OverworldItem("realmsofchaos:fractonite_arrow", "arrowFractonite");
 		
-		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", ROCItems.iron_arrow, EntityIronArrow.class, 425, 3);
-		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", ROCItems.diamond_arrow, EntityDiamondArrow.class, 700, 5);
+		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", ROCItems.iron_arrow, EntityIronArrow.class, 425);
+		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", ROCItems.diamond_arrow, EntityDiamondArrow.class, 700);
+		heliotrope_bow = new ItemROCBow("realmsofchaos:heliotrope_bow", "bowhHeliotrope", ROCItems.heliotrope_arrow, EntityHeliotropeArrow.class, 1000);
+		citronite_bow = new ItemROCBow("realmsofchaos:citronite_bow", "bowCitronite", ROCItems.citronite_arrow, EntityCitroniteArrow.class, 1200);
+		xylite_bow = new ItemROCBow("realmsofchaos:xylite_bow", "bowXylite", ROCItems.xylite_arrow, EntityXyliteArrow.class, 1500);
+		flamestone_bow = new ItemROCBow("realmsofchaos:flamestone_bow", "bowFlamestone", ROCItems.flamestone_arrow, EntityFlamestoneArrow.class, 1700);
+		neptunite_bow = new ItemROCBow("realmsofchaos:neptunite_bow", "bowNeptunite", ROCItems.neptunite_arrow, EntityNeptuniteArrow.class, -1);
+		aquatic_bow = new ItemROCBow("realmsofchaos:aquatic_bow", "bowAquatic", ROCItems.aquatic_arrow, EntityAquaticArrow.class, 2000);
+		osmaralt_bow = new ItemROCBow("realmsofchaos:osmaralt_bow", "bowOsmaralt", ROCItems.osmaralt_arrow, EntityOsmaraltArrow.class, 2200);
+		fractonite_bow = new ItemROCBow("realmsofchaos:fractonite_bow", "bowFractonite", ROCItems.fractonite_arrow, EntityFractoniteArrow.class, -1);
 
 		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class);
 		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 550, diamond_bullet, EntityDiamondBullet.class);
@@ -333,9 +356,25 @@ public class ROCItems {
 		
 		iron_bow.register("iron_bow");
 		diamond_bow.register("diamond_bow");
+		heliotrope_bow.register("heliotrope_bow");
+		citronite_bow.register("citronite_bow");
+		xylite_bow.register("xylite_bow");
+		flamestone_bow.register("flamestone_bow");
+		neptunite_bow.register("neptunite_bow");
+		aquatic_bow.register("aquatic_bow");
+		osmaralt_bow.register("osmaralt_bow");
+		fractonite_bow.register("fractonite_bow");
 		
 		iron_arrow.register("iron_arrow");
 		diamond_arrow.register("diamond_arrow");
+		heliotrope_arrow.register("heliotrope_arrow");
+		citronite_arrow.register("citronite_arrow");
+		xylite_arrow.register("xylite_arrow");
+		flamestone_arrow.register("flamestone_arrow");
+		neptunite_arrow.register("neptunite_arrow");
+		aquatic_arrow.register("aquatic_arrow");
+		osmaralt_arrow.register("osmaralt_arrow");
+		fractonite_arrow.register("fractonite_arrow");
 		
 		iron_cannon.register("iron_cannon");
 		diamond_cannon.register("diamond_cannon");
