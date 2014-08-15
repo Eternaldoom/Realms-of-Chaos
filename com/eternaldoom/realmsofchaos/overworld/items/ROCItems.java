@@ -26,6 +26,7 @@ public class ROCItems {
 	public static final ArmorMaterial FLAMEa = addArmorMaterial("FLAME", 2151, 12);
 	public static final ArmorMaterial NEPTUNITEa = addArmorMaterial("NEPTUNITE", -1, 12);
 	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", 3651, 6);
+	public static final ArmorMaterial OSMARALTa = addArmorMaterial("OSMARALT", 5151, 50);
 	public static final ArmorMaterial FRACTONITEa = addArmorMaterial("FRACTONITE", -1, 20);
 	
 	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
@@ -35,7 +36,9 @@ public class ROCItems {
 	public static final ToolMaterial XYLITEt = EnumHelper.addToolMaterial("XYLITE", 6, 3651, 14.0f, 3.5f, 15);
 	public static final ToolMaterial FLAMEt = EnumHelper.addToolMaterial("FLAME", 7, 2151, 15.5f, 5.0f, 12);
 	public static final ToolMaterial NEPTUNITEt = EnumHelper.addToolMaterial("NEPTUNITE", 8, -1, 18.0f, 6.5f, 12);
-	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 9, 3651, 20.0f, 8.0f, 6);
+	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 9, 3651, 20f, 8f, 6);
+	public static final ToolMaterial OSMARALTt = EnumHelper.addToolMaterial("OSMARALT", 10, 4651, 22.5f, 10f, 50);
+	public static final ToolMaterial FRACTONITEt = EnumHelper.addToolMaterial("FRACTONITE", 11, 5651, 25f, 12f, 20);
 	
 	//Overworld
 	public static OverworldItem citronite_gem;
@@ -87,6 +90,7 @@ public class ROCItems {
 	public static OverworldItem fractonite_stone;
 	
 	public static ItemROCArmor fractonite_helmet, fractonite_chestplate, fractonite_leggings, fractonite_boots;
+	public static ItemROCArmor osmaralt_helmet, osmaralt_chestplate, osmaralt_leggings, osmaralt_boots;
 
 	public static ItemROCSword aquatic_sword;
 	public static ItemROCAxe aquatic_axe;
@@ -97,6 +101,11 @@ public class ROCItems {
 	public static ItemROCAxe neptunite_axe;
 	public static ItemROCPickaxe neptunite_pickaxe;
 	public static ItemROCShovel neptunite_shovel;
+	
+	public static ItemROCSword fractonite_sword;
+	public static ItemROCAxe fractonite_axe;
+	public static ItemROCPickaxe fractonite_pickaxe;
+	public static ItemROCShovel fractonite_shovel;
 	
 	public static ItemFood raw_scorpion, cooked_scorpion;
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
@@ -187,6 +196,11 @@ public class ROCItems {
 		
 		fractonite_stone = new OverworldItem("realmsofchaos:fractonite_stone", "stoneFractonite");
 		
+		osmaralt_helmet = new ItemROCArmor(OSMARALTa, HELMET, "osmaralt", "realmsofchaos:osmaralt_helmet", "helmetOsmaralt", 68.25D);
+		osmaralt_chestplate = new ItemROCArmor(OSMARALTa, CHESTPLATE, "osmaralt", "realmsofchaos:osmaralt_chestplate", "chestplateOsmaralt", 68.25D);
+		osmaralt_leggings = new ItemROCArmor(OSMARALTa, LEGGINGS, "osmaralt", "realmsofchaos:osmaralt_leggings", "leggingsOsmaralt", 68.25D);
+		osmaralt_boots = new ItemROCArmor(OSMARALTa, BOOTS, "osmaralt", "realmsofchaos:osmaralt_boots", "bootsOsmaralt", 68.25D);
+		
 		fractonite_helmet = new ItemROCArmor(FRACTONITEa, HELMET, "fractonite", "realmsofchaos:fractonite_helmet", "helmetFractonite", 70D);
 		fractonite_chestplate = new ItemROCArmor(FRACTONITEa, CHESTPLATE, "fractonite", "realmsofchaos:fractonite_chestplate", "chestplateFractonite", 70D);
 		fractonite_leggings = new ItemROCArmor(FRACTONITEa, LEGGINGS, "fractonite", "realmsofchaos:fractonite_leggings", "leggingsFractonite", 70D);
@@ -201,6 +215,11 @@ public class ROCItems {
 		neptunite_pickaxe = new ItemROCPickaxe(NEPTUNITEt, "realmsofchaos:neptunite_pickaxe", "pickaxeNeptunite", false);
 		neptunite_axe = new ItemROCAxe(NEPTUNITEt, "realmsofchaos:neptunite_axe", "axeNeptunite", false);
 		neptunite_shovel = new ItemROCShovel(NEPTUNITEt, "realmsofchaos:neptunite_shovel", "shovelNeptunite", false);
+		
+		fractonite_sword = new ItemROCSword(FRACTONITEt, "realmsofchaos:fractonite_sword", "swordFractonite", false);
+		fractonite_pickaxe = new ItemROCPickaxe(FRACTONITEt, "realmsofchaos:fractonite_pickaxe", "pickaxeFractonite", false);
+		fractonite_axe = new ItemROCAxe(FRACTONITEt, "realmsofchaos:fractonite_axe", "axeFractonite", false);
+		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);
 		
 		raw_scorpion = (ItemFood) new ItemFood(2, 0.2f, true).setTextureName("realmsofchaos:raw_scorpion").setUnlocalizedName("scorpionRaw").setCreativeTab(ROCTabs.OverworldItems);
 		GameRegistry.registerItem(raw_scorpion, "raw_scorpion");
@@ -242,6 +261,7 @@ public class ROCItems {
 		flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
 		neptunite_sword.register("neptunite_sword");
+		fractonite_sword.register("fractonite_sword");
 
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");
@@ -285,6 +305,11 @@ public class ROCItems {
 		aquatic_leggings.register("aquatic_leggings");
 		aquatic_boots.register("aquatic_boots");
 		
+		osmaralt_helmet.register("osmaralt_helmet");
+		osmaralt_chestplate.register("osmaralt_chestplate");
+		osmaralt_leggings.register("osmaralt_leggings");
+		osmaralt_boots.register("osmaralt_boots");
+		
 		fractonite_helmet.register("fractonite_helmet");
 		fractonite_chestplate.register("fractonite_chestplate");
 		fractonite_leggings.register("fractonite_leggings");
@@ -301,6 +326,10 @@ public class ROCItems {
 		neptunite_pickaxe.register("neptunite_pickaxe");
 		neptunite_axe.register("neptunite_axe");
 		neptunite_shovel.register("neptunite_shovel");
+		
+		fractonite_pickaxe.register("fractonite_pickaxe");
+		fractonite_axe.register("fractonite_axe");
+		fractonite_shovel.register("fractonite_shovel");
 		
 		iron_bow.register("iron_bow");
 		diamond_bow.register("diamond_bow");
