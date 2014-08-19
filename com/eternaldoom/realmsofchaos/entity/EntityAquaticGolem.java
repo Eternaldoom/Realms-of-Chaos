@@ -18,7 +18,7 @@ import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class EntityAquaticGolem extends EntityMob{
 

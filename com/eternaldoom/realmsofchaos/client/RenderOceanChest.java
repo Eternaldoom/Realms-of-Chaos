@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.TileEntityOceanChest;
+import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 
 public class RenderOceanChest extends TileEntitySpecialRenderer{
 

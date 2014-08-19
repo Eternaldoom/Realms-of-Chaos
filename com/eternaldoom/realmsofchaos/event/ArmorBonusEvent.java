@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;

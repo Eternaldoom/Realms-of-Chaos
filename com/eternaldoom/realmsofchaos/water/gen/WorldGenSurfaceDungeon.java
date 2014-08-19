@@ -3,15 +3,13 @@ package com.eternaldoom.realmsofchaos.water.gen;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.DungeonHooks;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
-import com.eternaldoom.realmsofchaos.overworld.blocks.TileEntityOceanChest;
-import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class WorldGenSurfaceDungeon {
 	

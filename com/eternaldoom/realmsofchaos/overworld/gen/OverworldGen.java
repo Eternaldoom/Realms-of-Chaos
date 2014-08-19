@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenBigRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenGiantIceSpike;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceMountain;
@@ -14,7 +15,6 @@ import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsHouse;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsStatue;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsTower;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsWell;
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.water.gen.WorldGenSurfaceDungeon;
 
 import cpw.mods.fml.common.IWorldGenerator;

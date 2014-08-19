@@ -3,8 +3,8 @@ package com.eternaldoom.realmsofchaos;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
-import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class ROCTabs {
 	public static final CreativeTabs OverworldBlocks = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldBlocks"){

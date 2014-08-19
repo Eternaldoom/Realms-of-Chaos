@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class WorldGenCharwoodTree {
 

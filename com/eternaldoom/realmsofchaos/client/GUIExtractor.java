@@ -6,8 +6,8 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ContainerExtractor;
-import com.eternaldoom.realmsofchaos.overworld.blocks.TileEntityExtractor;
+import com.eternaldoom.realmsofchaos.blocks.ContainerExtractor;
+import com.eternaldoom.realmsofchaos.blocks.TileEntityExtractor;
 
 public class GUIExtractor extends GuiContainer {
 

@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class WorldGenBigRuins extends WorldGenerator {
 	public WorldGenBigRuins() {

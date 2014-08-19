@@ -45,7 +45,7 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 import cpw.mods.fml.common.eventhandler.Event.Result;
 

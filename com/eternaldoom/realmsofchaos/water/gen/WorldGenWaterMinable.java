@@ -2,13 +2,12 @@ package com.eternaldoom.realmsofchaos.water.gen;
 
 import java.util.Random;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class WorldGenWaterMinable extends WorldGenerator
 {

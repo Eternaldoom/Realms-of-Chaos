@@ -1,9 +1,5 @@
 package com.eternaldoom.realmsofchaos.entity;
 
-import java.util.Random;
-
-import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
-
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -15,11 +11,11 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
+
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class EntityScorpioid extends EntityMob{
 

@@ -4,9 +4,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import com.eternaldoom.realmsofchaos.blocks.ContainerExtractor;
+import com.eternaldoom.realmsofchaos.blocks.TileEntityExtractor;
 import com.eternaldoom.realmsofchaos.client.GUIExtractor;
-import com.eternaldoom.realmsofchaos.overworld.blocks.ContainerExtractor;
-import com.eternaldoom.realmsofchaos.overworld.blocks.TileEntityExtractor;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 

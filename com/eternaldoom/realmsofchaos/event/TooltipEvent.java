@@ -4,8 +4,8 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ItemROCSword;
-import com.eternaldoom.realmsofchaos.overworld.items.ItemROCTool;
+import com.eternaldoom.realmsofchaos.items.ItemROCSword;
+import com.eternaldoom.realmsofchaos.items.ItemROCTool;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

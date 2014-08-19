@@ -5,11 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import com.eternaldoom.realmsofchaos.overworld.blocks.ROCBlocks;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.Direction;
 import net.minecraft.util.LongHashMap;
@@ -17,6 +13,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
+
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class TeleporterWater extends Teleporter
 {

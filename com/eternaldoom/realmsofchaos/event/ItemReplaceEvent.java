@@ -1,6 +1,6 @@
 package com.eternaldoom.realmsofchaos.event;
 
-import com.eternaldoom.realmsofchaos.overworld.items.ROCItems;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
