@@ -43,6 +43,7 @@ public class ItemROCBow extends ROCModItem
         this.arrowClass = arrow;
     }
 
+    @Override
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int time)
     {
     	int maxItemUse = getMaxItemUseDuration(stack) - time;
@@ -58,7 +59,7 @@ public class ItemROCBow extends ROCModItem
             if (scaledItemUse > 1) scaledItemUse = 1;
             EntityArrow entityarrow = null;
             try {
-                entityarrow = arrowClass.getConstructor(World.class, EntityLivingBase.class, float.class).newInstance(world, player, scaledItemUse * 2);
+                entityarrow = arrowClass.getConstructor(World.class, EntityLivingBase.class, float.class).newInstance(world, (EntityLivingBase)player, scaledItemUse * 2);
             } catch (Exception e) {
                 e.printStackTrace();
             }

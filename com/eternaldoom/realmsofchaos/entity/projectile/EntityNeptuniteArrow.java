@@ -183,7 +183,7 @@ public class EntityNeptuniteArrow extends EntityArrow
      */
     public void onUpdate()
     {
-        super.onUpdate();
+    	super.onEntityUpdate();
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {

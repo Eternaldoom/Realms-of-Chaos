@@ -130,9 +130,9 @@ public class EntityAquaticArrow extends EntityArrow
         p_70186_1_ /= (double)f2;
         p_70186_3_ /= (double)f2;
         p_70186_5_ /= (double)f2;
-        p_70186_1_ += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)p_70186_8_;
-        p_70186_3_ += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)p_70186_8_;
-        p_70186_5_ += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)p_70186_8_;
+        p_70186_1_ += this.rand.nextGaussian() * 0.007499999832361937D * (double)p_70186_8_;
+        p_70186_3_ += this.rand.nextGaussian() * 0.007499999832361937D * (double)p_70186_8_;
+        p_70186_5_ += this.rand.nextGaussian() * 0.007499999832361937D * (double)p_70186_8_;
         p_70186_1_ *= (double)p_70186_7_;
         p_70186_3_ *= (double)p_70186_7_;
         p_70186_5_ *= (double)p_70186_7_;
@@ -183,7 +183,7 @@ public class EntityAquaticArrow extends EntityArrow
      */
     public void onUpdate()
     {
-        super.onUpdate();
+    	super.onEntityUpdate();
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F)
         {
