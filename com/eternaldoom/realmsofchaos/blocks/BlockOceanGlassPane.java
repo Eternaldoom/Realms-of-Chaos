@@ -11,7 +11,7 @@ public class BlockOceanGlassPane extends BlockPane{
 
 	protected BlockOceanGlassPane() {
 		super("realmsofchaos:ocean_glass", "realmsofchaos:ocean_glass", Material.glass, false);
-		setCreativeTab(ROCTabs.OverworldBlocks);
+		setCreativeTab(ROCTabs.Blocks);
 		setHardness(3.5f);
 		setResistance(0.0f);
 		setBlockName("paneOcean");

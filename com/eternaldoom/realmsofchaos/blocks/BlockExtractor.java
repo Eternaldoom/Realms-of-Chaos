@@ -52,7 +52,7 @@ public class BlockExtractor extends BlockContainer {
 		setBlockTextureName("realmsofchaos:extractor");
 		isActive = active;
 		if(!active){
-			setCreativeTab(ROCTabs.OverworldBlocks);
+			setCreativeTab(ROCTabs.Blocks);
 		}else if(active){
 			setCreativeTab(null);
 		}

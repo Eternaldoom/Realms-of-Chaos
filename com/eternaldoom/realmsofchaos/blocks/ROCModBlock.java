@@ -16,7 +16,7 @@ public class ROCModBlock extends Block{
 		this.setBlockName(name);
 		this.setHardness(hard);
 		this.setResistance(resist);
-		this.setCreativeTab(ROCTabs.OverworldBlocks);
+		this.setCreativeTab(ROCTabs.Blocks);
 		
 		blockName = name;
 	}

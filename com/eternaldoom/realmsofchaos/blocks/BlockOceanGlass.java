@@ -14,7 +14,7 @@ public class BlockOceanGlass extends ROCModBlock{
 
 	public BlockOceanGlass() {
 		super(Material.glass, "realmsofchaos:ocean_glass", "glassOcean", 3.5f, 0.1f, soundTypeGlass);
-		setCreativeTab(ROCTabs.OverworldBlocks);
+		setCreativeTab(ROCTabs.Blocks);
 	}
 	
 	@Override

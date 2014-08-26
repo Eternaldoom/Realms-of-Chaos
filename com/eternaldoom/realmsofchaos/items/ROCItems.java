@@ -94,6 +94,7 @@ public class ROCItems {
 	public static ItemROCArmor aquatic_helmet, aquatic_chestplate, aquatic_leggings, aquatic_boots;
 	public static ItemROCArmor neptunite_helmet, neptunite_chestplate, neptunite_leggings, neptunite_boots;
 	
+	public static ROCModItem osmaralt_ingot;
 	public static ROCModItem fractonite_stone;
 	
 	public static ItemROCArmor fractonite_helmet, fractonite_chestplate, fractonite_leggings, fractonite_boots;
@@ -203,6 +204,7 @@ public class ROCItems {
 		aquatic_leggings = new ItemROCArmor(AQUATICa, LEGGINGS, "aquatic", "realmsofchaos:aquatic_leggings", "leggingsAquatic", 66.5D);
 		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", 66.5D);
 		
+		osmaralt_ingot = new ROCModItem("realmsofchaos:osmaralt_ingot", "ingotOsmaralt");
 		fractonite_stone = new ROCModItem("realmsofchaos:fractonite_stone", "stoneFractonite");
 		
 		osmaralt_helmet = new ItemROCArmor(OSMARALTa, HELMET, "osmaralt", "realmsofchaos:osmaralt_helmet", "helmetOsmaralt", 68.25D);
@@ -230,9 +232,9 @@ public class ROCItems {
 		fractonite_axe = new ItemROCAxe(FRACTONITEt, "realmsofchaos:fractonite_axe", "axeFractonite", false);
 		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);
 		
-		raw_scorpion = (ItemFood) new ItemFood(2, 0.2f, true).setTextureName("realmsofchaos:raw_scorpion").setUnlocalizedName("scorpionRaw").setCreativeTab(ROCTabs.OverworldItems);
+		raw_scorpion = (ItemFood) new ItemFood(2, 0.2f, true).setTextureName("realmsofchaos:raw_scorpion").setUnlocalizedName("scorpionRaw").setCreativeTab(ROCTabs.Items);
 		GameRegistry.registerItem(raw_scorpion, "raw_scorpion");
-		cooked_scorpion = (ItemFood) new ItemFood(10, 1.0f, true).setTextureName("realmsofchaos:cooked_scorpion").setUnlocalizedName("scorpionCooked").setCreativeTab(ROCTabs.OverworldItems);
+		cooked_scorpion = (ItemFood) new ItemFood(10, 1.0f, true).setTextureName("realmsofchaos:cooked_scorpion").setUnlocalizedName("scorpionCooked").setCreativeTab(ROCTabs.Items);
 		GameRegistry.registerItem(cooked_scorpion, "cooked_scorpion");
 		
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
@@ -300,6 +302,7 @@ public class ROCItems {
 		aquatic_shard.register("aquatic_shard");
 		aquatic_orb.register("aquatic_orb");
 		neptunite_ingot.register("neptunite_ingot");
+		osmaralt_ingot.register("osmaralt_ingot");
 		fractonite_stone.register("fractonite_stone");
 		
 		heliotrope_helmet.register("heliotrope_helmet");

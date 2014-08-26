@@ -11,7 +11,7 @@ public class ROCModItem extends Item{
 		super();
 		setTextureName(tex);
 		setUnlocalizedName(name);
-		setCreativeTab(ROCTabs.OverworldItems);
+		setCreativeTab(ROCTabs.Items);
 	}
 
 	public ROCModItem register(String name){

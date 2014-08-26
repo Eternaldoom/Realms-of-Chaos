@@ -23,7 +23,7 @@ public class BlockOceanChest extends BlockContainer{
 	
 	protected BlockOceanChest() {
 		super(Material.rock);
-		setCreativeTab(ROCTabs.OverworldBlocks);
+		setCreativeTab(ROCTabs.Blocks);
 		setBlockTextureName("realmsofchaos:ocean_glass");
 		setHardness(12.0f);
 		setResistance(10.0f);

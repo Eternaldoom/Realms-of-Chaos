@@ -92,7 +92,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
 
     public String getInventoryName()
     {
-        return this.hasCustomInventoryName() ? this.field_145958_o : "Energy Reactor";
+        return this.hasCustomInventoryName() ? this.field_145958_o : "Extractor";
     }
 
     public boolean hasCustomInventoryName()

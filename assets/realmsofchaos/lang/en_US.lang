@@ -27,8 +27,8 @@ tile.cobblestoneFrozen.name=Frozen Cobblestone
 tile.stoneBricksFrozen.name=Frozen Stone Bricks
 tile.stoneBricksFrozenCracked.name=Cracked Frozen Stone Bricks
 tile.stoneBricksFrozenCarved.name=Chiseled Frozen Stone Bricks
-tile.bricksOceanStoneCracked.name=Cracked Ocean Stone Bricks
-tile.bricksOceanStoneCarved.name=Chiseled Ocean Stone Bricks
+tile.bricksOceanstoneCracked.name=Cracked Ocean Stone Bricks
+tile.bricksOceanstoneCarved.name=Chiseled Ocean Stone Bricks
 tile.oreOsmaralt.name=Osmaralt Ore
 tile.blockOsmaralt.name=Osmaralt Block
 
@@ -135,9 +135,10 @@ item.chestplateOsmaralt.name=Osmaralt Chestplate
 item.leggingsOsmaralt.name=Osmaralt Leggings
 item.bootsOsmaralt.name=Osmaralt Boots
 item.ingotOsmaralt.name=Osmaralt Ingot
+item.scaleFish.name=Fish Scale
 
-itemGroup.ROCOverworldBlocks=Realms of Chaos Overworld Blocks
-itemGroup.ROCOverworldItems=Realms of Chaos Overworld Items
+itemGroup.ROCBlocks=Realms of Chaos Blocks
+itemGroup.ROCItems=Realms of Chaos Items
 itemGroup.ROCCombat=Realms of Chaos Combat
 itemGroup.ROCTools=Realms of Chaos Tools
 

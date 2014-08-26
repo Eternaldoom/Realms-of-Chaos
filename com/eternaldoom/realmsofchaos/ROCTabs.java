@@ -7,14 +7,14 @@ import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class ROCTabs {
-	public static final CreativeTabs OverworldBlocks = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldBlocks"){
+	public static final CreativeTabs Blocks = new CreativeTabs(CreativeTabs.getNextID(), "ROCBlocks"){
 		@Override
 		public Item getTabIconItem(){
 			return Item.getItemFromBlock(ROCBlocks.citronite_ore);
 		}
 	};
 
-	public static final CreativeTabs OverworldItems = new CreativeTabs(CreativeTabs.getNextID(), "ROCOverworldItems"){
+	public static final CreativeTabs Items = new CreativeTabs(CreativeTabs.getNextID(), "ROCItems"){
 		@Override
 		public Item getTabIconItem(){
 			return ROCItems.ash_dust;
