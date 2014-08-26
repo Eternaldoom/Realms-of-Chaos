@@ -147,8 +147,9 @@ public class ItemROCBow extends ROCModItem
             e.printStackTrace();
         }
     	
-    	list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
-    	list.add(EnumChatFormatting.RED + "" + damage + " Ranged Damage");
+    	if(this.getMaxDamage() == -1) list.add(EnumChatFormatting.BLUE + "Infinite Uses");
+    	else list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
+    	list.add(EnumChatFormatting.RED + "" + damage + " Minimum Ranged Damage");
     }
     
     @Override

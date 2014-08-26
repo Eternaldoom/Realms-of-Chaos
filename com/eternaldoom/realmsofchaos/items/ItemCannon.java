@@ -1,10 +1,13 @@
 package com.eternaldoom.realmsofchaos.items;
 
+import java.util.List;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
@@ -15,14 +18,16 @@ public class ItemCannon extends ROCModItem {
 
 	private Class<? extends EntityThrowable> ammoEntity;
 	private Item ammoItem;
+	private float damage;
 
 	public ItemCannon(String tex, String name, int uses, Item ammo,
-			Class<? extends EntityThrowable> ammoEntity) {
+			Class<? extends EntityThrowable> ammoEntity, float damage) {
 		super(tex, name);
 		this.maxStackSize = 1;
 		this.setMaxDamage(uses);
 		this.ammoEntity = ammoEntity;
 		this.ammoItem = ammo;
+		this.damage = damage;
 		setCreativeTab(ROCTabs.Combat);
 	}
 
@@ -56,5 +61,12 @@ public class ItemCannon extends ROCModItem {
 	@Override
 	public boolean isFull3D(){
 		return true;
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4){
+		if(this.getMaxDamage() == -1) list.add(EnumChatFormatting.BLUE + "Infinite Uses");
+		else list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
+		list.add(this.damage + " Ranged Damage");
 	}
 }
