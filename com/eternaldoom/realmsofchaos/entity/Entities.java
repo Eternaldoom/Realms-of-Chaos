@@ -10,6 +10,7 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
@@ -17,6 +18,7 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 
@@ -68,6 +70,10 @@ public class Entities {
 		EntityRegistry.registerModEntity(EntityNeptuniteBullet.class, "NeptuniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityAquaticBullet.class, "AquaticBullet", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityAquaticBullet.class, "AquaticBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityOsmaraltBullet.class, "OsmaraltBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityOsmaraltBullet.class, "OsmaraltBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityFractoniteBullet.class, "FractoniteBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityFractoniteBullet.class, "FractoniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 	}
 	
 	public static void init(){
