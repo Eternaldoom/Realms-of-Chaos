@@ -8,19 +8,19 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntityDiamondBullet extends EntityThrowable
+public class EntityHeliotropeBullet extends EntityThrowable
 {
-    public EntityDiamondBullet(World world)
+    public EntityHeliotropeBullet(World world)
     {
         super(world);
     }
 
-    public EntityDiamondBullet(World world, EntityLivingBase entity)
+    public EntityHeliotropeBullet(World world, EntityLivingBase entity)
     {
         super(world, entity);
     }
 
-    public EntityDiamondBullet(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_)
+    public EntityHeliotropeBullet(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_)
     {
         super(p_i1775_1_, p_i1775_2_, p_i1775_4_, p_i1775_6_);
     }
@@ -29,7 +29,7 @@ public class EntityDiamondBullet extends EntityThrowable
     {
         if (position.entityHit != null)
         {
-            float damage = ROCItems.diamond_cannon.damage;
+            float damage = ROCItems.heliotrope_cannon.damage;
 
             position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
         }

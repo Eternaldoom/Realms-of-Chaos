@@ -1,5 +1,7 @@
 package com.eternaldoom.realmsofchaos.entity.projectile;
 
+import com.eternaldoom.realmsofchaos.items.ROCItems;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
@@ -27,7 +29,7 @@ public class EntityIronBullet extends EntityThrowable
     {
         if (position.entityHit != null)
         {
-            float damage = 3;
+            float damage = ROCItems.iron_cannon.damage;
 
             position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), damage);
         }

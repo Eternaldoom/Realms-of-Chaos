@@ -8,11 +8,13 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
@@ -121,8 +123,8 @@ public class ROCItems {
 	public static ItemROCBow iron_bow, diamond_bow, heliotrope_bow, citronite_bow, xylite_bow, flamestone_bow, neptunite_bow, aquatic_bow, osmaralt_bow, fractonite_bow;
 	public static ROCModItem iron_arrow, diamond_arrow, heliotrope_arrow, citronite_arrow, xylite_arrow, flamestone_arrow, neptunite_arrow, aquatic_arrow, osmaralt_arrow, fractonite_arrow;
 	
-	public static ItemCannon iron_cannon, diamond_cannon;
-	public static ROCModItem iron_bullet, diamond_bullet;
+	public static ItemCannon iron_cannon, diamond_cannon, heliotrope_cannon, citronite_cannon;
+	public static ROCModItem iron_bullet, diamond_bullet, heliotrope_bullet, citronite_bullet;
 	
 	public static ROCModItem fish_scale;
 	
@@ -264,11 +266,15 @@ public class ROCItems {
 		osmaralt_bow = new ItemROCBow("realmsofchaos:osmaralt_bow", "bowOsmaralt", ROCItems.osmaralt_arrow, EntityOsmaraltArrow.class, 2200);
 		fractonite_bow = new ItemROCBow("realmsofchaos:fractonite_bow", "bowFractonite", ROCItems.fractonite_arrow, EntityFractoniteArrow.class, -1);
 
-		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class, 3);
-		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 550, diamond_bullet, EntityDiamondBullet.class, 5);
-		
+		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class, 2);
+		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 500, diamond_bullet, EntityDiamondBullet.class, 4);
+		heliotrope_cannon = new ItemCannon("realmsofchaos:heliotrope_cannon", "cannonHeliotrope", 600, heliotrope_bullet, EntityHeliotropeBullet.class, 5);
+		citronite_cannon = new ItemCannon("realmsofchaos:citronite_cannon", "cannonCitronite", 650, citronite_bullet, EntityCitroniteBullet.class, 5.5f);
+
 		iron_bullet = new ROCModItem("realmsofchaos:iron_bullet", "bulletIron");
 		diamond_bullet = new ROCModItem("realmsofchaos:diamond_bullet", "bulletDiamond");
+		heliotrope_bullet = new ROCModItem("realmsofchaos:heliotrope_bullet", "bulletHeliotrope");
+		citronite_bullet = new ROCModItem("realmsofchaos:citronite_bullet", "bulletCitronite");
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
@@ -385,9 +391,13 @@ public class ROCItems {
 		
 		iron_cannon.register("iron_cannon");
 		diamond_cannon.register("diamond_cannon");
+		heliotrope_cannon.register("heliotrope_cannon");
+		citronite_cannon.register("citronite_cannon");
 		
 		iron_bullet.register("iron_bullet");
 		diamond_bullet.register("diamond_bullet");
+		heliotrope_bullet.register("heliotrope_bullet");
+		citronite_bullet.register("citronite_bullet");
 	}
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability)

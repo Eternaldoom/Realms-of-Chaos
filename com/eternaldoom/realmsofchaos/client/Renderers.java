@@ -14,11 +14,13 @@ import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
@@ -32,7 +34,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class Renderers {
 	
-	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon};
+	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon, ROCItems.heliotrope_cannon, ROCItems.citronite_cannon};
 	
 	public static void init(){
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
@@ -49,11 +51,15 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticArrow.class, new RenderROCArrow("aquatic"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityOsmaraltArrow.class, new RenderROCArrow("osmaralt"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFractoniteArrow.class, new RenderROCArrow("fractonite"));
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityIronBullet.class, new RenderSnowball(ROCItems.iron_bullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondBullet.class, new RenderSnowball(ROCItems.diamond_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityHeliotropeBullet.class, new RenderSnowball(ROCItems.heliotrope_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityCitroniteBullet.class, new RenderSnowball(ROCItems.citronite_bullet));
 
 		for (ItemCannon cannon : cannons){
 			MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
 		}
+		
 	}
 }

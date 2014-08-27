@@ -18,7 +18,7 @@ public class ItemCannon extends ROCModItem {
 
 	private Class<? extends EntityThrowable> ammoEntity;
 	private Item ammoItem;
-	private float damage;
+	public float damage;
 
 	public ItemCannon(String tex, String name, int uses, Item ammo,
 			Class<? extends EntityThrowable> ammoEntity, float damage) {
@@ -36,17 +36,17 @@ public class ItemCannon extends ROCModItem {
 		// world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F /
 		// (itemRand.nextFloat() * 0.4F + 0.8F));
 
-		stack.damageItem(1, player);
-
 		if (!world.isRemote) {
 			if(player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(ammoItem))
 		    {
-			try {
-				world.spawnEntityInWorld(ammoEntity.getConstructor(World.class,
+				stack.damageItem(1, player);
+				
+				try {
+					world.spawnEntityInWorld(ammoEntity.getConstructor(World.class,
 						EntityLivingBase.class).newInstance(world, player));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		    }
 		}
 
@@ -67,6 +67,6 @@ public class ItemCannon extends ROCModItem {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4){
 		if(this.getMaxDamage() == -1) list.add(EnumChatFormatting.BLUE + "Infinite Uses");
 		else list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
-		list.add(this.damage + " Ranged Damage");
+		list.add(EnumChatFormatting.RED + "" + this.damage + " Ranged Damage");
 	}
 }
