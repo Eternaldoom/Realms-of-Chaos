@@ -9,9 +9,11 @@ import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
+import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderVoidCrawler;
 import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererCannon;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
+import com.eternaldoom.realmsofchaos.entity.EntityVoidCrawler;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
@@ -41,10 +43,14 @@ public class Renderers {
 	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon, ROCItems.heliotrope_cannon, ROCItems.citronite_cannon, ROCItems.xylite_cannon, ROCItems.flamestone_cannon, ROCItems.neptunite_cannon, ROCItems.aquatic_cannon};
 	
 	public static void init(){
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticGolem.class, new RenderAquaticGolem());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpioid.class, new RenderScorpioid());
+		RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, new RenderVoidCrawler());
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityIronArrow.class, new RenderROCArrow("iron"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondArrow.class, new RenderROCArrow("diamond"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHeliotropeArrow.class, new RenderROCArrow("heliotrope"));
