@@ -270,15 +270,6 @@ public class ROCItems {
 		osmaralt_bow = new ItemROCBow("realmsofchaos:osmaralt_bow", "bowOsmaralt", ROCItems.osmaralt_arrow, EntityOsmaraltArrow.class, 2200);
 		fractonite_bow = new ItemROCBow("realmsofchaos:fractonite_bow", "bowFractonite", ROCItems.fractonite_arrow, EntityFractoniteArrow.class, -1);
 
-		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class, 2);
-		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 500, diamond_bullet, EntityDiamondBullet.class, 4);
-		heliotrope_cannon = new ItemCannon("realmsofchaos:heliotrope_cannon", "cannonHeliotrope", 600, heliotrope_bullet, EntityHeliotropeBullet.class, 5);
-		citronite_cannon = new ItemCannon("realmsofchaos:citronite_cannon", "cannonCitronite", 650, citronite_bullet, EntityCitroniteBullet.class, 5.5f);
-		xylite_cannon = new ItemCannon("realmsofchaos:xylite_cannon", "cannonXylite", 700, xylite_bullet, EntityXyliteBullet.class, 6.5f);
-		flamestone_cannon = new ItemCannon("realmsofchaos:flamestone_cannon", "cannonFlamestone", 750, flamestone_bullet, EntityFlamestoneBullet.class, 7);
-		neptunite_cannon = new ItemCannon("realmsofchaos:neptunite_cannon", "cannonNeptunite", 850, neptunite_bullet, EntityNeptuniteBullet.class, 8.5f);
-		aquatic_cannon = new ItemCannon("realmsofchaos:aquatic_cannon", "cannonAquatic", 1000, aquatic_bullet, EntityAquaticBullet.class, 9.5f);
-
 		iron_bullet = new ROCModItem("realmsofchaos:iron_bullet", "bulletIron");
 		diamond_bullet = new ROCModItem("realmsofchaos:diamond_bullet", "bulletDiamond");
 		heliotrope_bullet = new ROCModItem("realmsofchaos:heliotrope_bullet", "bulletHeliotrope");
@@ -287,6 +278,15 @@ public class ROCItems {
 		flamestone_bullet = new ROCModItem("realmsofchaos:flamestone_bullet", "bulletFlamestone");
 		neptunite_bullet = new ROCModItem("realmsofchaos:neptunite_bullet", "bulletNeptunite");
 		aquatic_bullet = new ROCModItem("realmsofchaos:aquatic_bullet", "bulletAquatic");
+		
+		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, EntityIronBullet.class, 2);
+		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 500, diamond_bullet, EntityDiamondBullet.class, 4);
+		heliotrope_cannon = new ItemCannon("realmsofchaos:heliotrope_cannon", "cannonHeliotrope", 600, heliotrope_bullet, EntityHeliotropeBullet.class, 5);
+		citronite_cannon = new ItemCannon("realmsofchaos:citronite_cannon", "cannonCitronite", 650, citronite_bullet, EntityCitroniteBullet.class, 5.5f);
+		xylite_cannon = new ItemCannon("realmsofchaos:xylite_cannon", "cannonXylite", 700, xylite_bullet, EntityXyliteBullet.class, 6.5f);
+		flamestone_cannon = new ItemCannon("realmsofchaos:flamestone_cannon", "cannonFlamestone", 750, flamestone_bullet, EntityFlamestoneBullet.class, 7);
+		neptunite_cannon = new ItemCannon("realmsofchaos:neptunite_cannon", "cannonNeptunite", 850, neptunite_bullet, EntityNeptuniteBullet.class, 8.5f);
+		aquatic_cannon = new ItemCannon("realmsofchaos:aquatic_cannon", "cannonAquatic", 1000, aquatic_bullet, EntityAquaticBullet.class, 9.5f);
 
 		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
