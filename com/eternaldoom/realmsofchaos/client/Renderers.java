@@ -9,6 +9,7 @@ import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
+import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererCannon;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
@@ -23,12 +24,15 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
+import com.eternaldoom.realmsofchaos.items.ItemCannon;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class Renderers {
+	
+	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon};
 	
 	public static void init(){
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
@@ -48,5 +52,8 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityIronBullet.class, new RenderSnowball(ROCItems.iron_bullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondBullet.class, new RenderSnowball(ROCItems.diamond_bullet));
 
+		for (ItemCannon cannon : cannons){
+			MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
+		}
 	}
 }
