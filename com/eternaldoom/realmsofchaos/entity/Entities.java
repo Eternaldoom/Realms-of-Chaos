@@ -2,19 +2,23 @@ package com.eternaldoom.realmsofchaos.entity;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 
@@ -55,6 +59,14 @@ public class Entities {
 		EntityRegistry.registerModEntity(EntityHeliotropeBullet.class, "HeliotropeBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityCitroniteBullet.class, "CitroniteBullet", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityCitroniteBullet.class, "CitroniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityXyliteBullet.class, "XyliteBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityXyliteBullet.class, "XyliteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityFlamestoneBullet.class, "FlamestoneBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityFlamestoneBullet.class, "FlamestoneBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityNeptuniteBullet.class, "NeptuniteBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityNeptuniteBullet.class, "NeptuniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityAquaticBullet.class, "AquaticBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityAquaticBullet.class, "AquaticBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 	}
 	
 	public static void init(){

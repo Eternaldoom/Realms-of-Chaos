@@ -13,19 +13,23 @@ import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererCannon;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 import com.eternaldoom.realmsofchaos.items.ItemCannon;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
@@ -34,7 +38,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class Renderers {
 	
-	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon, ROCItems.heliotrope_cannon, ROCItems.citronite_cannon};
+	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon, ROCItems.heliotrope_cannon, ROCItems.citronite_cannon, ROCItems.xylite_cannon, ROCItems.flamestone_cannon, ROCItems.neptunite_cannon, ROCItems.aquatic_cannon};
 	
 	public static void init(){
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
@@ -56,6 +60,10 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondBullet.class, new RenderSnowball(ROCItems.diamond_bullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHeliotropeBullet.class, new RenderSnowball(ROCItems.heliotrope_bullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCitroniteBullet.class, new RenderSnowball(ROCItems.citronite_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityXyliteBullet.class, new RenderSnowball(ROCItems.xylite_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityFlamestoneBullet.class, new RenderSnowball(ROCItems.flamestone_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityNeptuniteBullet.class, new RenderSnowball(ROCItems.neptunite_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticBullet.class, new RenderSnowball(ROCItems.aquatic_bullet));
 
 		for (ItemCannon cannon : cannons){
 			MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
