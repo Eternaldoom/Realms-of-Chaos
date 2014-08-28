@@ -103,6 +103,14 @@ public class OverworldGen implements IWorldGenerator{
 			
 			if(random.nextInt(3) == 1) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}
+		
+		for (int i = 0; i < 2; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(12);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			new WorldGenMinable(ROCBlocks.osmaralt_ore, 4, ROCBlocks.frozen_stone).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
 	}
 
 	public void generateOverworld(World world, Random random, int chunkX, int chunkZ){

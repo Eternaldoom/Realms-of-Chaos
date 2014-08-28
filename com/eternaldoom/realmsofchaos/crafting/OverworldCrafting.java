@@ -58,6 +58,7 @@ public class OverworldCrafting {
     	ExtractorRecipes.addItemRecipe(ROCItems.xylite_crystal, new ItemStack(ROCItems.xylite_ingot), 50.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.neptunite_ore), new ItemStack(ROCItems.neptunite_ingot), 40.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass)), 10.0f);
+    	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.osmaralt_ore), new ItemStack(ROCItems.osmaralt_ingot), 50f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.fractonite_ore), new ItemStack(ROCItems.fractonite_stone), 65f);
     	
     	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCItems.heliotrope), 30.0f);
