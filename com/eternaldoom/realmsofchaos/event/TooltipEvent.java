@@ -33,8 +33,7 @@ public class TooltipEvent {
 		
 		if (evt.itemStack.getItem() instanceof ItemBow){
 			evt.toolTip.add(EnumChatFormatting.GREEN + "" + (evt.itemStack.getMaxDamage() - evt.itemStack.getItemDamage()) + " Uses Remaining");
-			evt.toolTip.add(EnumChatFormatting.RED + "" + "2 Ranged Damage");
+			evt.toolTip.add(EnumChatFormatting.RED + "" + "2 Minimum Ranged Damage");
 		}
 	}
-
 }
