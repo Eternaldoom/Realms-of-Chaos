@@ -35,15 +35,15 @@ public class ExtractorRecipes
         this.addItemRecipe(Item.getItemFromBlock(p_151393_1_), p_151393_2_, p_151393_3_);
     }
 
-    public static void addItemRecipe(Item p_151396_1_, ItemStack p_151396_2_, float p_151396_3_)
+    public static void addItemRecipe(Item item, ItemStack stack, float xp)
     {
-        addStuff(new ItemStack(p_151396_1_, 1, 32767), p_151396_2_, p_151396_3_);
+        addStackRecipe(new ItemStack(item, 1, 32767), stack, xp);
     }
 
-    public static void addStuff(ItemStack p_151394_1_, ItemStack p_151394_2_, float p_151394_3_)
+    public static void addStackRecipe(ItemStack ingredient, ItemStack result, float xp)
     {
-        smeltingList.put(p_151394_1_, p_151394_2_);
-        experienceList.put(p_151394_2_, Float.valueOf(p_151394_3_));
+        smeltingList.put(ingredient, result);
+        experienceList.put(result, Float.valueOf(xp));
     }
 
     /**
