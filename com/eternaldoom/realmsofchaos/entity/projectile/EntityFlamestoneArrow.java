@@ -517,7 +517,7 @@ public class EntityFlamestoneArrow extends EntityArrow
         {
             boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && p_70100_1_.capabilities.isCreativeMode;
 
-            if (this.canBePickedUp == 1 && !p_70100_1_.inventory.addItemStackToInventory(new ItemStack(ROCItems.iron_arrow, 1)))
+            if (this.canBePickedUp == 1 && !p_70100_1_.inventory.addItemStackToInventory(new ItemStack(ROCItems.flamestone_arrow, 1)))
             {
                 flag = false;
             }
