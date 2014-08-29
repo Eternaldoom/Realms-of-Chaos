@@ -17,6 +17,7 @@ public class ROCModBlock extends Block{
 		this.setHardness(hard);
 		this.setResistance(resist);
 		this.setCreativeTab(ROCTabs.Blocks);
+		this.setStepSound(sound);
 		
 		blockName = name;
 	}
