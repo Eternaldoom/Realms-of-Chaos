@@ -61,19 +61,19 @@ public class EntityAquaticGolem extends EntityMob{
 	@Override
 	protected String getLivingSound()
     {
-        return "mob.zombie.say";
+        return "realmsofchaos:mob.aquaticgolem.growl";
     }
 
     @Override
     protected String getHurtSound()
     {
-        return "mob.zombie.hurt";
+        return "realmsofchaos:mob.aquaticgolem.death";
     }
 
     @Override
     protected String getDeathSound()
     {
-        return "mob.zombie.death";
+        return "realmsofchaos:mob.aquaticgolem.death";
     }
     
     @Override

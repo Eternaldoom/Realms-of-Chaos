@@ -32,11 +32,12 @@ public class ItemCannon extends ROCModItem {
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		 world.playSoundAtEntity(player, "realmsofchaos:random.cannon", 0.5F, 0.4F /(itemRand.nextFloat() * 0.4F + 0.8F));
 
 		if (!world.isRemote) {
 			if(player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(ammoItem))
 		    {
+				world.playSoundAtEntity(player, "realmsofchaos:random.cannon", 0.5F, 0.4F /(itemRand.nextFloat() * 0.4F + 0.8F));
+
 				stack.damageItem(1, player);
 				
 				try {
@@ -45,6 +46,8 @@ public class ItemCannon extends ROCModItem {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+		    }else{
+				 world.playSoundAtEntity(player, "gui.button.press", 0.5F, 0.4F /(itemRand.nextFloat() * 0.4F + 0.8F));
 		    }
 		}
 

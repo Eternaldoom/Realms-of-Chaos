@@ -1,3 +1,5 @@
 {
-    "random.cannon": {"category": "neutral", "sounds": [{"name": "cannon", "stream": false}]}
+    "random.cannon": {"category": "neutral", "sounds": [{"name": "cannon", "stream": false}]},
+    "mob.aquaticgolem.growl": {"category": "neutral", "sounds": [{"name": "aquaticgolemgrowl", "stream": false}]},
+    "mob.aquaticgolem.death": {"category": "neutral", "sounds": [{"name": "aquaticgolemdeath", "stream": false}]}
 }
