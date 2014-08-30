@@ -47,7 +47,7 @@ public class BlockExtractor extends BlockContainer {
 		setLightLevel(1.0F);
 		setHardness(20.0F);
 		setResistance(6000000.0F);
-		setHarvestLevel("pickaxe", 17);
+		setHarvestLevel("pickaxe", 5);
 		setBlockName("extractor");
 		setBlockTextureName("realmsofchaos:extractor");
 		isActive = active;
