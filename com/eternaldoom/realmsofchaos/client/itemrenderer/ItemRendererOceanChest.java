@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos.client;
+package com.eternaldoom.realmsofchaos.client.itemrenderer;
 
 import org.lwjgl.opengl.GL11;
 

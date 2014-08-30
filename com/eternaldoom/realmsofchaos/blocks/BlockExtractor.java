@@ -306,4 +306,9 @@ public class BlockExtractor extends BlockContainer {
     	GameRegistry.registerBlock(this, name);
     	return this;
     }
+    
+    @Override
+    public int getRenderType(){
+    	return -1;
+    }
 }

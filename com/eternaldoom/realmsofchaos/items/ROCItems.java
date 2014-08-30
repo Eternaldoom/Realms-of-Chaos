@@ -324,6 +324,7 @@ public class ROCItems {
 		flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
 		neptunite_sword.register("neptunite_sword");
+		osmaralt_sword.register("osmaralt_sword");
 		fractonite_sword.register("fractonite_sword");
 
 		citronite_gem.register("citronite_gem");
