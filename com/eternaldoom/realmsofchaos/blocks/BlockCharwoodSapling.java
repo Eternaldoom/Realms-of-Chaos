@@ -4,10 +4,10 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceMountain;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.overworld.gen.WorldGenCharwoodTree;
 
@@ -47,13 +47,13 @@ public class BlockCharwoodSapling extends ROCModBlock{
         return super.canPlaceBlockAt(w, p_149742_2_, p_149742_3_, p_149742_4_) && this.canBlockStay(w, p_149742_2_, p_149742_3_, p_149742_4_);
     }
 	
-	/*public boolean canBlockStay(World w, int i, int j, int k)
+	public boolean canBlockStay(World w, int i, int j, int k)
     {
         if (w.getBlock(i, j - 1, k) == Blocks.netherrack){
         	return true;
         }
        return false;
-    }*/
+    }
 	
 	protected void checkAndDropBlock(World p_149855_1_, int p_149855_2_, int p_149855_3_, int p_149855_4_)
     {
