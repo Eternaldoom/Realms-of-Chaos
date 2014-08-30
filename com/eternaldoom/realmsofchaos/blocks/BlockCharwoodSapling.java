@@ -14,7 +14,7 @@ import com.eternaldoom.realmsofchaos.overworld.gen.WorldGenCharwoodTree;
 public class BlockCharwoodSapling extends ROCModBlock{
 
 	public BlockCharwoodSapling() {
-		super(Material.rock, "realmsofchaos:charwood_sapling", "saplingCharwood", 0.0f, 2.5f, null);
+		super(Material.rock, "realmsofchaos:charwood_sapling", "saplingCharwood", 0.0f, 2.5f, soundTypeCloth);
 		float f = 0.4f;
         setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 	}
