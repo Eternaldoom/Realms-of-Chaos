@@ -118,6 +118,11 @@ public class ROCItems {
 	public static ItemROCPickaxe neptunite_pickaxe;
 	public static ItemROCShovel neptunite_shovel;
 	
+	public static ItemROCSword osmaralt_sword;
+	public static ItemROCAxe osmaralt_axe;
+	public static ItemROCPickaxe osmaralt_pickaxe;
+	public static ItemROCShovel osmaralt_shovel;
+	
 	public static ItemROCSword fractonite_sword;
 	public static ItemROCAxe fractonite_axe;
 	public static ItemROCPickaxe fractonite_pickaxe;
@@ -234,6 +239,11 @@ public class ROCItems {
 		neptunite_pickaxe = new ItemROCPickaxe(NEPTUNITEt, "realmsofchaos:neptunite_pickaxe", "pickaxeNeptunite", false);
 		neptunite_axe = new ItemROCAxe(NEPTUNITEt, "realmsofchaos:neptunite_axe", "axeNeptunite", false);
 		neptunite_shovel = new ItemROCShovel(NEPTUNITEt, "realmsofchaos:neptunite_shovel", "shovelNeptunite", false);
+		
+		osmaralt_sword = new ItemROCSword(OSMARALTt, "realmsofchaos:osmaralt_sword", "swordOsmaralt", false);
+		osmaralt_axe = new ItemROCAxe(OSMARALTt, "realmsofchaos:osmaralt_axe", "axeOsmaralt", false);
+		osmaralt_pickaxe = new ItemROCPickaxe(OSMARALTt, "realmsofchaos:osmaralt_pickaxe", "pickaxeOsmaralt", false);
+		osmaralt_shovel = new ItemROCShovel(OSMARALTt, "realmsofchaos:osmaralt_shovel", "shovelOsmaralt", false);
 		
 		fractonite_sword = new ItemROCSword(FRACTONITEt, "realmsofchaos:fractonite_sword", "swordFractonite", false);
 		fractonite_pickaxe = new ItemROCPickaxe(FRACTONITEt, "realmsofchaos:fractonite_pickaxe", "pickaxeFractonite", false);
@@ -380,6 +390,10 @@ public class ROCItems {
 		neptunite_pickaxe.register("neptunite_pickaxe");
 		neptunite_axe.register("neptunite_axe");
 		neptunite_shovel.register("neptunite_shovel");
+		
+		osmaralt_pickaxe.register("osmaralt_pickaxe");
+		osmaralt_axe.register("osmaralt_axe");
+		osmaralt_shovel.register("osmaralt_shovel");
 		
 		fractonite_pickaxe.register("fractonite_pickaxe");
 		fractonite_axe.register("fractonite_axe");
