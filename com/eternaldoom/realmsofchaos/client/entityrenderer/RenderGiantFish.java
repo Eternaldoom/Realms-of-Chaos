@@ -23,6 +23,7 @@ public class RenderGiantFish extends RenderLiving{
 	protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
     {
 		float scale = 3.0f;
+		GL11.glTranslatef(0f, 1f, 0f);
         GL11.glScalef(scale, scale, scale);
     }
 }

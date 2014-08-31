@@ -6,6 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
+
 public class BiomeGenWater extends BiomeGenBase
 {
     private static final String __OBFID = "CL_00000179";
@@ -14,8 +16,10 @@ public class BiomeGenWater extends BiomeGenBase
     {
         super(id);
         this.spawnableWaterCreatureList.clear();
+        this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityGiantFish.class, 10, 2, 3));
     }
 
+    @Override
     public BiomeGenBase.TempCategory getTempCategory()
     {
         return BiomeGenBase.TempCategory.OCEAN;

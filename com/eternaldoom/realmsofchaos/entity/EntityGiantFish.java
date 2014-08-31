@@ -1,10 +1,14 @@
 package com.eternaldoom.realmsofchaos.entity;
 
 import java.util.Calendar;
+import java.util.List;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.passive.EntityAmbientCreature;
+import net.minecraft.entity.ai.EntityAIAttackOnCollide;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,14 +17,17 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityGiantFish extends EntityAmbientCreature
+public class EntityGiantFish extends EntityMob
 {
     public ChunkCoordinates spawnPosition;
+    public boolean angry;
 
     public EntityGiantFish(World world)
     {
         super(world);
-        this.setSize(5F, 3F);
+        this.setSize(3F, 2F);
+        this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
     }
 
     @Override
@@ -40,6 +47,7 @@ public class EntityGiantFish extends EntityAmbientCreature
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(6.0D);
     }
 
     protected boolean isAIEnabled()
@@ -52,7 +60,16 @@ public class EntityGiantFish extends EntityAmbientCreature
     {
         super.onUpdate();
         if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air)this.motionY *= 1.0000000238418579D;
-        if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-1, (int)this.posZ) != Blocks.air && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-1, (int)this.posZ) != Blocks.water && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air)this.motionY = 1.7;
+        
+        if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY) - 1, (int)this.posZ) != Blocks.air && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-1, (int)this.posZ) != Blocks.water && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air){
+        	this.motionY = 0.4;
+        	switch(this.rand.nextInt(4)){
+        		case 0: this.motionX = 0.25;this.motionZ=0.25;break;
+        		case 1: this.motionX = 0.25;this.motionZ=-0.25;break;
+        		case 2: this.motionX = -0.25;this.motionZ=-0.25;break;
+        		case 3: this.motionX = -0.25;this.motionZ=0.25;
+        	}
+        }
     }
 
     @Override
@@ -88,6 +105,12 @@ public class EntityGiantFish extends EntityAmbientCreature
             if(this.worldObj.getBlock(this.spawnPosition.posX, this.spawnPosition.posY, this.spawnPosition.posZ) == Blocks.air){
             	this.spawnPosition.posY -= 5;
             }
+            
+            if(this.angry && this.entityToAttack != null){
+            	this.spawnPosition.posX = (int)Math.round(this.entityToAttack.posX);
+            	this.spawnPosition.posY = (int)Math.round(this.entityToAttack.posY);
+            	this.spawnPosition.posZ = (int)Math.round(this.entityToAttack.posZ);
+            }
 
             if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.water){
            	double i = (double)this.spawnPosition.posX - this.posX;
@@ -112,6 +135,14 @@ public class EntityGiantFish extends EntityAmbientCreature
         }
         else
         {
+        	Entity entity = p_70097_1_.getEntity();
+
+            if (entity instanceof EntityPlayer)
+            {
+                this.angry = true;
+                this.entityToAttack = entity;
+            }
+            
             return super.attackEntityFrom(p_70097_1_, p_70097_2_);
         }
     }
@@ -127,17 +158,13 @@ public class EntityGiantFish extends EntityAmbientCreature
     {
         int i = MathHelper.floor_double(this.boundingBox.minY);
 
-        if (i >= 120)
-        {
-            return false;
-        }
+        if (i >= 120) return false;
+        if(this.rand.nextInt(70000) != 2)return false;
         else
         {
             int j = MathHelper.floor_double(this.posX);
             int k = MathHelper.floor_double(this.posZ);
-            byte b0 = 4;
-            Calendar calendar = this.worldObj.getCurrentDate();
-
+            
             return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty();
         }
     }
@@ -163,5 +190,34 @@ public class EntityGiantFish extends EntityAmbientCreature
         {
             this.setAir(300);
         }
+    }
+    
+    @Override
+    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    {
+        super.writeEntityToNBT(p_70014_1_);
+        p_70014_1_.setBoolean("Angry", this.angry);
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    {
+        super.readEntityFromNBT(p_70037_1_);
+        this.angry = p_70037_1_.getBoolean("Anger");
+    }
+    
+    @Override
+    protected Entity findPlayerToAttack()
+    {
+        return !this.angry ? null : super.findPlayerToAttack();
+    }
+    
+    @Override
+    public boolean attackEntityAsMob(Entity p_70652_1_){
+    	if(angry){
+    		super.attackEntityAsMob(p_70652_1_);
+    		return true;
+    	}
+    	return false;
     }
 }
