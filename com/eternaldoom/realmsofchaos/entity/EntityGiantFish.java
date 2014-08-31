@@ -3,6 +3,7 @@ package com.eternaldoom.realmsofchaos.entity;
 import java.util.Calendar;
 import java.util.List;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -61,7 +62,7 @@ public class EntityGiantFish extends EntityMob
         super.onUpdate();
         if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air)this.motionY *= 1.0000000238418579D;
         
-        if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY) - 1, (int)this.posZ) != Blocks.air && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-1, (int)this.posZ) != Blocks.water && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air){
+        if((this.worldObj.getBlock((int)Math.round(this.posX), MathHelper.floor_double(this.posY) - 1, (int)this.posZ) != Blocks.air && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-1, (int)this.posZ) != Blocks.water && (this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air || this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ).getMaterial() == Material.plants)) || this.worldObj.getBlock((int)Math.round(this.posX), MathHelper.floor_double(this.posY) - 2, (int)this.posZ) != Blocks.air && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-2, (int)this.posZ) != Blocks.water && (this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.air || this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ).getMaterial() == Material.plants)){
         	this.motionY = 0.4;
         	switch(this.rand.nextInt(4)){
         		case 0: this.motionX = 0.25;this.motionZ=0.25;break;
