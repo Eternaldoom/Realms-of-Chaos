@@ -1,22 +1,21 @@
 package com.eternaldoom.realmsofchaos.entity;
 
-import java.util.Calendar;
-import java.util.List;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class EntityGiantFish extends EntityMob
 {
@@ -220,5 +219,16 @@ public class EntityGiantFish extends EntityMob
     		return true;
     	}
     	return false;
+    }
+    
+    @Override
+    protected void dropFewItems(boolean p_70628_1_, int p_70628_2_){
+    	this.dropItem(ROCItems.fish_scale, this.rand.nextInt(3)+1);
+    	if(this.rand.nextInt(3) == 0) this.dropItem(Items.fish, 2);
+    }
+    
+    @Override
+    protected void dropRareDrop(int par1){
+    	this.dropItem(ROCItems.aquatic_orb, 3);
     }
 }
