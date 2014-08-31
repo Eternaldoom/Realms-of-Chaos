@@ -1,9 +1,8 @@
 package com.eternaldoom.realmsofchaos;
 
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-
+import net.minecraft.command.CommandHandler;
+import net.minecraft.command.ServerCommandManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
@@ -14,7 +13,6 @@ import com.eternaldoom.realmsofchaos.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
 import com.eternaldoom.realmsofchaos.crafting.OverworldCrafting;
 import com.eternaldoom.realmsofchaos.entity.Entities;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.event.ArmorBonusEvent;
 import com.eternaldoom.realmsofchaos.event.ItemReplaceEvent;
 import com.eternaldoom.realmsofchaos.event.OverlayEvent;
@@ -25,9 +23,6 @@ import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 import com.eternaldoom.realmsofchaos.water.gen.WorldProviderWater;
-import com.jadarstudios.developercapes.DevCapes;
-import com.jadarstudios.developercapes.cape.CapeConfig;
-import com.jadarstudios.developercapes.cape.CapeConfigManager;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -36,8 +31,8 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
@@ -91,5 +86,12 @@ public class RealmsOfChaos {
 	public void postInit(FMLPostInitializationEvent evt){
 		
 		System.out.println("[Realms of Chaos] Sucessfully enabled mod. Have fun!");
+	}
+	
+	@EventHandler
+    public void serverStarting(FMLServerStartingEvent event){
+		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
+			((CommandHandler) MinecraftServer.getServer().getCommandManager()).registerCommand(new CommandFloor());
+		}
 	}
 }
