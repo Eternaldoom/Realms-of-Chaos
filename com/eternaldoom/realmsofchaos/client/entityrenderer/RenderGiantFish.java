@@ -14,7 +14,7 @@ public class RenderGiantFish extends RenderLiving {
 	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/entity/giant_fish.png");
 
 	public RenderGiantFish() {
-		super(new ModelGiantFish(), 0.75f);
+		super(new ModelGiantFish(), 3f);
 	}
 
 	@Override
@@ -29,8 +29,10 @@ public class RenderGiantFish extends RenderLiving {
 				(int) Math.floor(entity.posY), (int) Math.round(entity.posZ)) == Blocks.air
 				|| entity.worldObj.getBlock((int) Math.round(entity.posX),
 						(int) Math.floor(entity.posY),
-						(int) Math.round(entity.posZ)).getMaterial() == Material.plants)
+						(int) Math.round(entity.posZ)).getMaterial() == Material.plants){
 			GL11.glRotatef(90, 0, 0, 1f);
+			GL11.glTranslatef(0f, 3.5f, 0f);
+		}
 		GL11.glScalef(scale, scale, scale);
 	}
 }
