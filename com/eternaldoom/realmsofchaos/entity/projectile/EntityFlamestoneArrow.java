@@ -299,7 +299,7 @@ public class EntityFlamestoneArrow extends EntityArrow
                 if (movingobjectposition.entityHit != null)
                 {
                     f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-                    int k = MathHelper.ceiling_double_int((double)f2 * this.damage);
+                    int k = MathHelper.ceiling_double_int((double)f2 + this.damage);
 
                     if (this.getIsCritical())
                     {
@@ -317,9 +317,10 @@ public class EntityFlamestoneArrow extends EntityArrow
                         damagesource = DamageSource.causeArrowDamage(this, this.shootingEntity);
                     }
 
-                    if (this.isBurning() && !(movingobjectposition.entityHit instanceof EntityEnderman))
+                    movingobjectposition.entityHit.setFire(5);
+                    if (this.isBurning())
                     {
-                        movingobjectposition.entityHit.setFire(5);
+                        movingobjectposition.entityHit.setFire(30);
                     }
 
                     if (movingobjectposition.entityHit.attackEntityFrom(damagesource, (float)k))

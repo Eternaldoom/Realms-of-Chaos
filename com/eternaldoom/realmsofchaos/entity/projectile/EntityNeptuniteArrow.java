@@ -299,7 +299,7 @@ public class EntityNeptuniteArrow extends EntityArrow
                 if (movingobjectposition.entityHit != null)
                 {
                     f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
-                    int k = MathHelper.ceiling_double_int((double)f2 * this.damage);
+                    int k = MathHelper.ceiling_double_int((double)f2 + this.damage);
 
                     if (this.getIsCritical())
                     {

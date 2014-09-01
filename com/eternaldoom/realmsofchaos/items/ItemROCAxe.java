@@ -20,7 +20,7 @@ public class ItemROCAxe extends ItemROCTool
 
     protected ItemROCAxe(Item.ToolMaterial tool, String tex, String name, boolean vanilla)
     {
-        super(Math.round((tool.getDamageVsEntity() + 4)/2), tool, breaks, tex, name, vanilla);
+        super(Math.round((tool.getDamageVsEntity() + 4)/2)+1, tool, breaks, tex, name, vanilla);
     }
 
     public float func_150893_a(ItemStack p_150893_1_, Block p_150893_2_)

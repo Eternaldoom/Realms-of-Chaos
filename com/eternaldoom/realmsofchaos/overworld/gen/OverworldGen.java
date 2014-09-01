@@ -41,7 +41,7 @@ public class OverworldGen implements IWorldGenerator{
 	}
 	
 	private void generateIceRuins(World world, Random random, int chunkX, int chunkZ) {
-		for (int i = 0; i < 2; i++){
+		for (int i = 0; i < 4; i++){
 			int Xcoord1 = chunkX + random.nextInt(16);
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
@@ -101,7 +101,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			if(random.nextInt(3) == 1) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(5) == 1) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}
 		
 		for (int i = 0; i < 2; i++){

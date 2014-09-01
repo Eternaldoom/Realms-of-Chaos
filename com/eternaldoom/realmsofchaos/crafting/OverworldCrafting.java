@@ -35,7 +35,22 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCItems.fractonite_stone, 9), new Object[]{"X", 'X', ROCBlocks.fractonite_block});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.osmaralt_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.osmaralt_ingot});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.osmaralt_ingot, 9), new Object[]{"X", 'X', ROCBlocks.osmaralt_block});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.iron_bow), new Object[]{" XS", "X S", " XS", 'X', Items.iron_ingot, 'S', Items.string});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.diamond_bow), new Object[]{" XS", "X S", " XS", 'X', Items.diamond, 'S', Items.string});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.iron_arrow, 16), new Object[]{"F", "X", "C", 'F', Items.flint, 'X', Items.iron_ingot, 'C', Items.feather});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.diamond_arrow, 16), new Object[]{"F", "X", "C", 'F', Items.flint, 'X', Items.diamond, 'C', Items.feather});
 		
+		RecipeHelper.addCannonRecipe(Blocks.iron_block, ROCItems.iron_cannon, Items.iron_ingot, ROCItems.iron_bullet);
+		RecipeHelper.addCannonRecipe(Blocks.diamond_block, ROCItems.diamond_cannon, Items.diamond, ROCItems.diamond_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.heliotrope_block, ROCItems.heliotrope_cannon, ROCItems.heliotrope, ROCItems.heliotrope_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.citronite_block, ROCItems.citronite_cannon, ROCItems.citronite_stone, ROCItems.citronite_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.xylite_block, ROCItems.xylite_cannon, ROCItems.xylite_ingot, ROCItems.xylite_bullet);
+		//RecipeHelper.addCannonRecipe(ROCBlocks.flamestone_block, ROCItems.iron_cannon, ROCItems.iron_ingot, ROCItems.iron_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.neptunite_block, ROCItems.neptunite_cannon, ROCItems.neptunite_ingot, ROCItems.neptunite_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.aquatic_block, ROCItems.aquatic_cannon, ROCItems.aquatic_orb, ROCItems.aquatic_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.osmaralt_block, ROCItems.osmaralt_cannon, ROCItems.osmaralt_ingot, ROCItems.osmaralt_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.fractonite_block, ROCItems.fractonite_cannon, ROCItems.fractonite_stone, ROCItems.fractonite_bullet);
+
 		RecipeHelper.addArmorRecipe(ROCItems.heliotrope_helmet, ROCItems.heliotrope_chestplate, ROCItems.heliotrope_leggings, ROCItems.heliotrope_boots, ROCItems.heliotrope);
 		RecipeHelper.addArmorRecipe(ROCItems.citronite_helmet, ROCItems.citronite_chestplate, ROCItems.citronite_leggings, ROCItems.citronite_boots, ROCItems.citronite_gem);
 		RecipeHelper.addArmorRecipe(ROCItems.xylite_helmet, ROCItems.xylite_chestplate, ROCItems.xylite_leggings, ROCItems.xylite_boots, ROCItems.xylite_ingot);
