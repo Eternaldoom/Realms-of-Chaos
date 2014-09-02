@@ -1,13 +1,14 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
+import net.minecraft.util.IIcon;
+
+import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModSlab;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemSlab;
-import net.minecraft.util.IIcon;
 
 public class BlockROCSlab extends BlockSlab{
 	private Block materialBlock;
@@ -34,8 +35,8 @@ public class BlockROCSlab extends BlockSlab{
     }
 	
 	public BlockROCSlab register(String name){
-		if(isDouble) GameRegistry.registerBlock(this, ItemSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab_double, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, true});
-		else GameRegistry.registerBlock(this, ItemSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, false});
+		if(isDouble) GameRegistry.registerBlock(this, ItemBlockModSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab_double, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, true});
+		else GameRegistry.registerBlock(this, ItemBlockModSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, false});
 		return this;
 	}
 }
