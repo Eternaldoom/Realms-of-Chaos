@@ -41,6 +41,11 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCItems.diamond_bow), new Object[]{" XS", "X S", " XS", 'X', Items.diamond, 'S', Items.string});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.iron_arrow, 16), new Object[]{"F", "X", "C", 'F', Items.flint, 'X', Items.iron_ingot, 'C', Items.feather});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.diamond_arrow, 16), new Object[]{"F", "X", "C", 'F', Items.flint, 'X', Items.diamond, 'C', Items.feather});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.netherrack_bricks), new Object[]{RecipeHelper.stonePatterns[2], 'M', Blocks.netherrack});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.netherrack_brick_slab, 6), new Object[]{RecipeHelper.stonePatterns[0], 'M', ROCBlocks.netherrack_bricks});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.netherrack_brick_stairs, 4), new Object[]{RecipeHelper.stonePatterns[1], 'M', ROCBlocks.netherrack_bricks});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.charwood_slab, 6), new Object[]{RecipeHelper.stonePatterns[0], 'M', ROCBlocks.charwood_planks});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.charwood_stairs, 4), new Object[]{RecipeHelper.stonePatterns[1], 'M', ROCBlocks.charwood_planks});
 		
 		RecipeHelper.addCannonRecipe(Blocks.iron_block, ROCItems.iron_cannon, Items.iron_ingot, ROCItems.iron_bullet);
 		RecipeHelper.addCannonRecipe(Blocks.diamond_block, ROCItems.diamond_cannon, Items.diamond, ROCItems.diamond_bullet);
@@ -71,16 +76,18 @@ public class OverworldCrafting {
 		RecipeHelper.addToolRecipe(ROCItems.osmaralt_sword, ROCItems.osmaralt_pickaxe, ROCItems.osmaralt_axe, ROCItems.osmaralt_shovel, ROCItems.osmaralt_bow, ROCItems.osmaralt_arrow, ROCItems.osmaralt_ingot);
 		RecipeHelper.addToolRecipe(ROCItems.fractonite_sword, ROCItems.fractonite_pickaxe, ROCItems.fractonite_axe, ROCItems.fractonite_shovel, ROCItems.fractonite_bow, ROCItems.fractonite_arrow, ROCItems.fractonite_stone);
 		
+		RecipeHelper.addStoneRecipe(ROCBlocks.ocean_stone, ROCBlocks.oceanstone_bricks, ROCBlocks.oceanstone_slab, ROCBlocks.oceanstone_stairs, ROCBlocks.oceanstone_brick_slab, ROCBlocks.ocean_cobblestone, ROCBlocks.ocean_cobblestone_slab, ROCBlocks.ocean_cobblestone_stairs, ROCBlocks.oceanstone_brick_stairs);
+		RecipeHelper.addStoneRecipe(ROCBlocks.frozen_stone, ROCBlocks.frozen_stone_bricks, ROCBlocks.frozen_stone_slab, ROCBlocks.frozen_stone_stairs, ROCBlocks.frozen_stone_brick_slab, ROCBlocks.frozen_cobblestone, ROCBlocks.frozen_cobblestone_slab, ROCBlocks.frozen_cobblestone_stairs, ROCBlocks.frozen_stone_brick_stairs);
+
 		GameRegistry.addRecipe(new ItemStack(ROCItems.fish_scale, 2), new Object[]{"F", 'F', Items.fish});
 
     	ExtractorRecipes.addItemRecipe(ROCItems.xylite_crystal, new ItemStack(ROCItems.xylite_ingot), 50.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.neptunite_ore), new ItemStack(ROCItems.neptunite_ingot), 40.0f);
-    	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass)), 10.0f);
+    	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.ocean_stone), new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_glass)), 10.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.osmaralt_ore), new ItemStack(ROCItems.osmaralt_ingot), 50f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.fractonite_ore), new ItemStack(ROCItems.fractonite_stone), 65f);
     	
     	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCItems.heliotrope), 30.0f);
-    	GameRegistry.addSmelting(ROCBlocks.ocean_cobblestone, new ItemStack(Item.getItemFromBlock(ROCBlocks.ocean_stone)), 20.0f);
     	GameRegistry.addSmelting(ROCItems.raw_scorpion, new ItemStack(ROCItems.cooked_scorpion), 20.0f);
 	}
 }
