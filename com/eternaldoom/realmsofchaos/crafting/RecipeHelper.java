@@ -39,7 +39,7 @@ public class RecipeHelper {
 		GameRegistry.addRecipe(new ItemStack(pickaxe), new Object[]{toolPatterns[1], 'X', material, 'S', Items.stick});
 		GameRegistry.addRecipe(new ItemStack(axe), new Object[]{toolPatterns[2], 'X', material, 'S', Items.stick});
 		GameRegistry.addRecipe(new ItemStack(shovel), new Object[]{toolPatterns[3], 'X', material, 'S', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(arrow), new Object[]{toolPatterns[4], 'F', Items.flint, 'M', material, 'T', Items.feather});
+		GameRegistry.addRecipe(new ItemStack(arrow, 16), new Object[]{toolPatterns[4], 'F', Items.flint, 'M', material, 'T', Items.feather});
 		GameRegistry.addRecipe(new ItemStack(bow), new Object[]{toolPatterns[5], 'X', material, 'S', Items.string});
 	}
 	

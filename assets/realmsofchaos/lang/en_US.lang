@@ -31,6 +31,8 @@ tile.bricksOceanstoneCracked.name=Cracked Ocean Stone Bricks
 tile.bricksOceanstoneCarved.name=Chiseled Ocean Stone Bricks
 tile.oreOsmaralt.name=Osmaralt Ore
 tile.blockOsmaralt.name=Osmaralt Block
+tile.stairsCharwood.name=Charwood Stairs
+tile.stairsOceanstone=Ocean Stone Stairs
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

@@ -18,8 +18,10 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(Blocks.crafting_table), new Object[]{"XX", "XX", 'X', ROCBlocks.charwood_planks});
 		GameRegistry.addRecipe(new ItemStack(Items.stick, 4), new Object[]{"X", "X", 'X', ROCBlocks.charwood_planks});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.citronite_stone), new Object[]{" C ", "C C", " C ", 'C', ROCItems.citronite_gem});
-		GameRegistry.addRecipe(new ItemStack(ROCItems.flame_stone), new Object[]{"ACA", "XLX", "ACA", 'A', ROCItems.ash_dust, 'C', ROCItems.citronite_stone, 'X', ROCItems.xylite_ingot, 'L', Items.lava_bucket});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.flame_stone), new Object[]{"ACA", "CLC", "ACA", 'A', ROCItems.ash_dust, 'C', ROCItems.citronite_gem, 'L', Items.lava_bucket});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.extractor), new Object[]{"CWC", "WWW", "CWC", 'C', ROCBlocks.citronite_block, 'W', ROCBlocks.charwood_log});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.heliotrope_block), new Object[]{"CCC", "CCC", "CCC", 'C', ROCItems.heliotrope});
+		GameRegistry.addRecipe(new ItemStack(ROCItems.heliotrope, 9), new Object[]{"C", 'C', ROCBlocks.heliotrope_block});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.citronite_block), new Object[]{"CCC", "CCC", "CCC", 'C', ROCItems.citronite_stone});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.citronite_stone, 9), new Object[]{"C", 'C', ROCBlocks.citronite_block});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.xylite_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.xylite_ingot});
@@ -66,6 +68,7 @@ public class OverworldCrafting {
 		RecipeHelper.addToolRecipe(ROCItems.flame_sword, ROCItems.flame_pickaxe, ROCItems.flame_axe, ROCItems.flame_shovel, ROCItems.flamestone_bow, ROCItems.flamestone_arrow, ROCItems.flame_stone, Items.lava_bucket);
 		RecipeHelper.addToolRecipe(ROCItems.neptunite_sword, ROCItems.neptunite_pickaxe, ROCItems.neptunite_axe, ROCItems.neptunite_shovel, ROCItems.neptunite_bow, ROCItems.neptunite_arrow, ROCItems.neptunite_ingot, ROCItems.fish_scale);
 		RecipeHelper.addToolRecipe(ROCItems.aquatic_sword, ROCItems.aquatic_pickaxe, ROCItems.aquatic_axe, ROCItems.aquatic_shovel, ROCItems.aquatic_bow, ROCItems.aquatic_arrow, ROCItems.aquatic_orb, ROCItems.fish_scale);
+		RecipeHelper.addToolRecipe(ROCItems.osmaralt_sword, ROCItems.osmaralt_pickaxe, ROCItems.osmaralt_axe, ROCItems.osmaralt_shovel, ROCItems.osmaralt_bow, ROCItems.osmaralt_arrow, ROCItems.osmaralt_ingot);
 		RecipeHelper.addToolRecipe(ROCItems.fractonite_sword, ROCItems.fractonite_pickaxe, ROCItems.fractonite_axe, ROCItems.fractonite_shovel, ROCItems.fractonite_bow, ROCItems.fractonite_arrow, ROCItems.fractonite_stone);
 		
 		GameRegistry.addRecipe(new ItemStack(ROCItems.fish_scale, 2), new Object[]{"F", 'F', Items.fish});

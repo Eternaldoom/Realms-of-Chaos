@@ -67,10 +67,15 @@ public class BlockExtractor extends BlockContainer {
 			return false;
 		}
 	}
-
-	public Item func_149650_a(int par1, Random par2Random, int par3)
-	{
-		return Item.getItemFromBlock(ROCBlocks.extractor);
+	
+	@Override
+	public boolean renderAsNormalBlock(){
+		return false;
+	}
+	
+	@Override
+	public boolean isOpaqueCube(){
+		return false;
 	}
 
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)

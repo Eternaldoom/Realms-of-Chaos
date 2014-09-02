@@ -31,6 +31,7 @@ public class ROCBlocks {
 	public static ROCModBlock charwood_sapling;
 	public static ROCModBlock netherrack_bricks;
     public static ROCModBlock charwood_planks;
+    public static Block charwood_stairs;
     
     //Ocean
     public static Fluid waterportal;
@@ -64,6 +65,7 @@ public class ROCBlocks {
 		netherrack_bricks = new ROCModBlock(Material.rock, "realmsofchaos:netherrack_bricks", "bricksHellrock", 0.4f, 1.0f, ROCModBlock.soundTypePiston).register("netherrack_bricks");
         citronite_block = new ROCModBlock(Material.glass, "realmsofchaos:citronite_block", "blockCitronite", 5.0f, 12.0f, ROCModBlock.soundTypeGlass).register("citronite_block");
         charwood_planks = new ROCModBlock(Material.wood, "realmsofchaos:charwood_planks", "planksCharwood", 4.0f, 2.5f, ROCModBlock.soundTypeWood).register("charwood_planks");
+        charwood_stairs = new BlockROCStairs(charwood_planks, 0, "stairsCharwood").register("charwood_stairs");
         extractor = new BlockExtractor(false).register("extractor");
         extractor_on = new BlockExtractor(true).register("extractor_on");
         xylite_ore = new BlockXyliteOre().register("xylite_ore");
