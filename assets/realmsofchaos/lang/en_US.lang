@@ -32,7 +32,13 @@ tile.bricksOceanstoneCarved.name=Chiseled Ocean Stone Bricks
 tile.oreOsmaralt.name=Osmaralt Ore
 tile.blockOsmaralt.name=Osmaralt Block
 tile.stairsCharwood.name=Charwood Stairs
-tile.stairsOceanstone=Ocean Stone Stairs
+tile.stairsOceanstone.name=Ocean Stone Stairs
+tile.stairsOceanCobblestone.name=Ocean Cobblestone Stairs
+tile.stairsOceanstoneBrick.name=Ocean Stone Brick Stairs
+tile.stairsFrozenStone.name=Frozen Stone Stairs
+tile.stairsFrozenCobblestone.name=Frozen Cobblestone Stairs
+tile.stairsFrozenStoneBrick.name=Frozen Stone Brick Stairs
+tile.stairsHellrockBrick.name=Frozen Stone Stairs
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
