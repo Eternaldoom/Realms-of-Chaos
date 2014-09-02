@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
@@ -52,5 +53,13 @@ public class BlockROCSlab extends BlockSlab{
 	@Override
 	public Item getItemDropped(int par1, Random rand, int par3){
 		return isDouble ? Item.getItemFromBlock(singleslab) : Item.getItemFromBlock(this);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
+	{
+		if (this.isDouble) return Item.getItemFromBlock(singleslab);
+		else return Item.getItemFromBlock(this);
 	}
 }

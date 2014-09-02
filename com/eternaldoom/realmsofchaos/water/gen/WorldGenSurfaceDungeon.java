@@ -349,13 +349,11 @@ public class WorldGenSurfaceDungeon {
         
         world.setBlock(i + 1, j + 1, k + 4, ROCBlocks.ocean_chest, 5, 2);
 		world.setBlock(i + 1, j + 1, k + 6, ROCBlocks.ocean_chest, 5, 2);
-		
-		WeightedRandomChestContent[] contents = WeightedRandomChestContent.func_92080_a(cheststuff);
-		
+				
 		TileEntityOceanChest chest1 = (TileEntityOceanChest)world.getTileEntity(i+1, j+1, k+4);
-		if (chest1 != null) WeightedRandomChestContent.generateChestContents(rand, contents, chest1, 8);
+		if (chest1 != null) WeightedRandomChestContent.generateChestContents(rand, cheststuff, chest1, 8);
 		TileEntityOceanChest chest2 = (TileEntityOceanChest)world.getTileEntity(i+1, j+1, k+6);
-		if (chest2 != null) WeightedRandomChestContent.generateChestContents(rand, contents, chest2, 8);
+		if (chest2 != null) WeightedRandomChestContent.generateChestContents(rand, cheststuff, chest2, 8);
         
 
 		return true;

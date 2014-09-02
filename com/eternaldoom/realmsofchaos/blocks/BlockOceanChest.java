@@ -22,12 +22,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BlockOceanChest extends BlockContainer{
 	
 	protected BlockOceanChest() {
-		super(Material.rock);
+		super(Material.glass);
 		setCreativeTab(ROCTabs.Blocks);
 		setBlockTextureName("realmsofchaos:ocean_glass");
 		setHardness(12.0f);
 		setResistance(10.0f);
 		setBlockName("chestOcean");
+		setStepSound(soundTypeGlass);
+		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
 	
 	public BlockOceanChest register(String name){
@@ -93,11 +95,6 @@ public class BlockOceanChest extends BlockContainer{
 			world.func_147453_f(i, j, k, block);
 		}
 		super.breakBlock(world, i, j, k, block, par6);
-	}
-	
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1iba, int i, int j, int k) {
-		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
 
 	private IInventory getInventory(World world, int i, int j, int k) {

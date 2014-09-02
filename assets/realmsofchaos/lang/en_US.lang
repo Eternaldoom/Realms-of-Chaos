@@ -47,6 +47,7 @@ tile.slabOceanstoneBrick.name=Ocean Stone Brick Slab
 tile.slabFrozenStone.name=Frozen Stone Slab
 tile.slabFrozenCobblestone.name=Frozen Cobblestone Slab
 tile.slabFrozenStoneBrick.name=Frozen Stone Brick Slab
+tile.blockFlamestone.name=Flamestone Block
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

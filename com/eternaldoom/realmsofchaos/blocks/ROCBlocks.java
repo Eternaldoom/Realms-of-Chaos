@@ -38,6 +38,7 @@ public class ROCBlocks {
     public static Block charwood_stairs;
     public static BlockROCSlab charwood_slab;
 	public static BlockROCSlab charwood_slab_double;
+	public static ROCModBlock flamestone_block;
     
     //Ocean
     public static Fluid waterportal;
@@ -91,12 +92,13 @@ public class ROCBlocks {
 		netherrack_brick_slab = new BlockROCSlab(false, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick");
 		netherrack_brick_slab_double = new BlockROCSlab(true, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick", netherrack_brick_slab);
 		registerSlab("netherrack_brick_slab", "netherrack_brick_slab_double", netherrack_brick_slab, netherrack_brick_slab_double);
-        citronite_block = new ROCModBlock(Material.glass, "realmsofchaos:citronite_block", "blockCitronite", 5.0f, 12.0f, ROCModBlock.soundTypeGlass).register("citronite_block");
+        citronite_block = new ROCModBlock(Material.rock, "realmsofchaos:citronite_block", "blockCitronite", 5.0f, 12.0f, ROCModBlock.soundTypeGlass).register("citronite_block");
         charwood_planks = new ROCModBlock(Material.wood, "realmsofchaos:charwood_planks", "planksCharwood", 4.0f, 2.5f, ROCModBlock.soundTypeWood).register("charwood_planks");
         charwood_stairs = new BlockROCStairs(charwood_planks, 0, "stairsCharwood").register("charwood_stairs");
         charwood_slab = new BlockROCSlab(false, charwood_planks, 0.4f, 1.0f, "slabCharwood");
 		charwood_slab_double = new BlockROCSlab(true, charwood_planks, 0.4f, 1.0f, "slabCharwood", charwood_slab);
 		registerSlab("charwood_slab", "charwood_slab_double", charwood_slab, charwood_slab_double);
+		flamestone_block = new BlockGlowing(Material.rock, "realmsofchaos:flamestone_block", "blockFlamestone", 8.5f, 1000000, ROCModBlock.soundTypeGlass, 7).register("flamestone_block");
         extractor = new BlockExtractor(false).register("extractor");
         extractor_on = new BlockExtractor(true).register("extractor_on");
         xylite_ore = new BlockXyliteOre().register("xylite_ore");
@@ -127,7 +129,7 @@ public class ROCBlocks {
         compressed_lava = new BlockCompressedLava().register("compressed_lava");
         aquatic_block = new BlockAquatic().register("aquatic_block");
         fractonite_ore = new ROCModBlock(Material.rock, "realmsofchaos:fractonite_ore", "oreFractonite", 0f, 0f, ROCModBlock.soundTypeGlass).register("fractonite_ore");
-        fractonite_block = new ROCModBlock(Material.ice, "realmsofchaos:fractonite_block", "blockFractonite", 19.5f, 1000000f, ROCModBlock.soundTypePiston).register("fractonite_block");
+        fractonite_block = new ROCModBlock(Material.rock, "realmsofchaos:fractonite_block", "blockFractonite", 19.5f, 1000000f, ROCModBlock.soundTypeGlass).register("fractonite_block");
         ice_portal = new BlockIcePortal().register("ice_ruins_portal");
         frozen_stone = new BlockFrozenStone().register("frozen_stone");
         frozen_stone_stairs = new BlockROCStairs(frozen_stone, 0, "stairsFrozenStone").register("frozen_stone_stairs");
@@ -144,7 +146,6 @@ public class ROCBlocks {
         frozen_stone_brick_slab = new BlockROCSlab(false, frozen_stone_bricks, 0.4f, 1.0f, "slabFrozenStoneBrick");
 		frozen_stone_brick_slab_double = new BlockROCSlab(true, frozen_stone_bricks, 0.4f, 1.0f, "slabFrozenStoneBrick", frozen_stone_brick_slab);
 		registerSlab("frozen_stone_brick_slab", "frozen_stone_brick_slab_double", frozen_stone_brick_slab, frozen_stone_brick_slab_double);
-
         osmaralt_ore = new ROCModBlock(Material.rock, "realmsofchaos:osmaralt_ore", "oreOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_ore");
         osmaralt_block = new ROCModBlock(Material.rock, "realmsofchaos:osmaralt_block", "blockOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_blocks");
 
