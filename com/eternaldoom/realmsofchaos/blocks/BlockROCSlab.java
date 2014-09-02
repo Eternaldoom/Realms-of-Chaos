@@ -2,10 +2,9 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
-
-import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModSlab;
-
+import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,6 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockROCSlab extends BlockSlab{
 	private Block materialBlock;
 	private boolean isDouble;
+	private BlockROCSlab theDouble;
 	public BlockROCSlab(boolean isDouble, Block b, float hard, float resist, String name) {
 		super(isDouble, b.getMaterial());
 		this.materialBlock = b;
@@ -20,6 +20,16 @@ public class BlockROCSlab extends BlockSlab{
 		setHardness(hard);
 		setResistance(resist);
 		this.isDouble = isDouble;
+	}
+	
+	public BlockROCSlab(boolean isDouble, Block b, float hard, float resist, String name, BlockROCSlab theDouble) {
+		super(isDouble, b.getMaterial());
+		this.materialBlock = b;
+		setBlockName(name);
+		setHardness(hard);
+		setResistance(resist);
+		this.isDouble = isDouble;
+		this.theDouble = theDouble;
 	}
 
 	@Override
@@ -35,8 +45,8 @@ public class BlockROCSlab extends BlockSlab{
     }
 	
 	public BlockROCSlab register(String name){
-		if(isDouble) GameRegistry.registerBlock(this, ItemBlockModSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab_double, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, true});
-		else GameRegistry.registerBlock(this, ItemBlockModSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, false});
+		/*if(isDouble) */GameRegistry.registerBlock(this, /*ItemBlockModSlab.class,*/ name/*, new Object[]{ROCBlocks.netherrack_brick_slab_double, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, true}*/);
+		//else GameRegistry.registerBlock(this, ItemBlockModSlab.class, name, new Object[]{ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab, ROCBlocks.netherrack_brick_slab_double, false});
 		return this;
 	}
 }

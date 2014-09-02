@@ -87,8 +87,10 @@ public class ROCBlocks {
 		charwood_sapling = new BlockCharwoodSapling().register("charwood_sapling");
 		netherrack_bricks = new ROCModBlock(Material.rock, "realmsofchaos:netherrack_bricks", "bricksHellrock", 0.4f, 1.0f, ROCModBlock.soundTypePiston).register("netherrack_bricks");
 		netherrack_brick_stairs = new BlockROCStairs(netherrack_bricks, 0, "stairsHellrockBrick").register("netherrack_brick_stairs");
-		netherrack_brick_slab = new BlockROCSlab(false, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick").register("netherrack_brick_slab");
-		netherrack_brick_slab_double = new BlockROCSlab(true, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick").register("netherrack_brick_slab_double");
+		netherrack_brick_slab_double = new BlockROCSlab(true, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick");
+		netherrack_brick_slab = new BlockROCSlab(false, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick", netherrack_brick_slab_double);
+		netherrack_brick_slab.register("netherrack_brick_slab");
+		netherrack_brick_slab_double.register("netherrack_brick_slab_double");
         citronite_block = new ROCModBlock(Material.glass, "realmsofchaos:citronite_block", "blockCitronite", 5.0f, 12.0f, ROCModBlock.soundTypeGlass).register("citronite_block");
         charwood_planks = new ROCModBlock(Material.wood, "realmsofchaos:charwood_planks", "planksCharwood", 4.0f, 2.5f, ROCModBlock.soundTypeWood).register("charwood_planks");
         charwood_stairs = new BlockROCStairs(charwood_planks, 0, "stairsCharwood").register("charwood_stairs");

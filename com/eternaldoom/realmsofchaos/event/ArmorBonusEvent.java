@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.MathHelper;
 
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
@@ -14,6 +15,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ArmorBonusEvent {
 	public static boolean hasAquatic;
+	public static boolean hasFlamestone;
 	@SubscribeEvent
 	public void tickEvent(PlayerTickEvent evt){
 		Item helmet = null, chestplate = null, leggings = null, boots = null;
@@ -26,14 +28,16 @@ public class ArmorBonusEvent {
 		if(stackChestplate != null) chestplate = stackChestplate.getItem();
 		if(stackLeggings != null) leggings = stackLeggings.getItem();
 		if(stackBoots != null) boots = stackBoots.getItem();
-		
+
 		if (helmet == ROCItems.flame_helmet && chestplate == ROCItems.flame_chestplate && leggings == ROCItems.flame_leggings && boots == ROCItems.flame_boots){
 			evt.player.addPotionEffect(new PotionEffect(12, 20, 0, true));
-			if(evt.player.isInsideOfMaterial(Material.lava)){
+			if(evt.player.worldObj.getBlock((int)Math.round(evt.player.posX), MathHelper.floor_double(evt.player.posY), (int)Math.round(evt.player.posZ)).getMaterial() == Material.lava){
 				evt.player.capabilities.isFlying = true;
+				hasFlamestone = true;
 			}else{
 				if(!evt.player.capabilities.isCreativeMode){
 					evt.player.capabilities.isFlying = false;
+					hasFlamestone = false;
 				}
 			}
 	}
@@ -55,5 +59,9 @@ public class ArmorBonusEvent {
 	
 	public static boolean getAquatic(){
 		return hasAquatic;
+	}
+	
+	public static boolean getFlamestone(){
+		return hasFlamestone;
 	}
 }

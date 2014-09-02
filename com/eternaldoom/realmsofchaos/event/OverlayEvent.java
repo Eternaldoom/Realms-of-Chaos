@@ -12,6 +12,9 @@ public class OverlayEvent {
 		if(evt.overlayType == evt.overlayType.WATER && ArmorBonusEvent.getAquatic()){
 			evt.setCanceled(true);
 		}
+		else if (evt.overlayType == evt.overlayType.FIRE && ArmorBonusEvent.hasFlamestone){
+			evt.setCanceled(true);
+		}
 	}
 
 	@SubscribeEvent
@@ -20,6 +23,21 @@ public class OverlayEvent {
 			evt.red = 0.6f;
 			evt.green = 0.6f;
 			evt.blue = 0.7f;
+		}
+	}
+	
+	@SubscribeEvent
+	public void fogDensity(EntityViewRenderEvent.FogDensity evt){
+		if (evt.block == Blocks.lava && ArmorBonusEvent.getFlamestone()){
+			evt.density = 0.1f;
+			evt.setCanceled(true);
+		}
+		else if (evt.block == Blocks.water && ArmorBonusEvent.getAquatic()){
+			evt.density = 0.1f;
+			evt.setCanceled(true);
+		}else{
+			evt.density = 2;
+			evt.setCanceled(false);
 		}
 	}
 }
