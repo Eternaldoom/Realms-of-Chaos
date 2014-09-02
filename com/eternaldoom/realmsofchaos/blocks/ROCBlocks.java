@@ -31,17 +31,27 @@ public class ROCBlocks {
 	public static ROCModBlock charwood_sapling;
 	public static ROCModBlock netherrack_bricks;
 	public static BlockROCStairs netherrack_brick_stairs;
+	public static BlockROCSlab netherrack_brick_slab;
+	public static BlockROCSlab netherrack_brick_slab_double;
     public static ROCModBlock charwood_planks;
     public static Block charwood_stairs;
+    public static BlockROCSlab charwood_slab;
+	public static BlockROCSlab charwood_slab_double;
     
     //Ocean
     public static Fluid waterportal;
     public static ROCModBlock ocean_stone;
     public static BlockROCStairs oceanstone_stairs;
+    public static BlockROCSlab oceanstone_slab;
+    public static BlockROCSlab oceanstone_slab_double;
     public static ROCModBlock ocean_cobblestone;
     public static BlockROCStairs ocean_cobblestone_stairs;
+    public static BlockROCSlab ocean_cobblestone_slab;
+    public static BlockROCSlab ocean_cobblestone_slab_double;
     public static ROCModBlock oceanstone_bricks;
     public static BlockROCStairs oceanstone_brick_stairs;
+    public static BlockROCSlab oceanstone_brick_slab;
+    public static BlockROCSlab oceanstone_brick_slab_double;
     public static ROCModBlock neptunite_ore;
     public static ROCModBlock neptunite_block;
     public static ROCModBlock ocean_glass;
@@ -54,10 +64,16 @@ public class ROCBlocks {
     public static ROCModBlock fractonite_block;
     public static ROCModBlock frozen_stone;
     public static BlockROCStairs frozen_stone_stairs;
+    public static BlockROCSlab frozen_stone_slab;
+    public static BlockROCSlab frozen_stone_slab_double;
     public static ROCModBlock frozen_cobblestone;
     public static BlockROCStairs frozen_cobblestone_stairs;
+    public static BlockROCSlab frozen_cobblestone_slab;
+    public static BlockROCSlab frozen_cobblestone_slab_double;
     public static ROCModBlock frozen_stone_bricks;
     public static BlockROCStairs frozen_stone_brick_stairs;
+    public static BlockROCSlab frozen_stone_brick_slab;
+    public static BlockROCSlab frozen_stone_brick_slab_double;
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
@@ -71,6 +87,8 @@ public class ROCBlocks {
 		charwood_sapling = new BlockCharwoodSapling().register("charwood_sapling");
 		netherrack_bricks = new ROCModBlock(Material.rock, "realmsofchaos:netherrack_bricks", "bricksHellrock", 0.4f, 1.0f, ROCModBlock.soundTypePiston).register("netherrack_bricks");
 		netherrack_brick_stairs = new BlockROCStairs(netherrack_bricks, 0, "stairsHellrockBrick").register("netherrack_brick_stairs");
+		//netherrack_brick_slab = new BlockROCSlab(false, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick").register("netherrack_brick_slab");
+		//netherrack_brick_slab_double = new BlockROCSlab(true, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick").register("netherrack_brick_slab_double");
         citronite_block = new ROCModBlock(Material.glass, "realmsofchaos:citronite_block", "blockCitronite", 5.0f, 12.0f, ROCModBlock.soundTypeGlass).register("citronite_block");
         charwood_planks = new ROCModBlock(Material.wood, "realmsofchaos:charwood_planks", "planksCharwood", 4.0f, 2.5f, ROCModBlock.soundTypeWood).register("charwood_planks");
         charwood_stairs = new BlockROCStairs(charwood_planks, 0, "stairsCharwood").register("charwood_stairs");
