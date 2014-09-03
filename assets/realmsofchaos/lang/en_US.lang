@@ -48,6 +48,8 @@ tile.slabFrozenStone.name=Frozen Stone Slab
 tile.slabFrozenCobblestone.name=Frozen Cobblestone Slab
 tile.slabFrozenStoneBrick.name=Frozen Stone Brick Slab
 tile.blockFlamestone.name=Flamestone Block
+tile.logFrozen.name=Frozen Wood
+tile.leavesFrozen.name=Frozen Leaves
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

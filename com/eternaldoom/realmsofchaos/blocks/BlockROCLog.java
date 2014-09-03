@@ -9,15 +9,15 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockCharwoodLog extends ROCModBlock{
+public class BlockROCLog extends ROCModBlock{
 	
 	@SideOnly(Side.CLIENT)
     private IIcon iconLogTop;
     @SideOnly(Side.CLIENT)
     private IIcon iconLogSide;
 
-	protected BlockCharwoodLog() {
-		super(Material.rock, "realmsofchaos:charwood_log", "logCharwood", 1.5f, 1000000.0f, soundTypePiston);
+	public BlockROCLog(Material mat, String tex, String name, float hard, float resist, SoundType sound) {
+		super(mat, tex, name, hard, resist, sound);
 		setTickRandomly(true);
 	}
 

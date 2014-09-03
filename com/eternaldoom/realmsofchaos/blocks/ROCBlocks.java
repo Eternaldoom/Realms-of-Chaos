@@ -76,6 +76,8 @@ public class ROCBlocks {
     public static BlockROCStairs frozen_stone_brick_stairs;
     public static BlockROCSlab frozen_stone_brick_slab;
     public static BlockROCSlab frozen_stone_brick_slab_double;
+    public static ROCModBlock frozen_log;
+    public static ROCModBlock frozen_leaves;
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
@@ -85,7 +87,7 @@ public class ROCBlocks {
 		
 		citronite_ore = new BlockCitroniteOre().register("citronite_ore");
 		charwood_leaves = new BlockCharwoodLeaves().register("charwood_leaves");
-		charwood_log = new BlockCharwoodLog().register("charwood");
+		charwood_log = new BlockROCLog(Material.rock, "realmsofchaos:charwood_log", "logCharwood", 1.5f, 1000000.0f, ROCModBlock.soundTypePiston).register("charwood");
 		charwood_sapling = new BlockCharwoodSapling().register("charwood_sapling");
 		netherrack_bricks = new ROCModBlock(Material.rock, "realmsofchaos:netherrack_bricks", "bricksHellrock", 0.4f, 1.0f, ROCModBlock.soundTypePiston).register("netherrack_bricks");
 		netherrack_brick_stairs = new BlockROCStairs(netherrack_bricks, 0, "stairsHellrockBrick").register("netherrack_brick_stairs");
@@ -148,6 +150,8 @@ public class ROCBlocks {
 		registerSlab("frozen_stone_brick_slab", "frozen_stone_brick_slab_double", frozen_stone_brick_slab, frozen_stone_brick_slab_double);
         osmaralt_ore = new ROCModBlock(Material.rock, "realmsofchaos:osmaralt_ore", "oreOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_ore");
         osmaralt_block = new ROCModBlock(Material.rock, "realmsofchaos:osmaralt_block", "blockOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_blocks");
+		frozen_log = new BlockROCLog(Material.wood, "realmsofchaos:frozen_log", "logFrozen", 6f, 10.0f, ROCModBlock.soundTypeGlass).register("frozen_wood");
+		frozen_leaves = new BlockFrozenLeaves().register("frozen_leaves");
 
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
