@@ -1,5 +1,7 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
@@ -53,4 +55,9 @@ public class BlockSeaweed extends ROCModBlock{
     {
         return 1;
     }
+	
+	@Override
+	public void updateTick(World world, int i, int j, int k, Random rand){
+		if(this.canBlockStay(world, i, j, k) && this.canBlockStay(world, i, j+1, k)) world.setBlock(i, j+1, k, ROCBlocks.seaweed, 1, 2);
+	}
 }

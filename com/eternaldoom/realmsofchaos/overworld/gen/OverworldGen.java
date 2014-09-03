@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.overworld.gen;
 
 import java.util.Random;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -16,6 +17,7 @@ import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsStatue;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsTower;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsWell;
 import com.eternaldoom.realmsofchaos.water.gen.WorldGenSurfaceDungeon;
+import com.eternaldoom.realmsofchaos.water.gen.WorldGenWaterPlants;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
@@ -163,6 +165,27 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = 127;
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			if(random.nextInt(500) == 50) new WorldGenSurfaceDungeon().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
+		
+		for (int i = 0; i < 3; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			int Ycoord1 = random.nextInt(120);
+			
+			if (world.getBlock(Xcoord1, Ycoord1, Zcoord1) == Blocks.water){
+				for(int down = Ycoord1; down > 0; down--){
+					Ycoord1 = down;
+					if (world.getBlock(Xcoord1, Ycoord1-1, Zcoord1) != Blocks.water)break;
+				}
+			}
+			if (world.getBlock(Xcoord1, Ycoord1, Zcoord1) != Blocks.water){
+				for(int down = Ycoord1; down < 120; down++){
+					Ycoord1 = down;
+					if (world.getBlock(Xcoord1, Ycoord1-1, Zcoord1) != Blocks.water)break;
+				}
+			}
+			
+			new WorldGenWaterPlants(ROCBlocks.seaweed, 1).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
 		}
 	}
 }
