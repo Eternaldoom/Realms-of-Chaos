@@ -25,6 +25,7 @@ public class ROCBlocks {
     public static ROCModBlock aquatic_block;
     public static ROCModBlock osmaralt_ore;
     public static ROCModBlock osmaralt_block;
+    public static ROCModBlock fake_ice;
 	
     //Nether
 	public static ROCModBlock charwood_leaves;
@@ -59,6 +60,7 @@ public class ROCBlocks {
     public static ROCModBlock ocean_glass;
     public static BlockOceanGlassPane ocean_glass_pane;
     public static BlockOceanChest ocean_chest;
+    public static ROCModBlock seaweed;
     
     //Ice Ruins
     public static ROCModBlock ice_portal;
@@ -128,6 +130,7 @@ public class ROCBlocks {
         ocean_glass = new BlockOceanGlass().register("ocean_glass");
         ocean_glass_pane = new BlockOceanGlassPane().register("ocean_glass_pane");
         ocean_chest = new BlockOceanChest().register("ocean_chest");
+        seaweed = new BlockSeaweed().register("seaweed");
         compressed_lava = new BlockCompressedLava().register("compressed_lava");
         aquatic_block = new BlockAquatic().register("aquatic_block");
         fractonite_ore = new ROCModBlock(Material.rock, "realmsofchaos:fractonite_ore", "oreFractonite", 0f, 0f, ROCModBlock.soundTypeGlass).register("fractonite_ore");
@@ -152,6 +155,7 @@ public class ROCBlocks {
         osmaralt_block = new ROCModBlock(Material.rock, "realmsofchaos:osmaralt_block", "blockOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_blocks");
 		frozen_log = new BlockROCLog(Material.wood, "realmsofchaos:frozen_log", "logFrozen", 6f, 10.0f, ROCModBlock.soundTypeGlass).register("frozen_wood");
 		frozen_leaves = new BlockFrozenLeaves().register("frozen_leaves");
+		fake_ice = new BlockFakeIce().register("fake_ice");
 
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -47,6 +48,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
         return super.canPlaceBlockAt(w, p_149742_2_, p_149742_3_, p_149742_4_) && this.canBlockStay(w, p_149742_2_, p_149742_3_, p_149742_4_);
     }
 	
+	@Override
 	public boolean canBlockStay(World w, int i, int j, int k)
     {
         if (w.getBlock(i, j - 1, k) == Blocks.netherrack){
@@ -62,6 +64,13 @@ public class BlockCharwoodSapling extends ROCModBlock{
             this.dropBlockAsItem(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_, p_149855_1_.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
             p_149855_1_.setBlock(p_149855_2_, p_149855_3_, p_149855_4_, getBlockById(0), 0, 2);
         }
+    }
+	
+	@Override
+	public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
+    {
+        super.onNeighborBlockChange(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, p_149695_5_);
+        this.checkAndDropBlock(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
     }
 	
 	@Override

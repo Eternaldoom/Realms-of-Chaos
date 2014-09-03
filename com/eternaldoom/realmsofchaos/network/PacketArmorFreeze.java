@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
@@ -55,15 +56,15 @@ public class PacketArmorFreeze implements IMessage{
 			if(stackBoots != null) boots = stackBoots.getItem();
 			
 			if (helmet == ROCItems.fractonite_helmet && chestplate == ROCItems.fractonite_chestplate && leggings == ROCItems.fractonite_leggings && boots == ROCItems.fractonite_boots){
-				if(w.getBlock(x, y-1, z) == Blocks.water) w.setBlock(x, y-1, z, Blocks.ice);
-				if(w.getBlock(x+1, y-1, z) == Blocks.water) w.setBlock(x+1, y-1, z, Blocks.ice);
-				if(w.getBlock(x, y-1, z+1) == Blocks.water) w.setBlock(x, y-1, z+1, Blocks.ice);
-				if(w.getBlock(x+1, y-1, z+1) == Blocks.water) w.setBlock(x+1, y-1, z+1, Blocks.ice);
-				if(w.getBlock(x-1, y-1, z) == Blocks.water) w.setBlock(x-1, y-1, z, Blocks.ice);
-				if(w.getBlock(x, y-1, z-1) == Blocks.water) w.setBlock(x, y-1, z-1, Blocks.ice);
-				if(w.getBlock(x-1, y-1, z-1) == Blocks.water) w.setBlock(x-1, y-1, z-1, Blocks.ice);
-				if(w.getBlock(x+1, y-1, z-1) == Blocks.water) w.setBlock(x+1, y-1, z-1, Blocks.ice);
-				if(w.getBlock(x-1, y-1, z+1) == Blocks.water) w.setBlock(x-1, y-1, z+1, Blocks.ice);
+				if(w.getBlock(x, y-1, z) == Blocks.water) w.setBlock(x, y-1, z, ROCBlocks.fake_ice);
+				if(w.getBlock(x+1, y-1, z) == Blocks.water) w.setBlock(x+1, y-1, z, ROCBlocks.fake_ice);
+				if(w.getBlock(x, y-1, z+1) == Blocks.water) w.setBlock(x, y-1, z+1, ROCBlocks.fake_ice);
+				if(w.getBlock(x+1, y-1, z+1) == Blocks.water) w.setBlock(x+1, y-1, z+1, ROCBlocks.fake_ice);
+				if(w.getBlock(x-1, y-1, z) == Blocks.water) w.setBlock(x-1, y-1, z, ROCBlocks.fake_ice);
+				if(w.getBlock(x, y-1, z-1) == Blocks.water) w.setBlock(x, y-1, z-1, ROCBlocks.fake_ice);
+				if(w.getBlock(x-1, y-1, z-1) == Blocks.water) w.setBlock(x-1, y-1, z-1, ROCBlocks.fake_ice);
+				if(w.getBlock(x+1, y-1, z-1) == Blocks.water) w.setBlock(x+1, y-1, z-1, ROCBlocks.fake_ice);
+				if(w.getBlock(x-1, y-1, z+1) == Blocks.water) w.setBlock(x-1, y-1, z+1, ROCBlocks.fake_ice);
 			}
 			return null;
 		}
