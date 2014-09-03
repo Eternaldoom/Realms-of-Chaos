@@ -21,6 +21,7 @@ import com.eternaldoom.realmsofchaos.event.TooltipEvent;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
+import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
 import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 import com.eternaldoom.realmsofchaos.water.gen.WorldProviderWater;
@@ -34,7 +35,9 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
 public class RealmsOfChaos {
@@ -43,6 +46,8 @@ public class RealmsOfChaos {
 	
 	@Instance(MODID)
 	public static RealmsOfChaos instance;
+	
+	public static SimpleNetworkWrapper network;
 	
 	public static int waterDimID = 23;
 	public static int iceDimID = 24;
@@ -63,6 +68,9 @@ public class RealmsOfChaos {
     	waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
     	iceBiome = new BiomeGenIceRuins(56).setColor(48).setBiomeName("Ice Ruins").setHeight(new BiomeGenBase.Height(0.2f, 0.2f)).setEnableSnow().setTemperatureRainfall(0.0f, 0.5f);  
 
+    	network = NetworkRegistry.INSTANCE.newSimpleChannel("ROCPackets");
+    	network.registerMessage(PacketArmorFreeze.Handler.class, PacketArmorFreeze.class, 0, Side.SERVER);
+    	
 		ROCBlocks.init();
 		ROCItems.init();
 		TERegistry.init();
