@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockIcePortal extends ROCModBlock{
 	
 	public BlockIcePortal() {
-		super(Material.ice, "minecraft:ice", "portalIceRuins", 0f, 0f, soundTypeGlass);
+		super(Material.ice, "realmsofchaos:ice_portal", "portalIceRuins", 0f, 0f, soundTypeGlass);
 		setCreativeTab(null);
 	}
 
