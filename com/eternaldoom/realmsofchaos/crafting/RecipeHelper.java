@@ -55,7 +55,7 @@ public class RecipeHelper {
 	
 	public static void addCannonRecipe(Block block, ItemCannon cannon, Item material, ROCModItem bullet){
 		GameRegistry.addRecipe(new ItemStack(cannon), new Object[]{cannonPattern, 'B', Item.getItemFromBlock(block), 'S', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(bullet, 8), new Object[]{"M", 'M', material});
+		GameRegistry.addRecipe(new ItemStack(bullet, 12), new Object[]{"M", 'M', material});
 	}
 	
 	public static void addStoneRecipe(Block material, Block bricks, Block slab, Block stairs, Block brickslab, Block cobblestone, Block cobbleslab, Block cobblestairs, Block brickstairs){

@@ -52,7 +52,7 @@ public class OverworldCrafting {
 		RecipeHelper.addCannonRecipe(ROCBlocks.heliotrope_block, ROCItems.heliotrope_cannon, ROCItems.heliotrope, ROCItems.heliotrope_bullet);
 		RecipeHelper.addCannonRecipe(ROCBlocks.citronite_block, ROCItems.citronite_cannon, ROCItems.citronite_stone, ROCItems.citronite_bullet);
 		RecipeHelper.addCannonRecipe(ROCBlocks.xylite_block, ROCItems.xylite_cannon, ROCItems.xylite_ingot, ROCItems.xylite_bullet);
-		//RecipeHelper.addCannonRecipe(ROCBlocks.flamestone_block, ROCItems.iron_cannon, ROCItems.iron_ingot, ROCItems.iron_bullet);
+		RecipeHelper.addCannonRecipe(ROCBlocks.flamestone_block, ROCItems.flamestone_cannon, ROCItems.flame_stone, ROCItems.flamestone_bullet);
 		RecipeHelper.addCannonRecipe(ROCBlocks.neptunite_block, ROCItems.neptunite_cannon, ROCItems.neptunite_ingot, ROCItems.neptunite_bullet);
 		RecipeHelper.addCannonRecipe(ROCBlocks.aquatic_block, ROCItems.aquatic_cannon, ROCItems.aquatic_orb, ROCItems.aquatic_bullet);
 		RecipeHelper.addCannonRecipe(ROCBlocks.osmaralt_block, ROCItems.osmaralt_cannon, ROCItems.osmaralt_ingot, ROCItems.osmaralt_bullet);
@@ -61,7 +61,7 @@ public class OverworldCrafting {
 		RecipeHelper.addArmorRecipe(ROCItems.heliotrope_helmet, ROCItems.heliotrope_chestplate, ROCItems.heliotrope_leggings, ROCItems.heliotrope_boots, ROCItems.heliotrope);
 		RecipeHelper.addArmorRecipe(ROCItems.citronite_helmet, ROCItems.citronite_chestplate, ROCItems.citronite_leggings, ROCItems.citronite_boots, ROCItems.citronite_gem);
 		RecipeHelper.addArmorRecipe(ROCItems.xylite_helmet, ROCItems.xylite_chestplate, ROCItems.xylite_leggings, ROCItems.xylite_boots, ROCItems.xylite_ingot);
-		RecipeHelper.addArmorRecipe(ROCItems.flame_helmet, ROCItems.flame_chestplate, ROCItems.flame_leggings, ROCItems.heliotrope_boots, ROCItems.flame_stone);
+		RecipeHelper.addArmorRecipe(ROCItems.flame_helmet, ROCItems.flame_chestplate, ROCItems.flame_leggings, ROCItems.flame_boots, ROCItems.flame_stone);
 		RecipeHelper.addArmorRecipe(ROCItems.neptunite_helmet, ROCItems.neptunite_chestplate, ROCItems.neptunite_leggings, ROCItems.neptunite_boots, ROCItems.neptunite_ingot);
 		RecipeHelper.addArmorRecipe(ROCItems.aquatic_helmet, ROCItems.aquatic_chestplate, ROCItems.aquatic_leggings, ROCItems.aquatic_boots, ROCItems.aquatic_orb);
 		RecipeHelper.addArmorRecipe(ROCItems.osmaralt_helmet, ROCItems.osmaralt_chestplate, ROCItems.osmaralt_leggings, ROCItems.osmaralt_boots, ROCItems.osmaralt_ingot);
