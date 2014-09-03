@@ -2,10 +2,12 @@ package com.eternaldoom.realmsofchaos.event;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
@@ -54,6 +56,23 @@ public class ArmorBonusEvent {
 			}
 		}else{
 			hasAquatic = false;
+		}
+		
+		if (helmet == ROCItems.fractonite_helmet && chestplate == ROCItems.fractonite_chestplate && leggings == ROCItems.fractonite_leggings && boots == ROCItems.fractonite_boots && KeyPress.getFreeze()){
+			World w = evt.player.worldObj;
+			int x = (int)Math.round(evt.player.posX);
+			int y = MathHelper.floor_double(evt.player.posY);
+			int z = (int)Math.round(evt.player.posZ);
+			
+			if(w.getBlock(x, y-1, z) == Blocks.water) w.setBlock(x, y-1, z, Blocks.ice);
+			if(w.getBlock(x+1, y-1, z) == Blocks.water) w.setBlock(x+1, y-1, z, Blocks.ice);
+			if(w.getBlock(x, y-1, z+1) == Blocks.water) w.setBlock(x, y-1, z+1, Blocks.ice);
+			if(w.getBlock(x+1, y-1, z+1) == Blocks.water) w.setBlock(x+1, y-1, z+1, Blocks.ice);
+			if(w.getBlock(x-1, y-1, z) == Blocks.water) w.setBlock(x-1, y-1, z, Blocks.ice);
+			if(w.getBlock(x, y-1, z-1) == Blocks.water) w.setBlock(x, y-1, z-1, Blocks.ice);
+			if(w.getBlock(x-1, y-1, z-1) == Blocks.water) w.setBlock(x-1, y-1, z-1, Blocks.ice);
+			if(w.getBlock(x+1, y-1, z-1) == Blocks.water) w.setBlock(x+1, y-1, z-1, Blocks.ice);
+			if(w.getBlock(x-1, y-1, z+1) == Blocks.water) w.setBlock(x-1, y-1, z+1, Blocks.ice);
 		}
 	}
 	

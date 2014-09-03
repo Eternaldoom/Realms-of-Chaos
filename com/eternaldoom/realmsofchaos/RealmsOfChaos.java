@@ -15,6 +15,7 @@ import com.eternaldoom.realmsofchaos.crafting.OverworldCrafting;
 import com.eternaldoom.realmsofchaos.entity.Entities;
 import com.eternaldoom.realmsofchaos.event.ArmorBonusEvent;
 import com.eternaldoom.realmsofchaos.event.ItemReplaceEvent;
+import com.eternaldoom.realmsofchaos.event.KeyPress;
 import com.eternaldoom.realmsofchaos.event.OverlayEvent;
 import com.eternaldoom.realmsofchaos.event.TooltipEvent;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
@@ -74,7 +75,10 @@ public class RealmsOfChaos {
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
 		MinecraftForge.EVENT_BUS.register(new TooltipEvent());
 		
-		if(FMLCommonHandler.instance().getSide().isClient()) MinecraftForge.EVENT_BUS.register(new OverlayEvent());
+		if(FMLCommonHandler.instance().getSide().isClient()){
+			MinecraftForge.EVENT_BUS.register(new OverlayEvent());
+			FMLCommonHandler.instance().bus().register(new KeyPress());
+		}
 	}
 	
 	@EventHandler

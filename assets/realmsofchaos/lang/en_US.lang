@@ -183,3 +183,5 @@ entity.AquaticGolem.name=Aquatic Golem
 entity.Scorpioid.name=Scorpioid
 entity.VoidCrawler.name=Void Crawler
 entity.GiantFish.name=Giant Fish
+
+key.freeze=Fractonite Armor Bonus
