@@ -49,19 +49,19 @@ public class EntityScorpioid extends EntityMob{
 	@Override
 	protected String getLivingSound()
     {
-        return "mob.silverfish.say";
+        return "realmsofchaos:mob.scorpioid.say";
     }
 
     @Override
     protected String getHurtSound()
     {
-        return "mob.silverfish.hurt";
+        return "realmsofchaos:mob.scorpioid.hurt";
     }
 
     @Override
     protected String getDeathSound()
     {
-        return "mob.silverfish.death";
+        return "realmsofchaos:mob.scorpioid.hurt";
     }
     
     @Override

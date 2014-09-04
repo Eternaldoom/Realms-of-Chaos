@@ -253,6 +253,9 @@ public class EntityGiantFish extends EntityMob
     public boolean interact(EntityPlayer player)
     {
     	if(player.getHeldItem().getItem() == ROCItems.seaweed && !this.angry && !this.tame){
+    		
+    		if(!player.capabilities.isCreativeMode) player.getHeldItem().stackSize--;
+    		
     		if(this.rand.nextInt(6) == 0){
     			for (int j = 0; j < 15; j++)
                 {

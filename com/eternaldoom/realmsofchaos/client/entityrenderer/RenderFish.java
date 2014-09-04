@@ -20,7 +20,7 @@ public class RenderFish extends RenderLiving {
 	private float scaleZ;
 
 	public RenderFish(String texturename, float scaleX, float scaleY, float scaleZ) {
-		super(new ModelGiantFish(), 3f);
+		super(new ModelGiantFish(), scaleZ);
 		texture = new ResourceLocation("realmsofchaos:textures/entity/" + texturename + ".png");
 		this.scaleX = scaleX;
 		this.scaleY = scaleY;

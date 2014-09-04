@@ -33,11 +33,8 @@ public class OverlayEvent {
 			evt.setCanceled(true);
 		}
 		else if (evt.block == Blocks.water && ArmorBonusEvent.getAquatic()){
-			evt.density = 0.1f;
+			evt.density = 0.01f;
 			evt.setCanceled(true);
-		}else{
-			evt.density = 2;
-			evt.setCanceled(false);
 		}
 	}
 }

@@ -1,5 +1,7 @@
 {
     "random.cannon": {"category": "neutral", "sounds": [{"name": "cannon", "stream": false}]},
     "mob.aquaticgolem.growl": {"category": "neutral", "sounds": [{"name": "aquaticgolemgrowl", "stream": false}]},
-    "mob.aquaticgolem.death": {"category": "neutral", "sounds": [{"name": "aquaticgolemdeath", "stream": false}]}
+    "mob.aquaticgolem.death": {"category": "neutral", "sounds": [{"name": "aquaticgolemdeath", "stream": false}]},
+    "mob.scorpioid.say": {"category": "neutral", "sounds": [{"name": "scorpioid", "stream": false}]},
+    "mob.scorpioid.hurt": {"category": "neutral", "sounds": [{"name": "scorpioid_death", "stream": false}]}
 }
