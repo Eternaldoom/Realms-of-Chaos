@@ -1,5 +1,8 @@
 package com.eternaldoom.realmsofchaos.entity;
 
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.world.biome.BiomeGenBase;
+
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
@@ -76,6 +79,15 @@ public class Entities {
 		EntityRegistry.registerModEntity(EntityOsmaraltBullet.class, "OsmaraltBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityFractoniteBullet.class, "FractoniteBullet", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityFractoniteBullet.class, "FractoniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		
+		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++)
+	    {
+			if (BiomeGenBase.getBiomeGenArray()[i] != null)
+	        {
+				EntityRegistry.addSpawn(EntityScorpioid.class, 130, 2, 4, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
+				EntityRegistry.addSpawn(EntityVoidCrawler.class, 100, 1, 2, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
+	        }
+	    }
 	}
 	
 	public static void init(){

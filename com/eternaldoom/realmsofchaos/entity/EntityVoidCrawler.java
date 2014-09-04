@@ -81,6 +81,6 @@ public class EntityVoidCrawler extends EntityMob{
     @Override
     public boolean getCanSpawnHere()
     {
-        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.isValidLightLevel() &&  this.posY <= 32D && super.getCanSpawnHere();
+        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.isValidLightLevel() &&  this.posY <= 16 && super.getCanSpawnHere();
     }
 }
