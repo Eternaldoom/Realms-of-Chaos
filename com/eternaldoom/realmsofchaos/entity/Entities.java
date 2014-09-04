@@ -32,7 +32,8 @@ public class Entities {
 		EntityRegistry.registerGlobalEntityID(EntityScorpioid.class, "Scorpioid", EntityRegistry.findGlobalUniqueEntityId(), 0xFF361C, 0x880007);
 		EntityRegistry.registerGlobalEntityID(EntityVoidCrawler.class, "VoidCrawler", EntityRegistry.findGlobalUniqueEntityId(), 0x666D68, 0x52E9E9);
 		EntityRegistry.registerGlobalEntityID(EntityGiantFish.class, "GiantFish", EntityRegistry.findGlobalUniqueEntityId(), 0x66B69C, 0x48B0BE);
-		
+		EntityRegistry.registerGlobalEntityID(EntityKelpFish.class, "KelpFish", EntityRegistry.findGlobalUniqueEntityId(), 0x54B8DD, 0x34898D);
+
 		//Arrows
 		EntityRegistry.registerGlobalEntityID(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);

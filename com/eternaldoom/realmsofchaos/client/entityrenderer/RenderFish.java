@@ -9,12 +9,22 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-public class RenderGiantFish extends RenderLiving {
+import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
+import com.eternaldoom.realmsofchaos.entity.EntityKelpFish;
 
-	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/entity/giant_fish.png");
+public class RenderFish extends RenderLiving {
 
-	public RenderGiantFish() {
+	private ResourceLocation texture;
+	private float scaleX;
+	private float scaleY;
+	private float scaleZ;
+
+	public RenderFish(String texturename, float scaleX, float scaleY, float scaleZ) {
 		super(new ModelGiantFish(), 3f);
+		texture = new ResourceLocation("realmsofchaos:textures/entity/" + texturename + ".png");
+		this.scaleX = scaleX;
+		this.scaleY = scaleY;
+		this.scaleZ = scaleZ;
 	}
 
 	@Override
@@ -23,7 +33,6 @@ public class RenderGiantFish extends RenderLiving {
 	}
 
 	protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_) {
-		float scale = 3.0f;
 		GL11.glTranslatef(0f, 1f, 0f);
 		if (entity.worldObj.getBlock((int) Math.round(entity.posX),
 				(int) Math.floor(entity.posY), (int) Math.round(entity.posZ)) == Blocks.air
@@ -31,8 +40,10 @@ public class RenderGiantFish extends RenderLiving {
 						(int) Math.floor(entity.posY),
 						(int) Math.round(entity.posZ)).getMaterial() == Material.plants){
 			GL11.glRotatef(90, 0, 0, 1f);
-			GL11.glTranslatef(0f, 3.5f, 0f);
+			if(entity instanceof EntityGiantFish)GL11.glTranslatef(0f, 3.5f, 0f);
+			if(entity instanceof EntityKelpFish)GL11.glTranslatef(-1f, 1f, 0f);
 		}
-		GL11.glScalef(scale, scale, scale);
+		if(entity instanceof EntityKelpFish) GL11.glTranslatef(0f, -1f, 0f);
+		GL11.glScalef(scaleX, scaleY, scaleZ);
 	}
 }

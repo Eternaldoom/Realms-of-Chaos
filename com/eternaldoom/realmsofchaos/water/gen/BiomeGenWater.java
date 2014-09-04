@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
+import com.eternaldoom.realmsofchaos.entity.EntityKelpFish;
 
 public class BiomeGenWater extends BiomeGenBase
 {
@@ -17,6 +18,7 @@ public class BiomeGenWater extends BiomeGenBase
         super(id);
         this.spawnableWaterCreatureList.clear();
         this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityGiantFish.class, 10, 2, 3));
+        this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityKelpFish.class, 1, 2, 3));
     }
 
     @Override

@@ -9,7 +9,7 @@ import com.eternaldoom.realmsofchaos.blocks.TileEntityExtractor;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderExtractor;
-import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderGiantFish;
+import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderVoidCrawler;
@@ -18,6 +18,7 @@ import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererExtractor;
 import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererOceanChest;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
+import com.eternaldoom.realmsofchaos.entity.EntityKelpFish;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
 import com.eternaldoom.realmsofchaos.entity.EntityVoidCrawler;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
@@ -61,8 +62,9 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticGolem.class, new RenderAquaticGolem());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpioid.class, new RenderScorpioid());
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, new RenderVoidCrawler());
-		RenderingRegistry.registerEntityRenderingHandler(EntityGiantFish.class, new RenderGiantFish());
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityGiantFish.class, new RenderFish("giant_fish", 3, 3, 3));
+		RenderingRegistry.registerEntityRenderingHandler(EntityKelpFish.class, new RenderFish("kelp_fish", 0.5f, 0.5f, 1));
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityIronArrow.class, new RenderROCArrow("iron"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondArrow.class, new RenderROCArrow("diamond"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHeliotropeArrow.class, new RenderROCArrow("heliotrope"));
