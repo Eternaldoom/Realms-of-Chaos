@@ -129,7 +129,7 @@ public class ROCItems {
 	public static ItemROCPickaxe fractonite_pickaxe;
 	public static ItemROCShovel fractonite_shovel;
 	
-	public static ItemFood raw_scorpion, cooked_scorpion;
+	public static ItemROCFood raw_scorpion, cooked_scorpion;
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
 	public static ItemROCBow iron_bow, diamond_bow, heliotrope_bow, citronite_bow, xylite_bow, flamestone_bow, neptunite_bow, aquatic_bow, osmaralt_bow, fractonite_bow;
@@ -253,10 +253,8 @@ public class ROCItems {
 		fractonite_axe = new ItemROCAxe(FRACTONITEt, "realmsofchaos:fractonite_axe", "axeFractonite", false);
 		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);
 		
-		raw_scorpion = (ItemFood) new ItemFood(2, 0.2f, true).setTextureName("realmsofchaos:raw_scorpion").setUnlocalizedName("scorpionRaw").setCreativeTab(ROCTabs.Items);
-		GameRegistry.registerItem(raw_scorpion, "raw_scorpion");
-		cooked_scorpion = (ItemFood) new ItemFood(10, 1.0f, true).setTextureName("realmsofchaos:cooked_scorpion").setUnlocalizedName("scorpionCooked").setCreativeTab(ROCTabs.Items);
-		GameRegistry.registerItem(cooked_scorpion, "cooked_scorpion");
+		raw_scorpion = new ItemROCFood(2, 0.2f, true, "realmsofchaos:raw_scorpion", "scorpionRaw");
+		cooked_scorpion = new ItemROCFood(10, 1.0f, true, "realmsofchaos:cooked_scorpion", "scorpionCooked");
 		
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
@@ -344,6 +342,9 @@ public class ROCItems {
 		neptunite_ingot.register("neptunite_ingot");
 		osmaralt_ingot.register("osmaralt_ingot");
 		fractonite_stone.register("fractonite_stone");
+		
+		raw_scorpion.register("raw_scorpion");
+		cooked_scorpion.register("cooked_scorpion");
 		
 		heliotrope_helmet.register("heliotrope_helmet");
 		heliotrope_chestplate.register("heliotrope_chestplate");

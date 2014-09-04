@@ -1,7 +1,10 @@
 package com.eternaldoom.realmsofchaos.entity;
 
+import java.util.UUID;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
@@ -21,6 +24,7 @@ public class EntityGiantFish extends EntityMob
 {
     public ChunkCoordinates spawnPosition;
     public boolean angry;
+    public boolean tame;
 
     public EntityGiantFish(World world)
     {
@@ -35,6 +39,7 @@ public class EntityGiantFish extends EntityMob
     {
         super.entityInit();
         this.dataWatcher.addObject(16, new Byte((byte)0));
+        this.dataWatcher.addObject(17, "");
     }
 
     @Override
@@ -76,6 +81,7 @@ public class EntityGiantFish extends EntityMob
     protected void updateAITasks()
     {
         super.updateAITasks();
+        	this.entityToAttack = getOwner();
 
             if (this.spawnPosition != null && (this.worldObj.getBlock(this.spawnPosition.posX, this.spawnPosition.posY, this.spawnPosition.posZ) != Blocks.water || this.spawnPosition.posY < 1))
             {
@@ -110,6 +116,12 @@ public class EntityGiantFish extends EntityMob
             	this.spawnPosition.posX = (int)Math.round(this.entityToAttack.posX);
             	this.spawnPosition.posY = (int)Math.round(this.entityToAttack.posY);
             	this.spawnPosition.posZ = (int)Math.round(this.entityToAttack.posZ);
+            }else if(this.tame && this.entityToAttack != null){
+            	if(((EntityPlayer)this.entityToAttack).getHeldItem() != null && ((EntityPlayer)this.entityToAttack).getHeldItem().getItem() == ROCItems.seaweed){
+            		this.spawnPosition.posX = (int)Math.round(this.entityToAttack.posX) + this.rand.nextInt(4)-this.rand.nextInt(4);
+                	this.spawnPosition.posY = (int)Math.round(this.entityToAttack.posY) + this.rand.nextInt(4)-this.rand.nextInt(4);
+                	this.spawnPosition.posZ = (int)Math.round(this.entityToAttack.posZ) + this.rand.nextInt(4)-this.rand.nextInt(4);
+            	}
             }
 
             if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY), (int)this.posZ) == Blocks.water){
@@ -139,8 +151,9 @@ public class EntityGiantFish extends EntityMob
 
             if (entity instanceof EntityPlayer)
             {
-                this.angry = true;
+                if (!this.tame) this.angry = true;
                 this.entityToAttack = entity;
+                this.setOwner(((EntityPlayer)entity).getUniqueID().toString());
             }
             
             return super.attackEntityFrom(p_70097_1_, p_70097_2_);
@@ -193,17 +206,21 @@ public class EntityGiantFish extends EntityMob
     }
     
     @Override
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    public void writeEntityToNBT(NBTTagCompound tag)
     {
-        super.writeEntityToNBT(p_70014_1_);
-        p_70014_1_.setBoolean("Angry", this.angry);
+        super.writeEntityToNBT(tag);
+        tag.setBoolean("Angry", this.angry);
+        tag.setBoolean("Tame", this.tame);
+        tag.setString("Target", this.dataWatcher.getWatchableObjectString(17));
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    public void readEntityFromNBT(NBTTagCompound tag)
     {
-        super.readEntityFromNBT(p_70037_1_);
-        this.angry = p_70037_1_.getBoolean("Anger");
+        super.readEntityFromNBT(tag);
+        this.angry = tag.getBoolean("Anger");
+        this.tame = tag.getBoolean("Tame");
+        setOwner(tag.getString("Target"));
     }
     
     @Override
@@ -230,5 +247,50 @@ public class EntityGiantFish extends EntityMob
     @Override
     protected void dropRareDrop(int par1){
     	this.dropItem(ROCItems.aquatic_orb, 3);
+    }
+    
+    @Override
+    public boolean interact(EntityPlayer player)
+    {
+    	if(player.getHeldItem().getItem() == ROCItems.seaweed && !this.angry && !this.tame){
+    		if(this.rand.nextInt(6) == 0){
+    			for (int j = 0; j < 15; j++)
+                {
+                    float f1 = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
+                    float f2 = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
+                    this.worldObj.spawnParticle("heart", this.posX + (double)f1, (double)(this.boundingBox.minY + 0.8F), this.posZ + (double)f2, this.motionX, this.motionY, this.motionZ);
+                }
+    			this.tame = true;
+    			this.entityToAttack = player;
+    			setOwner(player.getUniqueID().toString());
+    			return true;
+    		}
+    		for (int j = 0; j < 15; j++)
+            {
+                float f1 = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
+                float f2 = (this.rand.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
+                this.worldObj.spawnParticle("smoke", this.posX + (double)f1, (double)(this.boundingBox.minY + 0.8F), this.posZ + (double)f2, this.motionX, this.motionY, this.motionZ);
+            }
+    		return false;
+    	}
+    	return false;
+    }
+    
+    public EntityLivingBase getOwner()
+    {
+        try
+        {
+            UUID uuid = UUID.fromString(this.dataWatcher.getWatchableObjectString(17));
+            return uuid == null ? null : this.worldObj.func_152378_a(uuid);
+        }
+        catch (IllegalArgumentException illegalargumentexception)
+        {
+            return null;
+        }
+    }
+    
+    public void setOwner(String uuid)
+    {
+        this.dataWatcher.updateObject(17, uuid);
     }
 }
