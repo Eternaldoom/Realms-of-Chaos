@@ -22,11 +22,11 @@ public class WorldGenWaterPlants extends WorldGenerator
 
     public boolean generate(World world, Random rand, int i, int j, int k)
     {
-        for (int l = 0; l < 64; l++)
+        for (int l = 0; l < 144; l++)
         {
-            int i1 = i + rand.nextInt(8) - rand.nextInt(8);
-            int j1 = j;
-            int k1 = k + rand.nextInt(8) - rand.nextInt(8);
+            int i1 = i + rand.nextInt(12) - rand.nextInt(12);
+            int j1 = j + rand.nextInt(12) - rand.nextInt(12);
+            int k1 = k + rand.nextInt(12) - rand.nextInt(12);
 
             if (world.getBlock(i1, j1, k1) == Blocks.water && j1 < 100 && world.getBlock(i1, j1-1, k1) == ROCBlocks.ocean_stone)
             {

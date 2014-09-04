@@ -2,11 +2,14 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.Random;
 
+import com.eternaldoom.realmsofchaos.items.ROCItems;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.util.Facing;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
@@ -81,5 +84,12 @@ public class BlockFakeIce extends ROCModBlock{
             this.dropBlockAsItem(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_, p_149855_1_.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
             p_149855_1_.setBlock(p_149855_2_, p_149855_3_, p_149855_4_, Blocks.water);
         }
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public Item getItem(World world, int i, int j, int k)
+    {
+        return Item.getItemFromBlock(Blocks.ice);
     }
 }

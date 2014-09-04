@@ -6,6 +6,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
@@ -139,6 +140,8 @@ public class ROCItems {
 	
 	public static ROCModItem fish_scale;
 	
+	public static ROCModItem seaweed;
+	
 	//Replaced vanilla items
 	public static ItemROCSword diamond_sword;
 	public static ItemROCSword iron_sword;
@@ -259,6 +262,8 @@ public class ROCItems {
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
 		
 		fish_scale = new ROCModItem("realmsofchaos:fish_scale", "scaleFish").register("fish_scale");
+		
+		seaweed = new ItemSeaweed(ROCBlocks.seaweed).register("seaweed");
 		
 		iron_arrow = new ROCModItem("realmsofchaos:iron_arrow", "arrowIron");
 		diamond_arrow = new ROCModItem("realmsofchaos:diamond_arrow", "arrowDiamond");
