@@ -17,6 +17,7 @@ public class BlockWaterPortal extends BlockFluidClassic{
 		super(ROCBlocks.waterportal, Material.water);
 		setBlockName("portalWater");
 		setBlockTextureName("realmsofchaos:water_portal");
+		setBlockUnbreakable();
 	}
 
 	@Override

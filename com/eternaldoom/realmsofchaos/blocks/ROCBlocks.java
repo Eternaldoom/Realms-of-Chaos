@@ -83,7 +83,7 @@ public class ROCBlocks {
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
-	public static void init() {
+	public static void init(){
 		waterportal = new FluidWaterPortal();
 		FluidRegistry.registerFluid(waterportal);
 		
@@ -130,7 +130,7 @@ public class ROCBlocks {
         ocean_glass = new BlockOceanGlass().register("ocean_glass");
         ocean_glass_pane = new BlockOceanGlassPane().register("ocean_glass_pane");
         ocean_chest = new BlockOceanChest().register("ocean_chest");
-        seaweed = new BlockSeaweed().register("seaweed");
+		seaweed = new BlockSeaweed().register("seaweed");
         compressed_lava = new BlockCompressedLava().register("compressed_lava");
         aquatic_block = new BlockAquatic().register("aquatic_block");
         fractonite_ore = new ROCModBlock(Material.rock, "realmsofchaos:fractonite_ore", "oreFractonite", 0f, 0f, ROCModBlock.soundTypeGlass).register("fractonite_ore");

@@ -4,12 +4,13 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockSeaweed extends ROCModBlock{
 
-	public BlockSeaweed() {
+	public BlockSeaweed(){
 		super(Material.water, "realmsofchaos:seaweed", "seaweed", 0, 0, soundTypeGrass);
 		float f = 0.375f;
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
@@ -25,7 +26,7 @@ public class BlockSeaweed extends ROCModBlock{
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k)
     {
-		return world.getBlock(i, j, k-1) == Blocks.water && world.getBlock(i-1, j, k) == Blocks.water && world.getBlock(i, j, k+1) == Blocks.water && world.getBlock(i+1, j, k) == Blocks.water && (world.getBlock(i, j-1, k) == ROCBlocks.ocean_stone || world.getBlock(i, j-1, k) == ROCBlocks.seaweed);
+		return (world.getBlock(i, j, k-1) == Blocks.water || world.getBlock(i, j, k-1) == ROCBlocks.seaweed) && (world.getBlock(i-1, j, k) == Blocks.water || world.getBlock(i-1, j, k) == ROCBlocks.seaweed) && (world.getBlock(i, j, k+1) == Blocks.water || world.getBlock(i, j, k+1) == ROCBlocks.seaweed) && (world.getBlock(i+1, j, k) == Blocks.water || world.getBlock(i+1, j, k) == ROCBlocks.seaweed) && (world.getBlock(i, j-1, k) == ROCBlocks.ocean_stone || world.getBlock(i, j-1, k) == ROCBlocks.seaweed);
     }
 	
 	@Override
@@ -58,5 +59,15 @@ public class BlockSeaweed extends ROCModBlock{
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random rand){
 		if(this.canBlockStay(world, i, j, k) && this.canBlockStay(world, i, j+1, k)) world.setBlock(i, j+1, k, ROCBlocks.seaweed, 1, 2);
+		if(!this.canBlockStay(world, i, j, k)){
+			world.setBlock(i, j, k, Blocks.water);
+			this.dropBlockAsItem(world, i, j, k, new ItemStack(this));
+		}
+	}
+	
+	@Override
+	public void onBlockPreDestroy(World world, int i, int j, int k, int oldmeta) {
+		world.scheduleBlockUpdate(i, j+1, k, this, 1);
+		world.scheduleBlockUpdate(i, j-1, k, this, 1);
 	}
 }
