@@ -65,6 +65,33 @@ public class PacketArmorFreeze implements IMessage{
 				if(w.getBlock(x-1, y-1, z-1) == Blocks.water) w.setBlock(x-1, y-1, z-1, ROCBlocks.fake_ice);
 				if(w.getBlock(x+1, y-1, z-1) == Blocks.water) w.setBlock(x+1, y-1, z-1, ROCBlocks.fake_ice);
 				if(w.getBlock(x-1, y-1, z+1) == Blocks.water) w.setBlock(x-1, y-1, z+1, ROCBlocks.fake_ice);
+				if(w.getBlock(x, y, z) == Blocks.water) w.setBlock(x, y, z, ROCBlocks.fake_ice);
+				if(w.getBlock(x+1, y, z) == Blocks.water) w.setBlock(x+1, y, z, ROCBlocks.fake_ice);
+				if(w.getBlock(x, y, z+1) == Blocks.water) w.setBlock(x, y, z+1, ROCBlocks.fake_ice);
+				if(w.getBlock(x+1, y, z+1) == Blocks.water) w.setBlock(x+1, y, z+1, ROCBlocks.fake_ice);
+				if(w.getBlock(x-1, y, z) == Blocks.water) w.setBlock(x-1, y, z, ROCBlocks.fake_ice);
+				if(w.getBlock(x, y, z-1) == Blocks.water) w.setBlock(x, y, z-1, ROCBlocks.fake_ice);
+				if(w.getBlock(x-1, y, z-1) == Blocks.water) w.setBlock(x-1, y, z-1, ROCBlocks.fake_ice);
+				if(w.getBlock(x+1, y, z-1) == Blocks.water) w.setBlock(x+1, y, z-1, ROCBlocks.fake_ice);
+				if(w.getBlock(x-1, y, z+1) == Blocks.water) w.setBlock(x-1, y, z+1, ROCBlocks.fake_ice);
+				if(w.getBlock(x, y-1, z) == Blocks.lava) w.setBlock(x, y-1, z, Blocks.stone);
+				if(w.getBlock(x+1, y-1, z) == Blocks.lava) w.setBlock(x+1, y-1, z, Blocks.stone);
+				if(w.getBlock(x, y-1, z+1) == Blocks.lava) w.setBlock(x, y-1, z+1, Blocks.stone);
+				if(w.getBlock(x+1, y-1, z+1) == Blocks.lava) w.setBlock(x+1, y-1, z+1, Blocks.stone);
+				if(w.getBlock(x-1, y-1, z) == Blocks.lava) w.setBlock(x-1, y-1, z, Blocks.stone);
+				if(w.getBlock(x, y-1, z-1) == Blocks.lava) w.setBlock(x, y-1, z-1, Blocks.stone);
+				if(w.getBlock(x-1, y-1, z-1) == Blocks.lava) w.setBlock(x-1, y-1, z-1, Blocks.stone);
+				if(w.getBlock(x+1, y-1, z-1) == Blocks.lava) w.setBlock(x+1, y-1, z-1, Blocks.stone);
+				if(w.getBlock(x-1, y-1, z+1) == Blocks.lava) w.setBlock(x-1, y-1, z+1, Blocks.stone);
+				if(w.getBlock(x, y, z) == Blocks.lava) w.setBlock(x, y, z, Blocks.stone);
+				if(w.getBlock(x+1, y, z) == Blocks.lava) w.setBlock(x+1, y, z, Blocks.stone);
+				if(w.getBlock(x, y, z+1) == Blocks.lava) w.setBlock(x, y, z+1, Blocks.stone);
+				if(w.getBlock(x+1, y, z+1) == Blocks.lava) w.setBlock(x+1, y, z+1, Blocks.stone);
+				if(w.getBlock(x-1, y, z) == Blocks.lava) w.setBlock(x-1, y, z, Blocks.stone);
+				if(w.getBlock(x, y, z-1) == Blocks.lava) w.setBlock(x, y, z-1, Blocks.stone);
+				if(w.getBlock(x-1, y, z-1) == Blocks.lava) w.setBlock(x-1, y, z-1, Blocks.stone);
+				if(w.getBlock(x+1, y, z-1) == Blocks.lava) w.setBlock(x+1, y, z-1, Blocks.stone);
+				if(w.getBlock(x-1, y, z+1) == Blocks.lava) w.setBlock(x-1, y, z+1, Blocks.stone);
 			}
 			return null;
 		}

@@ -25,8 +25,7 @@ public class BlockSeaweed extends ROCModBlock{
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k)
     {
-		if(world.getBlockMetadata(i, j, k) == 0) return world.getBlock(i, j, k-1) == Blocks.water && world.getBlock(i-1, j, k) == Blocks.water && world.getBlock(i, j, k+1) == Blocks.water && world.getBlock(i+1, j, k) == Blocks.water && (world.getBlock(i, j-1, k) == ROCBlocks.ocean_stone || world.getBlock(i, j-1, k) == ROCBlocks.seaweed);
-		else return world.getBlock(i, j, k-1) == Blocks.water && world.getBlock(i-1, j, k) == Blocks.water && world.getBlock(i, j, k+1) == Blocks.water && world.getBlock(i+1, j, k) == Blocks.water && (world.getBlock(i, j-1, k) == ROCBlocks.ocean_stone || world.getBlock(i, j-1, k) == ROCBlocks.seaweed) && world.getBlock(i, j-10, k) == ROCBlocks.ocean_stone;
+		return world.getBlock(i, j, k-1) == Blocks.water && world.getBlock(i-1, j, k) == Blocks.water && world.getBlock(i, j, k+1) == Blocks.water && world.getBlock(i+1, j, k) == Blocks.water && (world.getBlock(i, j-1, k) == ROCBlocks.ocean_stone || world.getBlock(i, j-1, k) == ROCBlocks.seaweed);
     }
 	
 	@Override
