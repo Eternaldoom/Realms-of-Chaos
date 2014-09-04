@@ -13,7 +13,7 @@ import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class WorldGenSurfaceDungeon {
 	
-    public static final WeightedRandomChestContent[] cheststuff = new WeightedRandomChestContent[] {new WeightedRandomChestContent(ROCItems.neptunite_ingot, 0, 0, 4, 1), new WeightedRandomChestContent(ROCItems.aquatic_shard, 0, 0, 1, 1)};
+    public static final WeightedRandomChestContent[] cheststuff = new WeightedRandomChestContent[] {new WeightedRandomChestContent(ROCItems.neptunite_ingot, 0, 1, 3, 3), new WeightedRandomChestContent(ROCItems.aquatic_shard, 0, 1, 1, 2)};
 
 	public WorldGenSurfaceDungeon(){}
 	
