@@ -129,8 +129,10 @@ public class ROCItems {
 	public static ItemROCPickaxe fractonite_pickaxe;
 	public static ItemROCShovel fractonite_shovel;
 	
+	public static ROCModItem soybean;
 	public static ItemROCFood raw_scorpion, cooked_scorpion;
 	public static ItemROCFood dried_seaweed, miso_soup;
+	
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
 	public static ItemROCBow iron_bow, diamond_bow, heliotrope_bow, citronite_bow, xylite_bow, flamestone_bow, neptunite_bow, aquatic_bow, osmaralt_bow, fractonite_bow;
@@ -254,6 +256,7 @@ public class ROCItems {
 		fractonite_axe = new ItemROCAxe(FRACTONITEt, "realmsofchaos:fractonite_axe", "axeFractonite", false);
 		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);
 		
+		soybean = new ItemSoybean().register("soybean");
 		raw_scorpion = new ItemROCFood(2, 0.2f, true, "realmsofchaos:raw_scorpion", "scorpionRaw");
 		cooked_scorpion = new ItemROCFood(10, 1.0f, true, "realmsofchaos:cooked_scorpion", "scorpionCooked");
 		dried_seaweed = new ItemROCFood(2, 0.1f, false, "realmsofchaos:dried_seaweed", "seaweedDried");

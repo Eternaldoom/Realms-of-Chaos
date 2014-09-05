@@ -2,6 +2,9 @@ package com.eternaldoom.realmsofchaos;
 
 import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
+import net.minecraft.entity.ai.EntityAITempt;
+import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.init.Items;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;

@@ -84,7 +84,7 @@ public class Entities {
 	    {
 			if (BiomeGenBase.getBiomeGenArray()[i] != null)
 	        {
-				EntityRegistry.addSpawn(EntityScorpioid.class, 130, 2, 4, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
+				EntityRegistry.addSpawn(EntityScorpioid.class, 130, 2, 5, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
 				EntityRegistry.addSpawn(EntityVoidCrawler.class, 100, 1, 2, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
 	        }
 	    }

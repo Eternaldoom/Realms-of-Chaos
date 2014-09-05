@@ -5,15 +5,15 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
-import com.eternaldoom.realmsofchaos.blocks.TileEntityExtractor;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderExtractor;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderVoidCrawler;
 import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererCannon;
-import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererExtractor;
 import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererOceanChest;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
@@ -53,6 +53,7 @@ public class Renderers {
 	public static void init(){
 		
 		RenderingRegistry.registerBlockHandler(new RenderExtractor());
+		RenderingRegistry.registerBlockHandler(new RenderSoyPlant());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());

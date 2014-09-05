@@ -26,6 +26,7 @@ public class ROCBlocks {
     public static ROCModBlock osmaralt_ore;
     public static ROCModBlock osmaralt_block;
     public static ROCModBlock fake_ice;
+    public static ROCModBlock soy_plant;
 	
     //Nether
 	public static ROCModBlock charwood_leaves;
@@ -156,6 +157,7 @@ public class ROCBlocks {
 		frozen_log = new BlockROCLog(Material.wood, "realmsofchaos:frozen_log", "logFrozen", 6f, 10.0f, ROCModBlock.soundTypeGlass).register("frozen_wood");
 		frozen_leaves = new BlockFrozenLeaves().register("frozen_leaves");
 		fake_ice = new BlockFakeIce().register("fake_ice");
+		soy_plant = new BlockSoyPlant().register("soy_plant");
 
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

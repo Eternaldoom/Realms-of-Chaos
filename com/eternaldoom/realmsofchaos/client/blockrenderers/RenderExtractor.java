@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos.client;
+package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;

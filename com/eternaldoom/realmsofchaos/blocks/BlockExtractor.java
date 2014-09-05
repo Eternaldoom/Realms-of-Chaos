@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import com.eternaldoom.realmsofchaos.GUIHandler;
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
-import com.eternaldoom.realmsofchaos.client.RenderExtractor;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderExtractor;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;

@@ -18,6 +18,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
 		super(Material.rock, "realmsofchaos:charwood_sapling", "saplingCharwood", 0.0f, 2.5f, soundTypeCloth);
 		float f = 0.4f;
         setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+        setTickRandomly(true);
 	}
 	
 	@Override
@@ -75,26 +76,24 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	
 	@Override
 	public boolean onBlockActivated(World w, int i, int j, int k, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_){
-		WorldGenCharwoodTree o = new WorldGenCharwoodTree();
-		
+		WorldGenCharwoodTree tree = new WorldGenCharwoodTree();
 		if (!w.isRemote){
 			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == ROCItems.ash_dust){
 				if(!player.capabilities.isCreativeMode) --player.getCurrentEquippedItem().stackSize;
 				Random r = new Random(); int growChance = r.nextInt(5);
-				
-				if (growChance == 3) return o.generate(w, null, i - 2, j, k - 2);
-				else {
-					for (int c = 0; c < 7; ++c)
-			        {
-			            double d0 = r.nextGaussian() * 0.02D;
-			            double d1 = r.nextGaussian() * 0.02D;
-			            double d2 = r.nextGaussian() * 0.02D;
-			            w.spawnParticle("smoke", i, j, k, d0, d1, d2);
-			        }
-				}
+				if (growChance == 3) return tree.generate(w, r, i - 2, j, k - 2);
 			}
 		}
 		return false;
 
+	}
+	
+	@Override
+	public void updateTick(World world, int i, int j, int k, Random rand){
+		WorldGenCharwoodTree tree = new WorldGenCharwoodTree();
+		System.out.println("TICKED");
+		if(rand.nextInt(4) == 0 && !world.isRemote){
+			tree.generate(world, rand, i, j, k);
+		}
 	}
 }
