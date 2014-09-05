@@ -55,7 +55,6 @@ public class ItemRendererCannon implements IItemRenderer{
 		
 		Tessellator tessellator = Tessellator.instance;		
 	    tessellator.startDrawingQuads();
-	    
 	    double minU1 = (double)icon.getMinU();
 	    double minV1 = (double)icon.getMinV();
 	    double maxU1 = (double)icon.getMaxU();

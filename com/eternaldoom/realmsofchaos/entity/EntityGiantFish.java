@@ -252,7 +252,7 @@ public class EntityGiantFish extends EntityMob
     @Override
     public boolean interact(EntityPlayer player)
     {
-    	if(player.getHeldItem().getItem() == ROCItems.seaweed && !this.angry && !this.tame){
+    	if(player.getHeldItem() != null && player.getHeldItem().getItem() == ROCItems.seaweed && !this.angry && !this.tame){
     		
     		if(!player.capabilities.isCreativeMode) player.getHeldItem().stackSize--;
     		

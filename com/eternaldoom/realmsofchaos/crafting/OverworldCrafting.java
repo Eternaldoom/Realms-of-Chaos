@@ -82,6 +82,7 @@ public class OverworldCrafting {
 		RecipeHelper.addStoneRecipe(ROCBlocks.frozen_stone, ROCBlocks.frozen_stone_bricks, ROCBlocks.frozen_stone_slab, ROCBlocks.frozen_stone_stairs, ROCBlocks.frozen_stone_brick_slab, ROCBlocks.frozen_cobblestone, ROCBlocks.frozen_cobblestone_slab, ROCBlocks.frozen_cobblestone_stairs, ROCBlocks.frozen_stone_brick_stairs);
 
 		GameRegistry.addRecipe(new ItemStack(ROCItems.fish_scale, 2), new Object[]{"F", 'F', Items.fish});
+		GameRegistry.addShapelessRecipe(new ItemStack(ROCItems.miso_soup), new Object[]{ROCItems.dried_seaweed, Items.fermented_spider_eye, Items.bowl});
 
     	ExtractorRecipes.addItemRecipe(ROCItems.xylite_crystal, new ItemStack(ROCItems.xylite_ingot), 50.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.neptunite_ore), new ItemStack(ROCItems.neptunite_ingot), 40.0f);
@@ -91,5 +92,6 @@ public class OverworldCrafting {
     	
     	GameRegistry.addSmelting(ROCBlocks.heliotrope_ore, new ItemStack(ROCItems.heliotrope), 30.0f);
     	GameRegistry.addSmelting(ROCItems.raw_scorpion, new ItemStack(ROCItems.cooked_scorpion), 20.0f);
+    	GameRegistry.addSmelting(ROCItems.seaweed, new ItemStack(ROCItems.dried_seaweed), 10);
 	}
 }

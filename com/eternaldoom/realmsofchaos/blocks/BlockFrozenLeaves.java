@@ -1,5 +1,7 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
+import com.eternaldoom.realmsofchaos.client.RenderExtractor;
+
 import net.minecraft.block.material.Material;
 
 public class BlockFrozenLeaves extends BlockROCLeaves{

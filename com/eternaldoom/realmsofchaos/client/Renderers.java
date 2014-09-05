@@ -8,7 +8,6 @@ import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityExtractor;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
-import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderExtractor;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
@@ -53,12 +52,11 @@ public class Renderers {
 	
 	public static void init(){
 		
+		RenderingRegistry.registerBlockHandler(new RenderExtractor());
+		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());
 		
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityExtractor.class, new RenderExtractor());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.extractor), new ItemRendererExtractor(new RenderExtractor(), new TileEntityExtractor()));
-
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticGolem.class, new RenderAquaticGolem());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpioid.class, new RenderScorpioid());
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, new RenderVoidCrawler());

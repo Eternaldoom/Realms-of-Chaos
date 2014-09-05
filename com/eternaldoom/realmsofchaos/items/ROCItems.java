@@ -130,6 +130,7 @@ public class ROCItems {
 	public static ItemROCShovel fractonite_shovel;
 	
 	public static ItemROCFood raw_scorpion, cooked_scorpion;
+	public static ItemROCFood dried_seaweed, miso_soup;
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
 	public static ItemROCBow iron_bow, diamond_bow, heliotrope_bow, citronite_bow, xylite_bow, flamestone_bow, neptunite_bow, aquatic_bow, osmaralt_bow, fractonite_bow;
@@ -255,6 +256,8 @@ public class ROCItems {
 		
 		raw_scorpion = new ItemROCFood(2, 0.2f, true, "realmsofchaos:raw_scorpion", "scorpionRaw");
 		cooked_scorpion = new ItemROCFood(10, 1.0f, true, "realmsofchaos:cooked_scorpion", "scorpionCooked");
+		dried_seaweed = new ItemROCFood(2, 0.1f, false, "realmsofchaos:dried_seaweed", "seaweedDried");
+		miso_soup = new ItemROCFood(6, 10, false, "realmsofchaos:miso_soup", "soupMiso");
 		
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
@@ -345,6 +348,8 @@ public class ROCItems {
 		
 		raw_scorpion.register("raw_scorpion");
 		cooked_scorpion.register("cooked_scorpion");
+		dried_seaweed.register("dried_seaweed");
+		miso_soup.register("miso_soup");
 		
 		heliotrope_helmet.register("heliotrope_helmet");
 		heliotrope_chestplate.register("heliotrope_chestplate");
