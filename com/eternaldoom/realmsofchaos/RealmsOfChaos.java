@@ -2,9 +2,6 @@ package com.eternaldoom.realmsofchaos;
 
 import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
-import net.minecraft.entity.ai.EntityAITempt;
-import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.init.Items;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -20,6 +17,7 @@ import com.eternaldoom.realmsofchaos.event.ArmorBonusEvent;
 import com.eternaldoom.realmsofchaos.event.ItemReplaceEvent;
 import com.eternaldoom.realmsofchaos.event.KeyPress;
 import com.eternaldoom.realmsofchaos.event.OverlayEvent;
+import com.eternaldoom.realmsofchaos.event.PortalFixEvent;
 import com.eternaldoom.realmsofchaos.event.TooltipEvent;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
@@ -85,6 +83,7 @@ public class RealmsOfChaos {
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
 		MinecraftForge.EVENT_BUS.register(new TooltipEvent());
+		MinecraftForge.EVENT_BUS.register(new PortalFixEvent());
 		
 		if(FMLCommonHandler.instance().getSide().isClient()){
 			MinecraftForge.EVENT_BUS.register(new OverlayEvent());

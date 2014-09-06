@@ -20,10 +20,11 @@ public class BlockIcePortal extends ROCModBlock{
 	public BlockIcePortal() {
 		super(Material.ice, "realmsofchaos:ice_portal", "portalIceRuins", 0f, 0f, soundTypeGlass);
 		setCreativeTab(null);
+		setBlockUnbreakable();
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity)
     {
 		if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP)))
         {
