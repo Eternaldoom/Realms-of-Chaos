@@ -131,7 +131,7 @@ public class ROCItems {
 	
 	public static ROCModItem soybean;
 	public static ItemROCFood raw_scorpion, cooked_scorpion;
-	public static ItemROCFood dried_seaweed, miso_soup;
+	public static ItemROCFood dried_seaweed, miso_soup, tofu;
 	
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
@@ -260,7 +260,8 @@ public class ROCItems {
 		raw_scorpion = new ItemROCFood(2, 0.2f, true, "realmsofchaos:raw_scorpion", "scorpionRaw");
 		cooked_scorpion = new ItemROCFood(10, 1.0f, true, "realmsofchaos:cooked_scorpion", "scorpionCooked");
 		dried_seaweed = new ItemROCFood(2, 0.1f, false, "realmsofchaos:dried_seaweed", "seaweedDried");
-		miso_soup = new ItemROCFood(6, 10, false, "realmsofchaos:miso_soup", "soupMiso");
+		miso_soup = (ItemROCFood) new ItemROCFood(10, 10, false, "realmsofchaos:miso_soup", "soupMiso").setMaxStackSize(1);
+		tofu = new ItemROCFood(7, 12, false, "realmsofchaos:tofu", "tofu");
 		
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
@@ -353,6 +354,7 @@ public class ROCItems {
 		cooked_scorpion.register("cooked_scorpion");
 		dried_seaweed.register("dried_seaweed");
 		miso_soup.register("miso_soup");
+		tofu.register("tofu");
 		
 		heliotrope_helmet.register("heliotrope_helmet");
 		heliotrope_chestplate.register("heliotrope_chestplate");

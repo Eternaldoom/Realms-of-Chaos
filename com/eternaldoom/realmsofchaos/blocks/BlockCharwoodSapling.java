@@ -91,7 +91,6 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random rand){
 		WorldGenCharwoodTree tree = new WorldGenCharwoodTree();
-		System.out.println("TICKED");
 		if(rand.nextInt(4) == 0 && !world.isRemote){
 			tree.generate(world, rand, i, j, k);
 		}

@@ -176,6 +176,7 @@ item.seaweed.name=Seaweed
 item.seaweedDried.name=Dried Seaweed
 item.soupMiso.name=Miso Soup
 item.soybean.name=Soybeans
+item.tofu.name=Tofu
 
 itemGroup.ROCBlocks=Realms of Chaos Blocks
 itemGroup.ROCItems=Realms of Chaos Items
