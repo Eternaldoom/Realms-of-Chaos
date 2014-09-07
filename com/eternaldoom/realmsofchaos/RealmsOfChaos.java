@@ -16,6 +16,7 @@ import com.eternaldoom.realmsofchaos.entity.Entities;
 import com.eternaldoom.realmsofchaos.event.ArmorBonusEvent;
 import com.eternaldoom.realmsofchaos.event.ItemReplaceEvent;
 import com.eternaldoom.realmsofchaos.event.KeyPress;
+import com.eternaldoom.realmsofchaos.event.OreDropEvent;
 import com.eternaldoom.realmsofchaos.event.OverlayEvent;
 import com.eternaldoom.realmsofchaos.event.PortalFixEvent;
 import com.eternaldoom.realmsofchaos.event.TooltipEvent;
@@ -84,6 +85,7 @@ public class RealmsOfChaos {
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
 		MinecraftForge.EVENT_BUS.register(new TooltipEvent());
 		MinecraftForge.EVENT_BUS.register(new PortalFixEvent());
+		MinecraftForge.EVENT_BUS.register(new OreDropEvent());
 		
 		if(FMLCommonHandler.instance().getSide().isClient()){
 			MinecraftForge.EVENT_BUS.register(new OverlayEvent());

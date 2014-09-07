@@ -135,6 +135,9 @@ public class ROCItems {
 	
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
+	public static ROCModItem scorpius_crystal;
+	public static ROCModItem mystic_gem;
+	
 	public static ItemROCBow iron_bow, diamond_bow, heliotrope_bow, citronite_bow, xylite_bow, flamestone_bow, neptunite_bow, aquatic_bow, osmaralt_bow, fractonite_bow;
 	public static ROCModItem iron_arrow, diamond_arrow, heliotrope_arrow, citronite_arrow, xylite_arrow, flamestone_arrow, neptunite_arrow, aquatic_arrow, osmaralt_arrow, fractonite_arrow;
 	
@@ -265,6 +268,9 @@ public class ROCItems {
 		
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
+		
+		scorpius_crystal = new ItemScorpiusCrystal().register("scorpius_crystal");
+		mystic_gem = new ROCModItem("realmsofchaos:mystic_gem", "gemMystic").register("mystic_gem");
 		
 		fish_scale = new ROCModItem("realmsofchaos:fish_scale", "scaleFish").register("fish_scale");
 		

@@ -177,6 +177,8 @@ item.seaweedDried.name=Dried Seaweed
 item.soupMiso.name=Miso Soup
 item.soybean.name=Soybeans
 item.tofu.name=Tofu
+item.crystalScorpius.name=Scorpius Crystal
+item.gemMystic.name=Mystic Gem
 
 itemGroup.ROCBlocks=Realms of Chaos Blocks
 itemGroup.ROCItems=Realms of Chaos Items
@@ -190,5 +192,6 @@ entity.Scorpioid.name=Scorpioid
 entity.VoidCrawler.name=Void Crawler
 entity.GiantFish.name=Giant Fish
 entity.KelpFish.name=Kelp Fish
+entity.Scorpius.name=Scorpius
 
 key.freeze=Fractonite Armor Bonus

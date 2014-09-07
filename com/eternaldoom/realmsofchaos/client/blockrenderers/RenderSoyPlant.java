@@ -10,8 +10,13 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class RenderSoyPlant implements ISimpleBlockRenderingHandler{
 
-	public static int id = RenderingRegistry.getNextAvailableRenderId();
+	public static int renderId;
 	private Tessellator t = Tessellator.instance;
+	
+	public RenderSoyPlant(){
+		renderId = RenderingRegistry.getNextAvailableRenderId();
+	}
+	
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {}
 	
@@ -28,12 +33,11 @@ public class RenderSoyPlant implements ISimpleBlockRenderingHandler{
 		t.addTranslation(x, y, z);
 		int lightValue = block.getMixedBrightnessForBlock(world, (int)x, (int)y, (int)z);
 		t.setBrightness(lightValue);
-		t.setColorOpaque_F(1.0F, 1.0F, 1.0F);
-		renderer.renderStandardBlockWithAmbientOcclusion(block, (int)x, (int)y, (int)z, lightValue, lightValue, lightValue);
-		
+		t.setColorOpaque_F(1.0F, 1.0F, 1.0F);		
 		renderModel(u, v, U, V);
-		
 		t.addTranslation(-x, -y, -z);
+		
+		System.out.println("RENDERED");
 		
 		return true;
 	}
@@ -82,6 +86,6 @@ public class RenderSoyPlant implements ISimpleBlockRenderingHandler{
 	}
 	@Override
 	public int getRenderId() {
-		return id;
+		return renderId;
 	}
 }

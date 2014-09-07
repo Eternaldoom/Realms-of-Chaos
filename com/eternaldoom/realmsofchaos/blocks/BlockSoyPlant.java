@@ -47,7 +47,7 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k)
     {
-		return world.getBlock(i, j-1, k) == Blocks.farmland && world.getBlock(i, j, k).getMixedBrightnessForBlock(world, i, j, k) > 7;
+		return world.getBlock(i, j-1, k) == Blocks.farmland && world.getBlockLightValue(i, j, k) > 7;
     }
 	
 	@Override
@@ -79,7 +79,7 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	
 	@Override
 	public int getRenderType(){
-		return RenderSoyPlant.id;
+		return RenderSoyPlant.renderId;
 	}
 	
 	@Override
@@ -112,6 +112,11 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	public int quantityDropped(int meta, int fortune, Random rand){
 		if(meta == 3) return rand.nextInt(2)+3;
 		return 1;
+	}
+	
+	@Override
+	public Item getItemDropped(int par1, Random rand, int par3){
+		return ROCItems.soybean;
 	}
 
 	@Override

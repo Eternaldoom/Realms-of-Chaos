@@ -6,6 +6,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 
 import com.eternaldoom.realmsofchaos.items.ItemROCSword;
 import com.eternaldoom.realmsofchaos.items.ItemROCTool;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -34,6 +35,11 @@ public class TooltipEvent {
 		if (evt.itemStack.getItem() instanceof ItemBow){
 			evt.toolTip.add(EnumChatFormatting.GREEN + "" + (evt.itemStack.getMaxDamage() - evt.itemStack.getItemDamage()) + " Uses Remaining");
 			evt.toolTip.add(EnumChatFormatting.RED + "" + "2 Minimum Ranged Damage");
+		}
+		
+		if (evt.itemStack.getItem() == ROCItems.mystic_gem){
+			evt.toolTip.add(EnumChatFormatting.DARK_AQUA + "Allows higher level");
+			evt.toolTip.add(EnumChatFormatting.DARK_AQUA + "ores to be mined.");
 		}
 	}
 }

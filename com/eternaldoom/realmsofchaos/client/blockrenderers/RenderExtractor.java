@@ -15,8 +15,12 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class RenderExtractor implements ISimpleBlockRenderingHandler{
 
-	public static int id = RenderingRegistry.getNextAvailableRenderId();
+	public static int renderId;
 	private Tessellator t = Tessellator.instance;
+	
+	public RenderExtractor(){
+		renderId = RenderingRegistry.getNextAvailableRenderId();
+	}
 	
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
@@ -33,7 +37,6 @@ public class RenderExtractor implements ISimpleBlockRenderingHandler{
 		int lightValue = block.getMixedBrightnessForBlock(world, (int)x, (int)y, (int)z);
 		t.setBrightness(lightValue);
 		t.setColorOpaque_F(1.0F, 1.0F, 1.0F);
-		renderer.renderStandardBlockWithAmbientOcclusion(block, (int)x, (int)y, (int)z, lightValue, lightValue, lightValue);
 		drawModel(block, x, y, z);
 		t.addTranslation(-x, -y, -z);
 		return true;
@@ -46,7 +49,7 @@ public class RenderExtractor implements ISimpleBlockRenderingHandler{
 
 	@Override
 	public int getRenderId() {
-		return id;
+		return renderId;
 	}
 	
 	private void drawModel(Block block, double x, double y, double z){
