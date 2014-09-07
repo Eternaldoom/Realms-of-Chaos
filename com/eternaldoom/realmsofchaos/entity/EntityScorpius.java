@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
@@ -38,7 +39,7 @@ public class EntityScorpius extends EntityROCBoss{
     {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(100);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(300);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(500);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.4);
     }
@@ -55,18 +56,19 @@ public class EntityScorpius extends EntityROCBoss{
 		EntityPlayer player = (EntityPlayer)findPlayerToAttack();
 		double playerDistance = Math.sqrt(((this.posX-player.posX) * (this.posX-player.posX)) + ((this.posZ-player.posZ) * (this.posZ-player.posZ)));
 		double distanceX = player.posX-this.posX;
-		double distanceZ = player.posZ-this.posX;
+		double distanceZ = player.posZ-this.posZ;
 		
 		if(playerDistance < 11 && !player.capabilities.isCreativeMode && this.rand.nextInt(25) == 0){
 			this.motionY += 0.75;
 		}
 		
-		if(this.isAirBorne){
-			this.motionX = Math.signum(distanceX)*0.5;
-			this.motionZ = Math.signum(distanceZ)*0.5;
+		if(this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-2, (int)this.posZ) == Blocks.air){
+			if(distanceX > 3 || distanceX < -3)this.motionX = Math.signum(distanceX)*0.35;
+			if(distanceZ > 3 || distanceZ < -3)this.motionZ = Math.signum(distanceZ)*0.35;
+			System.out.println(Math.signum(distanceZ)*0.5);
 		}
 		
-		if(playerDistance < 3 && this.isAirBorne){
+		if(playerDistance < 3 && this.worldObj.getBlock((int)this.posX, MathHelper.floor_double(this.posY)-2, (int)this.posZ) == Blocks.air && (this.motionX >0.2 || this.motionX < -0.2 || this.motionZ >0.2 || this.motionZ < -0.2)){
 			this.motionX = 0;
 			this.motionZ = 0;
 		}

@@ -36,9 +36,7 @@ public class RenderSoyPlant implements ISimpleBlockRenderingHandler{
 		t.setColorOpaque_F(1.0F, 1.0F, 1.0F);		
 		renderModel(u, v, U, V);
 		t.addTranslation(-x, -y, -z);
-		
-		System.out.println("RENDERED");
-		
+				
 		return true;
 	}
 	
