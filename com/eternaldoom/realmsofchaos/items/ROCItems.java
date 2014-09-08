@@ -132,6 +132,7 @@ public class ROCItems {
 	public static ROCModItem soybean;
 	public static ItemROCFood raw_scorpion, cooked_scorpion;
 	public static ItemROCFood dried_seaweed, miso_soup, tofu;
+	public static ROCModItem soymilk;
 	
 	public static ItemScorpionStone scorpion_stone, scorpion_stone_active;
 	
@@ -265,6 +266,7 @@ public class ROCItems {
 		dried_seaweed = new ItemROCFood(2, 0.1f, false, "realmsofchaos:dried_seaweed", "seaweedDried");
 		miso_soup = (ItemROCFood) new ItemROCFood(10, 10, false, "realmsofchaos:miso_soup", "soupMiso").setMaxStackSize(1);
 		tofu = new ItemROCFood(7, 12, false, "realmsofchaos:tofu", "tofu");
+		soymilk = new ItemSoymilk().register("soymilk");
 		
 		scorpion_stone = (ItemScorpionStone) new ItemScorpionStone(false).register("scorpion_stone");
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);

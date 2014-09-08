@@ -26,11 +26,11 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	
 	public BlockSoyPlant() {
 		super(Material.plants, "realmsofchaos:soy_plant", "plantSoy", 0, 0, soundTypeGrass);
-		disableStats();
 		setTickRandomly(true);
 		float f = 0.5F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
         setCreativeTab(null);
+		disableStats();
 	}
 	
 	protected boolean canPlaceBlockOn(Block b)
@@ -52,17 +52,14 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random rand){
-		if (!this.canBlockStay(world, i, j, k)){
-			int meta = world.getBlockMetadata(i, j, k);
-			world.setBlock(i, j, k, Blocks.air);
-			this.dropBlockAsItem(world, i, j, k, new ItemStack(ROCItems.soybean, this.quantityDropped(meta, 0, rand)));
-		}
+		this.checkAndDropBlock(world, i, j, k, rand);
+		if(rand.nextInt(12) == 0) this.grow(world, i, j, k);
 	}
 	
 	@Override
 	public void onNeighborBlockChange(World world, int i, int j, int k, Block b)
     {
-		world.scheduleBlockUpdate(i, j, k, this, 1);
+		this.checkAndDropBlock(world, i, j, k, new Random());
     }
 	
 	private void grow(World world, int i, int j, int k){
@@ -118,15 +115,23 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	public Item getItemDropped(int par1, Random rand, int par3){
 		return ROCItems.soybean;
 	}
-
-	@Override
-	//Can use bonemeal
-	public boolean func_149851_a(World world, int i, int j, int k, boolean p_149851_5_) {
-		return world.getBlockMetadata(i, j, k) < 4;
+	
+	public void checkAndDropBlock(World world, int i, int j, int k, Random rand){
+		if (!this.canBlockStay(world, i, j, k)){
+			int meta = world.getBlockMetadata(i, j, k);
+			world.setBlock(i, j, k, Blocks.air);
+			this.dropBlockAsItem(world, i, j, k, new ItemStack(ROCItems.soybean, this.quantityDropped(meta, 0, rand)));
+		}
 	}
 
 	@Override
-	//Something about bonemeal
+	//Is finished growing
+	public boolean func_149851_a(World world, int i, int j, int k, boolean p_149851_5_) {
+		return world.getBlockMetadata(i, j, k) != 4;
+	}
+
+	@Override
+	//bonemeal
 	public boolean func_149852_a(World world, Random rand, int i, int j, int k) {
 		return true;
 	}

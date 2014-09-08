@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos;
 
 import net.minecraft.command.CommandHandler;
 import net.minecraft.command.ServerCommandManager;
+import net.minecraft.potion.Potion;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -95,6 +96,7 @@ public class RealmsOfChaos {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent evt){
+		
 		Entities.init();
 	}
 	

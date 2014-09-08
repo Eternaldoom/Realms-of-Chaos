@@ -179,6 +179,7 @@ item.soybean.name=Soybeans
 item.tofu.name=Tofu
 item.crystalScorpius.name=Scorpius Crystal
 item.gemMystic.name=Mystic Gem
+item.milkSoy.name=Soy Milk
 
 itemGroup.ROCBlocks=Realms of Chaos Blocks
 itemGroup.ROCItems=Realms of Chaos Items

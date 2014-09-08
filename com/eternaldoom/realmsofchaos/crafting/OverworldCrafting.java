@@ -85,6 +85,7 @@ public class OverworldCrafting {
 		GameRegistry.addShapelessRecipe(new ItemStack(ROCItems.miso_soup), new Object[]{ROCItems.dried_seaweed, ROCItems.dried_seaweed, ROCItems.dried_seaweed, ROCItems.soybean, ROCItems.soybean, ROCItems.soybean, ROCItems.soybean, ROCItems.soybean, Items.bowl});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.tofu, 3), new Object[]{"SSS", "SWS", "SSS", 'S', ROCItems.soybean, 'W', Items.water_bucket});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.scorpius_crystal), new Object[]{"SSS", "SXS", "SSS", 'S', ROCItems.scorpion_stone, 'X', ROCBlocks.xylite_block});
+		GameRegistry.addShapelessRecipe(new ItemStack(ROCItems.soymilk), new Object[]{Items.water_bucket, ROCItems.soybean, ROCItems.soybean});
 
     	ExtractorRecipes.addItemRecipe(ROCItems.xylite_crystal, new ItemStack(ROCItems.xylite_ingot), 50.0f);
     	ExtractorRecipes.addItemRecipe(Item.getItemFromBlock(ROCBlocks.neptunite_ore), new ItemStack(ROCItems.neptunite_ingot), 40.0f);
