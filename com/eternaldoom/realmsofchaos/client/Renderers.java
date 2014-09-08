@@ -5,8 +5,11 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.blocks.TileEntityNetherChest;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderExtractor;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderNetherChest;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderOceanChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
@@ -15,6 +18,7 @@ import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpius;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderVoidCrawler;
 import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererCannon;
+import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererNetherChest;
 import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererOceanChest;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
@@ -59,7 +63,8 @@ public class Renderers {
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());
-		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherChest.class, new RenderNetherChest());
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.nether_chest), new ItemRendererNetherChest());
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticGolem.class, new RenderAquaticGolem());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpioid.class, new RenderScorpioid());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpius.class, new RenderScorpius());

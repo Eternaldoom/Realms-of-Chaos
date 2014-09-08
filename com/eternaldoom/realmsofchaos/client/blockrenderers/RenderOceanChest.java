@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos.client;
+package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -12,7 +12,7 @@ import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 
 public class RenderOceanChest extends TileEntitySpecialRenderer{
 
-	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/entity/chest/ocean.png");
+	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/ocean.png");
 	private ModelChest model = new ModelChest();
 	
 	public RenderOceanChest(){}

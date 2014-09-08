@@ -22,5 +22,17 @@ public class TileEntityOceanChest extends TileEntityChest{
     {
         return 0;
     }
+	
+	@Override
+	public String getInventoryName()
+    {
+        return "Ocean Chest";
+    }
+	
+	@Override
+	public boolean hasCustomInventoryName()
+    {
+        return true;
+    }
 
 }

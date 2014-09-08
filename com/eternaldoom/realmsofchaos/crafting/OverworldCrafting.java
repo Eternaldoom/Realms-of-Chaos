@@ -48,6 +48,7 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.charwood_stairs, 4), new Object[]{RecipeHelper.stonePatterns[1], 'M', ROCBlocks.charwood_planks});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.flamestone_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.flame_stone});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.flame_stone, 9), new Object[]{"X", 'X', ROCBlocks.flamestone_block});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.ocean_chest), new Object[]{"WWW", "W W", "WWW", 'W', ROCBlocks.charwood_planks});
 		
 		RecipeHelper.addCannonRecipe(Blocks.iron_block, ROCItems.iron_cannon, Items.iron_ingot, ROCItems.iron_bullet);
 		RecipeHelper.addCannonRecipe(Blocks.diamond_block, ROCItems.diamond_cannon, Items.diamond, ROCItems.diamond_bullet);

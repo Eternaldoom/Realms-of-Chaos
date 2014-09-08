@@ -2,11 +2,17 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.Random;
 
+import java.awt.Color;
+
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
 
 public class BlockCharwoodLeaves extends BlockROCLeaves {
 
@@ -30,5 +36,4 @@ public class BlockCharwoodLeaves extends BlockROCLeaves {
 		return Item.getItemFromBlock(Blocks.air);
 
 	}
-
 }

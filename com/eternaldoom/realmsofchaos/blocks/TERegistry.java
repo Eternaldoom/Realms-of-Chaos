@@ -6,5 +6,6 @@ public class TERegistry {
 	public static void init(){
 		GameRegistry.registerTileEntity(TileEntityExtractor.class, "ROCExtractor");
 		GameRegistry.registerTileEntity(TileEntityOceanChest.class, "OceanChest");
+		GameRegistry.registerTileEntity(TileEntityNetherChest.class, "NetherChest");
 	}
 }

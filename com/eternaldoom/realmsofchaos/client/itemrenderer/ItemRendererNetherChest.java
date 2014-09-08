@@ -8,12 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
-public class ItemRendererOceanChest implements IItemRenderer{
+public class ItemRendererNetherChest implements IItemRenderer{
 	
 	private ModelChest model = new ModelChest();
-	private ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/ocean.png");
+	private ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/nether.png");
 
-	public ItemRendererOceanChest(){
+	public ItemRendererNetherChest(){
 	}
 
 	@Override

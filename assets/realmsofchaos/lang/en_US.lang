@@ -51,6 +51,7 @@ tile.blockFlamestone.name=Flamestone Block
 tile.logFrozen.name=Frozen Wood
 tile.leavesFrozen.name=Frozen Leaves
 tile.seaweed.name=Seaweed
+tile.chestNether.name=Nether Chest
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

@@ -41,6 +41,7 @@ public class ROCBlocks {
     public static BlockROCSlab charwood_slab;
 	public static BlockROCSlab charwood_slab_double;
 	public static ROCModBlock flamestone_block;
+	public static BlockNetherChest nether_chest;
     
     //Ocean
     public static Fluid waterportal;
@@ -104,6 +105,7 @@ public class ROCBlocks {
 		charwood_slab_double = new BlockROCSlab(true, charwood_planks, 0.4f, 1.0f, "slabCharwood", charwood_slab);
 		registerSlab("charwood_slab", "charwood_slab_double", charwood_slab, charwood_slab_double);
 		flamestone_block = new BlockGlowing(Material.rock, "realmsofchaos:flamestone_block", "blockFlamestone", 8.5f, 1000000, ROCModBlock.soundTypeGlass, 7).register("flamestone_block");
+		nether_chest = new BlockNetherChest().register("nether_chest");
         extractor = new BlockExtractor(false).register("extractor");
         extractor_on = new BlockExtractor(true).register("extractor_on");
         xylite_ore = new BlockXyliteOre().register("xylite_ore");
