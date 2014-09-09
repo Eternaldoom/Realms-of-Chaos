@@ -2,15 +2,20 @@ package com.eternaldoom.realmsofchaos.gen;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityMobSpawner;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.blocks.TileEntityNetherChest;
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class WorldGenNetherDungeon extends WorldGenerator {
+    public static final WeightedRandomChestContent[] cheststuff = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Items.diamond, 0, 1, 3, 3), new WeightedRandomChestContent(ROCItems.xylite_ingot, 0, 1, 2, 1), new WeightedRandomChestContent(Item.getItemFromBlock(Blocks.gold_block), 0, 1, 2, 2), new WeightedRandomChestContent(Items.golden_horse_armor, 0, 1, 1, 2), new WeightedRandomChestContent(Items.diamond_horse_armor, 0, 1, 1, 1), new WeightedRandomChestContent(Items.saddle, 0, 1, 1, 2), new WeightedRandomChestContent(ROCItems.scorpion_stone, 0, 1, 1, 1)};
 	public boolean generate(World world, Random rand, int i, int j, int k) {
 
 		if(world.getBlock(i+20, j, k) == Blocks.netherrack && world.getBlock(i+20, j+6, k) == Blocks.netherrack && world.getBlock(i+20, j, k+20) == Blocks.netherrack && world.getBlock(i+20, j+6, k+20) == Blocks.netherrack && world.getBlock(i, j, k+20) == Blocks.netherrack && world.getBlock(i, j+6, k+20) == Blocks.netherrack){
@@ -120,6 +125,8 @@ public class WorldGenNetherDungeon extends WorldGenerator {
 			world.setBlock(i + 1, j + 1, k + 6, ROCBlocks.netherrack_bricks);
 			world.setBlock(i + 1, j + 1, k + 7, ROCBlocks.nether_chest, 5, 2);
 			world.setBlock(i + 1, j + 1, k + 8, ROCBlocks.nether_chest, 5, 2);
+			TileEntityNetherChest chest = (TileEntityNetherChest)world.getTileEntity(i+1, j+1, k+8);
+			if (chest != null) WeightedRandomChestContent.generateChestContents(rand, cheststuff, chest, 10);
 			world.setBlock(i + 1, j + 1, k + 9, ROCBlocks.netherrack_bricks);
 			world.setBlock(i + 1, j + 1, k + 10, ROCBlocks.netherrack_bricks);
 			world.setBlock(i + 1, j + 1, k + 11, Blocks.netherrack);
