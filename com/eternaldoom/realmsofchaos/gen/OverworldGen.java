@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos.overworld.gen;
+package com.eternaldoom.realmsofchaos.gen;
 
 import java.util.Random;
 
@@ -148,7 +148,15 @@ public class OverworldGen implements IWorldGenerator{
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
 			new WorldGenCharwoodTree().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
-		}	
+		}
+		
+		for(int i = 0; i < 2; i++){
+			int Xcoord1 = chunkX + random.nextInt(16);
+			int Ycoord1 = random.nextInt(60);
+			int Zcoord1 = chunkZ + random.nextInt(16);
+			
+			if(random.nextInt(20) == 0) new WorldGenNetherDungeon().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+		}
 	}
 	
 	public void generateWater(World world, Random random, int chunkX, int chunkZ){

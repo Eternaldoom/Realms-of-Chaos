@@ -15,6 +15,7 @@ public class BlockXylite extends ROCModBlock {
 		setTickRandomly(true);
 	}
 
+	@Override
 	public int onBlockPlaced(World world, int i, int j, int k, int p_149660_5_,
 			float p_149660_6_, float p_149660_7_, float p_149660_8_,
 			int p_149660_9_) {

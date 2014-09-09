@@ -5,6 +5,11 @@ import net.minecraft.block.BlockChest;
 import net.minecraft.tileentity.TileEntityChest;
 
 public class TileEntityNetherChest extends TileEntityChest{
+	
+	public TileEntityNetherChest(){
+		func_145976_a("Nether Chest");
+	}
+	
 	private int cachedChestType;
 	public TileEntityNetherChest adjacentChestZNeg;
     public TileEntityNetherChest adjacentChestXPos;
@@ -26,12 +31,6 @@ public class TileEntityNetherChest extends TileEntityChest{
 	public int func_145980_j()
     {
         return 0;
-    }
-	
-	@Override
-	public String getInventoryName()
-    {
-        return "Nether Chest";
     }
 	
 	@Override

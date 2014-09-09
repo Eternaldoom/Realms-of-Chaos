@@ -4,6 +4,11 @@ import net.minecraft.block.BlockChest;
 import net.minecraft.tileentity.TileEntityChest;
 
 public class TileEntityOceanChest extends TileEntityChest{
+	
+	public TileEntityOceanChest(){
+		func_145976_a("Ocean Chest");
+	}
+	
 	private int cachedChestType;
 	@Override
 	public void closeInventory()
@@ -21,12 +26,6 @@ public class TileEntityOceanChest extends TileEntityChest{
 	public int func_145980_j()
     {
         return 0;
-    }
-	
-	@Override
-	public String getInventoryName()
-    {
-        return "Ocean Chest";
     }
 	
 	@Override

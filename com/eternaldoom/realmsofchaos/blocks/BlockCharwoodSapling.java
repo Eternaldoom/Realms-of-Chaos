@@ -9,8 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
+import com.eternaldoom.realmsofchaos.gen.WorldGenCharwoodTree;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
-import com.eternaldoom.realmsofchaos.overworld.gen.WorldGenCharwoodTree;
 
 public class BlockCharwoodSapling extends ROCModBlock{
 

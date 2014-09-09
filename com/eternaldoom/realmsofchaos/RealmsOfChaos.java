@@ -21,11 +21,11 @@ import com.eternaldoom.realmsofchaos.event.OreDropEvent;
 import com.eternaldoom.realmsofchaos.event.OverlayEvent;
 import com.eternaldoom.realmsofchaos.event.PortalFixEvent;
 import com.eternaldoom.realmsofchaos.event.TooltipEvent;
+import com.eternaldoom.realmsofchaos.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
-import com.eternaldoom.realmsofchaos.overworld.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 import com.eternaldoom.realmsofchaos.water.gen.WorldProviderWater;
 

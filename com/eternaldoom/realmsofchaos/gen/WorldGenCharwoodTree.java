@@ -1,4 +1,4 @@
-package com.eternaldoom.realmsofchaos.overworld.gen;
+package com.eternaldoom.realmsofchaos.gen;
 
 import java.util.Random;
 
