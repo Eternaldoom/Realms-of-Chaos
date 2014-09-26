@@ -52,6 +52,10 @@ tile.logFrozen.name=Frozen Wood
 tile.leavesFrozen.name=Frozen Leaves
 tile.seaweed.name=Seaweed
 tile.chestNether.name=Nether Chest
+tile.chestFrozen.name=Frozen Chest
+tile.planksFrozen.name=Frozen Wood Planks
+tile.stairsFrozenWood.name=Frozen Wood Stairs
+tile.slabFrozenWood.name=Frozen Wood Slab
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
