@@ -49,7 +49,13 @@ public class OverworldCrafting {
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.flamestone_block), new Object[]{"XXX", "XXX", "XXX", 'X', ROCItems.flame_stone});
 		GameRegistry.addRecipe(new ItemStack(ROCItems.flame_stone, 9), new Object[]{"X", 'X', ROCBlocks.flamestone_block});
 		GameRegistry.addRecipe(new ItemStack(ROCBlocks.nether_chest), new Object[]{"WWW", "W W", "WWW", 'W', ROCBlocks.charwood_planks});
-		
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.frozen_wood_slab, 6), new Object[]{RecipeHelper.stonePatterns[0], 'M', ROCBlocks.frozen_planks});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.frozen_wood_stairs, 4), new Object[]{RecipeHelper.stonePatterns[1], 'M', ROCBlocks.frozen_planks});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.frozen_planks, 4), new Object[]{"X", 'X', ROCBlocks.frozen_log});
+		GameRegistry.addRecipe(new ItemStack(Blocks.crafting_table), new Object[]{"XX", "XX", 'X', ROCBlocks.frozen_planks});
+		GameRegistry.addRecipe(new ItemStack(Items.stick, 4), new Object[]{"X", "X", 'X', ROCBlocks.frozen_planks});
+		GameRegistry.addRecipe(new ItemStack(ROCBlocks.frozen_chest), new Object[]{"WWW", "W W", "WWW", 'W', Blocks.ice});
+
 		RecipeHelper.addCannonRecipe(Blocks.iron_block, ROCItems.iron_cannon, Items.iron_ingot, ROCItems.iron_bullet);
 		RecipeHelper.addCannonRecipe(Blocks.diamond_block, ROCItems.diamond_cannon, Items.diamond, ROCItems.diamond_bullet);
 		RecipeHelper.addCannonRecipe(ROCBlocks.heliotrope_block, ROCItems.heliotrope_cannon, ROCItems.heliotrope, ROCItems.heliotrope_bullet);

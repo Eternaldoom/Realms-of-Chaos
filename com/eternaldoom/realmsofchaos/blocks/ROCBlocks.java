@@ -83,7 +83,10 @@ public class ROCBlocks {
     public static ROCModBlock frozen_log;
     public static ROCModBlock frozen_leaves;
     public static BlockFrozenChest frozen_chest;
-    //public static ROCModBlock frozen_planks;
+    public static ROCModBlock frozen_planks;
+    public static BlockROCStairs frozen_wood_stairs;
+    public static BlockROCSlab frozen_wood_slab;
+    public static BlockROCSlab frozen_wood_slab_double;
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
@@ -163,6 +166,11 @@ public class ROCBlocks {
 		fake_ice = new BlockFakeIce().register("fake_ice");
 		soy_plant = new BlockSoyPlant().register("soy_plant");
 		frozen_chest = new BlockFrozenChest().register("frozen_chest");
+		frozen_planks = new ROCModBlock(Material.wood, "realmsofchaos:frozen_planks", "planksFrozen", 10, 10, ROCModBlock.soundTypeWood).register("frozen_planks");
+		frozen_wood_stairs = new BlockROCStairs(frozen_planks, 0, "stairsFrozenWood").register("frozen_wood_stairs");
+		frozen_wood_slab = new BlockROCSlab(false, frozen_planks, 10f, 10.0f, "slabFrozenWood");
+		frozen_wood_slab_double = new BlockROCSlab(true, frozen_planks, 10f, 10f, "slabFrozenWood", frozen_wood_slab);
+		registerSlab("frozen_wood_slab", "frozen_wood_slab_double", frozen_wood_slab, frozen_wood_slab_double);
 
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
