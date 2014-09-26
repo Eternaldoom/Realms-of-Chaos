@@ -82,6 +82,8 @@ public class ROCBlocks {
     public static BlockROCSlab frozen_stone_brick_slab_double;
     public static ROCModBlock frozen_log;
     public static ROCModBlock frozen_leaves;
+    public static BlockFrozenChest frozen_chest;
+    //public static ROCModBlock frozen_planks;
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
@@ -160,6 +162,7 @@ public class ROCBlocks {
 		frozen_leaves = new BlockFrozenLeaves().register("frozen_leaves");
 		fake_ice = new BlockFakeIce().register("fake_ice");
 		soy_plant = new BlockSoyPlant().register("soy_plant");
+		frozen_chest = new BlockFrozenChest().register("frozen_chest");
 
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}
