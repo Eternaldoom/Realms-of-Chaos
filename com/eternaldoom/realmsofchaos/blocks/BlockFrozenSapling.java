@@ -6,16 +6,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.gen.WorldGenCharwoodTree;
-import com.eternaldoom.realmsofchaos.items.ROCItems;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceTree1;
 
-public class BlockCharwoodSapling extends ROCModBlock{
+public class BlockFrozenSapling extends ROCModBlock{
 
-	public BlockCharwoodSapling() {
-		super(Material.rock, "realmsofchaos:charwood_sapling", "saplingCharwood", 0.0f, 2.5f, soundTypeCloth);
+	public BlockFrozenSapling() {
+		super(Material.rock, "realmsofchaos:frozen_sapling", "saplingFrozen", 0.0f, 2.5f, soundTypeGrass);
 		float f = 0.4f;
         setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         setTickRandomly(true);
@@ -23,7 +24,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	
 	@Override
 	public int getRenderType(){
-		return 1;
+		return RenderSoyPlant.renderId;
 	}
 	
 	@Override
@@ -52,7 +53,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	@Override
 	public boolean canBlockStay(World w, int i, int j, int k)
     {
-        if (w.getBlock(i, j - 1, k) == Blocks.netherrack){
+        if (w.getBlock(i, j - 1, k) == Blocks.snow){
         	return true;
         }
        return false;
@@ -63,7 +64,7 @@ public class BlockCharwoodSapling extends ROCModBlock{
         if (!this.canBlockStay(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_))
         {
             this.dropBlockAsItem(p_149855_1_, p_149855_2_, p_149855_3_, p_149855_4_, p_149855_1_.getBlockMetadata(p_149855_2_, p_149855_3_, p_149855_4_), 0);
-            p_149855_1_.setBlock(p_149855_2_, p_149855_3_, p_149855_4_, getBlockById(0), 0, 2);
+            p_149855_1_.setBlock(p_149855_2_, p_149855_3_, p_149855_4_, Blocks.air, 0, 2);
         }
     }
 	
@@ -76,23 +77,22 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	
 	@Override
 	public boolean onBlockActivated(World w, int i, int j, int k, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_){
-		WorldGenCharwoodTree tree = new WorldGenCharwoodTree();
+		WorldGenIceTree1 tree = new WorldGenIceTree1();
 		if (!w.isRemote){
-			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == ROCItems.ash_dust){
+			if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == Items.dye && player.getCurrentEquippedItem().getItemDamage() == 15){
 				if(!player.capabilities.isCreativeMode) --player.getCurrentEquippedItem().stackSize;
 				Random r = new Random(); int growChance = r.nextInt(5);
-				if (growChance == 3) return tree.generate(w, r, i - 2, j, k - 2);
+				if (growChance == 3) return tree.generate(w, r, i - 3, j, k - 3);
 			}
 		}
 		return false;
-
 	}
 	
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random rand){
-		WorldGenCharwoodTree tree = new WorldGenCharwoodTree();
+		WorldGenIceTree1 tree = new WorldGenIceTree1();
 		if(rand.nextInt(2) == 0 && !world.isRemote){
-			tree.generate(world, rand, i-2, j, k-2);
+			tree.generate(world, rand, i-3, j, k-3);
 		}
 	}
 }
