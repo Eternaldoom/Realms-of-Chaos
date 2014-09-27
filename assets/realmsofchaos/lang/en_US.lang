@@ -56,6 +56,7 @@ tile.chestFrozen.name=Frozen Chest
 tile.planksFrozen.name=Frozen Wood Planks
 tile.stairsFrozenWood.name=Frozen Wood Stairs
 tile.slabFrozenWood.name=Frozen Wood Slab
+tile.saplingFrozen.name=Frozen Sapling
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust

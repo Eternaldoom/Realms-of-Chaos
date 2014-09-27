@@ -87,6 +87,7 @@ public class ROCBlocks {
     public static BlockROCStairs frozen_wood_stairs;
     public static BlockROCSlab frozen_wood_slab;
     public static BlockROCSlab frozen_wood_slab_double;
+    public static ROCModBlock frozen_sapling;
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
@@ -171,6 +172,7 @@ public class ROCBlocks {
 		frozen_wood_slab = new BlockROCSlab(false, frozen_planks, 10f, 10.0f, "slabFrozenWood");
 		frozen_wood_slab_double = new BlockROCSlab(true, frozen_planks, 10f, 10f, "slabFrozenWood", frozen_wood_slab);
 		registerSlab("frozen_wood_slab", "frozen_wood_slab_double", frozen_wood_slab, frozen_wood_slab_double);
+		frozen_sapling = new BlockFrozenSapling().register("frozen_sapling");
 
         GameRegistry.registerBlock(water_portal, "water_portal");
 	}

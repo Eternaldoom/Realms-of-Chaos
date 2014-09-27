@@ -5,7 +5,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
