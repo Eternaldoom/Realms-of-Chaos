@@ -101,7 +101,6 @@ public class RealmsOfChaos {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent evt){
-		
 		System.out.println("[Realms of Chaos] Sucessfully enabled mod. Have fun!");
 	}
 	

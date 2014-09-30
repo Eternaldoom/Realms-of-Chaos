@@ -5,7 +5,6 @@ import java.util.List;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.EnumAction;
@@ -19,6 +18,7 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -30,9 +30,9 @@ public class ItemROCBow extends ROCModItem
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
     private Item ammo;
-    private Class<? extends EntityArrow> arrowClass;
+    public float damage;
 
-    public ItemROCBow(String tex, String name, Item parAmmo, Class<? extends EntityArrow> arrow, int durability)
+    public ItemROCBow(String tex, String name, Item parAmmo, int durability, float damage)
     {
     	super(tex, name);
         this.maxStackSize = 1;
@@ -40,7 +40,7 @@ public class ItemROCBow extends ROCModItem
         this.setCreativeTab(ROCTabs.Combat);
         this.setMaxDamage(durability);
         this.ammo = parAmmo;
-        this.arrowClass = arrow;
+        this.damage = damage;
     }
 
     @Override
@@ -57,12 +57,8 @@ public class ItemROCBow extends ROCModItem
             scaledItemUse = (scaledItemUse * scaledItemUse + scaledItemUse * 2) / 3;
             if ((double) scaledItemUse < 0.1) return;
             if (scaledItemUse > 1) scaledItemUse = 1;
-            EntityArrow entityarrow = null;
-            try {
-                entityarrow = arrowClass.getConstructor(World.class, EntityLivingBase.class, float.class).newInstance(world, (EntityLivingBase)player, scaledItemUse * 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            EntityROCArrow entityarrow = new EntityROCArrow(world, player, scaledItemUse*2, damage, ammo.getUnlocalizedName().replace("item.arrow", ""));
+            entityarrow.setAmmoItem(ammo);
             if (scaledItemUse == 1) entityarrow.setIsCritical(true);
             int powerLevel = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, stack);
             if (powerLevel > 0) entityarrow.setDamage(entityarrow.getDamage() + (double) powerLevel * 0.5 + 0.5);
@@ -140,13 +136,6 @@ public class ItemROCBow extends ROCModItem
     
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
-    	double damage = 0;
-    	try {
-            damage = arrowClass.getConstructor(World.class).newInstance(player.worldObj).getDamage();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    	
     	if(this.getMaxDamage() == -1) list.add(EnumChatFormatting.BLUE + "Infinite Uses");
     	else list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
     	list.add(EnumChatFormatting.RED + "" + damage + " Minimum Ranged Damage");

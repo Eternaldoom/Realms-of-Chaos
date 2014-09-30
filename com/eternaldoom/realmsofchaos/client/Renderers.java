@@ -47,6 +47,7 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltBullet;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 import com.eternaldoom.realmsofchaos.items.ItemCannon;
@@ -88,7 +89,8 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticArrow.class, new RenderROCArrow("aquatic"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityOsmaraltArrow.class, new RenderROCArrow("osmaralt"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityFractoniteArrow.class, new RenderROCArrow("fractonite"));
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityROCArrow.class, new RenderROCArrow("fractonite"));
+
 		RenderingRegistry.registerEntityRenderingHandler(EntityIronBullet.class, new RenderSnowball(ROCItems.iron_bullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondBullet.class, new RenderSnowball(ROCItems.diamond_bullet));
 		RenderingRegistry.registerEntityRenderingHandler(EntityHeliotropeBullet.class, new RenderSnowball(ROCItems.heliotrope_bullet));

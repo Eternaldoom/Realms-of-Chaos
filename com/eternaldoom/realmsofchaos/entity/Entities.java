@@ -22,6 +22,7 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltBullet;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 
@@ -43,6 +44,8 @@ public class Entities {
 		//Arrows
 		EntityRegistry.registerGlobalEntityID(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityIronArrow.class, "IronArrow", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityROCArrow.class, "ROCArrow", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityROCArrow.class, "ROCArrow", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityDiamondArrow.class, "DiamondArrow", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityDiamondArrow.class, "DiamondArrow", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityHeliotropeArrow.class, "HeliotropeArrow", EntityRegistry.findGlobalUniqueEntityId());

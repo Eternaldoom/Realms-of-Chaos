@@ -289,16 +289,16 @@ public class ROCItems {
 		osmaralt_arrow = new ROCModItem("realmsofchaos:osmaralt_arrow", "arrowOsmaralt");
 		fractonite_arrow = new ROCModItem("realmsofchaos:fractonite_arrow", "arrowFractonite");
 		
-		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", ROCItems.iron_arrow, EntityIronArrow.class, 425);
-		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", ROCItems.diamond_arrow, EntityDiamondArrow.class, 700);
-		heliotrope_bow = new ItemROCBow("realmsofchaos:heliotrope_bow", "bowHeliotrope", ROCItems.heliotrope_arrow, EntityHeliotropeArrow.class, 1000);
-		citronite_bow = new ItemROCBow("realmsofchaos:citronite_bow", "bowCitronite", ROCItems.citronite_arrow, EntityCitroniteArrow.class, 1200);
-		xylite_bow = new ItemROCBow("realmsofchaos:xylite_bow", "bowXylite", ROCItems.xylite_arrow, EntityXyliteArrow.class, 1500);
-		flamestone_bow = new ItemROCBow("realmsofchaos:flamestone_bow", "bowFlamestone", ROCItems.flamestone_arrow, EntityFlamestoneArrow.class, 1700);
-		neptunite_bow = new ItemROCBow("realmsofchaos:neptunite_bow", "bowNeptunite", ROCItems.neptunite_arrow, EntityNeptuniteArrow.class, -1);
-		aquatic_bow = new ItemROCBow("realmsofchaos:aquatic_bow", "bowAquatic", ROCItems.aquatic_arrow, EntityAquaticArrow.class, 2000);
-		osmaralt_bow = new ItemROCBow("realmsofchaos:osmaralt_bow", "bowOsmaralt", ROCItems.osmaralt_arrow, EntityOsmaraltArrow.class, 2200);
-		fractonite_bow = new ItemROCBow("realmsofchaos:fractonite_bow", "bowFractonite", ROCItems.fractonite_arrow, EntityFractoniteArrow.class, -1);
+		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", ROCItems.iron_arrow, 425, 3);
+		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", ROCItems.diamond_arrow, 700, 5);
+		heliotrope_bow = new ItemROCBow("realmsofchaos:heliotrope_bow", "bowHeliotrope", ROCItems.heliotrope_arrow, 1000, 5.5f);
+		citronite_bow = new ItemROCBow("realmsofchaos:citronite_bow", "bowCitronite", ROCItems.citronite_arrow, 1200, 6);
+		xylite_bow = new ItemROCBow("realmsofchaos:xylite_bow", "bowXylite", ROCItems.xylite_arrow, 1500, 7);
+		flamestone_bow = new ItemROCBow("realmsofchaos:flamestone_bow", "bowFlamestone", ROCItems.flamestone_arrow, 1700, 7.5f);
+		neptunite_bow = new ItemROCBow("realmsofchaos:neptunite_bow", "bowNeptunite", ROCItems.neptunite_arrow, -1, 8);
+		aquatic_bow = new ItemROCBow("realmsofchaos:aquatic_bow", "bowAquatic", ROCItems.aquatic_arrow, 2000, 8.5f);
+		osmaralt_bow = new ItemROCBow("realmsofchaos:osmaralt_bow", "bowOsmaralt", ROCItems.osmaralt_arrow, 2200, 9);
+		fractonite_bow = new ItemROCBow("realmsofchaos:fractonite_bow", "bowFractonite", ROCItems.fractonite_arrow, -1, 10);
 
 		iron_bullet = new ROCModItem("realmsofchaos:iron_bullet", "bulletIron");
 		diamond_bullet = new ROCModItem("realmsofchaos:diamond_bullet", "bulletDiamond");
