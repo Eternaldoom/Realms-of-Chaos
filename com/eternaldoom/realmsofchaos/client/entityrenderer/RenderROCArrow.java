@@ -16,6 +16,6 @@ public class RenderROCArrow extends RenderArrow{
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return new ResourceLocation("realmsofchaos:textures/entity/arrow/" + ((EntityROCArrow)entity).textureName + ".png");
+        return new ResourceLocation("realmsofchaos:textures/entity/arrow/" + ((EntityROCArrow)entity).getTextureName() + ".png");
     }
 }

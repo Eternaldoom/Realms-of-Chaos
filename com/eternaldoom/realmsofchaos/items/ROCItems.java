@@ -2,33 +2,19 @@ package com.eternaldoom.realmsofchaos.items;
 
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemFood;
 import net.minecraftforge.common.util.EnumHelper;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteArrow;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ROCItems {
 	

@@ -47,7 +47,6 @@ public class EntityROCArrow extends EntityArrow
     /** The amount of knockback an arrow applies when it hits a mob. */
     private int knockbackStrength;
     public Item ammoItem;
-	public String textureName;
     
     public EntityROCArrow(World p_i1753_1_)
     {
@@ -101,7 +100,7 @@ public class EntityROCArrow extends EntityArrow
         this.renderDistanceWeight = 10.0D;
         this.shootingEntity = p_i1756_2_;
         this.damage = damage;
-        this.textureName = texturename;
+        this.dataWatcher.updateObject(17, texturename);
 
         if (p_i1756_2_ instanceof EntityPlayer)
         {
@@ -121,9 +120,11 @@ public class EntityROCArrow extends EntityArrow
         this.setThrowableHeading(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
     }
 
+    @Override
     protected void entityInit()
     {
         this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(17, "");
     }
 
     /**
@@ -480,6 +481,7 @@ public class EntityROCArrow extends EntityArrow
         tag.setByte("inGround", (byte)(this.inGround ? 1 : 0));
         tag.setByte("pickup", (byte)this.canBePickedUp);
         tag.setDouble("damage", this.damage);
+        tag.setString("texture", this.dataWatcher.getWatchableObjectString(17));
     }
 
     @Override
@@ -493,6 +495,7 @@ public class EntityROCArrow extends EntityArrow
         this.inData = tag.getByte("inData") & 255;
         this.arrowShake = tag.getByte("shake") & 255;
         this.inGround = tag.getByte("inGround") == 1;
+        this.dataWatcher.updateObject(17, tag.getString("texture"));
 
         if (tag.hasKey("damage", 99))
         {
@@ -560,17 +563,13 @@ public class EntityROCArrow extends EntityArrow
         this.knockbackStrength = p_70240_1_;
     }
 
-    /**
-     * If returns false, the item will not inflict any damage against entities.
-     */
+    @Override
     public boolean canAttackWithItem()
     {
         return false;
     }
 
-    /**
-     * Whether the arrow has a stream of critical hit particles flying behind it.
-     */
+    @Override
     public void setIsCritical(boolean p_70243_1_)
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
@@ -585,9 +584,7 @@ public class EntityROCArrow extends EntityArrow
         }
     }
 
-    /**
-     * Whether the arrow has a stream of critical hit particles flying behind it.
-     */
+    @Override
     public boolean getIsCritical()
     {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
@@ -597,4 +594,9 @@ public class EntityROCArrow extends EntityArrow
     public void setAmmoItem(Item ammo){
     	this.ammoItem = ammo;
     }
+    
+    public String getTextureName(){
+    	return this.dataWatcher.getWatchableObjectString(17);
+    }
+    
 }
