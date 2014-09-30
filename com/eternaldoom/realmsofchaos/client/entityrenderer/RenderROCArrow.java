@@ -10,9 +10,6 @@ public class RenderROCArrow extends RenderArrow{
 	
 	private String textureName;
 	
-	public RenderROCArrow(String texture){
-	}
-	
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity)
     {
