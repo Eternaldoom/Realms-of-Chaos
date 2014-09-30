@@ -4,17 +4,8 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltBullet;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 
@@ -34,26 +25,8 @@ public class Entities {
 		EntityRegistry.registerGlobalEntityID(EntityROCArrow.class, "ROCArrow", EntityRegistry.findGlobalUniqueEntityId());
 		EntityRegistry.registerModEntity(EntityROCArrow.class, "ROCArrow", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		
-		EntityRegistry.registerGlobalEntityID(EntityIronBullet.class, "IronBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityIronBullet.class, "IronBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityDiamondBullet.class, "DiamondBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityDiamondBullet.class, "DiamondBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityHeliotropeBullet.class, "HeliotropeBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityHeliotropeBullet.class, "HeliotropeBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityCitroniteBullet.class, "CitroniteBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityCitroniteBullet.class, "CitroniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityXyliteBullet.class, "XyliteBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityXyliteBullet.class, "XyliteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityFlamestoneBullet.class, "FlamestoneBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityFlamestoneBullet.class, "FlamestoneBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityNeptuniteBullet.class, "NeptuniteBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityNeptuniteBullet.class, "NeptuniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityAquaticBullet.class, "AquaticBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityAquaticBullet.class, "AquaticBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityOsmaraltBullet.class, "OsmaraltBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityOsmaraltBullet.class, "OsmaraltBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		EntityRegistry.registerGlobalEntityID(EntityFractoniteBullet.class, "FractoniteBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityFractoniteBullet.class, "FractoniteBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		EntityRegistry.registerGlobalEntityID(EntityBullet.class, "ROCBullet", EntityRegistry.findGlobalUniqueEntityId());
+		EntityRegistry.registerModEntity(EntityBullet.class, "ROCBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
 		
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++)
 	    {

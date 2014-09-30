@@ -1,6 +1,5 @@
 package com.eternaldoom.realmsofchaos.client;
 
-import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -14,6 +13,7 @@ import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderNetherChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderOceanChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
+import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderBullet;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
@@ -29,17 +29,8 @@ import com.eternaldoom.realmsofchaos.entity.EntityKelpFish;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpius;
 import com.eternaldoom.realmsofchaos.entity.EntityVoidCrawler;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityAquaticBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityCitroniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityDiamondBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityFlamestoneBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityFractoniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityHeliotropeBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityIronBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityNeptuniteBullet;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityOsmaraltBullet;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
-import com.eternaldoom.realmsofchaos.entity.projectile.EntityXyliteBullet;
 import com.eternaldoom.realmsofchaos.items.ItemCannon;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
@@ -70,17 +61,7 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityKelpFish.class, new RenderFish("kelp_fish", 0.5f, 0.5f, 1));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityROCArrow.class, new RenderROCArrow());
-
-		RenderingRegistry.registerEntityRenderingHandler(EntityIronBullet.class, new RenderSnowball(ROCItems.iron_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityDiamondBullet.class, new RenderSnowball(ROCItems.diamond_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityHeliotropeBullet.class, new RenderSnowball(ROCItems.heliotrope_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityCitroniteBullet.class, new RenderSnowball(ROCItems.citronite_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityXyliteBullet.class, new RenderSnowball(ROCItems.xylite_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFlamestoneBullet.class, new RenderSnowball(ROCItems.flamestone_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityNeptuniteBullet.class, new RenderSnowball(ROCItems.neptunite_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticBullet.class, new RenderSnowball(ROCItems.aquatic_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityOsmaraltBullet.class, new RenderSnowball(ROCItems.osmaralt_bullet));
-		RenderingRegistry.registerEntityRenderingHandler(EntityFractoniteBullet.class, new RenderSnowball(ROCItems.fractonite_bullet));
+		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
 
 		for (ItemCannon cannon : cannons){
 			MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());

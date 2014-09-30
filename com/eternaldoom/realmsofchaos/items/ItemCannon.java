@@ -2,30 +2,26 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
+import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemCannon extends ROCModItem {
 
-	private Class<? extends EntityThrowable> ammoEntity;
 	private Item ammoItem;
 	public float damage;
 
-	public ItemCannon(String tex, String name, int uses, Item ammo,
-			Class<? extends EntityThrowable> ammoEntity, float damage) {
+	public ItemCannon(String tex, String name, int uses, Item ammo, float damage) {
 		super(tex, name);
 		this.maxStackSize = 1;
 		this.setMaxDamage(uses);
-		this.ammoEntity = ammoEntity;
 		this.ammoItem = ammo;
 		this.damage = damage;
 		setCreativeTab(ROCTabs.Combat);
@@ -40,12 +36,7 @@ public class ItemCannon extends ROCModItem {
 
 				stack.damageItem(1, player);
 				
-				try {
-					world.spawnEntityInWorld(ammoEntity.getConstructor(World.class,
-						EntityLivingBase.class).newInstance(world, player));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				world.spawnEntityInWorld(new EntityBullet(world, player, damage, ammoItem));
 		    }else{
 				 world.playSoundAtEntity(player, "gui.button.press", 0.5F, 0.4F /(itemRand.nextFloat() * 0.4F + 0.8F));
 		    }
