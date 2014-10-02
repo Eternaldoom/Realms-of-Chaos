@@ -3,18 +3,13 @@ package com.eternaldoom.realmsofchaos.blocks;
 import java.util.List;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-
-import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ROCMetadataBlock extends ROCModBlock
 {
@@ -23,9 +18,9 @@ public class ROCMetadataBlock extends ROCModBlock
     private IIcon[] theIcon;
     public int metaCount;
 
-    public ROCMetadataBlock(int blockCount, String[] textureExtensions, Material mat, String tex, String name, float hard, float resist, SoundType sound)
+    public ROCMetadataBlock(int blockCount, String[] textureExtensions, Material mat, String name, float hard, float resist, SoundType sound)
     {
-        super(mat, tex, name, hard, resist, sound);
+        super(mat, name, hard, resist, sound);
         
         this.metaCount = blockCount;
         this.textureNames = textureExtensions;

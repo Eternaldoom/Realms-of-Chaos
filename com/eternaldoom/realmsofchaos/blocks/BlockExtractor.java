@@ -5,37 +5,30 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.GUIHandler;
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderExtractor;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class BlockExtractor extends BlockContainer {
-
-	@SideOnly(Side.CLIENT)
-    private IIcon iconTop;
-    @SideOnly(Side.CLIENT)
-    private IIcon iconSide;
     
 	private final Random FurnaceRand = new Random();
 	private final boolean isActive;
@@ -48,9 +41,8 @@ public class BlockExtractor extends BlockContainer {
 		setLightLevel(1.0F);
 		setHardness(20.0F);
 		setResistance(6000000.0F);
-		setHarvestLevel("pickaxe", 5);
-		setBlockName("extractor");
-		setBlockTextureName("realmsofchaos:extractor");
+		//setHarvestLevel("pickaxe", 5);
+		setUnlocalizedName("extractor");
 		isActive = active;
 		if(!active){
 			setCreativeTab(ROCTabs.Blocks);
@@ -60,9 +52,9 @@ public class BlockExtractor extends BlockContainer {
 	}
     
 	@Override
-	public boolean onBlockActivated(World var1, int var2, int var3, int var4, EntityPlayer player, int var6, float var7, float var8, float var9) {
+	public boolean onBlockActivated(World var1, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float var7, float var8, float var9) {
 		if (!player.isSneaking()) {
-			player.openGui(RealmsOfChaos.instance, GUIHandler.extractor, var1, var2, var3, var4);
+			player.openGui(RealmsOfChaos.instance, GUIHandler.extractor, var1, pos.getX(), pos.getY(), pos.getZ());
 			return true;
 		} else {
 			return false;
@@ -70,148 +62,57 @@ public class BlockExtractor extends BlockContainer {
 	}
 	
 	@Override
-	public boolean renderAsNormalBlock(){
-		return false;
-	}
-	
-	@Override
 	public boolean isOpaqueCube(){
 		return false;
 	}
 
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
-	{
-		super.onBlockAdded(par1World, par2, par3, par4);
-		this.setDefaultDirection(par1World, par2, par3, par4);
-	}
-
-	private void setDefaultDirection(World par1World, int par2, int par3, int par4)
-	{
-		if (!par1World.isRemote)
-		{
-			Block l = par1World.getBlock(par2, par3, par4 - 1);
-			Block i1 = par1World.getBlock(par2, par3, par4 + 1);
-			Block j1 = par1World.getBlock(par2 - 1, par3, par4);
-			Block k1 = par1World.getBlock(par2 + 1, par3, par4);
-			byte b0 = 3;
-
-			if (l.func_149730_j() && !i1.func_149730_j())
-			{
-				b0 = 3;
-			}
-
-			if (i1.func_149730_j() && !l.func_149730_j())
-			{
-				b0 = 2;
-			}
-
-			if (j1.func_149730_j() && !k1.func_149730_j())
-			{
-				b0 = 5;
-			}
-
-			if (k1.func_149730_j() && !j1.func_149730_j())
-			{
-				b0 = 4;
-			}
-
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
-		}
-	}
-
-	public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4) {
-		int l = par1World.getBlockMetadata(par2, par3, par4);
-		TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
+	public static void updateFurnaceBlockState(boolean par0, World par1World, BlockPos pos) {
+		TileEntity tileentity = par1World.getTileEntity(pos);
 		keepFurnaceInventory = true;
 
 		if (par0)
 		{
-			par1World.setBlock(par2, par3, par4, ROCBlocks.extractor_on);
+			par1World.setBlockState(pos, ROCBlocks.extractor_on.getDefaultState());
 		}
 		else
 		{
-			par1World.setBlock(par2, par3, par4, ROCBlocks.extractor);
+			par1World.setBlockState(pos, ROCBlocks.extractor.getDefaultState());
 		}
 
 		keepFurnaceInventory = false;
-		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
 
 		if (tileentity != null)
 		{
 			tileentity.validate();
-			par1World.setTileEntity(par2, par3, par4, tileentity);
+			par1World.setTileEntity(pos, tileentity);
 		}
 	}
-
-	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase living, ItemStack item)
-    {
-        int l = MathHelper.floor_double((double)(living.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-
-        if (l == 0)
-        {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-        }
-
-        if (l == 1)
-        {
-            world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-        }
-
-        if (l == 2)
-        {
-            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-        }
-
-        if (l == 3)
-        {
-            world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-        }
-
-        if (item.hasDisplayName())
-        {
-            ((TileEntityExtractor)world.getTileEntity(x, y, z)).func_145951_a(item.getDisplayName());
-        }
-    }
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void randomDisplayTick(World par1World, BlockPos pos, IBlockState state, Random par5Random)
 	{
 		if (this.isActive)
 		{
-			int l = par1World.getBlockMetadata(par2, par3, par4);
-			float f = (float)par2 + 0.5F;
-			float f1 = (float)par3 + 0.0F + par5Random.nextFloat() * 6.0F / 16.0F;
-			float f2 = (float)par4 + 0.5F;
+			float f = (float)pos.getX() + 0.5F;
+			float f1 = (float)pos.getY() + 0.0F + par5Random.nextFloat() * 6.0F / 16.0F;
+			float f2 = (float)pos.getZ() + 0.5F;
 			float f3 = 0.52F;
 			float f4 = par5Random.nextFloat() * 0.6F - 0.3F;
 
-			if (l == 4)
-			{
-				par1World.spawnParticle("lava", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-			}
-			else if (l == 5)
-			{
-				par1World.spawnParticle("lava", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-			}
-			else if (l == 2)
-			{
-				par1World.spawnParticle("lava", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
-			}
-			else if (l == 3)
-			{
-				par1World.spawnParticle("lava", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
-			}
+			par1World.spawnParticle(EnumParticleTypes.LAVA, (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+			par1World.spawnParticle(EnumParticleTypes.LAVA, (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
+			par1World.spawnParticle(EnumParticleTypes.LAVA, (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
+			par1World.spawnParticle(EnumParticleTypes.LAVA, (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
 	@Override
-	public void breakBlock(World par1World, int par2, int par3, int par4, Block par5, int par6)
+	public void breakBlock(World par1World, BlockPos pos, IBlockState state)
 	{
 		if (!keepFurnaceInventory)
 		{
-			TileEntityExtractor tileentityExtractor = (TileEntityExtractor)par1World.getTileEntity(par2, par3, par4);
+			TileEntityExtractor tileentityExtractor = (TileEntityExtractor)par1World.getTileEntity(pos);
 
 			if (tileentityExtractor != null)
 			{
@@ -235,7 +136,7 @@ public class BlockExtractor extends BlockContainer {
 							}
 
 							itemstack.stackSize -= k1;
-							EntityItem entityitem = new EntityItem(par1World, (double)((float)par2 + f), (double)((float)par3 + f1), (double)((float)par4 + f2), new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
+							EntityItem entityitem = new EntityItem(par1World, (double)((float)pos.getX() + f), (double)((float)pos.getY() + f1), (double)((float)pos.getZ() + f2), new ItemStack(itemstack.getItem(), k1, itemstack.getItemDamage()));
 
 							if (itemstack.hasTagCompound())
 							{
@@ -251,11 +152,11 @@ public class BlockExtractor extends BlockContainer {
 					}
 				}
 
-				par1World.func_147453_f(par2, par3, par4, par5);
+				par1World.notifyNeighborsOfStateChange(pos, state.getBlock());
 			}
 		}
 
-		super.breakBlock(par1World, par2, par3, par4, par5, par6);
+		super.breakBlock(par1World, pos, state);
 	}
 
 	@Override
@@ -263,12 +164,14 @@ public class BlockExtractor extends BlockContainer {
 		return true;
 	}
 
-	public int getComparatorInputOverride(World par1World, int par2, int par3, int par4, int par5) {
-		return Container.calcRedstoneFromInventory((IInventory)par1World.getTileEntity(par2, par3, par4));
+	@Override
+	public int getComparatorInputOverride(World par1World, BlockPos pos) {
+		return Container.calcRedstoneFromInventory((IInventory)par1World.getTileEntity(pos));
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Item func_149694_d(World par1World, int par2, int par3, int par4) {
+	@Override
+	public Item getItem(World par1World, BlockPos pos) {
 		return Item.getItemFromBlock(ROCBlocks.extractor);
 	}
 
@@ -276,45 +179,9 @@ public class BlockExtractor extends BlockContainer {
 	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TileEntityExtractor();
 	}
-
-	@SideOnly(Side.CLIENT)
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
-    {
-        return p_149691_1_ == 1 ? this.iconTop : (p_149691_1_ == 0 ? this.iconTop : this.blockIcon);
-    }
-
-
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(IBlockAccess p_149673_1_, int p_149673_2_, int p_149673_3_, int p_149673_4_, int p_149673_5_)
-    {
-        if (p_149673_5_ == 1)
-        {
-            return this.iconTop;
-        }
-        else if (p_149673_5_ == 0)
-        {
-            return this.iconTop;
-        }
-        else
-        {
-            return this.blockIcon;
-        }
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister p_149651_1_)
-    {
-        this.blockIcon = p_149651_1_.registerIcon(this.getTextureName() + "_side");
-        this.iconTop = p_149651_1_.registerIcon(this.getTextureName() + "_top");
-    }
     
     public Block register(String name){
     	GameRegistry.registerBlock(this, name);
     	return this;
-    }
-    
-    @Override
-    public int getRenderType(){
-    	return RenderExtractor.renderId;
     }
 }

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.items.ItemCannon;
 import com.eternaldoom.realmsofchaos.items.ItemROCArmor;
@@ -13,8 +14,6 @@ import com.eternaldoom.realmsofchaos.items.ItemROCPickaxe;
 import com.eternaldoom.realmsofchaos.items.ItemROCShovel;
 import com.eternaldoom.realmsofchaos.items.ItemROCSword;
 import com.eternaldoom.realmsofchaos.items.ROCModItem;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeHelper {
 	
@@ -29,10 +28,10 @@ public class RecipeHelper {
 		GameRegistry.addRecipe(new ItemStack(leggings), new Object[]{armorPatterns[2], 'X', material});
 		GameRegistry.addRecipe(new ItemStack(boots), new Object[]{armorPatterns[3], 'X', material});
 		
-		helmet.getArmorMaterial().customCraftingMaterial = material;
+		/*helmet.getArmorMaterial().customCraftingMaterial = material;
 		chestplate.getArmorMaterial().customCraftingMaterial = material;
 		leggings.getArmorMaterial().customCraftingMaterial = material;
-		boots.getArmorMaterial().customCraftingMaterial = material;
+		boots.getArmorMaterial().customCraftingMaterial = material;*/
 	}
 	
 	public static void addToolRecipe(ItemROCSword sword, ItemROCPickaxe pickaxe, ItemROCAxe axe, ItemROCShovel shovel, ItemROCBow bow, Item arrow, Item material){

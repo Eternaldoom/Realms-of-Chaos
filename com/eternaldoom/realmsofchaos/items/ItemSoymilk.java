@@ -10,7 +10,7 @@ public class ItemSoymilk extends ROCModItem
 {
     public ItemSoymilk()
     {
-    	super("realmsofchaos:soymilk", "milkSoy");
+    	super("milkSoy");
         this.setMaxStackSize(1);
     }
 
@@ -23,7 +23,7 @@ public class ItemSoymilk extends ROCModItem
 
         if (!world.isRemote)
         {
-            player.curePotionEffects(new ItemStack(Items.milk_bucket));
+            player.clearActivePotions();
         }
 
         return stack.stackSize <= 0 ? new ItemStack(Items.bucket) : stack;
@@ -36,7 +36,7 @@ public class ItemSoymilk extends ROCModItem
 
     public EnumAction getItemUseAction(ItemStack stack)
     {
-        return EnumAction.drink;
+        return EnumAction.DRINK;
     }
 
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)

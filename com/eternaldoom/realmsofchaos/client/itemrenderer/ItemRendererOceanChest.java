@@ -1,16 +1,9 @@
 package com.eternaldoom.realmsofchaos.client.itemrenderer;
 
-import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelChest;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-
-public class ItemRendererOceanChest implements IItemRenderer{
+public class ItemRendererOceanChest/* implements IItemRenderer*/{
 	
-	private ModelChest model = new ModelChest();
+	/*private ModelChest model = new ModelChest();
 	private ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/ocean.png");
 
 	public ItemRendererOceanChest(){
@@ -43,6 +36,6 @@ public class ItemRendererOceanChest implements IItemRenderer{
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		model.renderAll();
 		GL11.glPopMatrix();
-	}
+	}*/
 
 }

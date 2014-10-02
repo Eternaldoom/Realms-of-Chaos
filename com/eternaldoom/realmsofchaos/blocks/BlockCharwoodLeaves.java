@@ -2,17 +2,12 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.Random;
 
-import java.awt.Color;
-
-import com.eternaldoom.realmsofchaos.items.ROCItems;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.world.ColorizerGrass;
-import net.minecraft.world.IBlockAccess;
+
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class BlockCharwoodLeaves extends BlockROCLeaves {
 
@@ -22,7 +17,7 @@ public class BlockCharwoodLeaves extends BlockROCLeaves {
 	
 
 	@Override
-	public Item getItemDropped(int par1, Random rand, int par3) {
+	public Item getItemDropped(IBlockState state, Random rand, int par3) {
 
 		int dropChance = rand.nextInt(40);
 		if (dropChance == 10 || dropChance == 20) {

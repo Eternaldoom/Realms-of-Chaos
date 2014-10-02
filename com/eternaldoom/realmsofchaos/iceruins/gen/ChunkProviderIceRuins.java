@@ -261,7 +261,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
             this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
         }
 
-        Chunk chunk = new Chunk(this.worldObj, ablock, abyte, p_73154_1_, p_73154_2_);
+        Chunk chunk = new Chunk(this.worldObj, p_73154_1_, p_73154_2_);
         byte[] abyte1 = chunk.getBiomeArray();
 
         for (int k = 0; k < abyte1.length; ++k)

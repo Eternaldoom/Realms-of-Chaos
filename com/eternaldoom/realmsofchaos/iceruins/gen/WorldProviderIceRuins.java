@@ -1,14 +1,12 @@
 package com.eternaldoom.realmsofchaos.iceruins.gen;
 
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderIceRuins extends WorldProvider{
 
@@ -37,5 +35,10 @@ public class WorldProviderIceRuins extends WorldProvider{
 	@Override
 	public boolean canRespawnHere(){
 		return false;
+	}
+
+	@Override
+	public String getInternalNameSuffix() {
+		return "iceruins";
 	}
 }

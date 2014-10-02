@@ -1,7 +1,8 @@
 package com.eternaldoom.realmsofchaos.client;
 
 import net.minecraft.item.Item;
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityFrozenChest;
@@ -34,24 +35,21 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 import com.eternaldoom.realmsofchaos.items.ItemCannon;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-
 public class Renderers {
 	
 	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon, ROCItems.heliotrope_cannon, ROCItems.citronite_cannon, ROCItems.xylite_cannon, ROCItems.flamestone_cannon, ROCItems.neptunite_cannon, ROCItems.aquatic_cannon, ROCItems.osmaralt_cannon, ROCItems.fractonite_cannon};
 	
 	public static void init(){
 		
-		RenderingRegistry.registerBlockHandler(new RenderExtractor());
-		RenderingRegistry.registerBlockHandler(new RenderSoyPlant());
+		//RenderingRegistry.registerBlockHandler(new RenderExtractor());
+		//RenderingRegistry.registerBlockHandler(new RenderSoyPlant());
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());
+		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherChest.class, new RenderNetherChest());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.nether_chest), new ItemRendererNetherChest());
+		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.nether_chest), new ItemRendererNetherChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrozenChest.class, new RenderFrozenChest());
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.frozen_chest), new ItemRendererFrozenChest());
+		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.frozen_chest), new ItemRendererFrozenChest());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticGolem.class, new RenderAquaticGolem());
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpioid.class, new RenderScorpioid());
@@ -64,7 +62,7 @@ public class Renderers {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
 
 		for (ItemCannon cannon : cannons){
-			MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
+			//MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
 		}
 		
 	}

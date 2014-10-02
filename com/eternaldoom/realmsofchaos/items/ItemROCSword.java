@@ -2,25 +2,19 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemROCSword extends ItemSword{
 	private ToolMaterial t;
 	
     public ItemROCSword(ToolMaterial tool, String tex, String name, boolean isVanilla) {
 		super(tool);
-		setTextureName(tex);
 		setUnlocalizedName(name);
 		if (!isVanilla) setCreativeTab(ROCTabs.Combat); else setCreativeTab(null);
 		t = tool;

@@ -5,20 +5,27 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenGiantIceSpike extends WorldGenerator
 {
-    public boolean generate(World world, Random rand, int i, int j, int k)
+	private BlockPos helperPos = new BlockPos(0, 0, 0);
+    private World helperWorld = null;
+    
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
-        while (world.isAirBlock(i, j, k) && j > 2)
+    	int i = pos.getX(), j = pos.getY(), k = pos.getZ();
+    	helperWorld = world;
+    	
+        while (world.isAirBlock(pos) && j > 2)
         {
             --j;
         }
 
-        if (world.getBlock(i, j, k) != Blocks.snow)
+        if (world.getBlockState(pos).getBlock() != Blocks.snow)
         {
             return false;
         }
@@ -54,20 +61,20 @@ public class WorldGenGiantIceSpike extends WorldGenerator
 
                         if ((l1 == 0 && i2 == 0 || f1 * f1 + f2 * f2 <= f * f) && (l1 != -k1 && l1 != k1 && i2 != -k1 && i2 != k1 || rand.nextFloat() <= 0.75F))
                         {
-                            Block block = world.getBlock(i + l1, j + yCoord, k + i2);
+                            Block block = world.getBlockState(pos.add(l1, yCoord, i2)).getBlock();
 
                             if (block.getMaterial() == Material.air || block == Blocks.dirt || block == Blocks.snow || block == Blocks.ice)
                             {
-                                this.func_150515_a(world, i + l1, j + j1, k + i2, Blocks.packed_ice);
+                                this.setBlock(i + l1, j + j1, k + i2, Blocks.packed_ice);
                             }
 
                             if (j1 != 0 && k1 > 1)
                             {
-                                block = world.getBlock(i + l1, j - yCoord, k + i2);
+                                block = world.getBlockState(new BlockPos(i + l1, j - yCoord, k + i2)).getBlock();
 
                                 if (block.getMaterial() == Material.air || block == Blocks.dirt || block == Blocks.snow || block == Blocks.ice)
                                 {
-                                    this.func_150515_a(world, i + l1, j - yCoord, k + i2, Blocks.packed_ice);
+                                    this.setBlock(i + l1, j - yCoord, k + i2, Blocks.packed_ice);
                                 }
                             }
                         }
@@ -105,11 +112,11 @@ public class WorldGenGiantIceSpike extends WorldGenerator
                     {
                         if (l1 > 125)
                         {
-                            Block block1 = world.getBlock(i + j2, l1, k + k1);
+                            Block block1 = world.getBlockState(new BlockPos(i + j2, l1, k + k1)).getBlock();
 
                             if (block1.getMaterial() == Material.air || block1 == Blocks.dirt || block1 == Blocks.snow || block1 == Blocks.ice || block1 == Blocks.packed_ice)
                             {
-                                this.func_150515_a(world, i + j2, l1, k + k1, Blocks.packed_ice);
+                                this.setBlock(i + j2, l1, k + k1, Blocks.packed_ice);
                                 --l1;
                                 --k2;
 
@@ -131,5 +138,13 @@ public class WorldGenGiantIceSpike extends WorldGenerator
 
             return true;
         }
+    }
+    
+    private void setBlock(int i, int j, int k, Block block){
+    	this.helperWorld.setBlockState(this.helperPos.add(i, j, k), block.getDefaultState());
+    }
+    
+    private void setBlock(int i, int j, int k, Block block, int meta, int flag){
+    	this.helperWorld.setBlockState(this.helperPos.add(i, j, k), block.getStateFromMeta(meta), flag);
     }
 }

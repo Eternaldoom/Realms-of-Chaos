@@ -27,7 +27,7 @@ public class EntityScorpioid extends EntityMob{
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
         setSize(0.7F, 0.5F);
 	}
 	
@@ -40,11 +40,6 @@ public class EntityScorpioid extends EntityMob{
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5D);
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(35.0D);
     }
-
-	@Override
-	protected boolean isAIEnabled(){
-		return true;
-	}
 	
 	@Override
 	protected String getLivingSound()
@@ -80,6 +75,6 @@ public class EntityScorpioid extends EntityMob{
     @Override
     public boolean getCanSpawnHere()
     {
-        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && this.isValidLightLevel() &&  this.posY <= 16 && super.getCanSpawnHere();
+        return this.worldObj.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() &&  this.posY <= 16 && super.getCanSpawnHere();
     }
 }

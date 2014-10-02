@@ -10,14 +10,14 @@ public class ItemScorpionStone extends ROCModItem{
 	public static boolean isActive;
 	
 	public ItemScorpionStone(boolean active) {
-		super("realmsofchaos:scorpion_stone", "stoneScorpion");
+		super("stoneScorpion");
 		setMaxStackSize(1);
 		isActive = active;
 		setMaxDamage(160);
 	}
 	
 	@Override
-	public boolean hasEffect(ItemStack par1ItemStack, int pass){
+	public boolean hasEffect(ItemStack par1ItemStack){
 		if (this == ROCItems.scorpion_stone_active) return true;
 		return false;
 	}

@@ -1,16 +1,9 @@
 package com.eternaldoom.realmsofchaos.client.itemrenderer;
 
-import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelChest;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-
-public class ItemRendererNetherChest implements IItemRenderer{
+public class ItemRendererNetherChest/* implements IItemRenderer*/{
 	
-	private ModelChest model = new ModelChest();
+	/*private ModelChest model = new ModelChest();
 	private ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/nether.png");
 
 	public ItemRendererNetherChest(){
@@ -43,6 +36,6 @@ public class ItemRendererNetherChest implements IItemRenderer{
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		model.renderAll();
 		GL11.glPopMatrix();
-	}
+	}*/
 
 }

@@ -7,19 +7,18 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemCannon extends ROCModItem {
 
 	private Item ammoItem;
 	public float damage;
 
-	public ItemCannon(String tex, String name, int uses, Item ammo, float damage) {
-		super(tex, name);
+	public ItemCannon(String name, int uses, Item ammo, float damage) {
+		super(name);
 		this.maxStackSize = 1;
 		this.setMaxDamage(uses);
 		this.ammoItem = ammo;

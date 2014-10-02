@@ -6,12 +6,12 @@
  */
 package com.jadarstudios.developercapes;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.IImageBuffer;
-
-import java.awt.*;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+
+import net.minecraft.client.renderer.IImageBuffer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This class is used by DevCapesOld as an implementation of {@link IImageBuffer}

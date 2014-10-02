@@ -1,17 +1,9 @@
 package com.eternaldoom.realmsofchaos.client.itemrenderer;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
 
-import org.lwjgl.opengl.GL11;
-
-import com.eternaldoom.realmsofchaos.client.blockrenderers.ModelTransparentChest;
-
-public class ItemRendererFrozenChest implements IItemRenderer{
+public class ItemRendererFrozenChest/* implements IItemRenderer*/{
 	
-	private ModelTransparentChest model = new ModelTransparentChest();
+	/*private ModelTransparentChest model = new ModelTransparentChest();
 	private ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/frozen.png");
 
 	public ItemRendererFrozenChest(){
@@ -49,6 +41,6 @@ public class ItemRendererFrozenChest implements IItemRenderer{
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		model.renderAll();
 		GL11.glPopMatrix();
-	}
+	}*/
 
 }

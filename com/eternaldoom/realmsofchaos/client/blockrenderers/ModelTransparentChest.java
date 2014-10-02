@@ -2,11 +2,11 @@ package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelTransparentChest extends ModelBase
@@ -38,12 +38,12 @@ public class ModelTransparentChest extends ModelBase
      */
     public void renderAll()
     {
-    	GL11.glEnable(GL11.GL_BLEND);
-    	GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+    	GlStateManager.enableBlend();
+    	GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         this.chestKnob.rotateAngleX = this.chestLid.rotateAngleX;
         this.chestLid.render(0.0625F);
         this.chestKnob.render(0.0625F);
         this.chestBelow.render(0.0625F);
-        GL11.glDisable(GL11.GL_BLEND);
+        GlStateManager.disableBlend();
     }
 }

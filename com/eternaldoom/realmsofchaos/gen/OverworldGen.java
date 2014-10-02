@@ -2,10 +2,13 @@ package com.eternaldoom.realmsofchaos.gen;
 
 import java.util.Random;
 
+import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenBigRuins;
@@ -19,14 +22,12 @@ import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenRuinsWell;
 import com.eternaldoom.realmsofchaos.water.gen.WorldGenSurfaceDungeon;
 import com.eternaldoom.realmsofchaos.water.gen.WorldGenWaterPlants;
 
-import cpw.mods.fml.common.IWorldGenerator;
-
 public class OverworldGen implements IWorldGenerator{
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-				switch (world.provider.dimensionId) {
+				switch (world.provider.getDimensionId()) {
 				case 0:
 					generateOverworld(world, random, chunkX * 16, chunkZ * 16);
 					break;
@@ -95,7 +96,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenIceTree1().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenIceTree1().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 1; i++){
@@ -111,7 +112,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(12);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenMinable(ROCBlocks.osmaralt_ore, 4, ROCBlocks.frozen_stone).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenMinable(ROCBlocks.osmaralt_ore.getDefaultState(), 4, BlockHelper.forBlock(ROCBlocks.frozen_stone)).generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 	}
 
@@ -121,7 +122,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(16);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenMinable(ROCBlocks.heliotrope_ore, 7).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenMinable(ROCBlocks.heliotrope_ore.getDefaultState(), 7).generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 2; i++){
@@ -129,7 +130,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(16);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenMinable(ROCBlocks.citronite_ore, 5).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenMinable(ROCBlocks.citronite_ore.getDefaultState(), 5).generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 3; i++){
@@ -137,7 +138,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(16);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenMinable(ROCBlocks.xylite_ore, 3).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenMinable(ROCBlocks.xylite_ore.getDefaultState(), 3).generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 	}
 	
@@ -147,7 +148,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(90);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenCharwoodTree().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenCharwoodTree().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for(int i = 0; i < 2; i++){
@@ -155,7 +156,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(60);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			if(random.nextInt(20) == 0) new WorldGenNetherDungeon().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(20) == 0) new WorldGenNetherDungeon().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 	}
 	
@@ -165,7 +166,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(40);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenMinable(ROCBlocks.neptunite_ore, 5, ROCBlocks.ocean_stone).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenMinable(ROCBlocks.neptunite_ore.getDefaultState(), 5, BlockHelper.forBlock(ROCBlocks.ocean_stone)).generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 2; i++){
@@ -180,16 +181,16 @@ public class OverworldGen implements IWorldGenerator{
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			int Ycoord1 = random.nextInt(120);
 			
-			if (world.getBlock(Xcoord1, Ycoord1, Zcoord1) == Blocks.water){
+			if (world.getBlockState(new BlockPos(Xcoord1, Ycoord1, Zcoord1)).getBlock() == Blocks.water){
 				for(int down = Ycoord1; down > 0; down--){
 					Ycoord1 = down;
-					if (world.getBlock(Xcoord1, Ycoord1-1, Zcoord1) != Blocks.water)break;
+					if (world.getBlockState(new BlockPos(Xcoord1, Ycoord1-1, Zcoord1)).getBlock() != Blocks.water)break;
 				}
 			}
-			if (world.getBlock(Xcoord1, Ycoord1, Zcoord1) != Blocks.water){
+			if (world.getBlockState(new BlockPos(Xcoord1, Ycoord1, Zcoord1)).getBlock() != Blocks.water){
 				for(int down = Ycoord1; down < 120; down++){
 					Ycoord1 = down;
-					if (world.getBlock(Xcoord1, Ycoord1-1, Zcoord1) != Blocks.water)break;
+					if (world.getBlockState(new BlockPos(Xcoord1, Ycoord1-1, Zcoord1)).getBlock() != Blocks.water)break;
 				}
 			}
 			

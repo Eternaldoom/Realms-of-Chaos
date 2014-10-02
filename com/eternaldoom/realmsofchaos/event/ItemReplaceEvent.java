@@ -1,13 +1,13 @@
 package com.eternaldoom.realmsofchaos.event;
 
-import com.eternaldoom.realmsofchaos.items.ROCItems;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+
+import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class ItemReplaceEvent {
 	
@@ -97,8 +97,8 @@ public class ItemReplaceEvent {
 				
 				if(evt.player.inventory.getStackInSlot(i).getItem() == ROCItems.scorpion_stone_active){
 					if(!evt.player.capabilities.isCreativeMode) evt.player.inventory.getStackInSlot(i).setItemDamage(evt.player.inventory.getStackInSlot(i).getItemDamage() + 1);
-					evt.player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5, 3, true));
-					evt.player.addPotionEffect(new PotionEffect(Potion.jump.id, 5, 3, true));
+					evt.player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 5, 3, true, false));
+					evt.player.addPotionEffect(new PotionEffect(Potion.jump.id, 5, 3, true, false));
 					if(evt.player.inventory.getStackInSlot(i).getItemDamage() > 160) evt.player.inventory.setInventorySlotContents(i, null);
 				}
 			}	

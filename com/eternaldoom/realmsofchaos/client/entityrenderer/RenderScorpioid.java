@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.client.entityrenderer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +13,7 @@ public class RenderScorpioid extends RenderLiving{
 	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/entity/scorpioid.png");
 	
 	public RenderScorpioid() {
-		super(new ModelScorpioid(), 0.75f);
+		super(Minecraft.getMinecraft().getRenderManager(), new ModelScorpioid(), 0.75f);
 	}
 
 	@Override

@@ -6,8 +6,7 @@ import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -16,7 +15,7 @@ import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class EntityKelpFish extends EntityAmbientCreature {
-	public ChunkCoordinates spawnPosition;
+	public BlockPos spawnPosition;
 	public boolean angry;
 
 	public EntityKelpFish(World world) {
@@ -48,24 +47,24 @@ public class EntityKelpFish extends EntityAmbientCreature {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
-		if (this.worldObj.getBlock((int) this.posX,
-				MathHelper.floor_double(this.posY), (int) this.posZ) == Blocks.air)
+		if (this.worldObj.getBlockState(new BlockPos((int) this.posX,
+				MathHelper.floor_double(this.posY), (int) this.posZ)).getBlock() == Blocks.air)
 			this.motionY *= 1.0000000238418579D;
 
-		if ((this.worldObj.getBlock((int) Math.round(this.posX),
-				MathHelper.floor_double(this.posY) - 1, (int) this.posZ) != Blocks.air
+		if ((this.worldObj.getBlockState(new BlockPos((int) Math.round(this.posX),
+				MathHelper.floor_double(this.posY) - 1, (int) this.posZ)).getBlock() != Blocks.air
 				&& this.worldObj
-						.getBlock((int) this.posX,
+						.getBlockState(new BlockPos((int) this.posX,
 								MathHelper.floor_double(this.posY) - 1,
-								(int) this.posZ) != Blocks.water && (this.worldObj
-				.getBlock((int) this.posX, MathHelper.floor_double(this.posY),
-						(int) this.posZ) == Blocks.air || this.worldObj
-				.getBlock((int) this.posX, MathHelper.floor_double(this.posY),
-						(int) this.posZ).getMaterial() == Material.plants))
+								(int) this.posZ)).getBlock() != Blocks.water && (this.worldObj
+				.getBlockState(new BlockPos((int) this.posX, MathHelper.floor_double(this.posY),
+						(int) this.posZ)).getBlock() == Blocks.air || this.worldObj
+				.getBlockState(new BlockPos((int) this.posX, MathHelper.floor_double(this.posY),
+						(int) this.posZ)).getBlock().getMaterial() == Material.plants))
 				|| this.worldObj
-						.getBlock((int) this.posX,
+						.getBlockState(new BlockPos((int) this.posX,
 								MathHelper.floor_double(this.posY),
-								(int) this.posZ).getMaterial() == Material.plants) {
+								(int) this.posZ)).getBlock().getMaterial() == Material.plants) {
 			this.motionY = 0.4;
 			switch (this.rand.nextInt(4)) {
 			case 0:
@@ -91,61 +90,61 @@ public class EntityKelpFish extends EntityAmbientCreature {
 	protected void updateAITasks() {
 		super.updateAITasks();
 		if (this.spawnPosition != null
-				&& ((this.worldObj.getBlock(this.spawnPosition.posX,
-						this.spawnPosition.posY, this.spawnPosition.posZ) != Blocks.water && this.worldObj.getBlock(this.spawnPosition.posX,
-								this.spawnPosition.posY, this.spawnPosition.posZ) != ROCBlocks.seaweed)|| this.spawnPosition.posY < 1)) {
+				&& ((this.worldObj.getBlockState(new BlockPos(this.spawnPosition.getX(),
+						this.spawnPosition.getY(), this.spawnPosition.getZ())).getBlock() != Blocks.water && this.worldObj.getBlockState(new BlockPos(this.spawnPosition.getX(),
+								this.spawnPosition.getY(), this.spawnPosition.getZ())).getBlock() != ROCBlocks.seaweed)|| this.spawnPosition.getY() < 1)) {
 			this.spawnPosition = null;
 		}
 
 		if (this.spawnPosition == null
-				|| this.spawnPosition.getDistanceSquared((int) this.posX,
+				|| this.spawnPosition.distanceSq((int) this.posX,
 						(int) this.posY, (int) this.posZ) < 6.0F) {
-			if ((this.worldObj.getBlock((int) this.posX,
-					MathHelper.floor_double(this.posY) - 5, (int) this.posZ) != Blocks.water && this.worldObj.getBlock((int) this.posX,
-							MathHelper.floor_double(this.posY) - 5, (int) this.posZ) != ROCBlocks.seaweed)
-					&& (this.worldObj.getBlock((int) this.posX,
+			if ((this.worldObj.getBlockState(new BlockPos((int) this.posX,
+					MathHelper.floor_double(this.posY) - 5, (int) this.posZ)).getBlock() != Blocks.water && this.worldObj.getBlockState(new BlockPos((int) this.posX,
+							MathHelper.floor_double(this.posY) - 5, (int) this.posZ)).getBlock() != ROCBlocks.seaweed)
+					&& (this.worldObj.getBlockState(new BlockPos((int) this.posX,
 							MathHelper.floor_double(this.posY) + 9,
-							(int) this.posZ) == Blocks.water || this.worldObj.getBlock((int) this.posX,
+							(int) this.posZ)).getBlock() == Blocks.water || this.worldObj.getBlockState(new BlockPos((int) this.posX,
 									MathHelper.floor_double(this.posY) + 9,
-									(int) this.posZ) == ROCBlocks.seaweed) || this.rand.nextInt(30) == 0) {
+									(int) this.posZ)).getBlock() == ROCBlocks.seaweed) || this.rand.nextInt(30) == 0) {
 				switch (this.rand.nextInt(2)) {
 				case 0:
-					this.spawnPosition = new ChunkCoordinates((int) this.posX
+					this.spawnPosition = new BlockPos((int) this.posX
 							+ this.rand.nextInt(36) + this.rand.nextInt(6),
 							(int) this.posY + this.rand.nextInt(10) + 3,
 							(int) this.posZ + this.rand.nextInt(36)
 									+ this.rand.nextInt(6));
 				case 1:
-					this.spawnPosition = new ChunkCoordinates((int) this.posX
+					this.spawnPosition = new BlockPos((int) this.posX
 							+ this.rand.nextInt(36) - this.rand.nextInt(18),
 							(int) this.posY + this.rand.nextInt(10) + 3,
 							(int) this.posZ + this.rand.nextInt(36)
 									- this.rand.nextInt(18));
 				}
-			} else if ((this.worldObj.getBlock((int) this.posX,
-					MathHelper.floor_double(this.posY) - 5, (int) this.posZ) == Blocks.water || this.worldObj.getBlock((int) this.posX,
-							MathHelper.floor_double(this.posY) - 5, (int) this.posZ) == ROCBlocks.seaweed)
-					&& (this.worldObj.getBlock((int) this.posX,
+			} else if ((this.worldObj.getBlockState(new BlockPos((int) this.posX,
+					MathHelper.floor_double(this.posY) - 5, (int) this.posZ)).getBlock() == Blocks.water || this.worldObj.getBlockState(new BlockPos((int) this.posX,
+							MathHelper.floor_double(this.posY) - 5, (int) this.posZ)).getBlock() == ROCBlocks.seaweed)
+					&& (this.worldObj.getBlockState(new BlockPos((int) this.posX,
 							MathHelper.floor_double(this.posY) + 9,
-							(int) this.posZ) != Blocks.water && this.worldObj.getBlock((int) this.posX,
+							(int) this.posZ)).getBlock() != Blocks.water && this.worldObj.getBlockState(new BlockPos((int) this.posX,
 									MathHelper.floor_double(this.posY) + 9,
-									(int) this.posZ) != ROCBlocks.seaweed)) {
+									(int) this.posZ)).getBlock() != ROCBlocks.seaweed)) {
 				switch (this.rand.nextInt(2)) {
 				case 0:
-					this.spawnPosition = new ChunkCoordinates((int) this.posX
+					this.spawnPosition = new BlockPos((int) this.posX
 							+ this.rand.nextInt(36) + this.rand.nextInt(6),
 							(int) this.posY - this.rand.nextInt(10) - 4,
 							(int) this.posZ + this.rand.nextInt(36)
 									+ this.rand.nextInt(6));
 				case 1:
-					this.spawnPosition = new ChunkCoordinates((int) this.posX
+					this.spawnPosition = new BlockPos((int) this.posX
 							+ this.rand.nextInt(36) - this.rand.nextInt(18),
 							(int) this.posY - this.rand.nextInt(10) - 4,
 							(int) this.posZ + this.rand.nextInt(36)
 									- this.rand.nextInt(18));
 				}
 			} else {
-					this.spawnPosition = new ChunkCoordinates((int) this.posX
+					this.spawnPosition = new BlockPos((int) this.posX
 							+ this.rand.nextInt(12) + 5 - this.rand.nextInt(12)
 							- 5,
 							(int) this.posY - this.rand.nextInt(6) - 3,
@@ -154,17 +153,17 @@ public class EntityKelpFish extends EntityAmbientCreature {
 			}
 		}
 
-		if (this.worldObj.getBlock(this.spawnPosition.posX,
-				this.spawnPosition.posY, this.spawnPosition.posZ) == Blocks.air) {
-			this.spawnPosition.posY -= 5;
+		if (this.worldObj.getBlockState(new BlockPos(this.spawnPosition.getX(),
+				this.spawnPosition.getY(), this.spawnPosition.getZ())).getBlock() == Blocks.air) {
+			this.spawnPosition.offsetDown(5);
 		}
 
-		if (this.worldObj.getBlock((int) this.posX,
-				MathHelper.floor_double(this.posY), (int) this.posZ) == Blocks.water || this.worldObj.getBlock((int) this.posX,
-						MathHelper.floor_double(this.posY), (int) this.posZ) == ROCBlocks.seaweed) {
-			double i = (double) this.spawnPosition.posX - this.posX;
-			double j = (double) this.spawnPosition.posY - this.posY;
-			double k = (double) this.spawnPosition.posZ - this.posZ;
+		if (this.worldObj.getBlockState(new BlockPos((int) this.posX,
+				MathHelper.floor_double(this.posY), (int) this.posZ)).getBlock() == Blocks.water || this.worldObj.getBlockState(new BlockPos((int) this.posX,
+						MathHelper.floor_double(this.posY), (int) this.posZ)).getBlock() == ROCBlocks.seaweed) {
+			double i = (double) this.spawnPosition.getX() - this.posX;
+			double j = (double) this.spawnPosition.getY() - this.posY;
+			double k = (double) this.spawnPosition.getZ() - this.posZ;
 			this.motionX += (Math.signum(i) * 0.5D - this.motionX) * 0.10000000149011612D;
 			this.motionY += (Math.signum(j) * 0.699999988079071D - this.motionY) * 0.10000000149011612D;
 			this.motionZ += (Math.signum(k) * 0.5D - this.motionZ) * 0.10000000149011612D;
@@ -183,11 +182,11 @@ public class EntityKelpFish extends EntityAmbientCreature {
 	@Override
 	public boolean getCanSpawnHere() {
 		int i = MathHelper.floor_double(this.posX);
-		int j = MathHelper.floor_double(this.boundingBox.minY);
+		int j = MathHelper.floor_double(this.getBoundingBox().minY);
 		int k = MathHelper.floor_double(this.posZ);
 
-			return this.worldObj.checkNoEntityCollision(this.boundingBox)
-					&& this.worldObj.getBlock(i, j, k) == ROCBlocks.seaweed;
+			return this.worldObj.checkNoEntityCollision(this.getBoundingBox())
+					&& this.worldObj.getBlockState(new BlockPos(i, j, k)) == ROCBlocks.seaweed;
 	}
 
 	@Override

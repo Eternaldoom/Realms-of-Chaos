@@ -2,7 +2,6 @@ package com.eternaldoom.realmsofchaos.items;
 
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraftforge.common.util.EnumHelper;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
@@ -21,7 +20,7 @@ public class ROCItems {
 	public static final ArmorMaterial OSMARALTa = addArmorMaterial("OSMARALT", 5151, 50);
 	public static final ArmorMaterial FRACTONITEa = addArmorMaterial("FRACTONITE", -1, 20);
 	
-	public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
+	/*public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
 	public static final ToolMaterial HELIOTROPEt = EnumHelper.addToolMaterial("HELIOTROPE", 4, 2651, 9.5f, 2.0f, 10);
 	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 5, 3151, 10.5f, 2.0f, 20);
@@ -30,7 +29,7 @@ public class ROCItems {
 	public static final ToolMaterial NEPTUNITEt = EnumHelper.addToolMaterial("NEPTUNITE", 8, -1, 15.0f, 6.5f, 12);
 	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 9, 3651, 17f, 8f, 6);
 	public static final ToolMaterial OSMARALTt = EnumHelper.addToolMaterial("OSMARALT", 10, 4651, 19.5f, 10f, 50);
-	public static final ToolMaterial FRACTONITEt = EnumHelper.addToolMaterial("FRACTONITE", 11, 5651, 22f, 12f, 20);
+	public static final ToolMaterial FRACTONITEt = EnumHelper.addToolMaterial("FRACTONITE", 11, 5651, 22f, 12f, 20);*/
 	
 	//Overworld
 	public static ROCModItem citronite_gem;
@@ -142,18 +141,18 @@ public class ROCItems {
 	public static ROCModItem flame_stone;
 		
 	public static void init(){
-		citronite_gem = new ROCModItem("realmsofchaos:citronite_gem", "gemCitronite");
-		ash_dust = new ROCModItem("realmsofchaos:ash_dust", "dustAsh");
-		xylite_crystal = new ROCModItem("realmsofchaos:xylite_crystal", "crystalXylite");
-		xylite_ingot = new ROCModItem("realmsofchaos:xylite_ingot", "ingotXylite");
-		citronite_stone = new ROCModItem("realmsofchaos:citronite_stone", "stoneCitronite");
-		flame_stone = new ROCModItem("realmsofchaos:flame_stone", "stoneFlame");
-		heliotrope = new ROCModItem("realmsofchaos:heliotrope", "heliotrope");
-		aquatic_shard = new ROCModItem("realmsofchaos:aquatic_shard", "shardAquatic");
-		aquatic_orb = new ROCModItem("realmsofchaos:aquatic_orb", "orbAquatic");
-		neptunite_ingot = new ROCModItem("realmsofchaos:neptunite_ingot", "ingotNeptunite");
+		citronite_gem = new ROCModItem("gemCitronite");
+		ash_dust = new ROCModItem("dustAsh");
+		xylite_crystal = new ROCModItem("crystalXylite");
+		xylite_ingot = new ROCModItem("ingotXylite");
+		citronite_stone = new ROCModItem("stoneCitronite");
+		flame_stone = new ROCModItem("stoneFlame");
+		heliotrope = new ROCModItem("heliotrope");
+		aquatic_shard = new ROCModItem("shardAquatic");
+		aquatic_orb = new ROCModItem("orbAquatic");
+		neptunite_ingot = new ROCModItem("ingotNeptunite");
 		
-		heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", 54D);
+		/*heliotrope_helmet = new ItemROCArmor(HELIOTROPEa, HELMET, "heliotrope", "realmsofchaos:heliotrope_helmet", "helmetHeliotrope", 54D);
 		heliotrope_chestplate = new ItemROCArmor(HELIOTROPEa, CHESTPLATE, "heliotrope", "realmsofchaos:heliotrope_chestplate", "chestplateHeliotrope", 54D);
 		heliotrope_leggings = new ItemROCArmor(HELIOTROPEa, LEGGINGS, "heliotrope", "realmsofchaos:heliotrope_leggings", "leggingsHeliotrope", 54D);
 		heliotrope_boots = new ItemROCArmor(HELIOTROPEa, BOOTS, "heliotrope", "realmsofchaos:heliotrope_boots", "bootsHeliotrope", 54D);
@@ -171,9 +170,9 @@ public class ROCItems {
 		flame_helmet = new ItemROCArmor(FLAMEa, HELMET, "flame", "realmsofchaos:flame_helmet", "helmetFlame", 63.5D);
 		flame_chestplate = new ItemROCArmor(FLAMEa, CHESTPLATE, "flame", "realmsofchaos:flame_chestplate", "chestplateFlame", 63.5D);
 		flame_leggings = new ItemROCArmor(FLAMEa, LEGGINGS, "flame", "realmsofchaos:flame_leggings", "leggingsFlame", 63.5D);
-		flame_boots = new ItemROCArmor(FLAMEa, BOOTS, "flame", "realmsofchaos:flame_boots", "bootsFlame", 63.5D);
+		flame_boots = new ItemROCArmor(FLAMEa, BOOTS, "flame", "realmsofchaos:flame_boots", "bootsFlame", 63.5D);*/
 
-		citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
+		/*citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
 		citronite_axe = new ItemROCAxe(CITRONITEt, "realmsofchaos:citronite_axe", "axeCitronite", false).register("citronite_axe");
 		citronite_pickaxe = new ItemROCPickaxe(CITRONITEt, "realmsofchaos:citronite_pickaxe", "pickaxeCitronite", false).register("citronite_pickaxe");
 		citronite_shovel = new ItemROCShovel(CITRONITEt, "realmsofchaos:citronite_shovel", "shovelCitronite", false).register("citronite_shovel");
@@ -191,9 +190,9 @@ public class ROCItems {
 		flame_sword = new ItemROCSword(FLAMEt, "realmsofchaos:flame_sword", "swordFlame", false);
 		flame_pickaxe = new ItemROCPickaxe(FLAMEt, "realmsofchaos:flame_pickaxe", "pickaxeFlame", false);
 		flame_axe = new ItemROCAxe(FLAMEt, "realmsofchaos:flame_axe", "axeFlame", false);
-		flame_shovel = new ItemROCShovel(FLAMEt, "realmsofchaos:flame_shovel", "shovelFlame", false);
+		flame_shovel = new ItemROCShovel(FLAMEt, "realmsofchaos:flame_shovel", "shovelFlame", false);*/
 		
-		neptunite_helmet = new ItemROCArmor(NEPTUNITEa, HELMET, "neptunite", "realmsofchaos:neptunite_helmet", "helmetNeptunite", 65D);
+		/*neptunite_helmet = new ItemROCArmor(NEPTUNITEa, HELMET, "neptunite", "realmsofchaos:neptunite_helmet", "helmetNeptunite", 65D);
 		neptunite_chestplate = new ItemROCArmor(NEPTUNITEa, CHESTPLATE, "neptunite", "realmsofchaos:neptunite_chestplate", "chestplateNeptunite", 65D);
 		neptunite_leggings = new ItemROCArmor(NEPTUNITEa, LEGGINGS, "neptunite", "realmsofchaos:neptunite_leggings", "leggingsNeptunite", 65D);
 		neptunite_boots = new ItemROCArmor(NEPTUNITEa, BOOTS, "neptunite", "realmsofchaos:neptunite_boots", "bootsNeptunite", 65D);
@@ -201,12 +200,12 @@ public class ROCItems {
 		aquatic_helmet = new ItemROCArmor(AQUATICa, HELMET, "aquatic", "realmsofchaos:aquatic_helmet", "helmetAquatic", 66.5D);
 		aquatic_chestplate = new ItemROCArmor(AQUATICa, CHESTPLATE, "aquatic", "realmsofchaos:aquatic_chestplate", "chestplateAquatic", 66.5D);
 		aquatic_leggings = new ItemROCArmor(AQUATICa, LEGGINGS, "aquatic", "realmsofchaos:aquatic_leggings", "leggingsAquatic", 66.5D);
-		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", 66.5D);
+		aquatic_boots = new ItemROCArmor(AQUATICa, BOOTS, "aquatic", "realmsofchaos:aquatic_boots", "bootsAquatic", 66.5D);*/
 		
-		osmaralt_ingot = new ROCModItem("realmsofchaos:osmaralt_ingot", "ingotOsmaralt");
-		fractonite_stone = new ROCModItem("realmsofchaos:fractonite_stone", "stoneFractonite");
+		osmaralt_ingot = new ROCModItem("ingotOsmaralt");
+		fractonite_stone = new ROCModItem("stoneFractonite");
 		
-		osmaralt_helmet = new ItemROCArmor(OSMARALTa, HELMET, "osmaralt", "realmsofchaos:osmaralt_helmet", "helmetOsmaralt", 68.25D);
+		/*osmaralt_helmet = new ItemROCArmor(OSMARALTa, HELMET, "osmaralt", "realmsofchaos:osmaralt_helmet", "helmetOsmaralt", 68.25D);
 		osmaralt_chestplate = new ItemROCArmor(OSMARALTa, CHESTPLATE, "osmaralt", "realmsofchaos:osmaralt_chestplate", "chestplateOsmaralt", 68.25D);
 		osmaralt_leggings = new ItemROCArmor(OSMARALTa, LEGGINGS, "osmaralt", "realmsofchaos:osmaralt_leggings", "leggingsOsmaralt", 68.25D);
 		osmaralt_boots = new ItemROCArmor(OSMARALTa, BOOTS, "osmaralt", "realmsofchaos:osmaralt_boots", "bootsOsmaralt", 68.25D);
@@ -214,9 +213,9 @@ public class ROCItems {
 		fractonite_helmet = new ItemROCArmor(FRACTONITEa, HELMET, "fractonite", "realmsofchaos:fractonite_helmet", "helmetFractonite", 70D);
 		fractonite_chestplate = new ItemROCArmor(FRACTONITEa, CHESTPLATE, "fractonite", "realmsofchaos:fractonite_chestplate", "chestplateFractonite", 70D);
 		fractonite_leggings = new ItemROCArmor(FRACTONITEa, LEGGINGS, "fractonite", "realmsofchaos:fractonite_leggings", "leggingsFractonite", 70D);
-		fractonite_boots = new ItemROCArmor(FRACTONITEa, BOOTS, "fractonite", "realmsofchaos:fractonite_boots", "bootsFractonite", 70D);
+		fractonite_boots = new ItemROCArmor(FRACTONITEa, BOOTS, "fractonite", "realmsofchaos:fractonite_boots", "bootsFractonite", 70D);*/
 		
-		aquatic_sword = new ItemROCSword(AQUATICt, "realmsofchaos:aquatic_sword", "swordAquatic", false);
+		/*aquatic_sword = new ItemROCSword(AQUATICt, "realmsofchaos:aquatic_sword", "swordAquatic", false);
 		aquatic_pickaxe = new ItemROCPickaxe(AQUATICt, "realmsofchaos:aquatic_pickaxe", "pickaxeAquatic", false);
 		aquatic_axe = new ItemROCAxe(AQUATICt, "realmsofchaos:aquatic_axe", "axeAquatic", false);
 		aquatic_shovel = new ItemROCShovel(AQUATICt, "realmsofchaos:aquatic_shovel", "shovelAquatic", false);
@@ -234,7 +233,7 @@ public class ROCItems {
 		fractonite_sword = new ItemROCSword(FRACTONITEt, "realmsofchaos:fractonite_sword", "swordFractonite", false);
 		fractonite_pickaxe = new ItemROCPickaxe(FRACTONITEt, "realmsofchaos:fractonite_pickaxe", "pickaxeFractonite", false);
 		fractonite_axe = new ItemROCAxe(FRACTONITEt, "realmsofchaos:fractonite_axe", "axeFractonite", false);
-		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);
+		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);*/
 		
 		soybean = new ItemSoybean().register("soybean");
 		raw_scorpion = new ItemROCFood(2, 0.2f, true, "realmsofchaos:raw_scorpion", "scorpionRaw");
@@ -248,57 +247,57 @@ public class ROCItems {
 		scorpion_stone_active = (ItemScorpionStone) new ItemScorpionStone(true).register("scorpion_stone_active").setCreativeTab(null);
 		
 		scorpius_crystal = new ItemScorpiusCrystal().register("scorpius_crystal");
-		mystic_gem = new ROCModItem("realmsofchaos:mystic_gem", "gemMystic").register("mystic_gem");
+		mystic_gem = new ROCModItem("gemMystic").register("mystic_gem");
 		
-		fish_scale = new ROCModItem("realmsofchaos:fish_scale", "scaleFish").register("fish_scale");
+		fish_scale = new ROCModItem("scaleFish").register("fish_scale");
 		
 		seaweed = new ItemSeaweed(ROCBlocks.seaweed).register("seaweed");
 		
-		iron_arrow = new ROCModItem("realmsofchaos:iron_arrow", "arrowIron");
-		diamond_arrow = new ROCModItem("realmsofchaos:diamond_arrow", "arrowDiamond");
-		heliotrope_arrow = new ROCModItem("realmsofchaos:heliotrope_arrow", "arrowHeliotrope");
-		citronite_arrow = new ROCModItem("realmsofchaos:citronite_arrow", "arrowCitronite");
-		xylite_arrow = new ROCModItem("realmsofchaos:xylite_arrow", "arrowXylite");
-		flamestone_arrow = new ROCModItem("realmsofchaos:flamestone_arrow", "arrowFlamestone");
-	    neptunite_arrow = new ROCModItem("realmsofchaos:neptunite_arrow", "arrowNeptunite");
-		aquatic_arrow = new ROCModItem("realmsofchaos:aquatic_arrow", "arrowAquatic");
-		osmaralt_arrow = new ROCModItem("realmsofchaos:osmaralt_arrow", "arrowOsmaralt");
-		fractonite_arrow = new ROCModItem("realmsofchaos:fractonite_arrow", "arrowFractonite");
+		iron_arrow = new ROCModItem("arrowIron");
+		diamond_arrow = new ROCModItem("arrowDiamond");
+		heliotrope_arrow = new ROCModItem("arrowHeliotrope");
+		citronite_arrow = new ROCModItem("arrowCitronite");
+		xylite_arrow = new ROCModItem("arrowXylite");
+		flamestone_arrow = new ROCModItem("arrowFlamestone");
+	    neptunite_arrow = new ROCModItem("arrowNeptunite");
+		aquatic_arrow = new ROCModItem("arrowAquatic");
+		osmaralt_arrow = new ROCModItem("arrowOsmaralt");
+		fractonite_arrow = new ROCModItem("arrowFractonite");
 		
-		iron_bow = new ItemROCBow("realmsofchaos:iron_bow", "bowIron", ROCItems.iron_arrow, 425, 3);
-		diamond_bow = new ItemROCBow("realmsofchaos:diamond_bow", "bowDiamond", ROCItems.diamond_arrow, 700, 5);
-		heliotrope_bow = new ItemROCBow("realmsofchaos:heliotrope_bow", "bowHeliotrope", ROCItems.heliotrope_arrow, 1000, 5.5f);
-		citronite_bow = new ItemROCBow("realmsofchaos:citronite_bow", "bowCitronite", ROCItems.citronite_arrow, 1200, 6);
-		xylite_bow = new ItemROCBow("realmsofchaos:xylite_bow", "bowXylite", ROCItems.xylite_arrow, 1500, 7);
-		flamestone_bow = new ItemROCBow("realmsofchaos:flamestone_bow", "bowFlamestone", ROCItems.flamestone_arrow, 1700, 7.5f);
-		neptunite_bow = new ItemROCBow("realmsofchaos:neptunite_bow", "bowNeptunite", ROCItems.neptunite_arrow, -1, 8);
-		aquatic_bow = new ItemROCBow("realmsofchaos:aquatic_bow", "bowAquatic", ROCItems.aquatic_arrow, 2000, 8.5f);
-		osmaralt_bow = new ItemROCBow("realmsofchaos:osmaralt_bow", "bowOsmaralt", ROCItems.osmaralt_arrow, 2200, 9);
-		fractonite_bow = new ItemROCBow("realmsofchaos:fractonite_bow", "bowFractonite", ROCItems.fractonite_arrow, -1, 10);
+		iron_bow = new ItemROCBow("bowIron", ROCItems.iron_arrow, 425, 3);
+		diamond_bow = new ItemROCBow("bowDiamond", ROCItems.diamond_arrow, 700, 5);
+		heliotrope_bow = new ItemROCBow("bowHeliotrope", ROCItems.heliotrope_arrow, 1000, 5.5f);
+		citronite_bow = new ItemROCBow("bowCitronite", ROCItems.citronite_arrow, 1200, 6);
+		xylite_bow = new ItemROCBow("bowXylite", ROCItems.xylite_arrow, 1500, 7);
+		flamestone_bow = new ItemROCBow("bowFlamestone", ROCItems.flamestone_arrow, 1700, 7.5f);
+		neptunite_bow = new ItemROCBow("bowNeptunite", ROCItems.neptunite_arrow, -1, 8);
+		aquatic_bow = new ItemROCBow("bowAquatic", ROCItems.aquatic_arrow, 2000, 8.5f);
+		osmaralt_bow = new ItemROCBow("bowOsmaralt", ROCItems.osmaralt_arrow, 2200, 9);
+		fractonite_bow = new ItemROCBow("bowFractonite", ROCItems.fractonite_arrow, -1, 10);
 
-		iron_bullet = new ROCModItem("realmsofchaos:iron_bullet", "bulletIron");
-		diamond_bullet = new ROCModItem("realmsofchaos:diamond_bullet", "bulletDiamond");
-		heliotrope_bullet = new ROCModItem("realmsofchaos:heliotrope_bullet", "bulletHeliotrope");
-		citronite_bullet = new ROCModItem("realmsofchaos:citronite_bullet", "bulletCitronite");
-		xylite_bullet = new ROCModItem("realmsofchaos:xylite_bullet", "bulletXylite");
-		flamestone_bullet = new ROCModItem("realmsofchaos:flamestone_bullet", "bulletFlamestone");
-		neptunite_bullet = new ROCModItem("realmsofchaos:neptunite_bullet", "bulletNeptunite");
-		aquatic_bullet = new ROCModItem("realmsofchaos:aquatic_bullet", "bulletAquatic");
-		osmaralt_bullet = new ROCModItem("realmsofchaos:osmaralt_bullet", "bulletOsmaralt");
-		fractonite_bullet = new ROCModItem("realmsofchaos:fractonite_bullet", "bulletFractonite");
+		iron_bullet = new ROCModItem("bulletIron");
+		diamond_bullet = new ROCModItem("bulletDiamond");
+		heliotrope_bullet = new ROCModItem("bulletHeliotrope");
+		citronite_bullet = new ROCModItem("bulletCitronite");
+		xylite_bullet = new ROCModItem("bulletXylite");
+		flamestone_bullet = new ROCModItem("bulletFlamestone");
+		neptunite_bullet = new ROCModItem("bulletNeptunite");
+		aquatic_bullet = new ROCModItem("bulletAquatic");
+		osmaralt_bullet = new ROCModItem("bulletOsmaralt");
+		fractonite_bullet = new ROCModItem("bulletFractonite");
 		
-		iron_cannon = new ItemCannon("realmsofchaos:iron_cannon", "cannonIron", 300, iron_bullet, 2);
-		diamond_cannon = new ItemCannon("realmsofchaos:diamond_cannon", "cannonDiamond", 500, diamond_bullet, 4);
-		heliotrope_cannon = new ItemCannon("realmsofchaos:heliotrope_cannon", "cannonHeliotrope", 600, heliotrope_bullet, 5);
-		citronite_cannon = new ItemCannon("realmsofchaos:citronite_cannon", "cannonCitronite", 650, citronite_bullet, 5.5f);
-		xylite_cannon = new ItemCannon("realmsofchaos:xylite_cannon", "cannonXylite", 700, xylite_bullet, 6.5f);
-		flamestone_cannon = new ItemCannon("realmsofchaos:flamestone_cannon", "cannonFlamestone", 750, flamestone_bullet, 7);
-		neptunite_cannon = new ItemCannon("realmsofchaos:neptunite_cannon", "cannonNeptunite", 850, neptunite_bullet, 8.5f);
-		aquatic_cannon = new ItemCannon("realmsofchaos:aquatic_cannon", "cannonAquatic", 1000, aquatic_bullet, 9.5f);
-		osmaralt_cannon = new ItemCannon("realmsofchaos:osmaralt_cannon", "cannonOsmaralt", 1150, osmaralt_bullet, 10.5f);
-		fractonite_cannon = new ItemCannon("realmsofchaos:fractonite_cannon", "cannonFractonite", 1300, fractonite_bullet, 12);
+		iron_cannon = new ItemCannon("cannonIron", 300, iron_bullet, 2);
+		diamond_cannon = new ItemCannon("cannonDiamond", 500, diamond_bullet, 4);
+		heliotrope_cannon = new ItemCannon("cannonHeliotrope", 600, heliotrope_bullet, 5);
+		citronite_cannon = new ItemCannon("cannonCitronite", 650, citronite_bullet, 5.5f);
+		xylite_cannon = new ItemCannon("cannonXylite", 700, xylite_bullet, 6.5f);
+		flamestone_cannon = new ItemCannon("cannonFlamestone", 750, flamestone_bullet, 7);
+		neptunite_cannon = new ItemCannon("cannonNeptunite", 850, neptunite_bullet, 8.5f);
+		aquatic_cannon = new ItemCannon("cannonAquatic", 1000, aquatic_bullet, 9.5f);
+		osmaralt_cannon = new ItemCannon("cannonOsmaralt", 1150, osmaralt_bullet, 10.5f);
+		fractonite_cannon = new ItemCannon("cannonFractonite", 1300, fractonite_bullet, 12);
 
-		diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
+		/*diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
 		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
 		diamond_axe = new ItemROCAxe(DIAMONDt, "minecraft:diamond_axe", "hatchetDiamond", true).register("diamond_axe");
 		iron_axe = new ItemROCAxe(IRONt, "minecraft:iron_axe", "hatchetIron", true).register("iron_axe");
@@ -313,7 +312,7 @@ public class ROCItems {
 		diamond_helmet = new ItemROCArmor(DIAMONDa, HELMET, "diamond", "minecraft:diamond_helmet", "helmetDiamond", 52D).register("diamond_helmet");
 		diamond_chestplate = new ItemROCArmor(DIAMONDa, CHESTPLATE, "diamond", "minecraft:diamond_chestplate", "chestplateDiamond", 52D).register("diamond_chestplate");
 		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", 52D).register("diamond_leggings");
-		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", 52D).register("diamond_boots");
+		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", 52D).register("diamond_boots");*/
 		
 		flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
@@ -447,6 +446,7 @@ public class ROCItems {
 	
 	public static ArmorMaterial addArmorMaterial(String name, int durability, int enchantability)
 	{
-        return EnumHelper.addEnum(ArmorMaterial.class, name, durability/14, new int[]{0, 0, 0, 0}, enchantability);
+        //return EnumHelper.addEnum(ArmorMaterial.class, name, durability/14, new int[]{0, 0, 0, 0}, enchantability);
+		return null;
     }
 }

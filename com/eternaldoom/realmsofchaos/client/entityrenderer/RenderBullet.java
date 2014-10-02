@@ -1,62 +1,45 @@
 package com.eternaldoom.realmsofchaos.client.entityrenderer;
 
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
+import net.minecraft.item.ItemStack;
 
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
 
 public class RenderBullet extends RenderSnowball{
 
-	Item field_94151_a;
+	private Item theItem;
+	private RenderItem itemRenderer;
 	
 	public RenderBullet() {
-		super(Items.snowball);
+		super(Minecraft.getMinecraft().getRenderManager(), Items.snowball, Minecraft.getMinecraft().getRenderItem());
+		this.itemRenderer = Minecraft.getMinecraft().getRenderItem();
 	}
 	
-	public void doRender(Entity entity, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
+	public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {
-		EntityBullet bullet = (EntityBullet)entity;
-        IIcon iicon = Item.getItemById(bullet.getAmmoId()).getIconFromDamage(0);
-
-        if (iicon != null)
-        {
-            GL11.glPushMatrix();
-            GL11.glTranslatef((float)p_76986_2_, (float)p_76986_4_, (float)p_76986_6_);
-            GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-            GL11.glScalef(0.5F, 0.5F, 0.5F);
-            this.bindEntityTexture(entity);
-            Tessellator tessellator = Tessellator.instance;
-            this.drawIcon(tessellator, iicon);
-            GL11.glDisable(GL12.GL_RESCALE_NORMAL);
-            GL11.glPopMatrix();
-        }
+        GlStateManager.pushMatrix();
+        GlStateManager.translate((float)p_76986_2_, (float)p_76986_4_, (float)p_76986_6_);
+        GlStateManager.enableRescaleNormal();
+        GlStateManager.scale(0.5F, 0.5F, 0.5F);
+        GlStateManager.rotate(-this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
+        GlStateManager.rotate(this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+        this.bindTexture(TextureMap.locationBlocksTexture);
+        this.itemRenderer.func_175043_b(this.getBulletStack((EntityBullet) p_76986_1_));
+        GlStateManager.disableRescaleNormal();
+        GlStateManager.popMatrix();
+        super.doRender(p_76986_1_, p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
 	
-	private void drawIcon(Tessellator p_77026_1_, IIcon p_77026_2_)
+	public ItemStack getBulletStack(EntityBullet entity)
     {
-        float f = p_77026_2_.getMinU();
-        float f1 = p_77026_2_.getMaxU();
-        float f2 = p_77026_2_.getMinV();
-        float f3 = p_77026_2_.getMaxV();
-        float f4 = 1.0F;
-        float f5 = 0.5F;
-        float f6 = 0.25F;
-        GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-        GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-        p_77026_1_.startDrawingQuads();
-        p_77026_1_.setNormal(0.0F, 1.0F, 0.0F);
-        p_77026_1_.addVertexWithUV((double)(0.0F - f5), (double)(0.0F - f6), 0.0D, (double)f, (double)f3);
-        p_77026_1_.addVertexWithUV((double)(f4 - f5), (double)(0.0F - f6), 0.0D, (double)f1, (double)f3);
-        p_77026_1_.addVertexWithUV((double)(f4 - f5), (double)(f4 - f6), 0.0D, (double)f1, (double)f2);
-        p_77026_1_.addVertexWithUV((double)(0.0F - f5), (double)(f4 - f6), 0.0D, (double)f, (double)f2);
-        p_77026_1_.draw();
+        return new ItemStack(Item.getItemById(entity.getAmmoId()), 1, 0);
     }
 
 }

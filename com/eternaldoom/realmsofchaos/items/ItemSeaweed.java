@@ -1,14 +1,14 @@
 package com.eternaldoom.realmsofchaos.items;
 
-import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class ItemSeaweed extends ROCModItem
 {
@@ -16,20 +16,21 @@ public class ItemSeaweed extends ROCModItem
 
     public ItemSeaweed(Block b)
     {
-    	super("realmsofchaos:seaweed", "seaweed");
+    	super("seaweed");
         this.theblock = b;
     }
 
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int i, int j, int k, int side, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+    @Override
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
-        Block block = world.getBlock(i, j, k);
+        Block block = world.getBlockState(pos).getBlock();
 
         if (block == ROCBlocks.seaweed || block == ROCBlocks.ocean_stone)
         {
-            side = 1;
+            side = EnumFacing.UP;
         }
 
-        if (!player.canPlayerEdit(i, j+1, k, side, stack))
+        if (!player.func_175151_a(pos.offsetUp(), side, stack))
         {
             return false;
         }
@@ -39,15 +40,15 @@ public class ItemSeaweed extends ROCModItem
         }
         else
         {
-        	if((block == ROCBlocks.seaweed || block == ROCBlocks.ocean_stone) && world.getBlock(i, j+1, k) == Blocks.water && world.getBlock(i, j+2, k) != Blocks.air){
-                if (world.setBlock(i, j+1, k, this.theblock, 0, 2))
+        	if((block == ROCBlocks.seaweed || block == ROCBlocks.ocean_stone) && world.getBlockState(pos.offsetUp()).getBlock() == Blocks.water && world.getBlockState(pos.offsetUp(2)).getBlock() != Blocks.air){
+                if (world.setBlockState(pos.offsetUp(), this.theblock.getDefaultState(), 2))
                 {
-                    if (world.getBlock(i, j+1, k) == this.theblock)
+                    if (world.getBlockState(pos.offsetUp()).getBlock() == this.theblock)
                     {
-                        this.theblock.onBlockPlacedBy(world, i, j, k, player, stack);
+                        this.theblock.onBlockPlacedBy(world, pos, this.theblock.getDefaultState(), player, stack);
                     }
 
-                    world.playSoundEffect((double)((float)i + 0.5F), (double)((float)j + 0.5F), (double)((float)k + 0.5F), this.theblock.stepSound.func_150496_b(), (this.theblock.stepSound.getVolume() + 1.0F) / 2.0F, this.theblock.stepSound.getPitch() * 0.8F);
+                    world.playSoundEffect((double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), this.theblock.stepSound.getPlaceSound(), (this.theblock.stepSound.getVolume() + 1.0F) / 2.0F, this.theblock.stepSound.getFrequency() * 0.8F);
                     --stack.stackSize;
                 }
             }

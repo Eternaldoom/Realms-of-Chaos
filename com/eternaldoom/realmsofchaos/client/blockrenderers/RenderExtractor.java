@@ -1,21 +1,9 @@
 package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 
-import org.lwjgl.opengl.GL11;
+public class RenderExtractor/* implements ISimpleBlockRenderingHandler*/{
 
-import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
-
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-
-public class RenderExtractor implements ISimpleBlockRenderingHandler{
-
-	public static int renderId;
+	/*public static int renderId;
 	private Tessellator t = Tessellator.instance;
 	
 	public RenderExtractor(){
@@ -128,5 +116,5 @@ public class RenderExtractor implements ISimpleBlockRenderingHandler{
 		t.addVertexWithUV(1, y+0.25, 1, minU+iHeight, minV);
 		t.addVertexWithUV(0, y+0.25, 1, minU+iHeight, maxV);
 		t.addVertexWithUV(0, y, 1, minU, maxV);
-	}
+	}*/
 }

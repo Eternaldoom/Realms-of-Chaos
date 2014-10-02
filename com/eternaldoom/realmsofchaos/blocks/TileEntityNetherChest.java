@@ -1,13 +1,16 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
 
 public class TileEntityNetherChest extends TileEntityChest{
 	
+	private int xCoord = this.getPos().getX(), yCoord = this.getPos().getY(), zCoord = this.getPos().getZ();
+	
 	public TileEntityNetherChest(){
-		func_145976_a("Nether Chest");
+		setCustomName("Nether Chest");
 	}
 	
 	private int cachedChestType;
@@ -16,25 +19,25 @@ public class TileEntityNetherChest extends TileEntityChest{
     public TileEntityNetherChest adjacentChestXNeg;
     public TileEntityNetherChest adjacentChestZPos;
 	@Override
-	public void closeInventory()
+	public void closeInventory(EntityPlayer player)
     {
-        if (this.getBlockType() instanceof BlockNetherChest)
+        if (this.getBlockType() instanceof BlockFrozenChest)
         {
             --this.numPlayersUsing;
-            this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType(), 1, this.numPlayersUsing);
-            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord, this.zCoord, this.getBlockType());
-            this.worldObj.notifyBlocksOfNeighborChange(this.xCoord, this.yCoord - 1, this.zCoord, this.getBlockType());
+            this.worldObj.addBlockEvent(this.getPos(), this.getBlockType(), 1, this.numPlayersUsing);
+            this.worldObj.notifyNeighborsOfStateChange(this.pos, this.getBlockType());
+            this.worldObj.notifyNeighborsOfStateChange(this.pos.offsetDown(), this.getBlockType());
         }
     }
 	
 	@Override
-	public int func_145980_j()
+	public int getChestType()
     {
         return 0;
     }
 	
 	@Override
-	public boolean hasCustomInventoryName()
+	public boolean hasCustomName()
     {
         return true;
     }
@@ -90,24 +93,24 @@ public class TileEntityNetherChest extends TileEntityChest{
             this.adjacentChestXNeg = null;
             this.adjacentChestZPos = null;
 
-            if (this.checkforblock(this.xCoord - 1, this.yCoord, this.zCoord))
+            if (this.checkforblock(this.getPos().add(-1, 0, 0)))
             {
-                this.adjacentChestXNeg = (TileEntityNetherChest)this.worldObj.getTileEntity(this.xCoord - 1, this.yCoord, this.zCoord);
+                this.adjacentChestXNeg = (TileEntityNetherChest)this.worldObj.getTileEntity(this.getPos().add(-1, 0, 0));
             }
 
-            if (this.checkforblock(this.xCoord + 1, this.yCoord, this.zCoord))
+            if (this.checkforblock(this.getPos().add(1, 0, 0)))
             {
-                this.adjacentChestXPos = (TileEntityNetherChest)this.worldObj.getTileEntity(this.xCoord + 1, this.yCoord, this.zCoord);
+                this.adjacentChestXPos = (TileEntityNetherChest)this.worldObj.getTileEntity(this.getPos().add(1, 0, 0));
             }
 
-            if (this.checkforblock(this.xCoord, this.yCoord, this.zCoord - 1))
+            if (this.checkforblock(this.getPos().add(0, 0, -1)))
             {
-                this.adjacentChestZNeg = (TileEntityNetherChest)this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord - 1);
+                this.adjacentChestZNeg = (TileEntityNetherChest)this.worldObj.getTileEntity(this.getPos().add(0, 0, -1));
             }
 
-            if (this.checkforblock(this.xCoord, this.yCoord, this.zCoord + 1))
+            if (this.checkforblock(this.getPos().add(0, 0, 1)))
             {
-                this.adjacentChestZPos = (TileEntityNetherChest)this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord + 1);
+                this.adjacentChestZPos = (TileEntityNetherChest)this.worldObj.getTileEntity(this.getPos().add(0, 0, 1));
             }
 
             if (this.adjacentChestZNeg != null)
@@ -132,7 +135,7 @@ public class TileEntityNetherChest extends TileEntityChest{
         }
     }
 	
-	private boolean checkforblock(int p_145977_1_, int p_145977_2_, int p_145977_3_)
+	private boolean checkforblock(BlockPos pos)
     {
         if (this.worldObj == null)
         {
@@ -140,7 +143,7 @@ public class TileEntityNetherChest extends TileEntityChest{
         }
         else
         {
-            Block block = this.worldObj.getBlock(p_145977_1_, p_145977_2_, p_145977_3_);
+            Block block = this.worldObj.getBlockState(pos).getBlock();
             return block instanceof BlockNetherChest;
         }
     }

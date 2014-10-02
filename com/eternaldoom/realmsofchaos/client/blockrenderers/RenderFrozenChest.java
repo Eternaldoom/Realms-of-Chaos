@@ -1,21 +1,16 @@
 package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.client.model.ModelChest;
-import net.minecraft.client.model.ModelLargeChest;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.FMLLog;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import com.eternaldoom.realmsofchaos.blocks.BlockFrozenChest;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityFrozenChest;
-
-import cpw.mods.fml.common.FMLLog;
 
 public class RenderFrozenChest extends TileEntitySpecialRenderer
 {
@@ -44,11 +39,11 @@ public class RenderFrozenChest extends TileEntitySpecialRenderer
             {
                 try
                 {
-                ((BlockFrozenChest)block).func_149954_e(tile.getWorldObj(), tile.xCoord, tile.yCoord, tile.zCoord);
+                ((BlockFrozenChest)block).func_149954_e(tile.getWorld(), tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
                 }
                 catch (ClassCastException e)
                 {
-                    FMLLog.severe("Attempted to render a Frozen chest at %d,  %d, %d that was not a Frozen chest. That is a bug.", tile.xCoord, tile.yCoord, tile.zCoord);
+                    FMLLog.severe("Attempted to render a Frozen chest at %d,  %d, %d that was not a Frozen chest. That is a bug.", tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
                 }
                 i = tile.getBlockMetadata();
             }
@@ -146,7 +141,7 @@ public class RenderFrozenChest extends TileEntitySpecialRenderer
         }
     }
 
-    public void renderTileEntityAt(TileEntity p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_)
+    public void renderTileEntityAt(TileEntity p_147500_1_, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_, int idk)
     {
         this.renderTileEntityAt((TileEntityFrozenChest)p_147500_1_, p_147500_2_, p_147500_4_, p_147500_6_, p_147500_8_);
     }

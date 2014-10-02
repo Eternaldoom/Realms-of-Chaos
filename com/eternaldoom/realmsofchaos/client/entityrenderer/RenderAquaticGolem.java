@@ -1,6 +1,11 @@
 package com.eternaldoom.realmsofchaos.client.entityrenderer;
 
+import java.lang.reflect.Field;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
@@ -12,7 +17,8 @@ public class RenderAquaticGolem extends RenderLiving{
 	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/entity/aquatic_golem.png");
 	
 	public RenderAquaticGolem() {
-		super(new ModelAquaticGolem(), 0.75f);
+		super(Minecraft.getMinecraft().getRenderManager(), new ModelAquaticGolem(), 0.75f);
+		
 	}
 
 	@Override

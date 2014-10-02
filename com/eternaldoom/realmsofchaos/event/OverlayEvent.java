@@ -1,13 +1,11 @@
 package com.eternaldoom.realmsofchaos.event;
 
 import net.minecraft.init.Blocks;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
-import net.minecraftforge.client.event.RenderBlockOverlayEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class OverlayEvent {
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void addOverlay(RenderBlockOverlayEvent evt){
 		if(evt.overlayType == evt.overlayType.WATER && ArmorBonusEvent.getAquatic()){
 			evt.setCanceled(true);
@@ -36,5 +34,5 @@ public class OverlayEvent {
 			evt.density = 0.01f;
 			evt.setCanceled(true);
 		}
-	}
+	}*/
 }

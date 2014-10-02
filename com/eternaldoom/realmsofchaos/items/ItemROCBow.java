@@ -2,39 +2,27 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ArrowLooseEvent;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class ItemROCBow extends ROCModItem
 {
-    public static final String[] bowPullIconNames = new String[] {"pulling_0", "pulling_1", "pulling_2"};
-    @SideOnly(Side.CLIENT)
-    private IIcon[] iconArray;
     private Item ammo;
     public float damage;
 
-    public ItemROCBow(String tex, String name, Item parAmmo, int durability, float damage)
+    public ItemROCBow(String name, Item parAmmo, int durability, float damage)
     {
-    	super(tex, name);
+    	super(name);
         this.maxStackSize = 1;
         this.setMaxDamage(384);
         this.setCreativeTab(ROCTabs.Combat);
@@ -47,10 +35,10 @@ public class ItemROCBow extends ROCModItem
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int time)
     {
     	int maxItemUse = getMaxItemUseDuration(stack) - time;
-        ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
+        /*ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.isCanceled()) return;
-        maxItemUse = event.charge;
+        maxItemUse = event.charge;*/
         boolean infiniteAmmo = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
         if (infiniteAmmo || player.inventory.hasItem(ammo)) {
             float scaledItemUse = (float) maxItemUse / 20.0F;
@@ -74,12 +62,6 @@ public class ItemROCBow extends ROCModItem
     }
 
     @Override
-    public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_)
-    {
-        return p_77654_1_;
-    }
-
-    @Override
     public int getMaxItemUseDuration(ItemStack p_77626_1_)
     {
         return 72000;
@@ -88,18 +70,18 @@ public class ItemROCBow extends ROCModItem
     @Override
     public EnumAction getItemUseAction(ItemStack p_77661_1_)
     {
-        return EnumAction.bow;
+        return EnumAction.BOW;
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-    	ArrowNockEvent event = new ArrowNockEvent(player, stack);
+    	/*ArrowNockEvent event = new ArrowNockEvent(player, stack);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.isCanceled())
         {
             return event.result;
-        }
+        }*/
 
         if (player.capabilities.isCreativeMode || player.inventory.hasItem(ammo))
         {
@@ -114,25 +96,6 @@ public class ItemROCBow extends ROCModItem
     {
         return 1;
     }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IIconRegister icons)
-    {
-        this.itemIcon = icons.registerIcon(this.getIconString() + "_standby");
-        this.iconArray = new IIcon[bowPullIconNames.length];
-
-        for (int i = 0; i < this.iconArray.length; ++i)
-        {
-            this.iconArray[i] = icons.registerIcon(this.getIconString() + "_" + bowPullIconNames[i]);
-        }
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public IIcon getItemIconForUseDuration(int par1)
-    {
-        return this.iconArray[par1];
-    }
     
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4) {
@@ -144,15 +107,6 @@ public class ItemROCBow extends ROCModItem
     @Override
     public boolean isFull3D(){
     	return true;
-    }
-    
-    @Override
-    public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-        if (player.getItemInUse() == null) return itemIcon;
-        int pulling = stack.getMaxItemUseDuration() - useRemaining;
-        if (pulling >= 18) return iconArray[2];
-        if (pulling > 13) return iconArray[1];
-        return iconArray[0];
     }
     
     @Override

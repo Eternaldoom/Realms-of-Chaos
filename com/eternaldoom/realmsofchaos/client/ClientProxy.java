@@ -4,13 +4,12 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import com.eternaldoom.realmsofchaos.RealmsOfChaos;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 import com.jadarstudios.developercapes.DevCapes;
 import com.jadarstudios.developercapes.cape.CapeConfig;
 import com.jadarstudios.developercapes.cape.CapeConfigManager;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy {

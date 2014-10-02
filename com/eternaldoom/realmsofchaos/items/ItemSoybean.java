@@ -1,23 +1,21 @@
 package com.eternaldoom.realmsofchaos.items;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDoublePlant.EnumPlantType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.EnumPlantType;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
-public class ItemSoybean extends ROCModItem implements IPlantable{
+public class ItemSoybean extends ROCModItem /*implements IPlantable*/{
 
 	public ItemSoybean() {
-		super("realmsofchaos:soybean", "soybean");
+		super("soybean");
 	}
 
-	@Override
+	/*@Override
 	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
 		return EnumPlantType.Crop;
 	}
@@ -56,6 +54,6 @@ public class ItemSoybean extends ROCModItem implements IPlantable{
         {
             return false;
         }
-    }
+    }*/
 
 }

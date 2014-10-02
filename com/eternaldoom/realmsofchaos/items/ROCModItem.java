@@ -1,15 +1,14 @@
 package com.eternaldoom.realmsofchaos.items;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import com.eternaldoom.realmsofchaos.ROCTabs;
 
 public class ROCModItem extends Item{
 	
-	public ROCModItem(String tex, String name){
+	public ROCModItem(String name){
 		super();
-		setTextureName(tex);
 		setUnlocalizedName(name);
 		setCreativeTab(ROCTabs.Items);
 	}

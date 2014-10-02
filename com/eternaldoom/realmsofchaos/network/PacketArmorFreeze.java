@@ -1,19 +1,20 @@
 package com.eternaldoom.realmsofchaos.network;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
-
-import cpw.mods.fml.common.network.ByteBufUtils;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
-import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketArmorFreeze implements IMessage{
 	
@@ -44,6 +45,8 @@ public class PacketArmorFreeze implements IMessage{
 			int x = (int)Math.round(ctx.getServerHandler().playerEntity.posX);
 			int y = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posY);
 			int z = (int)Math.round(ctx.getServerHandler().playerEntity.posZ);
+			
+			BlockPos bp = new BlockPos(0, 0, 0);
 			Item helmet = null, chestplate = null, leggings = null, boots = null;
 			ItemStack stackBoots = ctx.getServerHandler().playerEntity.inventory.armorItemInSlot(0);
 			ItemStack stackLeggings = ctx.getServerHandler().playerEntity.inventory.armorItemInSlot(1);
@@ -56,46 +59,54 @@ public class PacketArmorFreeze implements IMessage{
 			if(stackBoots != null) boots = stackBoots.getItem();
 			
 			if (helmet == ROCItems.fractonite_helmet && chestplate == ROCItems.fractonite_chestplate && leggings == ROCItems.fractonite_leggings && boots == ROCItems.fractonite_boots){
-				if(w.getBlock(x, y-1, z) == Blocks.water) w.setBlock(x, y-1, z, ROCBlocks.fake_ice);
-				if(w.getBlock(x+1, y-1, z) == Blocks.water) w.setBlock(x+1, y-1, z, ROCBlocks.fake_ice);
-				if(w.getBlock(x, y-1, z+1) == Blocks.water) w.setBlock(x, y-1, z+1, ROCBlocks.fake_ice);
-				if(w.getBlock(x+1, y-1, z+1) == Blocks.water) w.setBlock(x+1, y-1, z+1, ROCBlocks.fake_ice);
-				if(w.getBlock(x-1, y-1, z) == Blocks.water) w.setBlock(x-1, y-1, z, ROCBlocks.fake_ice);
-				if(w.getBlock(x, y-1, z-1) == Blocks.water) w.setBlock(x, y-1, z-1, ROCBlocks.fake_ice);
-				if(w.getBlock(x-1, y-1, z-1) == Blocks.water) w.setBlock(x-1, y-1, z-1, ROCBlocks.fake_ice);
-				if(w.getBlock(x+1, y-1, z-1) == Blocks.water) w.setBlock(x+1, y-1, z-1, ROCBlocks.fake_ice);
-				if(w.getBlock(x-1, y-1, z+1) == Blocks.water) w.setBlock(x-1, y-1, z+1, ROCBlocks.fake_ice);
-				if(w.getBlock(x, y, z) == Blocks.water) w.setBlock(x, y, z, ROCBlocks.fake_ice);
-				if(w.getBlock(x+1, y, z) == Blocks.water) w.setBlock(x+1, y, z, ROCBlocks.fake_ice);
-				if(w.getBlock(x, y, z+1) == Blocks.water) w.setBlock(x, y, z+1, ROCBlocks.fake_ice);
-				if(w.getBlock(x+1, y, z+1) == Blocks.water) w.setBlock(x+1, y, z+1, ROCBlocks.fake_ice);
-				if(w.getBlock(x-1, y, z) == Blocks.water) w.setBlock(x-1, y, z, ROCBlocks.fake_ice);
-				if(w.getBlock(x, y, z-1) == Blocks.water) w.setBlock(x, y, z-1, ROCBlocks.fake_ice);
-				if(w.getBlock(x-1, y, z-1) == Blocks.water) w.setBlock(x-1, y, z-1, ROCBlocks.fake_ice);
-				if(w.getBlock(x+1, y, z-1) == Blocks.water) w.setBlock(x+1, y, z-1, ROCBlocks.fake_ice);
-				if(w.getBlock(x-1, y, z+1) == Blocks.water) w.setBlock(x-1, y, z+1, ROCBlocks.fake_ice);
-				if(w.getBlock(x, y-1, z) == Blocks.lava) w.setBlock(x, y-1, z, Blocks.stone);
-				if(w.getBlock(x+1, y-1, z) == Blocks.lava) w.setBlock(x+1, y-1, z, Blocks.stone);
-				if(w.getBlock(x, y-1, z+1) == Blocks.lava) w.setBlock(x, y-1, z+1, Blocks.stone);
-				if(w.getBlock(x+1, y-1, z+1) == Blocks.lava) w.setBlock(x+1, y-1, z+1, Blocks.stone);
-				if(w.getBlock(x-1, y-1, z) == Blocks.lava) w.setBlock(x-1, y-1, z, Blocks.stone);
-				if(w.getBlock(x, y-1, z-1) == Blocks.lava) w.setBlock(x, y-1, z-1, Blocks.stone);
-				if(w.getBlock(x-1, y-1, z-1) == Blocks.lava) w.setBlock(x-1, y-1, z-1, Blocks.stone);
-				if(w.getBlock(x+1, y-1, z-1) == Blocks.lava) w.setBlock(x+1, y-1, z-1, Blocks.stone);
-				if(w.getBlock(x-1, y-1, z+1) == Blocks.lava) w.setBlock(x-1, y-1, z+1, Blocks.stone);
-				if(w.getBlock(x, y, z) == Blocks.lava) w.setBlock(x, y, z, Blocks.stone);
-				if(w.getBlock(x+1, y, z) == Blocks.lava) w.setBlock(x+1, y, z, Blocks.stone);
-				if(w.getBlock(x, y, z+1) == Blocks.lava) w.setBlock(x, y, z+1, Blocks.stone);
-				if(w.getBlock(x+1, y, z+1) == Blocks.lava) w.setBlock(x+1, y, z+1, Blocks.stone);
-				if(w.getBlock(x-1, y, z) == Blocks.lava) w.setBlock(x-1, y, z, Blocks.stone);
-				if(w.getBlock(x, y, z-1) == Blocks.lava) w.setBlock(x, y, z-1, Blocks.stone);
-				if(w.getBlock(x-1, y, z-1) == Blocks.lava) w.setBlock(x-1, y, z-1, Blocks.stone);
-				if(w.getBlock(x+1, y, z-1) == Blocks.lava) w.setBlock(x+1, y, z-1, Blocks.stone);
-				if(w.getBlock(x-1, y, z+1) == Blocks.lava) w.setBlock(x-1, y, z+1, Blocks.stone);
+				if(getBlock(w, x, y-1, z, bp) == Blocks.water) setBlock(w, x, y-1, z, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x+1, y-1, z, bp) == Blocks.water) setBlock(w, x+1, y-1, z, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x, y-1, z+1, bp) == Blocks.water) setBlock(w, x, y-1, z+1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x+1, y-1, z+1, bp) == Blocks.water) setBlock(w, x+1, y-1, z+1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x-1, y-1, z, bp) == Blocks.water) setBlock(w, x-1, y-1, z, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x, y-1, z-1, bp) == Blocks.water) setBlock(w, x, y-1, z-1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x-1, y-1, z-1, bp) == Blocks.water) setBlock(w, x-1, y-1, z-1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x+1, y-1, z-1, bp) == Blocks.water) setBlock(w, x+1, y-1, z-1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x-1, y-1, z+1, bp) == Blocks.water) setBlock(w, x-1, y-1, z+1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x, y, z, bp) == Blocks.water) setBlock(w, x, y, z, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x+1, y, z, bp) == Blocks.water) setBlock(w, x+1, y, z, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x, y, z+1, bp) == Blocks.water) setBlock(w, x, y, z+1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x+1, y, z+1, bp) == Blocks.water) setBlock(w, x+1, y, z+1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x-1, y, z, bp) == Blocks.water) setBlock(w, x-1, y, z, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x, y, z-1, bp) == Blocks.water) setBlock(w, x, y, z-1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x-1, y, z-1, bp) == Blocks.water) setBlock(w, x-1, y, z-1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x+1, y, z-1, bp) == Blocks.water) setBlock(w, x+1, y, z-1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x-1, y, z+1, bp) == Blocks.water) setBlock(w, x-1, y, z+1, bp, ROCBlocks.fake_ice);
+				if(getBlock(w, x, y-1, z, bp) == Blocks.lava) setBlock(w, x, y-1, z, bp, Blocks.stone);
+				if(getBlock(w, x+1, y-1, z, bp) == Blocks.lava) setBlock(w, x+1, y-1, z, bp, Blocks.stone);
+				if(getBlock(w, x, y-1, z+1, bp) == Blocks.lava) setBlock(w, x, y-1, z+1, bp, Blocks.stone);
+				if(getBlock(w, x+1, y-1, z+1, bp) == Blocks.lava) setBlock(w, x+1, y-1, z+1, bp, Blocks.stone);
+				if(getBlock(w, x-1, y-1, z, bp) == Blocks.lava) setBlock(w, x-1, y-1, z, bp, Blocks.stone);
+				if(getBlock(w, x, y-1, z-1, bp) == Blocks.lava) setBlock(w, x, y-1, z-1, bp, Blocks.stone);
+				if(getBlock(w, x-1, y-1, z-1, bp) == Blocks.lava) setBlock(w, x-1, y-1, z-1, bp, Blocks.stone);
+				if(getBlock(w, x+1, y-1, z-1, bp) == Blocks.lava) setBlock(w, x+1, y-1, z-1, bp, Blocks.stone);
+				if(getBlock(w, x-1, y-1, z+1, bp) == Blocks.lava) setBlock(w, x-1, y-1, z+1, bp, Blocks.stone);
+				if(getBlock(w, x, y, z, bp) == Blocks.lava) setBlock(w, x, y, z, bp, Blocks.stone);
+				if(getBlock(w, x+1, y, z, bp) == Blocks.lava) setBlock(w, x+1, y, z, bp, Blocks.stone);
+				if(getBlock(w, x, y, z+1, bp) == Blocks.lava) setBlock(w, x, y, z+1, bp, Blocks.stone);
+				if(getBlock(w, x+1, y, z+1, bp) == Blocks.lava) setBlock(w, x+1, y, z+1, bp, Blocks.stone);
+				if(getBlock(w, x-1, y, z, bp) == Blocks.lava) setBlock(w, x-1, y, z, bp, Blocks.stone);
+				if(getBlock(w, x, y, z-1, bp) == Blocks.lava) setBlock(w, x, y, z-1, bp, Blocks.stone);
+				if(getBlock(w, x-1, y, z-1, bp) == Blocks.lava) setBlock(w, x-1, y, z-1, bp, Blocks.stone);
+				if(getBlock(w, x+1, y, z-1, bp) == Blocks.lava) setBlock(w, x+1, y, z-1, bp, Blocks.stone);
+				if(getBlock(w, x-1, y, z+1, bp) == Blocks.lava) setBlock(w, x-1, y, z+1, bp, Blocks.stone);
 			}
 			return null;
 		}
 		
+	}
+	
+	private static Block getBlock(World w, int x, int y, int z, BlockPos pos){
+		return w.getBlockState(pos.add(x-pos.getX(), y-pos.getY(), z-pos.getZ())).getBlock();
+	}
+	
+	private static void setBlock(World w, int x, int y, int z, BlockPos pos, Block b){
+		w.setBlockState(pos.add(pos.getX()+x, pos.getY()+y, pos.getX()+z), b.getDefaultState());
 	}
 
 }

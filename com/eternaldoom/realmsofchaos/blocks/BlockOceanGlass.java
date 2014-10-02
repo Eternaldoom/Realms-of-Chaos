@@ -1,19 +1,21 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.Facing;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.eternaldoom.realmsofchaos.ROCTabs;
 
 public class BlockOceanGlass extends ROCModBlock{
 
 	public BlockOceanGlass() {
-		super(Material.glass, "realmsofchaos:ocean_glass", "glassOcean", 3.5f, 0.1f, soundTypeGlass);
+		super(Material.glass, "glassOcean", 3.5f, 0.1f, soundTypeGlass);
 		setCreativeTab(ROCTabs.Blocks);
 	}
 	
@@ -23,29 +25,23 @@ public class BlockOceanGlass extends ROCModBlock{
 	}
 	
 	@Override
-	public boolean renderAsNormalBlock(){
+	public boolean isVisuallyOpaque(){
 		return false;
 	}
 	
 	@Override
-	public int getRenderBlockPass(){
-		return 1;
-	}
-	
 	@SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
+	public EnumWorldBlockLayer getBlockLayer()
     {
-        Block block = p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_);
-            if (p_149646_1_.getBlockMetadata(p_149646_2_, p_149646_3_, p_149646_4_) != p_149646_1_.getBlockMetadata(p_149646_2_ - Facing.offsetsXForSide[p_149646_5_], p_149646_3_ - Facing.offsetsYForSide[p_149646_5_], p_149646_4_ - Facing.offsetsZForSide[p_149646_5_]))
-            {
-                return true;
-            }
+        return EnumWorldBlockLayer.TRANSLUCENT;
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess world, BlockPos pos, EnumFacing side)
+    {
+        IBlockState block = world.getBlockState(pos);
 
-            if (block == this)
-            {
-                return false;
-            }
-
-        return block == this ? false : super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
+        return block == this.getDefaultState() ? false : super.shouldSideBeRendered(world, pos, side);
     }
 }

@@ -1,10 +1,12 @@
 package com.eternaldoom.realmsofchaos.client.entityrenderer;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
@@ -20,7 +22,7 @@ public class RenderFish extends RenderLiving {
 	private float scaleZ;
 
 	public RenderFish(String texturename, float scaleX, float scaleY, float scaleZ) {
-		super(new ModelGiantFish(), scaleZ);
+		super(Minecraft.getMinecraft().getRenderManager(), new ModelGiantFish(), scaleZ);
 		texture = new ResourceLocation("realmsofchaos:textures/entity/" + texturename + ".png");
 		this.scaleX = scaleX;
 		this.scaleY = scaleY;
@@ -34,11 +36,11 @@ public class RenderFish extends RenderLiving {
 
 	protected void preRenderCallback(EntityLivingBase entity, float p_77041_2_) {
 		GL11.glTranslatef(0f, 1f, 0f);
-		if (entity.worldObj.getBlock((int) Math.round(entity.posX),
-				(int) Math.floor(entity.posY), (int) Math.round(entity.posZ)) == Blocks.air
-				|| entity.worldObj.getBlock((int) Math.round(entity.posX),
+		if (entity.worldObj.getBlockState(new BlockPos((int) Math.round(entity.posX),
+				(int) Math.floor(entity.posY), (int) Math.round(entity.posZ))).getBlock() == Blocks.air
+				|| entity.worldObj.getBlockState(new BlockPos((int) Math.round(entity.posX),
 						(int) Math.floor(entity.posY),
-						(int) Math.round(entity.posZ)).getMaterial() == Material.plants){
+						(int) Math.round(entity.posZ))).getBlock().getMaterial() == Material.plants){
 			GL11.glRotatef(90, 0, 0, 1f);
 			if(entity instanceof EntityGiantFish)GL11.glTranslatef(0f, 3.5f, 0f);
 			if(entity instanceof EntityKelpFish)GL11.glTranslatef(-1f, 1f, 0f);

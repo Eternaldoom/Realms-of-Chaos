@@ -30,7 +30,7 @@ public class EntityAquaticGolem extends EntityMob{
         this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
         setSize(0.6F, 1.8F);
 	}
 
@@ -52,11 +52,6 @@ public class EntityAquaticGolem extends EntityMob{
         this.getDataWatcher().addObject(13, Byte.valueOf((byte)0));
         this.getDataWatcher().addObject(14, Byte.valueOf((byte)0));
     }
-	
-	@Override
-	protected boolean isAIEnabled(){
-		return true;
-	}
 	
 	@Override
 	protected String getLivingSound()
@@ -99,6 +94,6 @@ public class EntityAquaticGolem extends EntityMob{
     @Override
     public boolean getCanSpawnHere()
     {
-        return this.worldObj.difficultySetting != EnumDifficulty.PEACEFUL && !this.worldObj.isAnyLiquid(this.boundingBox);
+        return this.worldObj.getDifficulty() != EnumDifficulty.PEACEFUL && !this.worldObj.isAnyLiquid(this.getBoundingBox());
     }
 }

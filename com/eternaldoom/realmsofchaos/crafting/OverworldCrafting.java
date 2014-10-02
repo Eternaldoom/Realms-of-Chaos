@@ -4,11 +4,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class OverworldCrafting {
 	

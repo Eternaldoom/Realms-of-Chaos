@@ -1,9 +1,8 @@
 package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
-import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.model.ModelRenderer;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelTransparentDoubleChest extends ModelTransparentChest

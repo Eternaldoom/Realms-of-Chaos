@@ -1,16 +1,17 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.state.IBlockState;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import com.eternaldoom.realmsofchaos.ROCTabs;
 
 public class BlockROCStairs extends BlockStairs{
 
-	public BlockROCStairs(Block b, int meta, String name) {
-		super(b, meta);
-		setBlockName(name);
+	public BlockROCStairs(Block b, IBlockState modelBlockState, String name) {
+		super(modelBlockState);
+		setUnlocalizedName(name);
 		setCreativeTab(ROCTabs.Blocks);
 	}
 

@@ -10,16 +10,15 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemROCTool extends ROCModItem
 {
@@ -35,9 +34,9 @@ public class ItemROCTool extends ROCModItem
      */
     protected Item.ToolMaterial toolMaterial;
 
-    public ItemROCTool(float p_i45333_1_, Item.ToolMaterial tool, Set p_i45333_3_, String tex, String name, boolean vanilla)
+    public ItemROCTool(float p_i45333_1_, Item.ToolMaterial tool, Set p_i45333_3_, String name, boolean vanilla)
     {
-    	super(tex, name);
+    	super(name);
         this.toolMaterial = tool;
         this.field_150914_c = p_i45333_3_;
         this.maxStackSize = 1;
@@ -77,7 +76,7 @@ public class ItemROCTool extends ROCModItem
     }
     
     @Override
-    public float func_150893_a(ItemStack p_150893_1_, Block p_150893_2_)
+    public float getStrVsBlock(ItemStack p_150893_1_, Block p_150893_2_)
     {
         return this.field_150914_c.contains(p_150893_2_) ? this.efficiencyOnProperMaterial : 1.0F;
     }
@@ -94,9 +93,9 @@ public class ItemROCTool extends ROCModItem
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, int p_150894_4_, int p_150894_5_, int p_150894_6_, EntityLivingBase p_150894_7_)
+    public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, BlockPos pos, EntityLivingBase p_150894_7_)
     {
-        if ((double)p_150894_3_.getBlockHardness(p_150894_2_, p_150894_4_, p_150894_5_, p_150894_6_) != 0.0D)
+        if ((double)p_150894_3_.getBlockHardness(p_150894_2_, pos) != 0.0D)
         {
             p_150894_1_.damageItem(1, p_150894_7_);
         }
@@ -142,23 +141,23 @@ public class ItemROCTool extends ROCModItem
     @Override
     public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
     {
-        return this.toolMaterial.func_150995_f() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+        return this.toolMaterial.getBaseItemForRepair() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
     }
 
     /**
      * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
      */
     @Override
-    public Multimap getAttributeModifiers(ItemStack stack)
+    public Multimap getItemAttributeModifiers()
     {
         Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Tool modifier", (double)this.damageVsEntity, 0));
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(itemModifierUUID, "Tool modifier", (double)this.damageVsEntity, 0));
         return multimap;
     }
     
     private String toolClass;
     
-    @Override
+    /*@Override
     public int getHarvestLevel(ItemStack stack, String toolClass)
     {
         int level = super.getHarvestLevel(stack, toolClass);
@@ -186,5 +185,5 @@ public class ItemROCTool extends ROCModItem
             return efficiencyOnProperMaterial;
         }
         return super.getDigSpeed(stack, block, meta);
-    }
+    }*/
 }

@@ -1,10 +1,9 @@
 package com.eternaldoom.realmsofchaos.items;
 
 import net.minecraft.item.ItemHoe;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ItemROCHoe extends ItemHoe
 {

@@ -2,12 +2,11 @@ package com.eternaldoom.realmsofchaos.entity;
 
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
-
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class Entities {
 	
@@ -32,8 +31,8 @@ public class Entities {
 	    {
 			if (BiomeGenBase.getBiomeGenArray()[i] != null)
 	        {
-				EntityRegistry.addSpawn(EntityScorpioid.class, 130, 2, 5, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
-				EntityRegistry.addSpawn(EntityVoidCrawler.class, 100, 1, 2, EnumCreatureType.monster, BiomeGenBase.getBiomeGenArray()[i]);
+				EntityRegistry.addSpawn(EntityScorpioid.class, 130, 2, 5, EnumCreatureType.MONSTER, BiomeGenBase.getBiomeGenArray()[i]);
+				EntityRegistry.addSpawn(EntityVoidCrawler.class, 100, 1, 2, EnumCreatureType.MONSTER, BiomeGenBase.getBiomeGenArray()[i]);
 	        }
 	    }
 	}

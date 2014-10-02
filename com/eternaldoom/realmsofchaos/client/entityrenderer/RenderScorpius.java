@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.client.entityrenderer;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -16,7 +17,7 @@ public class RenderScorpius extends RenderLiving{
 	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/entity/scorpius.png");
 	
 	public RenderScorpius() {
-		super(new ModelScorpius(), 1f);
+		super(Minecraft.getMinecraft().getRenderManager(), new ModelScorpius(), 1f);
 	}
 
 	@Override

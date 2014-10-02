@@ -4,14 +4,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
 
 public class ArmorBonusEvent {
 	public static boolean hasAquatic;
@@ -30,8 +30,8 @@ public class ArmorBonusEvent {
 		if(stackBoots != null) boots = stackBoots.getItem();
 
 		if (helmet == ROCItems.flame_helmet && chestplate == ROCItems.flame_chestplate && leggings == ROCItems.flame_leggings && boots == ROCItems.flame_boots){
-			evt.player.addPotionEffect(new PotionEffect(12, 20, 0, true));
-			if(evt.player.worldObj.getBlock((int)Math.round(evt.player.posX), MathHelper.floor_double(evt.player.posY), (int)Math.round(evt.player.posZ)).getMaterial() == Material.lava){
+			evt.player.addPotionEffect(new PotionEffect(12, 20, 0, true, false));
+			if(evt.player.worldObj.getBlockState(new BlockPos((int)Math.round(evt.player.posX), MathHelper.floor_double(evt.player.posY), (int)Math.round(evt.player.posZ))).getBlock().getMaterial() == Material.lava){
 				evt.player.capabilities.isFlying = true;
 				hasFlamestone = true;
 			}else{
@@ -46,7 +46,7 @@ public class ArmorBonusEvent {
 			hasAquatic = true;
 			if(evt.player.isInWater()){
 				evt.player.capabilities.isFlying = true;
-				evt.player.addPotionEffect(new PotionEffect(13, 1, 0, true));
+				evt.player.addPotionEffect(new PotionEffect(13, 1, 0, true, false));
 			}else{
 				if(!evt.player.capabilities.isCreativeMode){
 					evt.player.capabilities.isFlying = false;

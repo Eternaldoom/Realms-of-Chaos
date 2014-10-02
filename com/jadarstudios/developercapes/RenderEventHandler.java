@@ -1,18 +1,18 @@
 package com.jadarstudios.developercapes;
 
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
 import com.jadarstudios.developercapes.cape.ICape;
 import com.jadarstudios.developercapes.user.User;
 import com.jadarstudios.developercapes.user.UserManager;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraftforge.client.event.RenderPlayerEvent;
 
 /**
  * @author jadar
  */
 public class RenderEventHandler {
 
-    @SubscribeEvent
+    /*@SubscribeEvent
     public void renderPlayer(RenderPlayerEvent.Specials.Pre event) {
         AbstractClientPlayer player = (AbstractClientPlayer) event.entityPlayer;
 
@@ -27,6 +27,6 @@ public class RenderEventHandler {
         if (!flag) {
             cape.loadTexture(player);
         }
-    }
+    }*/
 
 }

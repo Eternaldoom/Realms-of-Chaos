@@ -1,9 +1,9 @@
 package com.eternaldoom.realmsofchaos.event;
 
-import com.eternaldoom.realmsofchaos.client.ROCKeyBindings;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
+import com.eternaldoom.realmsofchaos.client.ROCKeyBindings;
 
 public class KeyPress {
 	

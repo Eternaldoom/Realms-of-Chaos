@@ -1,213 +1,74 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
-import static net.minecraftforge.common.util.ForgeDirection.DOWN;
-
+import java.util.Iterator;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.InventoryLargeChest;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
+public class BlockNetherChest extends BlockContainer
+{
+    public static final PropertyDirection FACING_PROP = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+    private final Random rand = new Random();
 
-import cpw.mods.fml.common.registry.GameRegistry;
-
-public class BlockNetherChest extends BlockContainer{
-	
-	protected BlockNetherChest() {
-		super(Material.rock);
-		setCreativeTab(ROCTabs.Blocks);
-		setBlockTextureName("realmsofchaos:charwood_planks");
-		setHardness(12.0f);
-		setResistance(10.0f);
-		setBlockName("chestNether");
-		setStepSound(soundTypePiston);
-		setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
-	}
-	
-	public BlockNetherChest register(String name){
-		GameRegistry.registerBlock(this, name);
-		return this;
-	}
-
-	@Override
-	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		return new TileEntityNetherChest();
-	}
-	
-	@Override
-	public boolean isOpaqueCube(){
-		return false;
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock(){
-		return false;
-	}
-	
-	@Override
-	public boolean onBlockActivated(World p_149727_1_, int p_149727_2_, int p_149727_3_, int p_149727_4_, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
+    protected BlockNetherChest()
     {
-        if (p_149727_1_.isRemote)
-        {
-            return true;
-        }
-        else
-        {
-            IInventory iinventory = this.getInventoryType(p_149727_1_, p_149727_2_, p_149727_3_, p_149727_4_);
-
-            if (iinventory != null)
-            {
-                p_149727_5_.displayGUIChest(iinventory);
-            }
-
-            return true;
-        }
+        super(Material.wood);
+        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING_PROP, EnumFacing.NORTH));
+        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
     }
 
-    public IInventory getInventoryType(World p_149951_1_, int p_149951_2_, int p_149951_3_, int p_149951_4_)
+    public boolean isOpaqueCube()
     {
-        Object object = (TileEntityNetherChest)p_149951_1_.getTileEntity(p_149951_2_, p_149951_3_, p_149951_4_);
-
-        if (object == null)
-        {
-            return null;
-        }
-        else if (p_149951_1_.isSideSolid(p_149951_2_, p_149951_3_ + 1, p_149951_4_, DOWN))
-        {
-            return null;
-        }
-        else if (p_149951_1_.getBlock(p_149951_2_ - 1, p_149951_3_, p_149951_4_) == this && (p_149951_1_.isSideSolid(p_149951_2_ - 1, p_149951_3_ + 1, p_149951_4_, DOWN)))
-        {
-            return null;
-        }
-        else if (p_149951_1_.getBlock(p_149951_2_ + 1, p_149951_3_, p_149951_4_) == this && (p_149951_1_.isSideSolid(p_149951_2_ + 1, p_149951_3_ + 1, p_149951_4_, DOWN)))
-        {
-            return null;
-        }
-        else if (p_149951_1_.getBlock(p_149951_2_, p_149951_3_, p_149951_4_ - 1) == this && (p_149951_1_.isSideSolid(p_149951_2_, p_149951_3_ + 1, p_149951_4_ - 1, DOWN)))
-        {
-            return null;
-        }
-        else if (p_149951_1_.getBlock(p_149951_2_, p_149951_3_, p_149951_4_ + 1) == this && (p_149951_1_.isSideSolid(p_149951_2_, p_149951_3_ + 1, p_149951_4_ + 1, DOWN)))
-        {
-            return null;
-        }
-        else
-        {
-            if (p_149951_1_.getBlock(p_149951_2_ - 1, p_149951_3_, p_149951_4_) == this)
-            {
-                object = new InventoryLargeChest("container.chestDouble", (TileEntityNetherChest)p_149951_1_.getTileEntity(p_149951_2_ - 1, p_149951_3_, p_149951_4_), (IInventory)object);
-            }
-
-            if (p_149951_1_.getBlock(p_149951_2_ + 1, p_149951_3_, p_149951_4_) == this)
-            {
-                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityNetherChest)p_149951_1_.getTileEntity(p_149951_2_ + 1, p_149951_3_, p_149951_4_));
-            }
-
-            if (p_149951_1_.getBlock(p_149951_2_, p_149951_3_, p_149951_4_ - 1) == this)
-            {
-                object = new InventoryLargeChest("container.chestDouble", (TileEntityNetherChest)p_149951_1_.getTileEntity(p_149951_2_, p_149951_3_, p_149951_4_ - 1), (IInventory)object);
-            }
-
-            if (p_149951_1_.getBlock(p_149951_2_, p_149951_3_, p_149951_4_ + 1) == this)
-            {
-                object = new InventoryLargeChest("container.chestDouble", (IInventory)object, (TileEntityNetherChest)p_149951_1_.getTileEntity(p_149951_2_, p_149951_3_, p_149951_4_ + 1));
-            }
-
-            return (IInventory)object;
-        }
+        return false;
     }
-	
-	@Override
-	public void breakBlock(World world, int i, int j, int k, Block block, int par6) {
-		TileEntityNetherChest items = (TileEntityNetherChest)world.getTileEntity(i, j, k);
-		if(items != null) {
-			ItemStack itemstack = null;
-			for(int i1 = 0; i1 < items.getSizeInventory(); i1++) {
-				itemstack = items.getStackInSlot(i1);
-				if(itemstack != null) {
-					Random rand = new Random();
-					float f = rand.nextFloat() * 0.8F + 0.1F;
-					float f1 = rand.nextFloat() * 0.8F + 0.1F;
-					float f3 = 0.05F;
-					EntityItem entityitem;
 
-					for(float f2 = rand.nextFloat() * 0.8F + 0.1F; itemstack.stackSize > 0; world.spawnEntityInWorld(entityitem)) {
-						int j1 = rand.nextInt(21) + 10;
-						if(j1 > itemstack.stackSize)
-							j1 = itemstack.stackSize;
-
-						itemstack.stackSize -= j1;
-						entityitem = new EntityItem(world, (double)((float)i + f), (double)((float)i + f1), (double)((float)k + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
-						entityitem.motionX = (double)((float)rand.nextGaussian() * f3);
-						entityitem.motionY = (double)((float)rand.nextGaussian() * f3 + 0.2F);
-						entityitem.motionZ = (double)((float)rand.nextGaussian() * f3);
-					}
-				}
-			}
-			world.func_147453_f(i, j, k, block);
-		}
-		super.breakBlock(world, i, j, k, block, par6);
-	}
-
-	private IInventory getInventory(World world, int i, int j, int k) {
-		Object obj = (TileEntityNetherChest)world.getTileEntity(i, j, k);
-		return (IInventory)obj;
-	}
-
-	@Override
-	public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entity, ItemStack stack) {
-		int l = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
-		int i1 = world.getBlockMetadata(i, j, k);
-		++l;
-		l %= 4;
-
-		if (l == 0) 
-			world.setBlockMetadataWithNotify(i, j, k, 4, 2);
-
-		if (l == 1) 
-			world.setBlockMetadataWithNotify(i, j, k, 2, 2);
-
-		if (l == 2) 
-			world.setBlockMetadataWithNotify(i, j, k, 5, 2);
-
-		if (l == 3) 
-			world.setBlockMetadataWithNotify(i, j, k, 0, 2);
-	}
-
-	@Override
-	public int getRenderType() {
-		return -1;
-	}
-	
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_)
+    public boolean isFullCube()
     {
-        if (p_149719_1_.getBlock(p_149719_2_, p_149719_3_, p_149719_4_ - 1) == this)
+        return false;
+    }
+
+    public int getRenderType()
+    {
+        return 2;
+    }
+
+    public void setBlockBoundsBasedOnState(IBlockAccess access, BlockPos pos)
+    {
+        if (access.getBlockState(pos.offsetNorth()).getBlock() == this)
         {
             this.setBlockBounds(0.0625F, 0.0F, 0.0F, 0.9375F, 0.875F, 0.9375F);
         }
-        else if (p_149719_1_.getBlock(p_149719_2_, p_149719_3_, p_149719_4_ + 1) == this)
+        else if (access.getBlockState(pos.offsetSouth()).getBlock() == this)
         {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 1.0F);
         }
-        else if (p_149719_1_.getBlock(p_149719_2_ - 1, p_149719_3_, p_149719_4_) == this)
+        else if (access.getBlockState(pos.offsetWest()).getBlock() == this)
         {
             this.setBlockBounds(0.0F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         }
-        else if (p_149719_1_.getBlock(p_149719_2_ + 1, p_149719_3_, p_149719_4_) == this)
+        else if (access.getBlockState(pos.offsetEast()).getBlock() == this)
         {
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 1.0F, 0.875F, 0.9375F);
         }
@@ -216,152 +77,479 @@ public class BlockNetherChest extends BlockContainer{
             this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
         }
     }
-	
-	public void func_149954_e(World p_149954_1_, int p_149954_2_, int p_149954_3_, int p_149954_4_)
+
+    public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
     {
-        if (!p_149954_1_.isRemote)
+        this.checkForSurroundingChests(worldIn, pos, state);
+        Iterator iterator = EnumFacing.Plane.HORIZONTAL.iterator();
+
+        while (iterator.hasNext())
         {
-            Block block = p_149954_1_.getBlock(p_149954_2_, p_149954_3_, p_149954_4_ - 1);
-            Block block1 = p_149954_1_.getBlock(p_149954_2_, p_149954_3_, p_149954_4_ + 1);
-            Block block2 = p_149954_1_.getBlock(p_149954_2_ - 1, p_149954_3_, p_149954_4_);
-            Block block3 = p_149954_1_.getBlock(p_149954_2_ + 1, p_149954_3_, p_149954_4_);
-            boolean flag = true;
-            int l;
-            Block block4;
-            int i1;
-            Block block5;
-            boolean flag1;
-            byte b0;
-            int j1;
+            EnumFacing enumfacing = (EnumFacing)iterator.next();
+            BlockPos blockpos1 = pos.offset(enumfacing);
+            IBlockState iblockstate1 = worldIn.getBlockState(blockpos1);
+
+            if (iblockstate1.getBlock() == this)
+            {
+                this.checkForSurroundingChests(worldIn, blockpos1, iblockstate1);
+            }
+        }
+    }
+
+    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+        return this.getDefaultState().withProperty(FACING_PROP, placer.func_174811_aO());
+    }
+
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack)
+    {
+        EnumFacing enumfacing = EnumFacing.getHorizontal(MathHelper.floor_double((double)(placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
+        state = state.withProperty(FACING_PROP, enumfacing);
+        BlockPos blockpos1 = pos.offsetNorth();
+        BlockPos blockpos2 = pos.offsetSouth();
+        BlockPos blockpos3 = pos.offsetWest();
+        BlockPos blockpos4 = pos.offsetEast();
+        boolean flag = this == worldIn.getBlockState(blockpos1).getBlock();
+        boolean flag1 = this == worldIn.getBlockState(blockpos2).getBlock();
+        boolean flag2 = this == worldIn.getBlockState(blockpos3).getBlock();
+        boolean flag3 = this == worldIn.getBlockState(blockpos4).getBlock();
+
+        if (!flag && !flag1 && !flag2 && !flag3)
+        {
+            worldIn.setBlockState(pos, state, 3);
+        }
+        else if (enumfacing.getAxis() == EnumFacing.Axis.X && (flag || flag1))
+        {
+            if (flag)
+            {
+                worldIn.setBlockState(blockpos1, state, 3);
+            }
+            else
+            {
+                worldIn.setBlockState(blockpos2, state, 3);
+            }
+
+            worldIn.setBlockState(pos, state, 3);
+        }
+        else if (enumfacing.getAxis() == EnumFacing.Axis.Z && (flag2 || flag3))
+        {
+            if (flag2)
+            {
+                worldIn.setBlockState(blockpos3, state, 3);
+            }
+            else
+            {
+                worldIn.setBlockState(blockpos4, state, 3);
+            }
+
+            worldIn.setBlockState(pos, state, 3);
+        }
+
+        if (stack.hasDisplayName())
+        {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+
+            if (tileentity instanceof TileEntityNetherChest)
+            {
+                ((TileEntityNetherChest)tileentity).setCustomName(stack.getDisplayName());
+            }
+        }
+    }
+
+    public IBlockState checkForSurroundingChests(World worldIn, BlockPos p_176455_2_, IBlockState p_176455_3_)
+    {
+        if (worldIn.isRemote)
+        {
+            return p_176455_3_;
+        }
+        else
+        {
+            IBlockState iblockstate1 = worldIn.getBlockState(p_176455_2_.offsetNorth());
+            IBlockState iblockstate2 = worldIn.getBlockState(p_176455_2_.offsetSouth());
+            IBlockState iblockstate3 = worldIn.getBlockState(p_176455_2_.offsetWest());
+            IBlockState iblockstate4 = worldIn.getBlockState(p_176455_2_.offsetEast());
+            EnumFacing enumfacing = (EnumFacing)p_176455_3_.getValue(FACING_PROP);
+            Block block = iblockstate1.getBlock();
+            Block block1 = iblockstate2.getBlock();
+            Block block2 = iblockstate3.getBlock();
+            Block block3 = iblockstate4.getBlock();
 
             if (block != this && block1 != this)
             {
-                if (block2 != this && block3 != this)
+                boolean flag = block.isFullBlock();
+                boolean flag1 = block1.isFullBlock();
+
+                if (block2 == this || block3 == this)
                 {
-                    b0 = 3;
-
-                    if (block.func_149730_j() && !block1.func_149730_j())
-                    {
-                        b0 = 3;
-                    }
-
-                    if (block1.func_149730_j() && !block.func_149730_j())
-                    {
-                        b0 = 2;
-                    }
-
-                    if (block2.func_149730_j() && !block3.func_149730_j())
-                    {
-                        b0 = 5;
-                    }
-
-                    if (block3.func_149730_j() && !block2.func_149730_j())
-                    {
-                        b0 = 4;
-                    }
-                }
-                else
-                {
-                    l = block2 == this ? p_149954_2_ - 1 : p_149954_2_ + 1;
-                    block4 = p_149954_1_.getBlock(l, p_149954_3_, p_149954_4_ - 1);
-                    i1 = block2 == this ? p_149954_2_ - 1 : p_149954_2_ + 1;
-                    block5 = p_149954_1_.getBlock(i1, p_149954_3_, p_149954_4_ + 1);
-                    b0 = 3;
-                    flag1 = true;
+                    BlockPos blockpos2 = block2 == this ? p_176455_2_.offsetWest() : p_176455_2_.offsetEast();
+                    IBlockState iblockstate7 = worldIn.getBlockState(blockpos2.offsetNorth());
+                    IBlockState iblockstate8 = worldIn.getBlockState(blockpos2.offsetSouth());
+                    enumfacing = EnumFacing.SOUTH;
+                    EnumFacing enumfacing2;
 
                     if (block2 == this)
                     {
-                        j1 = p_149954_1_.getBlockMetadata(p_149954_2_ - 1, p_149954_3_, p_149954_4_);
+                        enumfacing2 = (EnumFacing)iblockstate3.getValue(FACING_PROP);
                     }
                     else
                     {
-                        j1 = p_149954_1_.getBlockMetadata(p_149954_2_ + 1, p_149954_3_, p_149954_4_);
+                        enumfacing2 = (EnumFacing)iblockstate4.getValue(FACING_PROP);
                     }
 
-                    if (j1 == 2)
+                    if (enumfacing2 == EnumFacing.NORTH)
                     {
-                        b0 = 2;
+                        enumfacing = EnumFacing.NORTH;
                     }
 
-                    if ((block.func_149730_j() || block4.func_149730_j()) && !block1.func_149730_j() && !block5.func_149730_j())
+                    Block block6 = iblockstate7.getBlock();
+                    Block block7 = iblockstate8.getBlock();
+
+                    if ((flag || block6.isFullBlock()) && !flag1 && !block7.isFullBlock())
                     {
-                        b0 = 3;
+                        enumfacing = EnumFacing.SOUTH;
                     }
 
-                    if ((block1.func_149730_j() || block5.func_149730_j()) && !block.func_149730_j() && !block4.func_149730_j())
+                    if ((flag1 || block7.isFullBlock()) && !flag && !block6.isFullBlock())
                     {
-                        b0 = 2;
+                        enumfacing = EnumFacing.NORTH;
                     }
                 }
             }
             else
             {
-                l = block == this ? p_149954_4_ - 1 : p_149954_4_ + 1;
-                block4 = p_149954_1_.getBlock(p_149954_2_ - 1, p_149954_3_, l);
-                i1 = block == this ? p_149954_4_ - 1 : p_149954_4_ + 1;
-                block5 = p_149954_1_.getBlock(p_149954_2_ + 1, p_149954_3_, i1);
-                b0 = 5;
-                flag1 = true;
+                BlockPos blockpos1 = block == this ? p_176455_2_.offsetNorth() : p_176455_2_.offsetSouth();
+                IBlockState iblockstate5 = worldIn.getBlockState(blockpos1.offsetWest());
+                IBlockState iblockstate6 = worldIn.getBlockState(blockpos1.offsetEast());
+                enumfacing = EnumFacing.EAST;
+                EnumFacing enumfacing1;
 
                 if (block == this)
                 {
-                    j1 = p_149954_1_.getBlockMetadata(p_149954_2_, p_149954_3_, p_149954_4_ - 1);
+                    enumfacing1 = (EnumFacing)iblockstate1.getValue(FACING_PROP);
                 }
                 else
                 {
-                    j1 = p_149954_1_.getBlockMetadata(p_149954_2_, p_149954_3_, p_149954_4_ + 1);
+                    enumfacing1 = (EnumFacing)iblockstate2.getValue(FACING_PROP);
                 }
 
-                if (j1 == 4)
+                if (enumfacing1 == EnumFacing.WEST)
                 {
-                    b0 = 4;
+                    enumfacing = EnumFacing.WEST;
                 }
 
-                if ((block2.func_149730_j() || block4.func_149730_j()) && !block3.func_149730_j() && !block5.func_149730_j())
+                Block block4 = iblockstate5.getBlock();
+                Block block5 = iblockstate6.getBlock();
+
+                if ((block2.isFullBlock() || block4.isFullBlock()) && !block3.isFullBlock() && !block5.isFullBlock())
                 {
-                    b0 = 5;
+                    enumfacing = EnumFacing.EAST;
                 }
 
-                if ((block3.func_149730_j() || block5.func_149730_j()) && !block2.func_149730_j() && !block4.func_149730_j())
+                if ((block3.isFullBlock() || block5.isFullBlock()) && !block2.isFullBlock() && !block4.isFullBlock())
                 {
-                    b0 = 4;
+                    enumfacing = EnumFacing.WEST;
                 }
             }
 
-            p_149954_1_.setBlockMetadataWithNotify(p_149954_2_, p_149954_3_, p_149954_4_, b0, 3);
+            p_176455_3_ = p_176455_3_.withProperty(FACING_PROP, enumfacing);
+            worldIn.setBlockState(p_176455_2_, p_176455_3_, 3);
+            return p_176455_3_;
         }
     }
-	
-	@Override
-	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
+
+    public IBlockState func_176458_f(World worldIn, BlockPos p_176458_2_, IBlockState p_176458_3_)
     {
-        int l = 0;
+        EnumFacing enumfacing = null;
+        Iterator iterator = EnumFacing.Plane.HORIZONTAL.iterator();
 
-        if (p_149742_1_.getBlock(p_149742_2_ - 1, p_149742_3_, p_149742_4_) == this)
+        while (iterator.hasNext())
         {
-            ++l;
+            EnumFacing enumfacing1 = (EnumFacing)iterator.next();
+            IBlockState iblockstate1 = worldIn.getBlockState(p_176458_2_.offset(enumfacing1));
+
+            if (iblockstate1.getBlock() == this)
+            {
+                return p_176458_3_;
+            }
+
+            if (iblockstate1.getBlock().isFullBlock())
+            {
+                if (enumfacing != null)
+                {
+                    enumfacing = null;
+                    break;
+                }
+
+                enumfacing = enumfacing1;
+            }
         }
 
-        if (p_149742_1_.getBlock(p_149742_2_ + 1, p_149742_3_, p_149742_4_) == this)
+        if (enumfacing != null)
         {
-            ++l;
+            return p_176458_3_.withProperty(FACING_PROP, enumfacing.getOpposite());
         }
-
-        if (p_149742_1_.getBlock(p_149742_2_, p_149742_3_, p_149742_4_ - 1) == this)
+        else
         {
-            ++l;
-        }
+            EnumFacing enumfacing2 = (EnumFacing)p_176458_3_.getValue(FACING_PROP);
 
-        if (p_149742_1_.getBlock(p_149742_2_, p_149742_3_, p_149742_4_ + 1) == this)
-        {
-            ++l;
-        }
+            if (worldIn.getBlockState(p_176458_2_.offset(enumfacing2)).getBlock().isFullBlock())
+            {
+                enumfacing2 = enumfacing2.getOpposite();
+            }
 
-        return l > 1 ? false : (this.func_149952_n(p_149742_1_, p_149742_2_ - 1, p_149742_3_, p_149742_4_) ? false : (this.func_149952_n(p_149742_1_, p_149742_2_ + 1, p_149742_3_, p_149742_4_) ? false : (this.func_149952_n(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_ - 1) ? false : !this.func_149952_n(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_ + 1))));
+            if (worldIn.getBlockState(p_176458_2_.offset(enumfacing2)).getBlock().isFullBlock())
+            {
+                enumfacing2 = enumfacing2.rotateY();
+            }
+
+            if (worldIn.getBlockState(p_176458_2_.offset(enumfacing2)).getBlock().isFullBlock())
+            {
+                enumfacing2 = enumfacing2.getOpposite();
+            }
+
+            return p_176458_3_.withProperty(FACING_PROP, enumfacing2);
+        }
     }
-	
-	private boolean func_149952_n(World p_149952_1_, int p_149952_2_, int p_149952_3_, int p_149952_4_)
+
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
-        return p_149952_1_.getBlock(p_149952_2_, p_149952_3_, p_149952_4_) != this ? false : (p_149952_1_.getBlock(p_149952_2_ - 1, p_149952_3_, p_149952_4_) == this ? true : (p_149952_1_.getBlock(p_149952_2_ + 1, p_149952_3_, p_149952_4_) == this ? true : (p_149952_1_.getBlock(p_149952_2_, p_149952_3_, p_149952_4_ - 1) == this ? true : p_149952_1_.getBlock(p_149952_2_, p_149952_3_, p_149952_4_ + 1) == this)));
+        int i = 0;
+        BlockPos blockpos1 = pos.offsetWest();
+        BlockPos blockpos2 = pos.offsetEast();
+        BlockPos blockpos3 = pos.offsetNorth();
+        BlockPos blockpos4 = pos.offsetSouth();
+
+        if (worldIn.getBlockState(blockpos1).getBlock() == this)
+        {
+            if (this.isSurroundingBlockChest(worldIn, blockpos1))
+            {
+                return false;
+            }
+
+            ++i;
+        }
+
+        if (worldIn.getBlockState(blockpos2).getBlock() == this)
+        {
+            if (this.isSurroundingBlockChest(worldIn, blockpos2))
+            {
+                return false;
+            }
+
+            ++i;
+        }
+
+        if (worldIn.getBlockState(blockpos3).getBlock() == this)
+        {
+            if (this.isSurroundingBlockChest(worldIn, blockpos3))
+            {
+                return false;
+            }
+
+            ++i;
+        }
+
+        if (worldIn.getBlockState(blockpos4).getBlock() == this)
+        {
+            if (this.isSurroundingBlockChest(worldIn, blockpos4))
+            {
+                return false;
+            }
+
+            ++i;
+        }
+
+        return i <= 1;
+    }
+
+    private boolean isSurroundingBlockChest(World worldIn, BlockPos p_176454_2_)
+    {
+        if (worldIn.getBlockState(p_176454_2_).getBlock() != this)
+        {
+            return false;
+        }
+        else
+        {
+            Iterator iterator = EnumFacing.Plane.HORIZONTAL.iterator();
+            EnumFacing enumfacing;
+
+            do
+            {
+                if (!iterator.hasNext())
+                {
+                    return false;
+                }
+
+                enumfacing = (EnumFacing)iterator.next();
+            }
+            while (worldIn.getBlockState(p_176454_2_.offset(enumfacing)).getBlock() != this);
+
+            return true;
+        }
+    }
+
+    public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock)
+    {
+        super.onNeighborBlockChange(worldIn, pos, state, neighborBlock);
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+
+        if (tileentity instanceof TileEntityNetherChest)
+        {
+            tileentity.updateContainingBlockInfo();
+        }
+    }
+
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        TileEntity tileentity = worldIn.getTileEntity(pos);
+
+        if (tileentity instanceof IInventory)
+        {
+            InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
+            worldIn.updateComparatorOutputLevel(pos, this);
+        }
+
+        super.breakBlock(worldIn, pos, state);
+    }
+
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
+    {
+        if (worldIn.isRemote)
+        {
+            return true;
+        }
+        else
+        {
+            ILockableContainer ilockablecontainer = this.getLockableContainer(worldIn, pos);
+
+            if (ilockablecontainer != null)
+            {
+                playerIn.displayGUIChest(ilockablecontainer);
+            }
+
+            return true;
+        }
+    }
+
+    public ILockableContainer getLockableContainer(World worldIn, BlockPos p_180676_2_)
+    {
+        TileEntity tileentity = worldIn.getTileEntity(p_180676_2_);
+
+        if (!(tileentity instanceof TileEntityNetherChest))
+        {
+            return null;
+        }
+        else
+        {
+            Object object = (TileEntityNetherChest)tileentity;
+
+            if (this.cannotOpenChest(worldIn, p_180676_2_))
+            {
+                return null;
+            }
+            else
+            {
+                Iterator iterator = EnumFacing.Plane.HORIZONTAL.iterator();
+
+                while (iterator.hasNext())
+                {
+                    EnumFacing enumfacing = (EnumFacing)iterator.next();
+                    BlockPos blockpos1 = p_180676_2_.offset(enumfacing);
+                    Block block = worldIn.getBlockState(blockpos1).getBlock();
+
+                    if (block == this)
+                    {
+                        if (this.cannotOpenChest(worldIn, blockpos1))
+                        {
+                            return null;
+                        }
+
+                        TileEntity tileentity1 = worldIn.getTileEntity(blockpos1);
+
+                        if (tileentity1 instanceof TileEntityNetherChest)
+                        {
+                            if (enumfacing != EnumFacing.WEST && enumfacing != EnumFacing.NORTH)
+                            {
+                                object = new InventoryLargeChest("container.chestDouble", (ILockableContainer)object, (TileEntityNetherChest)tileentity1);
+                            }
+                            else
+                            {
+                                object = new InventoryLargeChest("container.chestDouble", (TileEntityNetherChest)tileentity1, (ILockableContainer)object);
+                            }
+                        }
+                    }
+                }
+
+                return (ILockableContainer)object;
+            }
+        }
+    }
+
+    public TileEntity createNewTileEntity(World worldIn, int meta)
+    {
+        return new TileEntityNetherChest();
+    }
+
+    public boolean canProvidePower()
+    {
+        return false;
+    }
+
+    public int isProvidingWeakPower(IBlockAccess worldIn, BlockPos pos, IBlockState state, EnumFacing side)
+    {
+       return 0;
+    }
+
+    public int isProvidingStrongPower(IBlockAccess worldIn, BlockPos pos, IBlockState state, EnumFacing side)
+    {
+        return side == EnumFacing.UP ? this.isProvidingWeakPower(worldIn, pos, state, side) : 0;
+    }
+
+    private boolean cannotOpenChest(World worldIn, BlockPos p_176457_2_)
+    {
+        return this.isBelowSolidBlock(worldIn, p_176457_2_);
+    }
+
+    private boolean isBelowSolidBlock(World worldIn, BlockPos p_176456_2_)
+    {
+        return worldIn.getBlockState(p_176456_2_.offsetUp()).getBlock().isNormalCube();
+    }
+
+    public boolean hasComparatorInputOverride()
+    {
+        return true;
+    }
+
+    public int getComparatorInputOverride(World worldIn, BlockPos pos)
+    {
+        return Container.calcRedstoneFromInventory(this.getLockableContainer(worldIn, pos));
+    }
+
+    /**
+     * Convert the given metadata into a BlockState for this Block
+     */
+    public IBlockState getStateFromMeta(int meta)
+    {
+        EnumFacing enumfacing = EnumFacing.getFront(meta);
+
+        if (enumfacing.getAxis() == EnumFacing.Axis.Y)
+        {
+            enumfacing = EnumFacing.NORTH;
+        }
+
+        return this.getDefaultState().withProperty(FACING_PROP, enumfacing);
+    }
+
+    /**
+     * Convert the BlockState into the correct metadata value
+     */
+    public int getMetaFromState(IBlockState state)
+    {
+        return ((EnumFacing)state.getValue(FACING_PROP)).getIndex();
+    }
+
+    protected BlockState createBlockState()
+    {
+        return new BlockState(this, new IProperty[] {FACING_PROP});
     }
 }

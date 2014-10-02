@@ -3,29 +3,30 @@ package com.eternaldoom.realmsofchaos.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class BlockSoyPlant extends ROCModBlock implements IGrowable{
-
-	@SideOnly(Side.CLIENT)
-	private IIcon[] icons;
+	
+	public static final PropertyInteger GROWTHSTAGE = PropertyInteger.create("stage", 0, 3);
 	
 	public BlockSoyPlant() {
-		super(Material.plants, "realmsofchaos:soy_plant", "plantSoy", 0, 0, soundTypeGrass);
+		super(Material.plants, "plantSoy", 0, 0, soundTypeGrass);
 		setTickRandomly(true);
 		float f = 0.5F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
@@ -39,65 +40,38 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
     }
 	
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_, int p_149668_4_)
+	public AxisAlignedBB getCollisionBoundingBox(World p_149668_1_, BlockPos pos, IBlockState state)
     {
         return null;
     }
 	
-	@Override
-	public boolean canBlockStay(World world, int i, int j, int k)
+	public boolean canBlockStay(World world, BlockPos pos)
     {
-		return world.getBlock(i, j-1, k) == Blocks.farmland && world.getBlockLightValue(i, j, k) > 7;
+		return world.getBlockState(pos.offsetDown()).getBlock() == Blocks.farmland && world.getLight(pos) > 7;
     }
 	
 	@Override
-	public void updateTick(World world, int i, int j, int k, Random rand){
-		this.checkAndDropBlock(world, i, j, k, rand);
-		if(rand.nextInt(12) == 0) this.grow(world, i, j, k);
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
+		this.checkAndDropBlock(world, pos, state, rand);
+		if(rand.nextInt(12) == 0) this.grow(world, rand, pos, state);
 	}
 	
 	@Override
-	public void onNeighborBlockChange(World world, int i, int j, int k, Block b)
+	public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block b)
     {
-		this.checkAndDropBlock(world, i, j, k, new Random());
+		this.checkAndDropBlock(world, pos, state, new Random());
     }
 	
-	private void grow(World world, int i, int j, int k){
-		int stage = world.getBlockMetadata(i, j, k)+1;
+	private void growPlant(World world, BlockPos pos, IBlockState state){
+		int stage = ((Integer)state.getValue(GROWTHSTAGE)).intValue()+1;
 		if(stage > 3) stage = 3;
-		if(stage < 4 && world.getBlock(i, j-1, k).isFertile(world, i, j-1, k)) world.setBlockMetadataWithNotify(i, j, k, stage, 2);
+		if(stage < 4 && ((Integer)world.getBlockState(pos.offsetDown()).getValue(BlockFarmland.field_176531_a)).intValue() > 0) world.setBlockState(pos, state.withProperty(GROWTHSTAGE, stage));
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Item getItem(World world, int i, int j, int k){
+	public Item getItem(World world, BlockPos pos){
 		return ROCItems.soybean;
-	}
-	
-	@Override
-	public int getRenderType(){
-		return RenderSoyPlant.renderId;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		return icons[meta];
-	}
-	
-	@Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister r)
-    {
-		icons = new IIcon[4];
-		for(int i = 0; i<4; i++){
-			icons[i] = r.registerIcon(this.getTextureName() + "_" + i);
-		}
-    }
-	
-	@Override
-	public boolean renderAsNormalBlock(){
-		return false;
 	}
 	
 	@Override
@@ -106,39 +80,53 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	}
 	
 	@Override
-	public int quantityDropped(int meta, int fortune, Random rand){
-		if(meta == 3) return rand.nextInt(2)+3;
-		return 1;
-	}
+	public void dropBlockAsItemWithChance(World world, BlockPos pos, IBlockState state, float chance, int fortune)
+    {
+		if(this.getMetaFromState(state) >= 3) spawnAsEntity(world, pos, new ItemStack(ROCItems.soybean, new Random().nextInt(2)+3));
+		else spawnAsEntity(world, pos, new ItemStack(ROCItems.soybean, 1));
+    }
 	
 	@Override
-	public Item getItemDropped(int par1, Random rand, int par3){
+	public Item getItemDropped(IBlockState state, Random rand, int par3){
 		return ROCItems.soybean;
 	}
 	
-	public void checkAndDropBlock(World world, int i, int j, int k, Random rand){
-		if (!this.canBlockStay(world, i, j, k)){
-			int meta = world.getBlockMetadata(i, j, k);
-			world.setBlock(i, j, k, Blocks.air);
-			this.dropBlockAsItem(world, i, j, k, new ItemStack(ROCItems.soybean, this.quantityDropped(meta, 0, rand)));
+	public void checkAndDropBlock(World world, BlockPos pos, IBlockState state, Random rand){
+		if (!this.canBlockStay(world, pos)){
+			int meta = ((Integer)state.getValue(GROWTHSTAGE)).intValue();
+			world.setBlockState(pos, Blocks.air.getDefaultState());
+			if(meta >= 3) spawnAsEntity(world, pos, new ItemStack(ROCItems.soybean, rand.nextInt(2)+3));
+			else spawnAsEntity(world, pos, new ItemStack(ROCItems.soybean, 1));
 		}
 	}
 
 	@Override
-	//Is finished growing
-	public boolean func_149851_a(World world, int i, int j, int k, boolean p_149851_5_) {
-		return world.getBlockMetadata(i, j, k) != 4;
+	public boolean isStillGrowing(World world, BlockPos pos, IBlockState state, boolean p_149851_5_) {
+		return ((Integer)state.getValue(GROWTHSTAGE)).intValue() < 3;
 	}
 
 	@Override
-	//bonemeal
-	public boolean func_149852_a(World world, Random rand, int i, int j, int k) {
+	public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state) {
 		return true;
 	}
 
 	@Override
-	//Growth logic
-	public void func_149853_b(World world, Random rand, int i, int j, int k) {
-		grow(world, i, j, k);
+	public void grow(World world, Random rand, BlockPos pos, IBlockState state) {
+		growPlant(world, pos, state);
 	}
+	
+	public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(GROWTHSTAGE, Integer.valueOf(meta));
+    }
+
+    public int getMetaFromState(IBlockState state)
+    {
+        return ((Integer)state.getValue(GROWTHSTAGE)).intValue();
+    }
+
+    protected BlockState createBlockState()
+    {
+        return new BlockState(this, new IProperty[] {GROWTHSTAGE});
+    }
 }

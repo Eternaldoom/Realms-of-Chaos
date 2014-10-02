@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.Direction;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.LongHashMap;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
@@ -23,6 +23,7 @@ public class TeleporterIceRuins extends Teleporter {
 	private final Random random;
 	private final LongHashMap destinationCoordinateCache = new LongHashMap();
 	private final List destinationCoordinateKeys = new ArrayList();
+	private BlockPos helperPos = new BlockPos(0, 0, 0);
 
 	public TeleporterIceRuins(WorldServer par1WorldServer) {
 		super(par1WorldServer);
@@ -30,12 +31,12 @@ public class TeleporterIceRuins extends Teleporter {
 		this.random = new Random(par1WorldServer.getSeed());
 	}
 
-	public void placeInPortal(Entity par1Entity, double par2, double par4,
-			double par6, float par8) {
-		if (this.worldServerInstance.provider.dimensionId != 1) {
-			if (!this.placeInExistingPortal(par1Entity, par2, par4, par6, par8)) {
+	@Override
+	public void func_180266_a(Entity par1Entity, float par2) {
+		if (this.worldServerInstance.provider.getDimensionId() != 1) {
+			if (!this.func_180620_b(par1Entity, par2)) {
 				this.makePortal(par1Entity);
-				this.placeInExistingPortal(par1Entity, par2, par4, par6, par8);
+				this.func_180620_b(par1Entity, par2);
 			}
 		} else {
 			int i = MathHelper.floor_double(par1Entity.posX);
@@ -51,57 +52,57 @@ public class TeleporterIceRuins extends Teleporter {
 						int l1 = j + j1;
 						int i2 = k + i1 * b1 - l * b0;
 						boolean flag = j1 < 0;
-						this.worldServerInstance.setBlock(i, j - 1, k,
+						setBlock(this.worldServerInstance, i, j - 1, k,
 								ROCBlocks.ice_portal);
-						this.worldServerInstance.setBlock(i, j, k,
+						setBlock(this.worldServerInstance, i, j, k,
 								ROCBlocks.ice_portal);
-						this.worldServerInstance.setBlock(i, j - 2, k,
+						setBlock(this.worldServerInstance, i, j - 2, k,
 								ROCBlocks.ice_portal);
-						this.worldServerInstance.setBlock(i, j - 3, k,
+						setBlock(this.worldServerInstance, i, j - 3, k,
 								ROCBlocks.ice_portal);
-						this.worldServerInstance.setBlock(i, j - 4, k,
+						setBlock(this.worldServerInstance, i, j - 4, k,
 								ROCBlocks.ice_portal);
-						this.worldServerInstance.setBlock(i, j - 5, k,
+						setBlock(this.worldServerInstance, i, j - 5, k,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i + 1, j, k,
+						setBlock(this.worldServerInstance, i + 1, j, k,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i - 1, j, k,
+						setBlock(this.worldServerInstance, i - 1, j, k,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i, j, k - 1,
+						setBlock(this.worldServerInstance, i, j, k - 1,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i, j, k + 1,
+						setBlock(this.worldServerInstance, i, j, k + 1,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i + 1, j - 4, k,
+						setBlock(this.worldServerInstance, i + 1, j - 4, k,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i - 1, j - 4, k,
+						setBlock(this.worldServerInstance, i - 1, j - 4, k,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i, j - 4, k - 1,
+						setBlock(this.worldServerInstance, i, j - 4, k - 1,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i, j - 4, k + 1,
+						setBlock(this.worldServerInstance, i, j - 4, k + 1,
 								Blocks.packed_ice);
-						this.worldServerInstance.setBlock(i + 1, j - 1, k,
+						setBlock(this.worldServerInstance, i + 1, j - 1, k,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i + 1, j - 2, k,
+						setBlock(this.worldServerInstance, i + 1, j - 2, k,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i + 1, j - 3, k,
+						setBlock(this.worldServerInstance, i + 1, j - 3, k,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i - 1, j - 1, k,
+						setBlock(this.worldServerInstance, i - 1, j - 1, k,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i - 1, j - 2, k,
+						setBlock(this.worldServerInstance, i - 1, j - 2, k,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i - 1, j - 3, k,
+						setBlock(this.worldServerInstance, i - 1, j - 3, k,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i, j - 1, k + 1,
+						setBlock(this.worldServerInstance, i, j - 1, k + 1,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i, j - 2, k + 1,
+						setBlock(this.worldServerInstance, i, j - 2, k + 1,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i, j - 3, k + 1,
+						setBlock(this.worldServerInstance, i, j - 3, k + 1,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i, j - 1, k - 1,
+						setBlock(this.worldServerInstance, i, j - 1, k - 1,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i, j - 2, k - 1,
+						setBlock(this.worldServerInstance, i, j - 2, k - 1,
 								Blocks.air);
-						this.worldServerInstance.setBlock(i, j - 3, k - 1,
+						setBlock(this.worldServerInstance, i, j - 3, k - 1,
 								Blocks.air);
 
 					}
@@ -114,8 +115,8 @@ public class TeleporterIceRuins extends Teleporter {
 		}
 	}
 
-	public boolean placeInExistingPortal(Entity par1Entity, double par2,
-			double par4, double par6, float par8) {
+	@Override
+	public boolean func_180620_b(Entity par1Entity, float par2) {
 		short short1 = 128;
 		double d3 = -1.0D;
 		int i = 0;
@@ -132,9 +133,9 @@ public class TeleporterIceRuins extends Teleporter {
 			TeleporterIceRuins.PortalPosition portalposition = (TeleporterIceRuins.PortalPosition) this.destinationCoordinateCache
 					.getValueByKey(j1);
 			d3 = 0.0D;
-			i = portalposition.posX;
-			j = portalposition.posY;
-			k = portalposition.posZ;
+			i = portalposition.getX();
+			j = portalposition.getY();
+			k = portalposition.getZ();
 			portalposition.lastUpdateTime = this.worldServerInstance
 					.getTotalWorldTime();
 			flag = false;
@@ -146,9 +147,9 @@ public class TeleporterIceRuins extends Teleporter {
 					double d5 = (double) l1 + 0.5D - par1Entity.posZ;
 
 					for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2) {
-						if (this.worldServerInstance.getBlock(l3, i2, l1) == ROCBlocks.ice_portal) {
-							while (this.worldServerInstance.getBlock(l3,
-									i2 - 1, l1) == ROCBlocks.ice_portal) {
+						if (this.worldServerInstance.getBlockState(new BlockPos(l3, i2, l1)).getBlock() == ROCBlocks.ice_portal) {
+							while (this.worldServerInstance.getBlockState(new BlockPos(l3,
+									i2 - 1, l1)) == ROCBlocks.ice_portal) {
 								--i2;
 							}
 
@@ -180,100 +181,20 @@ public class TeleporterIceRuins extends Teleporter {
 			d7 = (double) k + 0.5D;
 			int i4 = -1;
 
-			if (this.worldServerInstance.getBlock(i - 1, j, k) == ROCBlocks.ice_portal) {
+			if (this.getBlock(this.worldServerInstance, i - 1, j, k) == ROCBlocks.ice_portal) {
 				i4 = 2;
 			}
 
-			if (this.worldServerInstance.getBlock(i, j, k) == ROCBlocks.ice_portal) {
+			if (this.getBlock(this.worldServerInstance, i, j, k) == ROCBlocks.ice_portal) {
 				i4 = 0;
 			}
 
-			if (this.worldServerInstance.getBlock(i, j, k - 1) == ROCBlocks.ice_portal) {
+			if (this.getBlock(this.worldServerInstance, i, j, k - 1) == ROCBlocks.ice_portal) {
 				i4 = 3;
 			}
 
-			if (this.worldServerInstance.getBlock(i, j, k + 1) == ROCBlocks.ice_portal) {
+			if (this.getBlock(this.worldServerInstance, i, j, k + 1) == ROCBlocks.ice_portal) {
 				i4 = 1;
-			}
-
-			int j2 = par1Entity.getTeleportDirection();
-
-			if (i4 > -1) {
-				int k2 = Direction.rotateLeft[i4];
-				int l2 = Direction.offsetX[i4];
-				int i3 = Direction.offsetZ[i4];
-				int j3 = Direction.offsetX[k2];
-				int k3 = Direction.offsetZ[k2];
-				boolean flag1 = !this.worldServerInstance.isAirBlock(i + l2
-						+ j3, j, k + i3 + k3)
-						|| !this.worldServerInstance.isAirBlock(i + l2 + j3,
-								j + 1, k + i3 + k3);
-				boolean flag2 = !this.worldServerInstance.isAirBlock(i + l2, j,
-						k + i3)
-						|| !this.worldServerInstance.isAirBlock(i + l2, j + 1,
-								k + i3);
-
-				if (flag1 && flag2) {
-					i4 = Direction.rotateOpposite[i4];
-					k2 = Direction.rotateOpposite[k2];
-					l2 = Direction.offsetX[i4];
-					i3 = Direction.offsetZ[i4];
-					j3 = Direction.offsetX[k2];
-					k3 = Direction.offsetZ[k2];
-					l3 = i - j3;
-					d11 -= (double) j3;
-					int k1 = k - k3;
-					d7 -= (double) k3;
-					flag1 = !this.worldServerInstance.isAirBlock(l3 + l2 + j3,
-							j, k1 + i3 + k3)
-							|| !this.worldServerInstance.isAirBlock(l3 + l2
-									+ j3, j + 1, k1 + i3 + k3);
-					flag2 = !this.worldServerInstance.isAirBlock(l3 + l2, j, k1
-							+ i3)
-							|| !this.worldServerInstance.isAirBlock(l3 + l2,
-									j + 1, k1 + i3);
-				}
-
-				float f1 = 0.5F;
-				float f2 = 0.5F;
-
-				if (!flag1 && flag2) {
-					f1 = 1.0F;
-				} else if (flag1 && !flag2) {
-					f1 = 0.0F;
-				} else if (flag1 && flag2) {
-					f2 = 0.0F;
-				}
-
-				d11 += (double) ((float) j3 * f1 + f2 * (float) l2);
-				d7 += (double) ((float) k3 * f1 + f2 * (float) i3);
-				float f3 = 0.0F;
-				float f4 = 0.0F;
-				float f5 = 0.0F;
-				float f6 = 0.0F;
-
-				if (i4 == j2) {
-					f3 = 1.0F;
-					f4 = 1.0F;
-				} else if (i4 == Direction.rotateOpposite[j2]) {
-					f3 = -1.0F;
-					f4 = -1.0F;
-				} else if (i4 == Direction.rotateRight[j2]) {
-					f5 = 1.0F;
-					f6 = -1.0F;
-				} else {
-					f5 = -1.0F;
-					f6 = 1.0F;
-				}
-
-				double d9 = par1Entity.motionX;
-				double d10 = par1Entity.motionZ;
-				par1Entity.motionX = d9 * (double) f3 + d10 * (double) f6;
-				par1Entity.motionZ = d9 * (double) f5 + d10 * (double) f4;
-				par1Entity.rotationYaw = par8 - (float) (j2 * 90)
-						+ (float) (i4 * 90);
-			} else {
-				par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
 			}
 
 			par1Entity.setLocationAndAngles(d11, d6, d7,
@@ -289,22 +210,22 @@ public class TeleporterIceRuins extends Teleporter {
 		int j = MathHelper.floor_double(par1Entity.posY);
 		int k = MathHelper.floor_double(par1Entity.posZ);
 
-		if (this.worldServerInstance.getBlock(i, j, k) != Blocks.air) {
+		if (this.getBlock(this.worldServerInstance, i, j, k) != Blocks.air) {
 			int yCoord = 0;
 			while (yCoord < 256) {
 				yCoord++;
-				if (this.worldServerInstance.getBlock(i, yCoord - 5, k) == Blocks.air && yCoord>40) {
+				if (this.getBlock(this.worldServerInstance, i, yCoord - 5, k) == Blocks.air && yCoord>40) {
 					j = yCoord;
 					break;
 				}
 			}
 		}
 
-		if (this.worldServerInstance.getBlock(i, j, k) == Blocks.air) {
+		if (this.getBlock(this.worldServerInstance, i, j, k) == Blocks.air) {
 			int yCoord = 256;
 			while (yCoord > 0) {
 				yCoord--;
-				if (this.worldServerInstance.getBlock(i, yCoord - 5, k) != Blocks.air) {
+				if (this.getBlock(this.worldServerInstance, i, yCoord - 5, k) != Blocks.air) {
 					j = yCoord;
 					break;
 				}
@@ -312,37 +233,38 @@ public class TeleporterIceRuins extends Teleporter {
 		}
 
 		System.out.println(j);
-		this.worldServerInstance.setBlock(i, j - 1, k, ROCBlocks.ice_portal);
-		this.worldServerInstance.setBlock(i, j, k, ROCBlocks.ice_portal);
-		this.worldServerInstance.setBlock(i, j - 2, k, ROCBlocks.ice_portal);
-		this.worldServerInstance.setBlock(i, j - 3, k, ROCBlocks.ice_portal);
-		this.worldServerInstance.setBlock(i, j - 4, k, ROCBlocks.ice_portal);
-		this.worldServerInstance.setBlock(i, j - 5, k, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i + 1, j, k, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i - 1, j, k, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i, j, k - 1, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i, j, k + 1, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i + 1, j - 4, k, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i - 1, j - 4, k, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i, j - 4, k - 1, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i, j - 4, k + 1, Blocks.packed_ice);
-		this.worldServerInstance.setBlock(i + 1, j - 1, k, Blocks.air);
-		this.worldServerInstance.setBlock(i + 1, j - 2, k, Blocks.air);
-		this.worldServerInstance.setBlock(i + 1, j - 3, k, Blocks.air);
-		this.worldServerInstance.setBlock(i - 1, j - 1, k, Blocks.air);
-		this.worldServerInstance.setBlock(i - 1, j - 2, k, Blocks.air);
-		this.worldServerInstance.setBlock(i - 1, j - 3, k, Blocks.air);
-		this.worldServerInstance.setBlock(i, j - 1, k + 1, Blocks.air);
-		this.worldServerInstance.setBlock(i, j - 2, k + 1, Blocks.air);
-		this.worldServerInstance.setBlock(i, j - 3, k + 1, Blocks.air);
-		this.worldServerInstance.setBlock(i, j - 1, k - 1, Blocks.air);
-		this.worldServerInstance.setBlock(i, j - 2, k - 1, Blocks.air);
-		this.worldServerInstance.setBlock(i, j - 3, k - 1, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 1, k, ROCBlocks.ice_portal);
+		setBlock(this.worldServerInstance, i, j, k, ROCBlocks.ice_portal);
+		setBlock(this.worldServerInstance, i, j - 2, k, ROCBlocks.ice_portal);
+		setBlock(this.worldServerInstance, i, j - 3, k, ROCBlocks.ice_portal);
+		setBlock(this.worldServerInstance, i, j - 4, k, ROCBlocks.ice_portal);
+		setBlock(this.worldServerInstance, i, j - 5, k, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i + 1, j, k, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i - 1, j, k, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i, j, k - 1, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i, j, k + 1, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i + 1, j - 4, k, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i - 1, j - 4, k, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i, j - 4, k - 1, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i, j - 4, k + 1, Blocks.packed_ice);
+		setBlock(this.worldServerInstance, i + 1, j - 1, k, Blocks.air);
+		setBlock(this.worldServerInstance, i + 1, j - 2, k, Blocks.air);
+		setBlock(this.worldServerInstance, i + 1, j - 3, k, Blocks.air);
+		setBlock(this.worldServerInstance, i - 1, j - 1, k, Blocks.air);
+		setBlock(this.worldServerInstance, i - 1, j - 2, k, Blocks.air);
+		setBlock(this.worldServerInstance, i - 1, j - 3, k, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 1, k + 1, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 2, k + 1, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 3, k + 1, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 1, k - 1, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 2, k - 1, Blocks.air);
+		setBlock(this.worldServerInstance, i, j - 3, k - 1, Blocks.air);
 
 		return true;
 
 	}
 
+	@Override
 	public void removeStalePortalLocations(long par1) {
 		if (par1 % 100L == 0L) {
 			Iterator iterator = this.destinationCoordinateKeys.iterator();
@@ -361,13 +283,24 @@ public class TeleporterIceRuins extends Teleporter {
 		}
 	}
 
-	public class PortalPosition extends ChunkCoordinates {
+	public class PortalPosition extends BlockPos {
 		public long lastUpdateTime;
-		private static final String __OBFID = "CL_00000154";
 
 		public PortalPosition(int par2, int par3, int par4, long par5) {
 			super(par2, par3, par4);
 			this.lastUpdateTime = par5;
 		}
+	}
+	
+	private void setBlock(WorldServer w, int i, int j, int k, Block block){
+    	w.setBlockState(this.helperPos.add(i, j, k), block.getDefaultState());
+    }
+    
+    private void setBlock(WorldServer w, int i, int j, int k, Block block, int meta, int flag){
+    	w.setBlockState(this.helperPos.add(i, j, k), block.getStateFromMeta(meta), flag);
+    }
+    
+    private Block getBlock(WorldServer w, int i, int j, int k){
+		return w.getBlockState(this.helperPos.add(i, j, k)).getBlock();
 	}
 }
