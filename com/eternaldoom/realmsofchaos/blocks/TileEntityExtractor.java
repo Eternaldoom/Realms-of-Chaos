@@ -7,7 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -16,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.crafting.ExtractorRecipes;
 
-public class TileEntityExtractor extends TileEntity implements ISidedInventory {
+public class TileEntityExtractor extends TileEntity implements ISidedInventory, IUpdatePlayerListBox {
 
     private static final int[] slotsTop = new int[] {0};
     private static final int[] slotsBottom = new int[] {2, 1};
@@ -27,16 +29,19 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
     public int furnaceCookTime;
     private String field_145958_o;
 
+    @Override
     public int getSizeInventory()
     {
         return this.furnaceItemStacks.length;
     }
 
+    @Override
     public ItemStack getStackInSlot(int par1)
     {
         return this.furnaceItemStacks[par1];
     }
 
+    @Override
     public ItemStack decrStackSize(int par1, int par2)
     {
         if (this.furnaceItemStacks[par1] != null)
@@ -67,6 +72,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         }
     }
 
+    @Override
     public ItemStack getStackInSlotOnClosing(int par1)
     {
         if (this.furnaceItemStacks[par1] != null)
@@ -81,6 +87,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         }
     }
 
+    @Override
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack)
     {
         this.furnaceItemStacks[par1] = par2ItemStack;
@@ -91,21 +98,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         }
     }
 
-    public String getInventoryName()
-    {
-        return this.hasCustomInventoryName() ? this.field_145958_o : "Extractor";
-    }
-
-    public boolean hasCustomInventoryName()
-    {
-        return this.field_145958_o != null && this.field_145958_o.length() > 0;
-    }
-
-    public void func_145951_a(String p_145951_1_)
-    {
-        this.field_145958_o = p_145951_1_;
-    }
-
+    @Override
     public void readFromNBT(NBTTagCompound p_145839_1_)
     {
         super.readFromNBT(p_145839_1_);
@@ -133,6 +126,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         }
     }
 
+    @Override
     public void writeToNBT(NBTTagCompound p_145841_1_)
     {
         super.writeToNBT(p_145841_1_);
@@ -153,12 +147,13 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
 
         p_145841_1_.setTag("Items", nbttaglist);
 
-        if (this.hasCustomInventoryName())
+        if (this.hasCustomName())
         {
             p_145841_1_.setString("CustomName", this.field_145958_o);
         }
     }
 
+    @Override
     public int getInventoryStackLimit()
     {
         return 64;
@@ -186,7 +181,8 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
         return this.furnaceBurnTime > 0;
     }
 
-    public void updateEntity()
+    @Override
+    public void update()
     {
         boolean flag = this.furnaceBurnTime > 0;
         boolean flag1 = false;
@@ -212,7 +208,8 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
 
                         if (this.furnaceItemStacks[1].stackSize == 0)
                         {
-                            this.furnaceItemStacks[1] = furnaceItemStacks[1].getItem().getContainerItem(furnaceItemStacks[1]);
+                            Item item = furnaceItemStacks[1].getItem().getContainerItem();
+                            this.furnaceItemStacks[1] = item != null ? new ItemStack(item) : null;
                         }
                     }
                 }
@@ -237,7 +234,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
             if (flag != this.furnaceBurnTime > 0)
             {
                 flag1 = true;
-                BlockExtractor.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+                BlockExtractor.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.getPos());
             }
         }
 
@@ -310,12 +307,8 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
 
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer)
     {
-        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(pos) != this ? false : par1EntityPlayer.getDistanceSq((double)this.getPos().getX() + 0.5D, (double)this.getPos().getY() + 0.5D, (double)this.getPos().getZ() + 0.5D) <= 64.0D;
     }
-
-    public void openInventory() {}
-
-    public void closeInventory() {}
 
     public boolean isItemValidForSlot(int par1, ItemStack par2ItemStack)
     {
@@ -338,76 +331,84 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory {
     }
 
 	@Override
-	public void openInventory(EntityPlayer playerIn) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void openInventory(EntityPlayer playerIn) {}
 
 	@Override
-	public void closeInventory(EntityPlayer playerIn) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void closeInventory(EntityPlayer playerIn) {}
 
 	@Override
 	public int getField(int id) {
-		// TODO Auto-generated method stub
-		return 0;
+		switch (id)
+        {
+            case 0:
+                return this.furnaceBurnTime;
+            case 1:
+                return this.currentItemBurnTime;
+            case 2:
+                return this.furnaceCookTime;
+            default:
+                return 0;
+        }
 	}
 
 	@Override
 	public void setField(int id, int value) {
-		// TODO Auto-generated method stub
-		
+		switch (id)
+        {
+            case 0:
+                this.furnaceBurnTime = value;
+                break;
+            case 1:
+                this.currentItemBurnTime = value;
+                break;
+            case 2:
+                this.furnaceCookTime = value;
+                break;
+        }
 	}
 
 	@Override
 	public int getFieldCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < this.furnaceItemStacks.length; ++i)
+        {
+            this.furnaceItemStacks[i] = null;
+        }
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Extractor";
 	}
 
 	@Override
 	public boolean hasCustomName() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public IChatComponent getDisplayName() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ChatComponentText("Extractor");
 	}
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn,
 			EnumFacing direction) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack,
 			EnumFacing direction) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }

@@ -5,11 +5,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.inventory.SlotFurnaceOutput;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ContainerExtractor extends Container
 {
@@ -23,7 +23,7 @@ public class ContainerExtractor extends Container
         this.furnace = par2TileEntityFurnace;
         this.addSlotToContainer(new Slot(par2TileEntityFurnace, 0, 56, 17));
         this.addSlotToContainer(new Slot(par2TileEntityFurnace, 1, 86, 53));
-        this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, par2TileEntityFurnace, 2, 116, 17));
+        this.addSlotToContainer(new SlotFurnaceOutput(par1InventoryPlayer.player, par2TileEntityFurnace, 2, 116, 17));
         int i, j;
 
         for (i = 0; i < 3; ++i)
@@ -122,7 +122,7 @@ public class ContainerExtractor extends Container
             }
             else if (par2 != 1 && par2 != 0)
             {
-                if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
+                if (FurnaceRecipes.instance().getSmeltingResult(itemstack1) != null)
                 {
                     if (!this.mergeItemStack(itemstack1, 0, 1, false))
                     {

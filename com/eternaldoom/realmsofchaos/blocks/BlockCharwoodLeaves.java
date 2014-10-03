@@ -12,7 +12,7 @@ import com.eternaldoom.realmsofchaos.items.ROCItems;
 public class BlockCharwoodLeaves extends BlockROCLeaves {
 
 	public BlockCharwoodLeaves() {
-		super(Material.cloth, "realmsofchaos:charwood_leaves", "leavesCharwood", 0.0f, 5.0f, ROCModBlock.soundTypeCloth);
+		super(Material.cloth, "leavesCharwood", 0.0f, 5.0f, ROCModBlock.soundTypeCloth);
 	}
 	
 

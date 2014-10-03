@@ -3,6 +3,8 @@ package com.eternaldoom.realmsofchaos.blocks;
 import java.util.Iterator;
 import java.util.Random;
 
+import com.eternaldoom.realmsofchaos.ROCTabs;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -25,6 +27,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockNetherChest extends BlockContainer
 {
@@ -35,7 +38,7 @@ public class BlockNetherChest extends BlockContainer
     {
         super(Material.wood);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING_PROP, EnumFacing.NORTH));
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(ROCTabs.Blocks);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
     }
 
@@ -552,4 +555,9 @@ public class BlockNetherChest extends BlockContainer
     {
         return new BlockState(this, new IProperty[] {FACING_PROP});
     }
+
+	public BlockNetherChest register(String name) {
+		GameRegistry.registerBlock(this, name);
+		return this;
+	}
 }
