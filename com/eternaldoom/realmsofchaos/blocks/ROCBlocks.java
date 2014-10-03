@@ -98,14 +98,14 @@ public class ROCBlocks {
 		charwood_sapling = new BlockCharwoodSapling().register("charwood_sapling");
 		netherrack_bricks = new ROCModBlock(Material.rock, "bricksHellrock", 0.4f, 1.0f, ROCModBlock.soundTypePiston).register("netherrack_bricks");
 		netherrack_brick_stairs = new BlockROCStairs(netherrack_bricks, netherrack_bricks.getDefaultState(), "stairsHellrockBrick").register("netherrack_brick_stairs");
-		netherrack_brick_slab = new BlockROCSlab(false, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick");
-		netherrack_brick_slab_double = new BlockROCSlab(true, netherrack_bricks, 0.4f, 1.0f, "slabHellrockBrick", netherrack_brick_slab);
+		netherrack_brick_slab = new BlockROCSlab(Material.rock, "slabHellrockBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		netherrack_brick_slab_double = new BlockDoubleROCSlab(Material.rock, "slabHellrockBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("netherrack_brick_slab", "netherrack_brick_slab_double", netherrack_brick_slab, netherrack_brick_slab_double);
         citronite_block = new ROCModBlock(Material.rock, "blockCitronite", 5.0f, 12.0f, ROCModBlock.soundTypeGlass).register("citronite_block");
         charwood_planks = new ROCModBlock(Material.wood, "planksCharwood", 4.0f, 2.5f, ROCModBlock.soundTypeWood).register("charwood_planks");
         charwood_stairs = new BlockROCStairs(charwood_planks, charwood_planks.getDefaultState(), "stairsCharwood").register("charwood_stairs");
-        charwood_slab = new BlockROCSlab(false, charwood_planks, 0.4f, 1.0f, "slabCharwood");
-		charwood_slab_double = new BlockROCSlab(true, charwood_planks, 0.4f, 1.0f, "slabCharwood", charwood_slab);
+        charwood_slab = new BlockROCSlab(Material.wood, "slabCharwood", 0.4f, 1.0f, ROCModBlock.soundTypeWood);
+		charwood_slab_double = new BlockDoubleROCSlab(Material.wood, "slabCharwood", 0.4f, 1.0f, ROCModBlock.soundTypeWood);
 		registerSlab("charwood_slab", "charwood_slab_double", charwood_slab, charwood_slab_double);
 		flamestone_block = new BlockGlowing(Material.rock, "blockFlamestone", 8.5f, 1000000, ROCModBlock.soundTypeGlass, 7).register("flamestone_block");
 		nether_chest = new BlockNetherChest().register("nether_chest");
@@ -118,18 +118,18 @@ public class ROCBlocks {
         //water_portal = new BlockWaterPortal();
         ocean_stone = new BlockOceanStone();
         oceanstone_stairs = new BlockROCStairs(ocean_stone, ocean_stone.getDefaultState(), "stairsOceanstone").register("oceanstone_stairs");
-        oceanstone_slab = new BlockROCSlab(false, ocean_stone, 0.4f, 1.0f, "slabOceanstone");
-		oceanstone_slab_double = new BlockROCSlab(true, ocean_stone, 0.4f, 1.0f, "slabOceanstone", oceanstone_slab);
+        oceanstone_slab = new BlockROCSlab(Material.rock, "slabOceanstone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		oceanstone_slab_double = new BlockDoubleROCSlab(Material.rock, "slabOceanstone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("oceanstone_slab", "oceanstone_slab_double", oceanstone_slab, oceanstone_slab_double);
         ocean_cobblestone = new ROCModBlock(Material.rock, "cobblestoneOcean", 8.5f, 4.5f, ROCModBlock.soundTypePiston).register("ocean_cobblestone");
         ocean_cobblestone_stairs = new BlockROCStairs(ocean_cobblestone, ocean_cobblestone.getDefaultState(), "stairsOceanCobblestone").register("ocean_cobblestone_stairs");
-        ocean_cobblestone_slab = new BlockROCSlab(false, ocean_cobblestone, 0.4f, 1.0f, "slabOceanCobblestone");
-		ocean_cobblestone_slab_double = new BlockROCSlab(true, ocean_cobblestone, 0.4f, 1.0f, "slabOceanCobblestone", ocean_cobblestone_slab);
+        ocean_cobblestone_slab = new BlockROCSlab(Material.rock, "slabOceanCobblestone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		ocean_cobblestone_slab_double = new BlockDoubleROCSlab(Material.rock, "slabOceanCobblestone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("ocean_cobblestone_slab", "ocean_cobblestone_slab_double", ocean_cobblestone_slab, ocean_cobblestone_slab_double);
         oceanstone_bricks = new BlockROCStoneBrick(Material.rock, "bricksOceanstone", 8.5f, 5.5f, ROCModBlock.soundTypePiston).register(ItemBlockModStoneBrick.class, "oceanstone_bricks");
         oceanstone_brick_stairs = new BlockROCStairs(oceanstone_bricks, oceanstone_bricks.getDefaultState(), "stairsOceanstoneBrick").register("oceanstone_brick_stairs");
-        oceanstone_brick_slab = new BlockROCSlab(false, oceanstone_bricks, 0.4f, 1.0f, "slabOceanstoneBrick");
-		oceanstone_brick_slab_double = new BlockROCSlab(true, oceanstone_bricks, 0.4f, 1.0f, "slabOceanstoneBrick", oceanstone_brick_slab);
+        oceanstone_brick_slab = new BlockROCSlab(Material.rock, "slabOceanstoneBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		oceanstone_brick_slab_double = new BlockDoubleROCSlab(Material.rock, "slabOceanstoneBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("oceanstone_brick_slab", "oceanstone_brick_slab_double", oceanstone_brick_slab, oceanstone_brick_slab_double);
         neptunite_ore = new ROCModBlock(Material.rock, "oreNeptunite", 11f, 1000000f, ROCModBlock.soundTypePiston).register("neptunite_ore");
         neptunite_block = new ROCModBlock(Material.iron, "blockNeptunite", 14f, 14f, ROCModBlock.soundTypeMetal).register("neptunite_block");
@@ -144,18 +144,18 @@ public class ROCBlocks {
         ice_portal = new BlockIcePortal().register("ice_ruins_portal");
         frozen_stone = new BlockFrozenStone().register("frozen_stone");
         frozen_stone_stairs = new BlockROCStairs(frozen_stone, frozen_stone.getDefaultState(), "stairsFrozenStone").register("frozen_stone_stairs");
-        frozen_stone_slab = new BlockROCSlab(false, frozen_stone, 0.4f, 1.0f, "slabFrozenStone");
-		frozen_stone_slab_double = new BlockROCSlab(true, frozen_stone, 0.4f, 1.0f, "slabFrozenStone", frozen_stone_slab);
+        frozen_stone_slab = new BlockROCSlab(Material.rock, "slabFrozenStone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		frozen_stone_slab_double = new BlockDoubleROCSlab(Material.rock, "slabFrozenStone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("frozen_stone_slab", "frozen_stone_slab_double", frozen_stone_slab, frozen_stone_slab_double);
         frozen_cobblestone = new ROCModBlock(Material.rock, "cobblestoneFrozen", 18f, 5f, ROCModBlock.soundTypePiston).register("frozen_cobblestone");
         frozen_cobblestone_stairs = new BlockROCStairs(frozen_cobblestone, frozen_cobblestone.getDefaultState(), "stairsFrozenCobblestone").register("frozen_cobblestone_stairs");
-        frozen_cobblestone_slab = new BlockROCSlab(false, frozen_cobblestone, 0.4f, 1.0f, "slabFrozenCobblestone");
-		frozen_cobblestone_slab_double = new BlockROCSlab(true, frozen_cobblestone, 0.4f, 1.0f, "slabFrozenCobblestone", frozen_cobblestone_slab);
+        frozen_cobblestone_slab = new BlockROCSlab(Material.rock, "slabFrozenCobblestone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		frozen_cobblestone_slab_double = new BlockDoubleROCSlab(Material.rock, "slabFrozenCobblestone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("frozen_cobblestone_slab", "frozen_cobblestone_slab_double", frozen_cobblestone_slab, frozen_cobblestone_slab_double);
         frozen_stone_bricks = new BlockROCStoneBrick(Material.rock, "stoneBricksFrozen", 18.5f, 7.5f, ROCModBlock.soundTypePiston).register(ItemBlockModStoneBrick.class, "frozen_stone_bricks");
         frozen_stone_brick_stairs = new BlockROCStairs(frozen_stone_bricks, frozen_stone_bricks.getDefaultState(), "stairsFrozenStoneBrick").register("frozen_stone_brick_stairs");
-        frozen_stone_brick_slab = new BlockROCSlab(false, frozen_stone_bricks, 0.4f, 1.0f, "slabFrozenStoneBrick");
-		frozen_stone_brick_slab_double = new BlockROCSlab(true, frozen_stone_bricks, 0.4f, 1.0f, "slabFrozenStoneBrick", frozen_stone_brick_slab);
+        frozen_stone_brick_slab = new BlockROCSlab(Material.rock, "slabFrozenStoneBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
+		frozen_stone_brick_slab_double = new BlockDoubleROCSlab(Material.rock, "slabFrozenStoneBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("frozen_stone_brick_slab", "frozen_stone_brick_slab_double", frozen_stone_brick_slab, frozen_stone_brick_slab_double);
         osmaralt_ore = new ROCModBlock(Material.rock, "oreOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_ore");
         osmaralt_block = new ROCModBlock(Material.rock, "blockOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_blocks");
@@ -166,8 +166,8 @@ public class ROCBlocks {
 		frozen_chest = new BlockFrozenChest().register("frozen_chest");
 		frozen_planks = new ROCModBlock(Material.wood, "planksFrozen", 10, 10, ROCModBlock.soundTypeWood).register("frozen_planks");
 		frozen_wood_stairs = new BlockROCStairs(frozen_planks, frozen_planks.getDefaultState(), "stairsFrozenWood").register("frozen_wood_stairs");
-		frozen_wood_slab = new BlockROCSlab(false, frozen_planks, 10f, 10.0f, "slabFrozenWood");
-		frozen_wood_slab_double = new BlockROCSlab(true, frozen_planks, 10f, 10f, "slabFrozenWood", frozen_wood_slab);
+		frozen_wood_slab = new BlockROCSlab(Material.wood, "slabFrozenWood", 10f, 10.0f, ROCModBlock.soundTypeWood);
+		frozen_wood_slab_double = new BlockDoubleROCSlab(Material.wood, "slabFrozenWood", 10f, 10.0f, ROCModBlock.soundTypeWood);
 		registerSlab("frozen_wood_slab", "frozen_wood_slab_double", frozen_wood_slab, frozen_wood_slab_double);
 		frozen_sapling = new BlockFrozenSapling().register("frozen_sapling");
 
@@ -175,7 +175,7 @@ public class ROCBlocks {
 	}
 	
 	public static void registerSlab(String name, String name2, BlockROCSlab one, BlockROCSlab two){
-		GameRegistry.registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two, true});
-		GameRegistry.registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two, false});
+		GameRegistry.registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two});
+		GameRegistry.registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two});
 	}
 }

@@ -194,7 +194,7 @@ public class OverworldGen implements IWorldGenerator{
 				}
 			}
 			
-			if(random.nextInt(5) == 3)new WorldGenWaterPlants(ROCBlocks.seaweed, 0).generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(5) == 3)new WorldGenWaterPlants(ROCBlocks.seaweed, 0).generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 	}
 }

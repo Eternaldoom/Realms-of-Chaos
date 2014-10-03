@@ -22,16 +22,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockROCSlab extends BlockSlab
+public class BlockROCSlab extends BlockSlab
 {
-    public BlockROCSlab(Material mat, String name)
+    public BlockROCSlab(Material mat, String name, float hardness, float resistance, ROCModBlock.SoundType stepSound)
     {
         super(mat);
         IBlockState iblockstate = this.blockState.getBaseState();
-
         iblockstate = iblockstate.withProperty(HALF_PROP, BlockSlab.EnumBlockHalf.BOTTOM);
         setUnlocalizedName(name);
         setCreativeTab(ROCTabs.Blocks);
+        setStepSound(stepSound);
+        setHardness(hardness);
+        setResistance(resistance);
     }
 
     @Override
@@ -39,6 +41,11 @@ public abstract class BlockROCSlab extends BlockSlab
     {
         return super.getUnlocalizedName();
     }
+    
+    @Override
+	public IProperty func_176551_l() {
+		return null;
+	}
 
     @Override
     public Object func_176553_a(ItemStack p_176553_1_)
@@ -72,4 +79,9 @@ public abstract class BlockROCSlab extends BlockSlab
     {
         return 0;
     }
+
+	@Override
+	public boolean isDouble() {
+		return false;
+	}
 }

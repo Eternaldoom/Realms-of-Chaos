@@ -1,8 +1,8 @@
 package com.eternaldoom.realmsofchaos.water.gen;
 
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.BlockPos;
 
-public class PortalPositionWater extends ChunkCoordinates {
+public class PortalPositionWater extends BlockPos {
 	public long field_85087_d;
 	final TeleporterWater field_85088_e;
 

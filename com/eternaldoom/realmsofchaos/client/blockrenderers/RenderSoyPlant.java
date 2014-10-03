@@ -5,9 +5,9 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
-public class RenderSoyPlant implements ISimpleBlockRenderingHandler{
+public class RenderSoyPlant/* implements ISimpleBlockRenderingHandler*/{
 
-	public static int renderId;
+	/*public static int renderId;
 	private Tessellator t = Tessellator.instance;
 	
 	public RenderSoyPlant(){
@@ -82,5 +82,5 @@ public class RenderSoyPlant implements ISimpleBlockRenderingHandler{
 	@Override
 	public int getRenderId() {
 		return renderId;
-	}
+	}*/
 }

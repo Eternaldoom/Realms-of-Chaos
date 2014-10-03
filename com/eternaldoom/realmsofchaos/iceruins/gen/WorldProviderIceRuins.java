@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.iceruins.gen;
 
+import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -18,7 +19,7 @@ public class WorldProviderIceRuins extends WorldProvider{
 	
 	public IChunkProvider createChunkGenerator()
     {
-        return new ChunkProviderIceRuins(worldObj, worldObj.getSeed(), true);
+        return new ChunkProviderIceRuins(worldObj, worldObj.getSeed(), worldObj.getWorldInfo().isMapFeaturesEnabled(), worldObj.getWorldInfo().getGeneratorOptions());
     }
 	
 	@SideOnly(Side.CLIENT)

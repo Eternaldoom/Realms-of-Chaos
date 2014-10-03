@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.eternaldoom.realmsofchaos.blocks.BlockDoubleROCSlab;
 import com.eternaldoom.realmsofchaos.blocks.BlockROCSlab;
 
 public class ItemBlockModSlab extends ItemBlock
@@ -21,7 +22,7 @@ public class ItemBlockModSlab extends ItemBlock
     private final BlockSlab field_179226_c;
     private static final String __OBFID = "CL_00000071";
 
-    public ItemBlockModSlab(Block p_i45782_1_, BlockROCSlab p_i45782_2_, BlockROCSlab p_i45782_3_)
+    public ItemBlockModSlab(Block p_i45782_1_, BlockROCSlab p_i45782_2_, BlockDoubleROCSlab p_i45782_3_)
     {
         super(p_i45782_1_);
         this.field_150949_c = p_i45782_2_;

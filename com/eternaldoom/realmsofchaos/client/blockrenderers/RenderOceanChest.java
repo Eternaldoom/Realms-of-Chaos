@@ -97,7 +97,7 @@ public class RenderOceanChest extends TileEntitySpecialRenderer{
 	}
 	
 	@Override
-	public void renderTileEntityAt(TileEntity tileentity, double i, double j, double k, float f) {
+	public void renderTileEntityAt(TileEntity tileentity, double i, double j, double k, float f, int idk) {
 		render((TileEntityOceanChest)tileentity, i, j, k, f);
 	}
 

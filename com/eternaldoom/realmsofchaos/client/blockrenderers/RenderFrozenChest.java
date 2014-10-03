@@ -37,14 +37,6 @@ public class RenderFrozenChest extends TileEntitySpecialRenderer
 
             if (block instanceof BlockFrozenChest && i == 0)
             {
-                try
-                {
-                ((BlockFrozenChest)block).func_149954_e(tile.getWorld(), tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
-                }
-                catch (ClassCastException e)
-                {
-                    FMLLog.severe("Attempted to render a Frozen chest at %d,  %d, %d that was not a Frozen chest. That is a bug.", tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ());
-                }
                 i = tile.getBlockMetadata();
             }
 
