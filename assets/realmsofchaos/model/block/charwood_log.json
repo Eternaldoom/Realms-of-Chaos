@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "realmsofchaos:blocks/charwood_log_top",
+        "side": "realmsofchaos:blocks/charwood_log_side"
+    }
+}
