@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "realmsofchaos:blocks/ocean_stone",
+        "top": "realmsofchaos:blocks/ocean_stone",
+        "side": "realmsofchaos:blocks/ocean_stone"
+    }
+}

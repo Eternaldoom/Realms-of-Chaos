@@ -25,11 +25,6 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	}
 	
 	@Override
-	public int getRenderType(){
-		return 1;
-	}
-	
-	@Override
 	public AxisAlignedBB getCollisionBoundingBox(World p_149668_1_, BlockPos pos, IBlockState state)
     {
         return null;

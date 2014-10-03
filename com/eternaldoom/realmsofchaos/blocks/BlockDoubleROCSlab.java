@@ -7,6 +7,7 @@ public class BlockDoubleROCSlab extends BlockROCSlab{
 
 	public BlockDoubleROCSlab(Material mat, String name, float hardness, float resistance, SoundType stepSound) {
 		super(mat, name, hardness, resistance, stepSound);
+        setCreativeTab(null);
 	}
 
 	@Override

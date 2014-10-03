@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "realmsofchaos:netherrack_brick_slab_bottom" },
+        "half=top": { "model": "realmsofchaos:netherrack_brick_slab_top" }
+    }
+}

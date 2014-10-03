@@ -6,6 +6,7 @@ import java.util.Random;
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -28,9 +29,8 @@ public class BlockROCSlab extends BlockSlab
     {
         super(mat);
         IBlockState iblockstate = this.blockState.getBaseState();
-        iblockstate = iblockstate.withProperty(HALF_PROP, BlockSlab.EnumBlockHalf.BOTTOM);
         setUnlocalizedName(name);
-        setCreativeTab(ROCTabs.Blocks);
+        setCreativeTab(CreativeTabs.tabBlock);
         setStepSound(stepSound);
         setHardness(hardness);
         setResistance(resistance);
@@ -57,7 +57,8 @@ public class BlockROCSlab extends BlockSlab
     public IBlockState getStateFromMeta(int meta)
     {
      
-    	IBlockState iblockstate = this.getDefaultState().withProperty(HALF_PROP, (meta) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
+    	IBlockState iblockstate = this.getDefaultState();
+    	if(!this.isDouble())iblockstate = iblockstate.withProperty(HALF_PROP, (meta) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
 
         return iblockstate;
     }
@@ -65,7 +66,15 @@ public class BlockROCSlab extends BlockSlab
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return super.getMetaFromState(state);
+        byte b0 = 0;
+        int i = b0;
+
+        if (!this.isDouble() && state.getValue(HALF_PROP) == BlockSlab.EnumBlockHalf.TOP)
+        {
+            i |= 8;
+        }
+
+        return i;
     }
 
     @Override

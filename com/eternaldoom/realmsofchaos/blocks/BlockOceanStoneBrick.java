@@ -17,52 +17,54 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockROCStoneBrick extends ROCModBlock
+public class BlockOceanStoneBrick extends ROCModBlock
 {
-	public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BlockROCStoneBrick.EnumType.class);
-    public static final int DEFAULT_META = BlockROCStoneBrick.EnumType.DEFAULT.getMetaFromState();
-    public static final int CRACKED_META = BlockROCStoneBrick.EnumType.CRACKED.getMetaFromState();
-    public static final int CHISELED_META = BlockROCStoneBrick.EnumType.CHISELED.getMetaFromState();
+	public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BlockOceanStoneBrick.EnumType.class);
+    public static final int DEFAULT_META = BlockOceanStoneBrick.EnumType.DEFAULT.getMetaFromState();
+    public static final int CRACKED_META = BlockOceanStoneBrick.EnumType.CRACKED.getMetaFromState();
+    public static final int CHISELED_META = BlockOceanStoneBrick.EnumType.CHISELED.getMetaFromState();
 	
-    public BlockROCStoneBrick(Material mat, String name, float hard, float resist, SoundType sound)
+    public BlockOceanStoneBrick(Material mat, String name, float hard, float resist, SoundType sound)
     {
         super(mat, name, hard, resist, sound);
-        setDefaultState(this.getStateFromMeta(DEFAULT_META));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, BlockOceanStoneBrick.EnumType.DEFAULT));
     }
 
     @Override
     public int damageDropped(IBlockState state)
     {
-        return ((BlockROCStoneBrick.EnumType)state.getValue(VARIANT_PROP)).getMetaFromState();
+        return ((BlockOceanStoneBrick.EnumType)state.getValue(VARIANT_PROP)).getMetaFromState();
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item item, CreativeTabs tab, List list)
     {
-    	BlockROCStoneBrick.EnumType[] aenumtype = BlockROCStoneBrick.EnumType.values();
-    	int metaCount = aenumtype.length;
-        for (int i = 0; i < metaCount; ++i)
+        BlockOceanStoneBrick.EnumType[] aenumtype = BlockOceanStoneBrick.EnumType.values();
+        int i = aenumtype.length;
+
+        for (int j = 0; j < i; ++j)
         {
-            list.add(new ItemStack(item, 1, i));
+            BlockOceanStoneBrick.EnumType enumtype = aenumtype[j];
+            list.add(new ItemStack(item, 1, enumtype.getMetaFromState()));
         }
     }
     
-    public BlockROCStoneBrick register(Class<? extends ItemBlock> ib, String name){
-    	GameRegistry.registerBlock(this, ib, name);
+    public BlockOceanStoneBrick register(Class<? extends ItemBlock> ib, String name){
+    	ROCBlocks.registerBlock(this, ib, name);
     	return this;
     }
     
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT_PROP, BlockROCStoneBrick.EnumType.getStateFromMeta(meta));
+        return this.getDefaultState().withProperty(VARIANT_PROP, BlockOceanStoneBrick.EnumType.getStateFromMeta(meta));
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((BlockROCStoneBrick.EnumType)state.getValue(VARIANT_PROP)).getMetaFromState();
+        return ((BlockOceanStoneBrick.EnumType)state.getValue(VARIANT_PROP)).getMetaFromState();
     }
     
     @Override
@@ -73,10 +75,10 @@ public class BlockROCStoneBrick extends ROCModBlock
     
     public static enum EnumType implements IStringSerializable
     {
-        DEFAULT(0, "stonebrick", "default"),
-        CRACKED(1, "cracked_stonebrick", "cracked"),
-        CHISELED(2, "chiseled_stonebrick", "chiseled");
-        private static final BlockROCStoneBrick.EnumType[] TYPES_ARRAY = new BlockROCStoneBrick.EnumType[values().length];
+        DEFAULT(0, "oceanstone_bricks", "default"),
+        CRACKED(1, "cracked_oceanstone_bricks", "cracked"),
+        CHISELED(2, "chiseled_oceanstone_bricks", "chiseled");
+        private static final BlockOceanStoneBrick.EnumType[] TYPES_ARRAY = new BlockOceanStoneBrick.EnumType[values().length];
         private final int meta;
         private final String textureName;
         private final String variantName;
@@ -98,7 +100,7 @@ public class BlockROCStoneBrick extends ROCModBlock
             return this.textureName;
         }
 
-        public static BlockROCStoneBrick.EnumType getStateFromMeta(int p_176613_0_)
+        public static BlockOceanStoneBrick.EnumType getStateFromMeta(int p_176613_0_)
         {
             if (p_176613_0_ < 0 || p_176613_0_ >= TYPES_ARRAY.length)
             {
@@ -120,12 +122,12 @@ public class BlockROCStoneBrick extends ROCModBlock
 
         static
         {
-            BlockROCStoneBrick.EnumType[] var0 = values();
+            BlockOceanStoneBrick.EnumType[] var0 = values();
             int var1 = var0.length;
 
             for (int var2 = 0; var2 < var1; ++var2)
             {
-                BlockROCStoneBrick.EnumType var3 = var0[var2];
+                BlockOceanStoneBrick.EnumType var3 = var0[var2];
                 TYPES_ARRAY[var3.getMetaFromState()] = var3;
             }
         }

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=oceanstone_bricks": { "model": "realmsofchaos:ocean_stone_bricks" },
+        "variant=cracked_oceanstone_bricks": { "model": "realmsofchaos:cracked_ocean_stone_bricks" },
+        "variant=chiseled_oceanstone_bricks": { "model": "realmsofchaos:chiseled_ocean_stone_bricks" }
+    }
+}

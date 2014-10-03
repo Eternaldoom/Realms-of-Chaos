@@ -72,13 +72,11 @@ public class ItemBlockModSlab extends ItemBlock
 
             if (iblockstate.getBlock() == this.field_150949_c)
             {
-                IProperty iproperty = this.field_150949_c.func_176551_l();
-                Comparable comparable = iblockstate.getValue(iproperty);
                 BlockSlab.EnumBlockHalf enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF_PROP);
 
-                if ((side == EnumFacing.UP && enumblockhalf == BlockSlab.EnumBlockHalf.BOTTOM || side == EnumFacing.DOWN && enumblockhalf == BlockSlab.EnumBlockHalf.TOP) && comparable == object)
+                if ((side == EnumFacing.UP && enumblockhalf == BlockSlab.EnumBlockHalf.BOTTOM || side == EnumFacing.DOWN && enumblockhalf == BlockSlab.EnumBlockHalf.TOP))
                 {
-                    IBlockState iblockstate1 = this.field_179226_c.getDefaultState().withProperty(iproperty, comparable);
+                    IBlockState iblockstate1 = this.field_179226_c.getDefaultState();
 
                     if (worldIn.checkNoEntityCollision(this.field_179226_c.getCollisionBoundingBox(worldIn, pos, iblockstate1)) && worldIn.setBlockState(pos, iblockstate1, 3))
                     {
@@ -98,7 +96,6 @@ public class ItemBlockModSlab extends ItemBlock
     public boolean canPlaceBlockOnSide(World worldIn, BlockPos p_179222_2_, EnumFacing p_179222_3_, EntityPlayer p_179222_4_, ItemStack p_179222_5_)
     {
         BlockPos blockpos1 = p_179222_2_;
-        IProperty iproperty = this.field_150949_c.func_176551_l();
         Object object = this.field_150949_c.func_176553_a(p_179222_5_);
         IBlockState iblockstate = worldIn.getBlockState(p_179222_2_);
 
@@ -106,7 +103,7 @@ public class ItemBlockModSlab extends ItemBlock
         {
             boolean flag = iblockstate.getValue(BlockSlab.HALF_PROP) == BlockSlab.EnumBlockHalf.TOP;
 
-            if ((p_179222_3_ == EnumFacing.UP && !flag || p_179222_3_ == EnumFacing.DOWN && flag) && object == iblockstate.getValue(iproperty))
+            if ((p_179222_3_ == EnumFacing.UP && !flag || p_179222_3_ == EnumFacing.DOWN && flag))
             {
                 return true;
             }
@@ -114,7 +111,7 @@ public class ItemBlockModSlab extends ItemBlock
 
         p_179222_2_ = p_179222_2_.offset(p_179222_3_);
         IBlockState iblockstate1 = worldIn.getBlockState(p_179222_2_);
-        return iblockstate1.getBlock() == this.field_150949_c && object == iblockstate1.getValue(iproperty) ? true : super.canPlaceBlockOnSide(worldIn, blockpos1, p_179222_3_, p_179222_4_, p_179222_5_);
+        return iblockstate1.getBlock() == this.field_150949_c ? true : super.canPlaceBlockOnSide(worldIn, blockpos1, p_179222_3_, p_179222_4_, p_179222_5_);
     }
 
     private boolean func_180615_a(ItemStack p_180615_1_, World worldIn, BlockPos p_180615_3_, Object p_180615_4_)
