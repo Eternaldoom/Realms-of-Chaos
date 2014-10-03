@@ -3,7 +3,7 @@
         "bottom": "realmsofchaos:blocks/extractor_top",
         "top": "realmsofchaos:blocks/extractor_top",
         "side": "realmsofchaos:blocks/extractor_side",
-        "center": "realmsofchaos:blocks/charwood_planks"
+        "center": "realmsofchaos:blocks/charwood_planks",
         "particle": "realmsofchaos:blocks/extractor_top"
     },
     "elements": [

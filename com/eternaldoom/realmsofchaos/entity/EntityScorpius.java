@@ -49,9 +49,10 @@ public class EntityScorpius extends EntityROCBoss{
 	public void onUpdate(){
 		super.onUpdate();
 		EntityPlayer player = this.worldObj.getClosestPlayerToEntity(this, 16.0D);
-		double playerDistance = Math.sqrt(((this.posX-player.posX) * (this.posX-player.posX)) + ((this.posZ-player.posZ) * (this.posZ-player.posZ)));
-		double distanceX = player.posX-this.posX;
-		double distanceZ = player.posZ-this.posZ;
+        double playerDistance = 100;
+        if(player != null)playerDistance = Math.sqrt(((this.posX-player.posX) * (this.posX-player.posX)) + ((this.posZ-player.posZ) * (this.posZ-player.posZ)));
+        double distanceX = 100;if(player != null)distanceX = player.posX-this.posX;
+        double distanceZ = 100;if(player != null)distanceZ = player.posZ-this.posZ;
 		
 		if(playerDistance < 11 && !player.capabilities.isCreativeMode && this.rand.nextInt(25) == 0){
 			this.motionY += 0.75;
