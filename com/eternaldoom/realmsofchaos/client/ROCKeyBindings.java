@@ -1,9 +1,9 @@
 package com.eternaldoom.realmsofchaos.client;
 
-import org.lwjgl.input.Keyboard;
-
-import cpw.mods.fml.client.registry.ClientRegistry;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+
+import org.lwjgl.input.Keyboard;
 
 public class ROCKeyBindings {
 	

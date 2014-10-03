@@ -1,18 +1,14 @@
 package com.eternaldoom.realmsofchaos.client;
 
-import net.minecraft.item.Item;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
-import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityFrozenChest;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityNetherChest;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
-import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderExtractor;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderFrozenChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderNetherChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderOceanChest;
-import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderBullet;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
@@ -20,10 +16,6 @@ import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpius;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderVoidCrawler;
-import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererCannon;
-import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererFrozenChest;
-import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererNetherChest;
-import com.eternaldoom.realmsofchaos.client.itemrenderer.ItemRendererOceanChest;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
 import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
 import com.eternaldoom.realmsofchaos.entity.EntityKelpFish;

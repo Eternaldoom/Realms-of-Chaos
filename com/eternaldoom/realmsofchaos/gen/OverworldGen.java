@@ -49,14 +49,14 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenBigRuins().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenBigRuins().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		for (int i = 0; i < 4; i++){
 			int Xcoord1 = chunkX + random.nextInt(16);
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenRuinsStatue().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenRuinsStatue().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 4; i++){
@@ -64,7 +64,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenRuinsTower().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenRuinsTower().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 2; i++){
@@ -72,7 +72,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenRuinsHouse().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenRuinsHouse().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 4; i++){
@@ -80,7 +80,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			new WorldGenRuinsWell().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			new WorldGenRuinsWell().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 2; i++){
@@ -88,7 +88,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			if(random.nextInt(300) == 150) new WorldGenGiantIceSpike().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(300) == 150) new WorldGenGiantIceSpike().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 80; i++){
@@ -104,7 +104,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Ycoord1 = random.nextInt(256);
 			int Zcoord1 = chunkZ + random.nextInt(16);
 			
-			if(random.nextInt(5) == 1) new WorldGenIceMountain().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(5) == 1) new WorldGenIceMountain().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 2; i++){
@@ -173,7 +173,7 @@ public class OverworldGen implements IWorldGenerator{
 			int Xcoord1 = chunkX + random.nextInt(16);
 			int Ycoord1 = 127;
 			int Zcoord1 = chunkZ + random.nextInt(16);
-			if(random.nextInt(500) == 50) new WorldGenSurfaceDungeon().generate(world, random, Xcoord1, Ycoord1, Zcoord1);
+			if(random.nextInt(500) == 50) new WorldGenSurfaceDungeon().generate(world, random, new BlockPos(Xcoord1, Ycoord1, Zcoord1));
 		}
 		
 		for (int i = 0; i < 3; i++){

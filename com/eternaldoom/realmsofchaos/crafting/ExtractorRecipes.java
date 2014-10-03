@@ -77,26 +77,4 @@ public class ExtractorRecipes
     {
         return this.smeltingList;
     }
-
-    public float func_151398_b(ItemStack p_151398_1_)
-    {
-        float ret = p_151398_1_.getItem().getSmeltingExperience(p_151398_1_);
-        if (ret != -1) return ret;
-
-        Iterator iterator = this.experienceList.entrySet().iterator();
-        Entry entry;
-
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                return 0.0F;
-            }
-
-            entry = (Entry)iterator.next();
-        }
-        while (!this.func_151397_a(p_151398_1_, (ItemStack)entry.getKey()));
-
-        return ((Float)entry.getValue()).floatValue();
-    }
 }

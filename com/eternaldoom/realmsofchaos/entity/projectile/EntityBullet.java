@@ -69,13 +69,12 @@ public class EntityBullet extends EntityThrowable
         tag.setShort("zTile", (short)this.field_145787_e);
         tag.setByte("inTile", (byte)Block.getIdFromBlock(this.field_145785_f));
         tag.setByte("shake", (byte)this.throwableShake);
-        tag.setByte("inGround", (byte)(this.inGround ? 1 : 0));
         tag.setInteger("ammoid", this.dataWatcher.getWatchableObjectInt(17));
         
 
         if ((this.throwerName == null || this.throwerName.length() == 0) && this.thrower != null && this.thrower instanceof EntityPlayer)
         {
-            this.throwerName = this.thrower.getCommandSenderName();
+            this.throwerName = this.thrower.getCommandSenderEntity().getName();
         }
 
         tag.setString("ownerName", this.throwerName == null ? "" : this.throwerName);
@@ -89,7 +88,6 @@ public class EntityBullet extends EntityThrowable
         this.field_145787_e = tag.getShort("zTile");
         this.field_145785_f = Block.getBlockById(tag.getByte("inTile") & 255);
         this.throwableShake = tag.getByte("shake") & 255;
-        this.inGround = tag.getByte("inGround") == 1;
         this.throwerName = tag.getString("ownerName");
         this.dataWatcher.updateObject(17, tag.getInteger("ammoid"));
 

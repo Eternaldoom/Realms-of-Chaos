@@ -2,204 +2,142 @@ package com.eternaldoom.realmsofchaos.itemblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.blocks.BlockROCSlab;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class ItemBlockModSlab extends ItemBlock
 {
-    private final boolean field_150948_b;
     private final BlockSlab field_150949_c;
-    private final BlockSlab field_150947_d;
+    private final BlockSlab field_179226_c;
+    private static final String __OBFID = "CL_00000071";
 
-    public ItemBlockModSlab(Block p_i45355_1_, BlockROCSlab p_i45355_2_, BlockROCSlab p_i45355_3_, Boolean p_i45355_4_)
+    public ItemBlockModSlab(Block p_i45782_1_, BlockROCSlab p_i45782_2_, BlockROCSlab p_i45782_3_)
     {
-        super(p_i45355_1_);
-        this.field_150949_c = p_i45355_2_;
-        this.field_150947_d = p_i45355_3_;
-        this.field_150948_b = p_i45355_4_;
+        super(p_i45782_1_);
+        this.field_150949_c = p_i45782_2_;
+        this.field_179226_c = p_i45782_3_;
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
     }
 
     /**
-     * Gets an icon index based on an item's damage value
+     * Converts the given ItemStack damage value into a metadata value to be placed in the world when this Item is
+     * placed as a Block (mostly used with ItemBlocks).
      */
-    @SideOnly(Side.CLIENT)
-    public IIcon getIconFromDamage(int p_77617_1_)
+    public int getMetadata(int damage)
     {
-        return Block.getBlockFromItem(this).getIcon(2, p_77617_1_);
-    }
-
-    /**
-     * Returns the metadata of the block which this Item (ItemBlock) can place
-     */
-    public int getMetadata(int p_77647_1_)
-    {
-        return p_77647_1_;
+        return damage;
     }
 
     /**
      * Returns the unlocalized name of this item. This version accepts an ItemStack so different stacks can have
      * different names based on their damage or NBT.
      */
-    public String getUnlocalizedName(ItemStack p_77667_1_)
+    public String getUnlocalizedName(ItemStack stack)
     {
-        return this.field_150949_c.func_150002_b(p_77667_1_.getItemDamage());
+        return this.field_150949_c.getFullSlabName(stack.getMetadata());
     }
 
     /**
-     * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
-     * True if something happen and false if it don't. This is for ITEMS, not BLOCKS
+     * Called when a Block is right-clicked with this Item
+     *  
+     * @param pos The block being right-clicked
+     * @param side The side being right-clicked
      */
-    public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+    public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        if (this.field_150948_b)
-        {
-            return super.onItemUse(p_77648_1_, p_77648_2_, p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_);
-        }
-        else if (p_77648_1_.stackSize == 0)
+        if (stack.stackSize == 0)
         {
             return false;
         }
-        else if (!p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_))
+        else if (!playerIn.func_175151_a(pos.offset(side), side, stack))
         {
             return false;
         }
         else
         {
-            Block block = p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_);
-            int i1 = p_77648_3_.getBlockMetadata(p_77648_4_, p_77648_5_, p_77648_6_);
-            int j1 = i1 & 7;
-            boolean flag = (i1 & 8) != 0;
+            Object object = this.field_150949_c.func_176553_a(stack);
+            IBlockState iblockstate = worldIn.getBlockState(pos);
 
-            if ((p_77648_7_ == 1 && !flag || p_77648_7_ == 0 && flag) && block == this.field_150949_c && j1 == p_77648_1_.getItemDamage())
+            if (iblockstate.getBlock() == this.field_150949_c)
             {
-                if (p_77648_3_.checkNoEntityCollision(this.field_150947_d.getCollisionBoundingBoxFromPool(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_)) && p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, this.field_150947_d, j1, 3))
+                IProperty iproperty = this.field_150949_c.func_176551_l();
+                Comparable comparable = iblockstate.getValue(iproperty);
+                BlockSlab.EnumBlockHalf enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF_PROP);
+
+                if ((side == EnumFacing.UP && enumblockhalf == BlockSlab.EnumBlockHalf.BOTTOM || side == EnumFacing.DOWN && enumblockhalf == BlockSlab.EnumBlockHalf.TOP) && comparable == object)
                 {
-                    p_77648_3_.playSoundEffect((double)((float)p_77648_4_ + 0.5F), (double)((float)p_77648_5_ + 0.5F), (double)((float)p_77648_6_ + 0.5F), this.field_150947_d.stepSound.func_150496_b(), (this.field_150947_d.stepSound.getVolume() + 1.0F) / 2.0F, this.field_150947_d.stepSound.getPitch() * 0.8F);
-                    --p_77648_1_.stackSize;
-                }
+                    IBlockState iblockstate1 = this.field_179226_c.getDefaultState().withProperty(iproperty, comparable);
 
-                return true;
+                    if (worldIn.checkNoEntityCollision(this.field_179226_c.getCollisionBoundingBox(worldIn, pos, iblockstate1)) && worldIn.setBlockState(pos, iblockstate1, 3))
+                    {
+                        worldIn.playSoundEffect((double)((float)pos.getX() + 0.5F), (double)((float)pos.getY() + 0.5F), (double)((float)pos.getZ() + 0.5F), this.field_179226_c.stepSound.getPlaceSound(), (this.field_179226_c.stepSound.getVolume() + 1.0F) / 2.0F, this.field_179226_c.stepSound.getFrequency() * 0.8F);
+                        --stack.stackSize;
+                    }
+
+                    return true;
+                }
             }
-            else
-            {
-                return this.func_150946_a(p_77648_1_, p_77648_2_, p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_) ? true : super.onItemUse(p_77648_1_, p_77648_2_, p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_);
-            }
+
+            return this.func_180615_a(stack, worldIn, pos.offset(side), object) ? true : super.onItemUse(stack, playerIn, worldIn, pos, side, hitX, hitY, hitZ);
         }
     }
 
     @SideOnly(Side.CLIENT)
-    public boolean func_150936_a(World p_150936_1_, int p_150936_2_, int p_150936_3_, int p_150936_4_, int p_150936_5_, EntityPlayer p_150936_6_, ItemStack p_150936_7_)
+    public boolean canPlaceBlockOnSide(World worldIn, BlockPos p_179222_2_, EnumFacing p_179222_3_, EntityPlayer p_179222_4_, ItemStack p_179222_5_)
     {
-        int i1 = p_150936_2_;
-        int j1 = p_150936_3_;
-        int k1 = p_150936_4_;
-        Block block = p_150936_1_.getBlock(p_150936_2_, p_150936_3_, p_150936_4_);
-        int l1 = p_150936_1_.getBlockMetadata(p_150936_2_, p_150936_3_, p_150936_4_);
-        int i2 = l1 & 7;
-        boolean flag = (l1 & 8) != 0;
+        BlockPos blockpos1 = p_179222_2_;
+        IProperty iproperty = this.field_150949_c.func_176551_l();
+        Object object = this.field_150949_c.func_176553_a(p_179222_5_);
+        IBlockState iblockstate = worldIn.getBlockState(p_179222_2_);
 
-        if ((p_150936_5_ == 1 && !flag || p_150936_5_ == 0 && flag) && block == this.field_150949_c && i2 == p_150936_7_.getItemDamage())
+        if (iblockstate.getBlock() == this.field_150949_c)
         {
-            return true;
+            boolean flag = iblockstate.getValue(BlockSlab.HALF_PROP) == BlockSlab.EnumBlockHalf.TOP;
+
+            if ((p_179222_3_ == EnumFacing.UP && !flag || p_179222_3_ == EnumFacing.DOWN && flag) && object == iblockstate.getValue(iproperty))
+            {
+                return true;
+            }
         }
-        else
-        {
-            if (p_150936_5_ == 0)
-            {
-                --p_150936_3_;
-            }
 
-            if (p_150936_5_ == 1)
-            {
-                ++p_150936_3_;
-            }
-
-            if (p_150936_5_ == 2)
-            {
-                --p_150936_4_;
-            }
-
-            if (p_150936_5_ == 3)
-            {
-                ++p_150936_4_;
-            }
-
-            if (p_150936_5_ == 4)
-            {
-                --p_150936_2_;
-            }
-
-            if (p_150936_5_ == 5)
-            {
-                ++p_150936_2_;
-            }
-
-            Block block1 = p_150936_1_.getBlock(p_150936_2_, p_150936_3_, p_150936_4_);
-            int j2 = p_150936_1_.getBlockMetadata(p_150936_2_, p_150936_3_, p_150936_4_);
-            i2 = j2 & 7;
-            return block1 == this.field_150949_c && i2 == p_150936_7_.getItemDamage() ? true : super.func_150936_a(p_150936_1_, i1, j1, k1, p_150936_5_, p_150936_6_, p_150936_7_);
-        }
+        p_179222_2_ = p_179222_2_.offset(p_179222_3_);
+        IBlockState iblockstate1 = worldIn.getBlockState(p_179222_2_);
+        return iblockstate1.getBlock() == this.field_150949_c && object == iblockstate1.getValue(iproperty) ? true : super.canPlaceBlockOnSide(worldIn, blockpos1, p_179222_3_, p_179222_4_, p_179222_5_);
     }
 
-    private boolean func_150946_a(ItemStack p_150946_1_, EntityPlayer p_150946_2_, World p_150946_3_, int p_150946_4_, int p_150946_5_, int p_150946_6_, int p_150946_7_)
+    private boolean func_180615_a(ItemStack p_180615_1_, World worldIn, BlockPos p_180615_3_, Object p_180615_4_)
     {
-        if (p_150946_7_ == 0)
-        {
-            --p_150946_5_;
-        }
+        IBlockState iblockstate = worldIn.getBlockState(p_180615_3_);
 
-        if (p_150946_7_ == 1)
+        if (iblockstate.getBlock() == this.field_150949_c)
         {
-            ++p_150946_5_;
-        }
+            Comparable comparable = iblockstate.getValue(this.field_150949_c.func_176551_l());
 
-        if (p_150946_7_ == 2)
-        {
-            --p_150946_6_;
-        }
-
-        if (p_150946_7_ == 3)
-        {
-            ++p_150946_6_;
-        }
-
-        if (p_150946_7_ == 4)
-        {
-            --p_150946_4_;
-        }
-
-        if (p_150946_7_ == 5)
-        {
-            ++p_150946_4_;
-        }
-
-        Block block = p_150946_3_.getBlock(p_150946_4_, p_150946_5_, p_150946_6_);
-        int i1 = p_150946_3_.getBlockMetadata(p_150946_4_, p_150946_5_, p_150946_6_);
-        int j1 = i1 & 7;
-
-        if (block == this.field_150949_c && j1 == p_150946_1_.getItemDamage())
-        {
-            if (p_150946_3_.checkNoEntityCollision(this.field_150947_d.getCollisionBoundingBoxFromPool(p_150946_3_, p_150946_4_, p_150946_5_, p_150946_6_)) && p_150946_3_.setBlock(p_150946_4_, p_150946_5_, p_150946_6_, this.field_150947_d, j1, 3))
+            if (comparable == p_180615_4_)
             {
-                p_150946_3_.playSoundEffect((double)((float)p_150946_4_ + 0.5F), (double)((float)p_150946_5_ + 0.5F), (double)((float)p_150946_6_ + 0.5F), this.field_150947_d.stepSound.func_150496_b(), (this.field_150947_d.stepSound.getVolume() + 1.0F) / 2.0F, this.field_150947_d.stepSound.getPitch() * 0.8F);
-                --p_150946_1_.stackSize;
-            }
+                IBlockState iblockstate1 = this.field_179226_c.getDefaultState().withProperty(this.field_150949_c.func_176551_l(), comparable);
 
-            return true;
+                if (worldIn.checkNoEntityCollision(this.field_179226_c.getCollisionBoundingBox(worldIn, p_180615_3_, iblockstate1)) && worldIn.setBlockState(p_180615_3_, iblockstate1, 3))
+                {
+                    worldIn.playSoundEffect((double)((float)p_180615_3_.getX() + 0.5F), (double)((float)p_180615_3_.getY() + 0.5F), (double)((float)p_180615_3_.getZ() + 0.5F), this.field_179226_c.stepSound.getPlaceSound(), (this.field_179226_c.stepSound.getVolume() + 1.0F) / 2.0F, this.field_179226_c.stepSound.getFrequency() * 0.8F);
+                    --p_180615_1_.stackSize;
+                }
+
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 }

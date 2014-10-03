@@ -1,19 +1,9 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
-import com.eternaldoom.realmsofchaos.RealmsOfChaos;
-import com.eternaldoom.realmsofchaos.water.gen.TeleporterWater;
 
-import net.minecraft.block.BlockPortal;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.BlockFluidClassic;
-import net.minecraftforge.fluids.Fluid;
-
-public class BlockWaterPortal extends BlockFluidClassic{
+public class BlockWaterPortal /*extends BlockFluidClassic*/{
 	
-	public BlockWaterPortal() {
+	/*public BlockWaterPortal() {
 		super(ROCBlocks.waterportal, Material.water);
 		setBlockName("portalWater");
 		setBlockTextureName("realmsofchaos:water_portal");
@@ -42,6 +32,6 @@ public class BlockWaterPortal extends BlockFluidClassic{
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(0)));
             }
         }
-    }
+    }*/
 
 }
