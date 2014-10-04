@@ -68,7 +68,7 @@ public class RealmsOfChaos {
 		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
 		OverworldCrafting.initRecipes();
 		Entities.preinit();
-		if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
+        if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.preInit();
 		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
 		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
 		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
@@ -84,7 +84,7 @@ public class RealmsOfChaos {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent evt){
-		
+		if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
 		Entities.init();
 	}
 	
