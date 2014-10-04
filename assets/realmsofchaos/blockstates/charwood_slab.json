@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "realmsofchaos:charwood_slab_bottom" },
+        "half=top": { "model": "realmsofchaos:charwood_slab_top" }
+    }
+}

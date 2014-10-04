@@ -14,7 +14,6 @@ public class BlockCharwoodLeaves extends BlockROCLeaves {
 	public BlockCharwoodLeaves() {
 		super(Material.cloth, "leavesCharwood", 0.0f, 5.0f, ROCModBlock.soundTypeCloth);
 	}
-	
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int par3) {

@@ -120,11 +120,7 @@ public class ItemBlockModSlab extends ItemBlock
 
         if (iblockstate.getBlock() == this.field_150949_c)
         {
-            Comparable comparable = iblockstate.getValue(this.field_150949_c.func_176551_l());
-
-            if (comparable == p_180615_4_)
-            {
-                IBlockState iblockstate1 = this.field_179226_c.getDefaultState().withProperty(this.field_150949_c.func_176551_l(), comparable);
+                IBlockState iblockstate1 = this.field_179226_c.getDefaultState();
 
                 if (worldIn.checkNoEntityCollision(this.field_179226_c.getCollisionBoundingBox(worldIn, p_180615_3_, iblockstate1)) && worldIn.setBlockState(p_180615_3_, iblockstate1, 3))
                 {
@@ -133,7 +129,6 @@ public class ItemBlockModSlab extends ItemBlock
                 }
 
                 return true;
-            }
         }
 
         return false;

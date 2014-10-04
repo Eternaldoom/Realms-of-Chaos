@@ -1,10 +1,16 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModSlab;
@@ -177,12 +183,42 @@ public class ROCBlocks {
 		registerSlab("frozen_wood_slab", "frozen_wood_slab_double", frozen_wood_slab, frozen_wood_slab_double);
 		frozen_sapling = new BlockFrozenSapling().register("frozen_sapling");
 
-        //GameRegistry.registerBlock(water_portal, "water_portal");
+        //GameRegistry.GameRegistry.registerBlock(water_portal, "water_portal");
 	}
 	
 	public static void registerSlab(String name, String name2, BlockROCSlab one, BlockROCSlab two){
-		GameRegistry.registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two});
-		GameRegistry.registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two});
-        blockNames.add(name);
+		registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two});
+		registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two});
 	}
+	
+	public static Block registerBlock(Block block, Class<? extends ItemBlock> itemclass, String name, Object... itemCtorArgs)
+    {
+        block = GameRegistry.registerBlock(block, itemclass, name, itemCtorArgs);
+        Item associatedItem = GameRegistry.findItem("ironchest", name);
+        
+        Map itemBlockMap = (Map)ObfuscationReflectionHelper.getPrivateValue(Item.class, null, "BLOCK_TO_ITEM");
+        
+        if (!itemBlockMap.containsKey(block)) itemBlockMap.put(block, associatedItem);
+        
+        Iterator iterator = block.getBlockState().getValidStates().iterator();
+        
+        while (iterator.hasNext())
+        {
+            IBlockState iblockstate = (IBlockState)iterator.next();
+            int id = Block.blockRegistry.getIDForObject(block) << 4 | block.getMetaFromState(iblockstate);
+            Block.BLOCK_STATE_IDS.put(iblockstate, id);
+        }
+        blockNames.add(name);
+        return block;
+    }
+	
+	public static Block registerBlock(Block block, Class<? extends ItemBlock> itemclass, String name)
+    {
+	    return registerBlock(block, itemclass, name, new Object[]{});
+    }
+	
+	public static Block registerBlock(Block block, String name)
+    {
+        return registerBlock(block, ItemBlock.class, name, new Object[]{});
+    }
 }

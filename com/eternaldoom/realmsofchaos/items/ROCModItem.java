@@ -10,7 +10,7 @@ public class ROCModItem extends Item{
 	public ROCModItem(String name){
 		super();
 		setUnlocalizedName(name);
-		setCreativeTab(ROCTabs.Items);
+		setCreativeTab(null);
 	}
 
 	public ROCModItem register(String name){

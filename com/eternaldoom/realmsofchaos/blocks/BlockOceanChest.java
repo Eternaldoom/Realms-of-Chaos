@@ -37,7 +37,7 @@ public class BlockOceanChest extends BlockContainer
         super(Material.rock);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING_PROP, EnumFacing.NORTH));
         this.setCreativeTab(CreativeTabs.tabDecorations);
-        setUnlocalizedName("ocean_chest");
+        setUnlocalizedName("chestOcean");
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
     }
 
@@ -493,8 +493,7 @@ public class BlockOceanChest extends BlockContainer
     }
 
 	public BlockOceanChest register(String name) {
-		GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+	    ROCBlocks.registerBlock(this, name);
 		return this;
 	}
 }

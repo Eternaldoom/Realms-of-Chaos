@@ -28,7 +28,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory, 
     public int currentItemBurnTime;
     public int furnaceCookTime;
     private String field_145958_o;
-
+    
     @Override
     public int getSizeInventory()
     {

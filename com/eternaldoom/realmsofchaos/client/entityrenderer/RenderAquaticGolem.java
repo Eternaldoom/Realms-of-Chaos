@@ -18,7 +18,6 @@ public class RenderAquaticGolem extends RenderLiving{
 	
 	public RenderAquaticGolem() {
 		super(Minecraft.getMinecraft().getRenderManager(), new ModelAquaticGolem(), 0.75f);
-		
 	}
 
 	@Override

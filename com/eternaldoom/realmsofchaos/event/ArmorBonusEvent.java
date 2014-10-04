@@ -29,7 +29,7 @@ public class ArmorBonusEvent {
 		if(stackLeggings != null) leggings = stackLeggings.getItem();
 		if(stackBoots != null) boots = stackBoots.getItem();
 
-		if (helmet == ROCItems.flame_helmet && chestplate == ROCItems.flame_chestplate && leggings == ROCItems.flame_leggings && boots == ROCItems.flame_boots){
+		/*if (helmet == ROCItems.flame_helmet && chestplate == ROCItems.flame_chestplate && leggings == ROCItems.flame_leggings && boots == ROCItems.flame_boots){
 			evt.player.addPotionEffect(new PotionEffect(12, 20, 0, true, false));
 			if(evt.player.worldObj.getBlockState(new BlockPos((int)Math.round(evt.player.posX), MathHelper.floor_double(evt.player.posY), (int)Math.round(evt.player.posZ))).getBlock().getMaterial() == Material.lava){
 				evt.player.capabilities.isFlying = true;
@@ -40,7 +40,7 @@ public class ArmorBonusEvent {
 					hasFlamestone = false;
 				}
 			}
-	}
+	}*/
 		
 		if (helmet == ROCItems.aquatic_helmet && chestplate == ROCItems.aquatic_chestplate && leggings == ROCItems.aquatic_leggings && boots == ROCItems.aquatic_boots){
 			hasAquatic = true;

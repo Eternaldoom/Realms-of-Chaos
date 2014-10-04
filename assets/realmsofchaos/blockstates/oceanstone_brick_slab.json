@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "realmsofchaos:ocean_stone_brick_slab_bottom" },
+        "half=top": { "model": "realmsofchaos:ocean_stone_brick_slab_top" }
+    }
+}

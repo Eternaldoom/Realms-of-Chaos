@@ -35,7 +35,7 @@ public class BlockROCSlab extends BlockSlab
         setHardness(hardness);
         setResistance(resistance);
     }
-
+    
     @Override
     public String getFullSlabName(int p_150002_1_)
     {

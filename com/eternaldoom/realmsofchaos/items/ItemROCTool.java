@@ -44,7 +44,7 @@ public class ItemROCTool extends ROCModItem
         this.efficiencyOnProperMaterial = tool.getEfficiencyOnProperMaterial();
         this.damageVsEntity = p_i45333_1_;
         t = tool;
-        if(!vanilla) setCreativeTab(ROCTabs.Tools); else setCreativeTab(null);
+        if(!vanilla) setCreativeTab(null); else setCreativeTab(null);
         if (this instanceof ItemROCPickaxe)
         {
             toolClass = "pickaxe";

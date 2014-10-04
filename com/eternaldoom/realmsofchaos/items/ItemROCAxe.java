@@ -28,7 +28,6 @@ public class ItemROCAxe extends ItemROCTool
     
     public ItemROCAxe register(String name){
     	GameRegistry.registerItem(this, name);
-    	ROCItems.itemNames.add(name);
     	return this;
     }
 }

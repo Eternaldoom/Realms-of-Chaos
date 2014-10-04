@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
@@ -14,15 +15,14 @@ public class ROCModBlock extends Block{
 		this.setUnlocalizedName(name);
 		this.setHardness(hard);
 		this.setResistance(resist);
-		this.setCreativeTab(ROCTabs.Blocks);
+		this.setCreativeTab(CreativeTabs.tabBlock);
 		this.setStepSound(sound);
 		
 		blockName = name;
 	}
 	
-	public ROCModBlock register(String name){
-		GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+	public ROCModBlock register(String nam){
+		ROCBlocks.registerBlock(this, nam);
 		return this;
 	}
 }

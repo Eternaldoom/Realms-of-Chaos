@@ -21,6 +21,7 @@ public class RenderScorpioid extends RenderLiving{
 		return texture;
 	}
 	
+	@Override
 	protected void preRenderCallback(EntityLivingBase p_77041_1_, float p_77041_2_)
     {
 		float scale = 1.0f;

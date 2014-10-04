@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -17,16 +18,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.GUIHandler;
-import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
-import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderExtractor;
 
 public class BlockExtractor extends BlockContainer {
     
@@ -45,7 +43,7 @@ public class BlockExtractor extends BlockContainer {
 		setUnlocalizedName("extractor");
 		isActive = active;
 		if(!active){
-			setCreativeTab(ROCTabs.Blocks);
+			setCreativeTab(CreativeTabs.tabBlock);
 		}else if(active){
 			setCreativeTab(null);
 		}
@@ -181,8 +179,18 @@ public class BlockExtractor extends BlockContainer {
 	}
     
     public Block register(String name){
-    	GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+    	ROCBlocks.registerBlock(this, name);
     	return this;
+    }
+    
+    @Override
+    public int getRenderType()
+    {
+        return 3;
+    }
+    
+    @Override
+    public boolean isFullCube(){
+        return false;
     }
 }

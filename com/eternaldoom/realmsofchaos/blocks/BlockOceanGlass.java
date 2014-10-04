@@ -3,6 +3,7 @@ package com.eternaldoom.realmsofchaos.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
@@ -16,7 +17,7 @@ public class BlockOceanGlass extends ROCModBlock{
 
 	public BlockOceanGlass() {
 		super(Material.glass, "glassOcean", 3.5f, 0.1f, soundTypeGlass);
-		setCreativeTab(ROCTabs.Blocks);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	@Override

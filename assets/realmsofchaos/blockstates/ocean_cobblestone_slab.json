@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "realmsofchaos:ocean_cobblestone_slab_bottom" },
+        "half=top": { "model": "realmsofchaos:ocean_cobblestone_slab_top" }
+    }
+}

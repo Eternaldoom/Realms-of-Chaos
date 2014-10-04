@@ -23,7 +23,7 @@ public class ItemCannon extends ROCModItem {
 		this.setMaxDamage(uses);
 		this.ammoItem = ammo;
 		this.damage = damage;
-		setCreativeTab(ROCTabs.Combat);
+		//setCreativeTab(ROCTabs.Combat);
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
@@ -46,7 +46,6 @@ public class ItemCannon extends ROCModItem {
 	
 	public ItemCannon register(String name){
 		GameRegistry.registerItem(this, name);
-		ROCItems.itemNames.add(name);
 		return this;
 	}
 	

@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.List;
 
+import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;

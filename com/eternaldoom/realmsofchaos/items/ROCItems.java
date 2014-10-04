@@ -8,8 +8,8 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class ROCItems {
-	
-	public static List<String> itemNames = new ArrayList<String>();
+    
+    public static List<String> itemNames = new ArrayList<String>();
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	
@@ -318,11 +318,11 @@ public class ROCItems {
 		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", 52D).register("diamond_leggings");
 		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", 52D).register("diamond_boots");*/
 		
-		flame_sword.register("flamestone_sword");
+		/*flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
 		neptunite_sword.register("neptunite_sword");
 		osmaralt_sword.register("osmaralt_sword");
-		fractonite_sword.register("fractonite_sword");
+		fractonite_sword.register("fractonite_sword");*/
 
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");
@@ -343,7 +343,7 @@ public class ROCItems {
 		miso_soup.register("miso_soup");
 		tofu.register("tofu");
 		
-		heliotrope_helmet.register("heliotrope_helmet");
+		/*heliotrope_helmet.register("heliotrope_helmet");
 		heliotrope_chestplate.register("heliotrope_chestplate");
 		heliotrope_leggings.register("heliotrope_leggings");
 		heliotrope_boots.register("heliotrope_boots");
@@ -401,7 +401,7 @@ public class ROCItems {
 		
 		fractonite_pickaxe.register("fractonite_pickaxe");
 		fractonite_axe.register("fractonite_axe");
-		fractonite_shovel.register("fractonite_shovel");
+		fractonite_shovel.register("fractonite_shovel");*/
 		
 		iron_bow.register("iron_bow");
 		diamond_bow.register("diamond_bow");
@@ -453,4 +453,5 @@ public class ROCItems {
         //return EnumHelper.addEnum(ArmorMaterial.class, name, durability/14, new int[]{0, 0, 0, 0}, enchantability);
 		return null;
     }
+	
 }

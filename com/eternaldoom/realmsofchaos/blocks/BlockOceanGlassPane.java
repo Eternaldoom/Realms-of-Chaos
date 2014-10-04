@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -11,7 +12,7 @@ public class BlockOceanGlassPane extends BlockPane{
 
 	protected BlockOceanGlassPane() {
 		super(Material.glass, false);
-		setCreativeTab(ROCTabs.Blocks);
+		setCreativeTab(CreativeTabs.tabBlock);
 		setHardness(3.5f);
 		setResistance(0.0f);
 		setUnlocalizedName("paneOcean");
@@ -23,8 +24,7 @@ public class BlockOceanGlassPane extends BlockPane{
 	}
 	
 	public BlockOceanGlassPane register(String name){
-		GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+	    ROCBlocks.registerBlock(this, name);
 		return this;
 	}
 }

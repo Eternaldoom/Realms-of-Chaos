@@ -27,7 +27,7 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 		if (par1armorMaterial == ROCItems.IRONa || par1armorMaterial == ROCItems.DIAMONDa){
 			setCreativeTab(null);
 			vanilla = true;
-		}else{setCreativeTab(ROCTabs.Combat); vanilla = false;}
+		}else{setCreativeTab(null); vanilla = false;}
 
 		texture = type;
 		a = par1armorMaterial;
@@ -60,7 +60,6 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 
 	public ItemROCArmor register(String name) {
 		GameRegistry.registerItem(this, name);
-		ROCItems.itemNames.add(name);
 		return this;
 	}
 

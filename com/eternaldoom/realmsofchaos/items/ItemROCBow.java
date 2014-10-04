@@ -25,7 +25,7 @@ public class ItemROCBow extends ROCModItem
     	super(name);
         this.maxStackSize = 1;
         this.setMaxDamage(384);
-        this.setCreativeTab(ROCTabs.Combat);
+        this.setCreativeTab(null);
         this.setMaxDamage(durability);
         this.ammo = parAmmo;
         this.damage = damage;
@@ -112,7 +112,6 @@ public class ItemROCBow extends ROCModItem
     @Override
     public ItemROCBow register(String name){
     	GameRegistry.registerItem(this, name);
-    	ROCItems.itemNames.add(name);
     	return this;
     }
 }

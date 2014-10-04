@@ -38,8 +38,9 @@ public class BlockFrozenChest extends BlockContainer
     {
         super(Material.ice);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING_PROP, EnumFacing.NORTH));
-        this.setCreativeTab(ROCTabs.Blocks);
+        this.setCreativeTab(CreativeTabs.tabBlock);
         this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
+        setUnlocalizedName("chestFrozen");
     }
 
     public boolean isOpaqueCube()
@@ -557,8 +558,7 @@ public class BlockFrozenChest extends BlockContainer
     }
 
 	public BlockFrozenChest register(String name) {
-		GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+		ROCBlocks.registerBlock(this, name);
 		return this;
 	}
 }

@@ -26,7 +26,6 @@ public class ItemROCShovel extends ItemROCTool
     
     public ItemROCShovel register(String name){
     	GameRegistry.registerItem(this, name);
-    	ROCItems.itemNames.add(name);
     	return this;
     }
 }

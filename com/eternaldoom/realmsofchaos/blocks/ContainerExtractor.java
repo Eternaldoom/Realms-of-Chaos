@@ -40,6 +40,7 @@ public class ContainerExtractor extends Container
         }
     }
 
+    @Override
     public void addCraftingToCrafters(ICrafting par1ICrafting)
     {
         super.addCraftingToCrafters(par1ICrafting);

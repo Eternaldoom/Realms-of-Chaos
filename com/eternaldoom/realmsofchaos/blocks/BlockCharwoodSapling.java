@@ -10,6 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.gen.WorldGenCharwoodTree;
@@ -18,7 +19,7 @@ import com.eternaldoom.realmsofchaos.items.ROCItems;
 public class BlockCharwoodSapling extends ROCModBlock{
 
 	public BlockCharwoodSapling() {
-		super(Material.rock, "saplingCharwood", 0.0f, 2.5f, soundTypeCloth);
+		super(Material.plants, "saplingCharwood", 0.0f, 2.5f, soundTypeCloth);
 		float f = 0.4f;
         setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         setTickRandomly(true);
@@ -37,8 +38,13 @@ public class BlockCharwoodSapling extends ROCModBlock{
 	}
 	
 	@Override
-	public boolean isVisuallyOpaque(){
-		return false;
+	public boolean isFullBlock(){
+	   return false;
+    }
+	
+	@Override
+	public EnumWorldBlockLayer getBlockLayer(){
+	    return EnumWorldBlockLayer.CUTOUT;
 	}
 	
 	@Override

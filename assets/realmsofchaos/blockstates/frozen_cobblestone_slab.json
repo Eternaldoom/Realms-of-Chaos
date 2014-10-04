@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "realmsofchaos:frozen_cobblestone_slab_bottom" },
+        "half=top": { "model": "realmsofchaos:frozen_stone_slab_top" }
+    }
+}

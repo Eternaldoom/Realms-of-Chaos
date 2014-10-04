@@ -186,6 +186,7 @@ public class BlockXylite extends ROCModBlock {
     }
     
     private void setBlock(World w, int i, int j, int k, Block block){
+        if(w != null)
     	w.setBlockState(this.helperPos.add(i, j, k), block.getDefaultState());
     }
 	

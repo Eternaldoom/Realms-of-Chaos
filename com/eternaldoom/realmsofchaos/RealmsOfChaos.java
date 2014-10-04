@@ -52,39 +52,38 @@ public class RealmsOfChaos {
 	public void preInit(FMLPreInitializationEvent evt){
 		System.out.println("[Realms of Chaos] Initializing mod.");
 		/*DimensionManager.registerProviderType(waterDimID, WorldProviderWater.class, true);
-    	DimensionManager.registerDimension(waterDimID, waterDimID);
-    	DimensionManager.registerProviderType(iceDimID, WorldProviderIceRuins.class, true);
-    	DimensionManager.registerDimension(iceDimID, iceDimID);*/
-    	
-    	waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setTheHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
-    	iceBiome = new BiomeGenIceRuins(56).setColor(48).setBiomeName("Ice Ruins").setTheHeight(new BiomeGenBase.Height(0.2f, 0.2f)).setEnableSnow().setTemperatureRainfall(0.0f, 0.5f);  
+        DimensionManager.registerDimension(waterDimID, waterDimID);
+        DimensionManager.registerProviderType(iceDimID, WorldProviderIceRuins.class, true);
+        DimensionManager.registerDimension(iceDimID, iceDimID);*/
+        
+        waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setTheHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
+        iceBiome = new BiomeGenIceRuins(56).setColor(48).setBiomeName("Ice Ruins").setTheHeight(new BiomeGenBase.Height(0.2f, 0.2f)).setEnableSnow().setTemperatureRainfall(0.0f, 0.5f);  
 
-    	network = NetworkRegistry.INSTANCE.newSimpleChannel("ROCPackets");
-    	network.registerMessage(PacketArmorFreeze.Handler.class, PacketArmorFreeze.class, 0, Side.SERVER);
-    	
-		ROCBlocks.init();
-		ROCItems.init();
-		TERegistry.init();
-		GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
-		OverworldCrafting.initRecipes();
-		Entities.preinit();
-        if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.preInit();
-		NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
-		FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
-		FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
-		/*MinecraftForge.EVENT_BUS.register(new TooltipEvent());
-		MinecraftForge.EVENT_BUS.register(new PortalFixEvent());
-		MinecraftForge.EVENT_BUS.register(new OreDropEvent());*/
-		
-		if(FMLCommonHandler.instance().getSide().isClient()){
-			//MinecraftForge.EVENT_BUS.register(new OverlayEvent());
-			FMLCommonHandler.instance().bus().register(new KeyPress());
-		}
+        network = NetworkRegistry.INSTANCE.newSimpleChannel("ROCPackets");
+        network.registerMessage(PacketArmorFreeze.Handler.class, PacketArmorFreeze.class, 0, Side.SERVER);
+        
+        ROCBlocks.init();
+        ROCItems.init();
+        TERegistry.init();
+        GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
+        OverworldCrafting.initRecipes();
+        Entities.preinit();
+        NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
+        FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
+        FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
+        /*MinecraftForge.EVENT_BUS.register(new TooltipEvent());
+        MinecraftForge.EVENT_BUS.register(new PortalFixEvent());
+        MinecraftForge.EVENT_BUS.register(new OreDropEvent());*/
+        
+        if(FMLCommonHandler.instance().getSide().isClient()){
+            //MinecraftForge.EVENT_BUS.register(new OverlayEvent());
+            FMLCommonHandler.instance().bus().register(new KeyPress());
+        }
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent evt){
-		if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
+        if(FMLCommonHandler.instance().getSide().isClient()) ClientProxy.init();
 		Entities.init();
 	}
 	

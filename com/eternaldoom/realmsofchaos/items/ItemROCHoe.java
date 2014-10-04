@@ -11,12 +11,11 @@ public class ItemROCHoe extends ItemHoe
 	public ItemROCHoe(ToolMaterial par1)
 	{
 		super(par1);
-		setCreativeTab(ROCTabs.Tools);
+		setCreativeTab(null);
 	}
 	
 	public ItemROCHoe register(String name){
 		GameRegistry.registerItem(this, name);
-		ROCItems.itemNames.add(name);
 		return this;
 	}
 }
