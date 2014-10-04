@@ -112,6 +112,7 @@ public class ItemROCBow extends ROCModItem
     @Override
     public ItemROCBow register(String name){
     	GameRegistry.registerItem(this, name);
+    	ROCItems.itemNames.add(name);
     	return this;
     }
 }

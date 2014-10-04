@@ -2,7 +2,6 @@ package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.List;
 
-import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -49,7 +48,7 @@ public class BlockFrozenStoneBrick extends ROCModBlock
     }
     
     public BlockFrozenStoneBrick register(Class<? extends ItemBlock> ib, String name){
-        ROCBlocks.registerBlock(this, ib, name);
+        GameRegistry.registerBlock(this, ib, name);
         return this;
     }
     

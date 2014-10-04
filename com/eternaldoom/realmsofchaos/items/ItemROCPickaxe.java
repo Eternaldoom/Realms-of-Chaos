@@ -34,6 +34,7 @@ public class ItemROCPickaxe extends ItemROCTool
     
     public ItemROCPickaxe register(String name){
     	GameRegistry.registerItem(this, name);
+    	ROCItems.itemNames.add(name);
     	return this;
     }
 }

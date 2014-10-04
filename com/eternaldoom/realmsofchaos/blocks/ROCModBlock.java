@@ -20,8 +20,9 @@ public class ROCModBlock extends Block{
 		blockName = name;
 	}
 	
-	public ROCModBlock register(String nam){
-		GameRegistry.registerBlock(this, nam);
+	public ROCModBlock register(String name){
+		GameRegistry.registerBlock(this, name);
+        ROCBlocks.blockNames.add(name);
 		return this;
 	}
 }

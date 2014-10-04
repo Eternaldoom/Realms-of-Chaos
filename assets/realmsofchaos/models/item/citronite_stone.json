@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "realmsofchaos:items/citronite_gem"
+        "layer0": "realmsofchaos:items/citronite_stone"
     },
     "display": {
         "thirdperson": {

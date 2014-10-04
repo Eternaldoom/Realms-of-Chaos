@@ -15,6 +15,7 @@ public class ROCModItem extends Item{
 
 	public ROCModItem register(String name){
 		GameRegistry.registerItem(this, name);
+		ROCItems.itemNames.add(name);
 		return this;
 	}
 }

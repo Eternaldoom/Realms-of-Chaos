@@ -1,5 +1,8 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -8,6 +11,9 @@ import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModSlab;
 import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
 
 public class ROCBlocks {
+    
+    public static List<String> blockNames = new ArrayList<String>();
+    
 	//Overworld
 	public static ROCModBlock citronite_ore;
     public static ROCModBlock citronite_block;
@@ -177,5 +183,6 @@ public class ROCBlocks {
 	public static void registerSlab(String name, String name2, BlockROCSlab one, BlockROCSlab two){
 		GameRegistry.registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two});
 		GameRegistry.registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two});
+        blockNames.add(name);
 	}
 }

@@ -1,0 +1,7 @@
+{
+    "parent": "block/pane_n",
+    "textures": {
+        "edge": "realmsofchaos:blocks/ocean_glass",
+        "pane": "realmsofchaos:blocks/ocean_glass"
+    }
+}

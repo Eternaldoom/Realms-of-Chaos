@@ -16,6 +16,7 @@ public class ItemROCHoe extends ItemHoe
 	
 	public ItemROCHoe register(String name){
 		GameRegistry.registerItem(this, name);
+		ROCItems.itemNames.add(name);
 		return this;
 	}
 }

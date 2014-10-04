@@ -494,6 +494,7 @@ public class BlockOceanChest extends BlockContainer
 
 	public BlockOceanChest register(String name) {
 		GameRegistry.registerBlock(this, name);
+        ROCBlocks.blockNames.add(name);
 		return this;
 	}
 }
