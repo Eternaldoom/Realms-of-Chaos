@@ -119,11 +119,6 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory, 
         this.furnaceBurnTime = p_145839_1_.getShort("BurnTime");
         this.furnaceCookTime = p_145839_1_.getShort("CookTime");
         this.currentItemBurnTime = getItemBurnTime(this.furnaceItemStacks[1]);
-
-        if (p_145839_1_.hasKey("CustomName", 8))
-        {
-            this.field_145958_o = p_145839_1_.getString("CustomName");
-        }
     }
 
     @Override
@@ -146,11 +141,6 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory, 
         }
 
         p_145841_1_.setTag("Items", nbttaglist);
-
-        if (this.hasCustomName())
-        {
-            p_145841_1_.setString("CustomName", this.field_145958_o);
-        }
     }
 
     @Override
