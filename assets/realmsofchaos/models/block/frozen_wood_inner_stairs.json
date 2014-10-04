@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "realmsofchaos:blocks/frozen_planks",
+        "top": "realmsofchaos:blocks/frozen_planks",
+        "side": "realmsofchaos:blocks/frozen_planks"
+    }
+}

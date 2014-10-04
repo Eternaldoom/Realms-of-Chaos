@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "realmsofchaos:blocks/netherrack_bricks",
+        "top": "realmsofchaos:blocks/netherrack_bricks",
+        "side": "realmsofchaos:blocks/netherrack_bricks"
+    }
+}

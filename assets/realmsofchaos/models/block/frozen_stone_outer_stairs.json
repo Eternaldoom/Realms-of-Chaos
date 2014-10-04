@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "realmsofchaos:blocks/frozen_stone",
+        "top": "realmsofchaos:blocks/frozen_stone",
+        "side": "realmsofchaos:blocks/frozen_stone"
+    }
+}
