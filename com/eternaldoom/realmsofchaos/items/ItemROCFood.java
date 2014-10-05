@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.items;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
@@ -14,7 +15,7 @@ public class ItemROCFood extends ItemFood{
 
 	public ItemROCFood(int p_i45339_1_, float p_i45339_2_, boolean p_i45339_3_, String tex, String name) {
 		super(p_i45339_1_, p_i45339_2_, p_i45339_3_);
-        setCreativeTab(null);
+        setCreativeTab(CreativeTabs.tabBlock);
         setUnlocalizedName(name);
 	}
 	

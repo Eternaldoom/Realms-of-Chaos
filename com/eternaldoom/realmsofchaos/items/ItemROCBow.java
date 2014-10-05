@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,13 +20,15 @@ public class ItemROCBow extends ROCModItem
 {
     private Item ammo;
     public float damage;
+    
+    //TODO: figure out a way to use the different pulling textures. Thanks a lot, Mojang!
 
     public ItemROCBow(String name, Item parAmmo, int durability, float damage)
     {
     	super(name);
         this.maxStackSize = 1;
         this.setMaxDamage(384);
-        this.setCreativeTab(null);
+        this.setCreativeTab(CreativeTabs.tabBlock);
         this.setMaxDamage(durability);
         this.ammo = parAmmo;
         this.damage = damage;

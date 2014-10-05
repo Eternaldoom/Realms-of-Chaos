@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +28,7 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 		if (par1armorMaterial == ROCItems.IRONa || par1armorMaterial == ROCItems.DIAMONDa){
 			setCreativeTab(null);
 			vanilla = true;
-		}else{setCreativeTab(null); vanilla = false;}
+		}else{setCreativeTab(CreativeTabs.tabBlock); vanilla = false;}
 
 		texture = type;
 		a = par1armorMaterial;

@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -16,7 +17,7 @@ public class ItemROCSword extends ItemSword{
     public ItemROCSword(ToolMaterial tool, String tex, String name, boolean isVanilla) {
 		super(tool);
 		setUnlocalizedName(name);
-		if (!isVanilla) setCreativeTab(null); else setCreativeTab(null);
+		if (!isVanilla) setCreativeTab(null); else setCreativeTab(CreativeTabs.tabBlock);
 		t = tool;
 	}
 

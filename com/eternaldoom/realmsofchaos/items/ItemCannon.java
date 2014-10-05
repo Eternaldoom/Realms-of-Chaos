@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +24,7 @@ public class ItemCannon extends ROCModItem {
 		this.setMaxDamage(uses);
 		this.ammoItem = ammo;
 		this.damage = damage;
-		//setCreativeTab(ROCTabs.Combat);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {

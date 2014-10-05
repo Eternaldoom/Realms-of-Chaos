@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.items;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -10,7 +11,7 @@ public class ROCModItem extends Item{
 	public ROCModItem(String name){
 		super();
 		setUnlocalizedName(name);
-		setCreativeTab(null);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 
 	public ROCModItem register(String name){

@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.items;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemHoe;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -11,7 +12,7 @@ public class ItemROCHoe extends ItemHoe
 	public ItemROCHoe(ToolMaterial par1)
 	{
 		super(par1);
-		setCreativeTab(null);
+		setCreativeTab(CreativeTabs.tabBlock);
 	}
 	
 	public ItemROCHoe register(String name){
