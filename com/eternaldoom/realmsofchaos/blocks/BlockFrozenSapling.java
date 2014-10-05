@@ -11,6 +11,7 @@ import net.minecraft.init.Items;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.World;
 
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceTree1;
@@ -39,6 +40,11 @@ public class BlockFrozenSapling extends ROCModBlock{
 	@Override
 	public boolean isNormalCube(){
 		return false;
+	}
+	
+	@Override
+	public EnumWorldBlockLayer getBlockLayer(){
+		return EnumWorldBlockLayer.CUTOUT;
 	}
 	
 	@Override
