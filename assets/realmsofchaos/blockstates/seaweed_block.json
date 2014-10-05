@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "realmsofchaos:seaweed" }
+        "level=0": { "model": "realmsofchaos:seaweed" }
     }
 }
