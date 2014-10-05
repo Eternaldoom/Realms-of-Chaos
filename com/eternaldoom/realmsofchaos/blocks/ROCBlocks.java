@@ -170,7 +170,7 @@ public class ROCBlocks {
 		frozen_stone_brick_slab_double = new BlockDoubleROCSlab(Material.rock, "slabFrozenStoneBrick", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
 		registerSlab("frozen_stone_brick_slab", "frozen_stone_brick_slab_double", frozen_stone_brick_slab, frozen_stone_brick_slab_double);
         osmaralt_ore = new ROCModBlock(Material.rock, "oreOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_ore");
-        osmaralt_block = new ROCModBlock(Material.rock, "blockOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_blocks");
+        osmaralt_block = new ROCModBlock(Material.rock, "blockOsmaralt", 20f, 1000000f, ROCModBlock.soundTypePiston).register("osmaralt_block");
 		frozen_log = new BlockROCLog(Material.wood, "logFrozen", 6f, 10.0f, ROCModBlock.soundTypeGlass).register("frozen_wood");
 		frozen_leaves = new BlockFrozenLeaves().register("frozen_leaves");
 		fake_ice = new BlockFakeIce().register("fake_ice");

@@ -1,3 +1,15 @@
 {
-    "parent": "builtin/entity"
+    "parent": "realmsofchaos:block/chest_base",
+    "textures": {
+        "top": "realmsofchaos:blocks/ocean_chest_top",
+        "side": "realmsofchaos:blocks/ocean_chest_side",
+        "handle": "realmsofchaos:blocks/ocean_chest_handle"
+    },
+    "display": {
+        "thirdperson": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        }
+    }
 }

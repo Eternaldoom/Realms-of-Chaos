@@ -43,21 +43,25 @@ public class BlockNetherChest extends BlockContainer
         setUnlocalizedName("chestNether");
     }
 
+    @Override
     public boolean isOpaqueCube()
     {
         return false;
     }
 
+    @Override
     public boolean isFullCube()
     {
         return false;
     }
 
+    @Override
     public int getRenderType()
     {
         return 2;
     }
 
+    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess access, BlockPos pos)
     {
         if (access.getBlockState(pos.offsetNorth()).getBlock() == this)

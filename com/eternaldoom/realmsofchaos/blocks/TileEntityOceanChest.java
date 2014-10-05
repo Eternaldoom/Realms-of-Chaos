@@ -21,7 +21,7 @@ public class TileEntityOceanChest extends TileEntityChest{
 	@Override
 	public void closeInventory(EntityPlayer player)
     {
-        if (this.getBlockType() instanceof BlockFrozenChest)
+        if (this.getBlockType() instanceof BlockOceanChest)
         {
             --this.numPlayersUsing;
             this.worldObj.addBlockEvent(this.getPos(), this.getBlockType(), 1, this.numPlayersUsing);
