@@ -36,6 +36,7 @@ public class ItemROCFood extends ItemFood{
 	
 	public ItemROCFood register(String name){
 		GameRegistry.registerItem(this, name);
+		ROCItems.itemList.add(name);
 		return this;
 	}
 }

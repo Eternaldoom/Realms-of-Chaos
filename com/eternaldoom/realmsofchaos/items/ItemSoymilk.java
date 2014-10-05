@@ -14,7 +14,8 @@ public class ItemSoymilk extends ROCModItem
         this.setMaxStackSize(1);
     }
 
-    public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player)
+    @Override
+    public ItemStack onItemUseFinish(ItemStack stack, World world, EntityPlayer player)
     {
         if (!player.capabilities.isCreativeMode)
         {
@@ -29,16 +30,19 @@ public class ItemSoymilk extends ROCModItem
         return stack.stackSize <= 0 ? new ItemStack(Items.bucket) : stack;
     }
 
+    @Override
     public int getMaxItemUseDuration(ItemStack stack)
     {
         return 48;
     }
 
+    @Override
     public EnumAction getItemUseAction(ItemStack stack)
     {
         return EnumAction.DRINK;
     }
 
+    @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
         player.setItemInUse(stack, this.getMaxItemUseDuration(stack));

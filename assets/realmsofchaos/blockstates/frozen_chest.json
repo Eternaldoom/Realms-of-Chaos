@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "realmsofchaos:frozen_chest" }
+        "all": { "model": "realmsofchaos:frozen_chest" }
     }
 }
