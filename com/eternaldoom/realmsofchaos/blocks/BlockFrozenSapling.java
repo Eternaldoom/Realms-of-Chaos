@@ -13,7 +13,6 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderSoyPlant;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldGenIceTree1;
 
 public class BlockFrozenSapling extends ROCModBlock{

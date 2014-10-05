@@ -60,6 +60,7 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 
 	public ItemROCArmor register(String name) {
 		GameRegistry.registerItem(this, name);
+		ROCItems.itemList.add(name);
 		return this;
 	}
 

@@ -3,13 +3,14 @@ package com.eternaldoom.realmsofchaos.items;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
 public class ROCItems {
     
-    public static List<String> itemNames = new ArrayList<String>();
+    public static List<String> itemList = new ArrayList<String>();
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	

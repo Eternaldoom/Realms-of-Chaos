@@ -5,8 +5,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+
+import com.eternaldoom.realmsofchaos.RealmsOfChaos;
 
 public class BlockCompressedLava extends BlockGlowing{
 
@@ -17,7 +18,7 @@ public class BlockCompressedLava extends BlockGlowing{
 	@Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, Entity entity){
 		entity.setFire(400);
-		entity.attackEntityFrom(/*RealmsOfChaos.molten*/DamageSource.cactus, 7.0f);
+		entity.attackEntityFrom(RealmsOfChaos.molten, 7.0f);
 	}
 
 	

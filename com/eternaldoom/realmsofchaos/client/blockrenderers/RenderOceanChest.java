@@ -1,22 +1,26 @@
 package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelChest;
+import net.minecraft.client.renderer.entity.RenderEntityItem;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
 
 public class RenderOceanChest extends TileEntitySpecialRenderer{
 
 	private static final ResourceLocation texture = new ResourceLocation("realmsofchaos:textures/tileentity/chest/ocean.png");
 	private ModelChest model = new ModelChest();
-	
-	public RenderOceanChest(){}
-	
+	private RenderEntityItem itemRenderer = new RenderEntityItem(Minecraft.getMinecraft().getRenderManager(), Minecraft.getMinecraft().getRenderItem());
+		
 	public void render(TileEntityOceanChest tileentity, double x, double y, double z, float f) {
 
 		int i;

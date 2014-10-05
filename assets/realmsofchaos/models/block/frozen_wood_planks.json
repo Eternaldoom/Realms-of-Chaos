@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "realmsofchaos:blocks/frozen_wood_planks"
+        "all": "realmsofchaos:blocks/frozen_planks"
     }
 }

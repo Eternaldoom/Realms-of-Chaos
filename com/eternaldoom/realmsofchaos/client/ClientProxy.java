@@ -11,6 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
+import com.eternaldoom.realmsofchaos.itemblock.*;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy {
@@ -20,14 +21,17 @@ public class ClientProxy {
 		ROCKeyBindings.init();
 		Renderers.init();
 		
-		for(String name : ROCItems.itemNames){
+		for(String name : ROCItems.itemList){
 		    registerItem(GameRegistry.findItem("realmsofchaos", name), "realmsofchaos:"+name);
 		}
 		
 		for(String name : ROCBlocks.blockNames){
-            registerItem(GameRegistry.findItem("realmsofchaos", name), "realmsofchaos:"+name);
+			Item i = GameRegistry.findItem("realmsofchaos", name);
+			if(!(i instanceof ItemBlockModStoneBrick)) registerItem(i, "realmsofchaos:"+name);
         }
-		
+	}
+	
+	public static void preInit(){
 		/*try{
 			InputStream is = DevCapes.getInstance().getStreamForURL(new URL("https://dl.dropboxusercontent.com/s/b1dc1vykv0hfseg/capes.json"));
 			CapeConfig config = CapeConfigManager.INSTANCE.parseFromStream(is);

@@ -1,13 +1,17 @@
 package com.eternaldoom.realmsofchaos;
 
+import java.lang.reflect.InvocationTargetException;
+
 import net.minecraft.block.Block;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -31,7 +35,7 @@ import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
-public class RealmsOfChaos {
+public class RealmsOfChaos{
 	public static final String MODID = "realmsofchaos";
 	public static final String VERSION = "Alpha 1.0 pre 1";
 	
@@ -46,7 +50,7 @@ public class RealmsOfChaos {
 	public static BiomeGenBase waterBiome;
 	public static BiomeGenBase iceBiome;
 	
-	//public static DamageSource molten = (new DamageSource("molten")).setFireDamage(); TODO: use reflection
+	public static DamageSource molten = new ROCDamageSource("molten").setFireDamage();
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt){
@@ -55,7 +59,7 @@ public class RealmsOfChaos {
         DimensionManager.registerDimension(waterDimID, waterDimID);
         DimensionManager.registerProviderType(iceDimID, WorldProviderIceRuins.class, true);
         DimensionManager.registerDimension(iceDimID, iceDimID);*/
-        
+		
         waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setTheHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
         iceBiome = new BiomeGenIceRuins(56).setColor(48).setBiomeName("Ice Ruins").setTheHeight(new BiomeGenBase.Height(0.2f, 0.2f)).setEnableSnow().setTemperatureRainfall(0.0f, 0.5f);  
 
