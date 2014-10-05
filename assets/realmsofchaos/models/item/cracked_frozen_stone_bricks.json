@@ -1,5 +1,5 @@
 {
-    "parent": "realmsofchaos:block/flamestone_block",
+    "parent": "realmsofchaos:block/cracked_frozen_stone_bricks",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

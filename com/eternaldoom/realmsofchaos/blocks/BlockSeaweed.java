@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -50,6 +51,11 @@ public class BlockSeaweed extends ROCModBlock{
 	@Override
 	public boolean isVisuallyOpaque(){
 		return false;
+	}
+	
+	@Override
+	public EnumWorldBlockLayer getBlockLayer(){
+		return EnumWorldBlockLayer.CUTOUT;
 	}
 	
 	@Override

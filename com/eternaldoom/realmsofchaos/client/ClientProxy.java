@@ -3,7 +3,10 @@ package com.eternaldoom.realmsofchaos.client;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.BlockModelShapes;
 import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.renderer.block.statemap.StateMap;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -11,9 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.blocks.BlockFrozenStoneBrick;
-import com.eternaldoom.realmsofchaos.blocks.BlockOceanStoneBrick;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
-import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 @SideOnly(Side.CLIENT)
