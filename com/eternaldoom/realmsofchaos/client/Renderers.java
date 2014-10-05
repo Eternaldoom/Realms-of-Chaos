@@ -30,20 +30,12 @@ import com.eternaldoom.realmsofchaos.items.ItemCannon;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class Renderers {
-	
-	private static ItemCannon[] cannons = {ROCItems.iron_cannon, ROCItems.diamond_cannon, ROCItems.heliotrope_cannon, ROCItems.citronite_cannon, ROCItems.xylite_cannon, ROCItems.flamestone_cannon, ROCItems.neptunite_cannon, ROCItems.aquatic_cannon, ROCItems.osmaralt_cannon, ROCItems.fractonite_cannon};
-	
+		
 	public static void init(){
 		
-		//RenderingRegistry.registerBlockHandler(new RenderExtractor());
-		//RenderingRegistry.registerBlockHandler(new RenderSoyPlant());
-		
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
-		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.ocean_chest), new ItemRendererOceanChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherChest.class, new RenderNetherChest());
-		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.nether_chest), new ItemRendererNetherChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrozenChest.class, new RenderFrozenChest());
-		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.frozen_chest), new ItemRendererFrozenChest());
 		
 		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
 		
@@ -56,10 +48,5 @@ public class Renderers {
 
 		manager.entityRenderMap.put(EntityROCArrow.class, new RenderROCArrow());
 		manager.entityRenderMap.put(EntityBullet.class, new RenderBullet());
-
-		for (ItemCannon cannon : cannons){
-			//MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
-		}
-		
 	}
 }
