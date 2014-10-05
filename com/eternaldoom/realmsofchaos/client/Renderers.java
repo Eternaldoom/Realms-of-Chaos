@@ -1,5 +1,7 @@
 package com.eternaldoom.realmsofchaos.client;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -43,15 +45,17 @@ public class Renderers {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrozenChest.class, new RenderFrozenChest());
 		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ROCBlocks.frozen_chest), new ItemRendererFrozenChest());
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntityAquaticGolem.class, new RenderAquaticGolem());
-		RenderingRegistry.registerEntityRenderingHandler(EntityScorpioid.class, new RenderScorpioid());
-		RenderingRegistry.registerEntityRenderingHandler(EntityScorpius.class, new RenderScorpius());
-		RenderingRegistry.registerEntityRenderingHandler(EntityVoidCrawler.class, new RenderVoidCrawler());
-		RenderingRegistry.registerEntityRenderingHandler(EntityGiantFish.class, new RenderFish("giant_fish", 3, 3, 3));
-		RenderingRegistry.registerEntityRenderingHandler(EntityKelpFish.class, new RenderFish("kelp_fish", 0.5f, 0.5f, 1));
+		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
+		
+		manager.entityRenderMap.put(EntityAquaticGolem.class, new RenderAquaticGolem());
+		manager.entityRenderMap.put(EntityScorpioid.class, new RenderScorpioid());
+		manager.entityRenderMap.put(EntityScorpius.class, new RenderScorpius());
+		manager.entityRenderMap.put(EntityVoidCrawler.class, new RenderVoidCrawler());
+		manager.entityRenderMap.put(EntityGiantFish.class, new RenderFish("giant_fish", 3, 3, 3));
+		manager.entityRenderMap.put(EntityKelpFish.class, new RenderFish("kelp_fish", 0.5f, 0.5f, 1));
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityROCArrow.class, new RenderROCArrow());
-		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
+		manager.entityRenderMap.put(EntityROCArrow.class, new RenderROCArrow());
+		manager.entityRenderMap.put(EntityBullet.class, new RenderBullet());
 
 		for (ItemCannon cannon : cannons){
 			//MinecraftForgeClient.registerItemRenderer(cannon, new ItemRendererCannon());
