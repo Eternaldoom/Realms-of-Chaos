@@ -202,3 +202,5 @@ entity.KelpFish.name=Kelp Fish
 entity.Scorpius.name=Scorpius
 
 key.freeze=Fractonite Armor Bonus
+
+spawnmsg.scorpius=§b%1$s has spawned Scorpius

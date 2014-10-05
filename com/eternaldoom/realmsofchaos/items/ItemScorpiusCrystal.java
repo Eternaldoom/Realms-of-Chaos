@@ -5,7 +5,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
@@ -25,7 +24,7 @@ public class ItemScorpiusCrystal extends ROCModItem{
 			boss.setPosition(pos.getX(), pos.getY()+1, pos.getZ());
 			world.spawnEntityInWorld(boss);
 			--stack.stackSize;
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation(EnumChatFormatting.AQUA + "" + player.getDisplayName() + " has spawned Scorpius"));
+			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentTranslation("spawnmsg.scorpius", new Object[]{player.getDisplayName()}));
 			return true;
 		}
 		return false;
