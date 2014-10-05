@@ -49,7 +49,7 @@ public class BlockFrozenStoneBrick extends ROCModBlock
     }
     
     public BlockFrozenStoneBrick register(Class<? extends ItemBlock> ib, String name){
-        GameRegistry.registerBlock(this, ib, name);
+        ROCBlocks.registerBlock(this, ib, name);
         return this;
     }
     

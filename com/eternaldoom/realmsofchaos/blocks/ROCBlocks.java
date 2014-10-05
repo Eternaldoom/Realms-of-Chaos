@@ -189,6 +189,7 @@ public class ROCBlocks {
 	public static void registerSlab(String name, String name2, BlockROCSlab one, BlockROCSlab two){
 		registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two});
 		registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two});
+        blockNames.add(name);
 	}
 	
 	public static Block registerBlock(Block block, Class<? extends ItemBlock> itemclass, String name, Object... itemCtorArgs)
@@ -208,7 +209,6 @@ public class ROCBlocks {
             int id = Block.blockRegistry.getIDForObject(block) << 4 | block.getMetaFromState(iblockstate);
             Block.BLOCK_STATE_IDS.put(iblockstate, id);
         }
-        blockNames.add(name);
         return block;
     }
 	

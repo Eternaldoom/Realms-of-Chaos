@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=frozen_stone_bricks": { "model": "realmsofchaos:frozen_stone_bricks" },
+        "variant=cracked_frozen_stone_bricks": { "model": "realmsofchaos:cracked_frozen_stone_bricks" },
+        "variant=chiseled_frozen_stone_bricks": { "model": "realmsofchaos:chiseled_frozen_stone_bricks" }
+    }
+}

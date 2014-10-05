@@ -1,5 +1,6 @@
 package com.eternaldoom.realmsofchaos.client;
 
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
@@ -9,9 +10,11 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.eternaldoom.realmsofchaos.blocks.BlockFrozenStoneBrick;
+import com.eternaldoom.realmsofchaos.blocks.BlockOceanStoneBrick;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
+import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
-import com.eternaldoom.realmsofchaos.itemblock.*;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy {
@@ -27,8 +30,19 @@ public class ClientProxy {
 		
 		for(String name : ROCBlocks.blockNames){
 			Item i = GameRegistry.findItem("realmsofchaos", name);
-			if(!(i instanceof ItemBlockModStoneBrick)) registerItem(i, "realmsofchaos:"+name);
+			registerItem(i, "realmsofchaos:"+name);
         }
+		
+		Item oceanstone_bricks = GameRegistry.findItem("realmsofchaos", "oceanstone_bricks");
+		Item frozen_stone_bricks = GameRegistry.findItem("realmsofchaos", "frozen_stone_bricks");
+				
+		registerItem(oceanstone_bricks, 0, "realmsofchaos:oceanstone_bricks");
+		registerItem(oceanstone_bricks, 1, "realmsofchaos:cracked_oceanstone_bricks");
+		registerItem(oceanstone_bricks, 2, "realmsofchaos:chiseled_oceanstone_bricks");
+		registerItem(frozen_stone_bricks, 0, "realmsofchaos:frozen_stone_bricks");
+		registerItem(frozen_stone_bricks, 1, "realmsofchaos:cracked_frozen_stone_bricks");
+		registerItem(frozen_stone_bricks, 2, "realmsofchaos:chiseled_frozen_stone_bricks");
+
 	}
 	
 	public static void preInit(){

@@ -559,6 +559,7 @@ public class BlockFrozenChest extends BlockContainer
 
 	public BlockFrozenChest register(String name) {
 		ROCBlocks.registerBlock(this, name);
+        ROCBlocks.blockNames.add(name);
 		return this;
 	}
 }
