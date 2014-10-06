@@ -17,6 +17,7 @@ public class BlockROCStairs extends BlockStairs{
 		super(modelBlockState);
 		setUnlocalizedName(name);
 		setCreativeTab(CreativeTabs.tabBlock);
+		this.useNeighborBrightness = true;
 	}
 
 	public BlockROCStairs register(String name){
