@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.eternaldoom.realmsofchaos.ROCTabs;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.BlockStoneSlab;
 import net.minecraft.block.material.Material;
@@ -34,6 +35,7 @@ public class BlockROCSlab extends BlockSlab
         setStepSound(stepSound);
         setHardness(hardness);
         setResistance(resistance);
+        this.useNeighborBrightness = true;
     }
     
     @Override
