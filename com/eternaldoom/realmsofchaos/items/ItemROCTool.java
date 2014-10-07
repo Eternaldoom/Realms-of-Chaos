@@ -23,22 +23,21 @@ import com.google.common.collect.Multimap;
 
 public class ItemROCTool extends ROCModItem
 {
-	private ToolMaterial t;
     private Set breakableSet;
     protected float efficiencyOnProperMaterial = 4.0F;
     private float damageVsEntity;
-    protected Item.ToolMaterial toolMaterial;
+    public ROCItems.ToolMaterial toolMaterial;
 
-    public ItemROCTool(float attackDamage, Item.ToolMaterial material, Set breaks, String name, boolean vanilla)
+    public ItemROCTool(float attackDamage, ROCItems.ToolMaterial material, Set breaks, String name, boolean vanilla)
     {
     	super(name);
         this.toolMaterial = material;
         this.breakableSet = breaks;
         this.maxStackSize = 1;
         this.setMaxDamage(material.getMaxUses());
-        this.efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial();
+        this.efficiencyOnProperMaterial = material.getEfficiency();
         this.damageVsEntity = attackDamage;
-        t = material;
+        toolMaterial = material;
         if(!vanilla) setCreativeTab(CreativeTabs.tabBlock); else setCreativeTab(null);//TODO: change when forge comes out
         if (this instanceof ItemROCPickaxe)
         {
@@ -63,11 +62,11 @@ public class ItemROCTool extends ROCModItem
     		infoList.add(EnumChatFormatting.GREEN + "" + (item.getMaxDamage() - item.getItemDamage()) + " Uses Remaining");
     	}
         
-        infoList.add(EnumChatFormatting.RED + "" + this.t.getEfficiencyOnProperMaterial() + " Efficiency");
+        infoList.add(EnumChatFormatting.RED + "" + this.toolMaterial.getEfficiency() + " Efficiency");
         
-		if (this instanceof ItemROCPickaxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/4) + " Attack Damage");
-		if (this instanceof ItemROCAxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/4) + " Attack Damage");
-		if (this instanceof ItemROCShovel) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((t.getDamageVsEntity() + 4.0f)/5) + " Attack Damage");
+		if (this instanceof ItemROCPickaxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/4) + " Attack Damage");
+		if (this instanceof ItemROCAxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/4) + " Attack Damage");
+		if (this instanceof ItemROCShovel) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/5) + " Attack Damage");
     }
     
     @Override
@@ -108,7 +107,7 @@ public class ItemROCTool extends ROCModItem
         return true;
     }
 
-    public Item.ToolMaterial func_150913_i()
+    public ROCItems.ToolMaterial getToolMaterial()
     {
         return this.toolMaterial;
     }
@@ -130,18 +129,13 @@ public class ItemROCTool extends ROCModItem
         return this.toolMaterial.toString();
     }
 
-    /**
-     * Return whether this item is repairable in an anvil.
-     */
+
     @Override
     public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
     {
-        return this.toolMaterial.getBaseItemForRepair() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+        return this.toolMaterial.getItemForRepair() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
     }
 
-    /**
-     * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
-     */
     @Override
     public Multimap getItemAttributeModifiers()
     {

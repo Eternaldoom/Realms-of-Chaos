@@ -15,9 +15,9 @@ public class ItemROCPickaxe extends ItemROCTool
 {
     private static final Set breaks = Sets.newHashSet(new Block[] {Blocks.cobblestone, Blocks.double_stone_slab, Blocks.stone_slab, Blocks.stone, Blocks.sandstone, Blocks.mossy_cobblestone, Blocks.iron_ore, Blocks.iron_block, Blocks.coal_ore, Blocks.gold_block, Blocks.gold_ore, Blocks.diamond_ore, Blocks.diamond_block, Blocks.ice, Blocks.netherrack, Blocks.lapis_ore, Blocks.lapis_block, Blocks.redstone_ore, Blocks.lit_redstone_ore, Blocks.rail, Blocks.detector_rail, Blocks.golden_rail, Blocks.activator_rail});
     
-    protected ItemROCPickaxe(Item.ToolMaterial tool, String name, boolean vanilla)
+    protected ItemROCPickaxe(ROCItems.ToolMaterial tool, String name, boolean vanilla)
     {
-        super(Math.round((tool.getDamageVsEntity() + 4)/4), tool, breaks, name, vanilla);
+        super(Math.round((tool.getAttackDamage() + 4)/4), tool, breaks, name, vanilla);
     }
 
     @Override
@@ -34,6 +34,7 @@ public class ItemROCPickaxe extends ItemROCTool
     
     public ItemROCPickaxe register(String name){
     	GameRegistry.registerItem(this, name);
+    	ROCItems.itemList.add(name);
     	return this;
     }
 }

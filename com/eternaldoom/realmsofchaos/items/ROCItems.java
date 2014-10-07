@@ -3,6 +3,7 @@ package com.eternaldoom.realmsofchaos.items;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
@@ -25,17 +26,6 @@ public class ROCItems {
 	public static final ArmorMaterial OSMARALTa = addArmorMaterial("OSMARALT", 5151, 50);
 	public static final ArmorMaterial FRACTONITEa = addArmorMaterial("FRACTONITE", -1, 20);
 	public static final ArmorMaterial DEMONIZEDa = addArmorMaterial("DEMONIZED", -1, 15);
-	
-	/*public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
-	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
-	public static final ToolMaterial HELIOTROPEt = EnumHelper.addToolMaterial("HELIOTROPE", 4, 2651, 9.5f, 2.0f, 10);
-	public static final ToolMaterial CITRONITEt = EnumHelper.addToolMaterial("CITRONITE", 5, 3151, 10.5f, 2.0f, 20);
-	public static final ToolMaterial XYLITEt = EnumHelper.addToolMaterial("XYLITE", 6, 3651, 12.0f, 3.5f, 15);
-	public static final ToolMaterial FLAMEt = EnumHelper.addToolMaterial("FLAME", 7, 2151, 13.5f, 5.0f, 12);
-	public static final ToolMaterial NEPTUNITEt = EnumHelper.addToolMaterial("NEPTUNITE", 8, -1, 15.0f, 6.5f, 12);
-	public static final ToolMaterial AQUATICt = EnumHelper.addToolMaterial("AQUATIC", 9, 3651, 17f, 8f, 6);
-	public static final ToolMaterial OSMARALTt = EnumHelper.addToolMaterial("OSMARALT", 10, 4651, 19.5f, 10f, 50);
-	public static final ToolMaterial FRACTONITEt = EnumHelper.addToolMaterial("FRACTONITE", 11, 5651, 22f, 12f, 20);*/
 	
 	//Overworld
 	public static ROCModItem citronite_gem;
@@ -178,25 +168,25 @@ public class ROCItems {
 		flame_leggings = new ItemROCArmor(FLAMEa, LEGGINGS, "flame", "realmsofchaos:flame_leggings", "leggingsFlame", 63.5D);
 		flame_boots = new ItemROCArmor(FLAMEa, BOOTS, "flame", "realmsofchaos:flame_boots", "bootsFlame", 63.5D);*/
 
-		/*citronite_sword = new ItemROCSword(CITRONITEt, "realmsofchaos:citronite_sword", "swordCitronite", false).register("citronite_sword");
-		citronite_axe = new ItemROCAxe(CITRONITEt, "realmsofchaos:citronite_axe", "axeCitronite", false).register("citronite_axe");
-		citronite_pickaxe = new ItemROCPickaxe(CITRONITEt, "realmsofchaos:citronite_pickaxe", "pickaxeCitronite", false).register("citronite_pickaxe");
-		citronite_shovel = new ItemROCShovel(CITRONITEt, "realmsofchaos:citronite_shovel", "shovelCitronite", false).register("citronite_shovel");
+		citronite_sword = new ItemROCSword(ROCItems.ToolMaterial.CITRONITE, "swordCitronite", false).register("citronite_sword");
+		citronite_axe = new ItemROCAxe(ROCItems.ToolMaterial.CITRONITE, "axeCitronite", false).register("citronite_axe");
+		citronite_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.CITRONITE, "pickaxeCitronite", false).register("citronite_pickaxe");
+		citronite_shovel = new ItemROCShovel(ROCItems.ToolMaterial.CITRONITE, "shovelCitronite", false).register("citronite_shovel");
 		
-		heliotrope_sword = new ItemROCSword(HELIOTROPEt, "realmsofchaos:heliotrope_sword", "swordHeliotrope", false).register("heliotrope_sword");
-		heliotrope_axe = new ItemROCAxe(HELIOTROPEt, "realmsofchaos:heliotrope_axe", "axeHeliotrope", false).register("heliotrope_axe");
-		heliotrope_pickaxe = new ItemROCPickaxe(HELIOTROPEt, "realmsofchaos:heliotrope_pickaxe", "pickaxeHeliotrope", false).register("heliotrope_pickaxe");
-		heliotrope_shovel = new ItemROCShovel(HELIOTROPEt, "realmsofchaos:heliotrope_shovel", "shovelHeliotrope", false).register("heliotrope_shovel");
+		heliotrope_sword = new ItemROCSword(ROCItems.ToolMaterial.HELIOTROPE, "swordHeliotrope", false).register("heliotrope_sword");
+		heliotrope_axe = new ItemROCAxe(ROCItems.ToolMaterial.HELIOTROPE, "axeHeliotrope", false).register("heliotrope_axe");
+		heliotrope_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.HELIOTROPE, "pickaxeHeliotrope", false).register("heliotrope_pickaxe");
+		heliotrope_shovel = new ItemROCShovel(ROCItems.ToolMaterial.HELIOTROPE, "shovelHeliotrope", false).register("heliotrope_shovel");
 
-		xylite_sword = new ItemROCSword(XYLITEt, "realmsofchaos:xylite_sword", "swordXylite", false).register("xylite_sword");
-		xylite_axe = new ItemROCAxe(XYLITEt, "realmsofchaos:xylite_axe", "axeXylite", false).register("xylite_axe");
-		xylite_pickaxe = new ItemROCPickaxe(XYLITEt, "realmsofchaos:xylite_pickaxe", "pickaxeXylite", false).register("xylite_pickaxe");
-		xylite_shovel = new ItemROCShovel(XYLITEt, "realmsofchaos:xylite_shovel", "shovelXylite", false).register("xylite_shovel");
+		xylite_sword = new ItemROCSword(ROCItems.ToolMaterial.XYLITE, "swordXylite", false).register("xylite_sword");
+		xylite_axe = new ItemROCAxe(ROCItems.ToolMaterial.XYLITE, "axeXylite", false).register("xylite_axe");
+		xylite_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.XYLITE, "pickaxeXylite", false).register("xylite_pickaxe");
+		xylite_shovel = new ItemROCShovel(ROCItems.ToolMaterial.XYLITE, "shovelXylite", false).register("xylite_shovel");
 		
-		flame_sword = new ItemROCSword(FLAMEt, "realmsofchaos:flame_sword", "swordFlame", false);
-		flame_pickaxe = new ItemROCPickaxe(FLAMEt, "realmsofchaos:flame_pickaxe", "pickaxeFlame", false);
-		flame_axe = new ItemROCAxe(FLAMEt, "realmsofchaos:flame_axe", "axeFlame", false);
-		flame_shovel = new ItemROCShovel(FLAMEt, "realmsofchaos:flame_shovel", "shovelFlame", false);*/
+		flame_sword = new ItemROCSword(ROCItems.ToolMaterial.FLAME, "swordFlame", false);
+		flame_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.FLAME, "pickaxeFlame", false);
+		flame_axe = new ItemROCAxe(ROCItems.ToolMaterial.FLAME, "axeFlame", false);
+		flame_shovel = new ItemROCShovel(ROCItems.ToolMaterial.FLAME, "shovelFlame", false);
 		
 		/*neptunite_helmet = new ItemROCArmor(NEPTUNITEa, HELMET, "neptunite", "realmsofchaos:neptunite_helmet", "helmetNeptunite", 65D);
 		neptunite_chestplate = new ItemROCArmor(NEPTUNITEa, CHESTPLATE, "neptunite", "realmsofchaos:neptunite_chestplate", "chestplateNeptunite", 65D);
@@ -221,25 +211,25 @@ public class ROCItems {
 		fractonite_leggings = new ItemROCArmor(FRACTONITEa, LEGGINGS, "fractonite", "realmsofchaos:fractonite_leggings", "leggingsFractonite", 70D);
 		fractonite_boots = new ItemROCArmor(FRACTONITEa, BOOTS, "fractonite", "realmsofchaos:fractonite_boots", "bootsFractonite", 70D);*/
 		
-		/*aquatic_sword = new ItemROCSword(AQUATICt, "realmsofchaos:aquatic_sword", "swordAquatic", false);
-		aquatic_pickaxe = new ItemROCPickaxe(AQUATICt, "realmsofchaos:aquatic_pickaxe", "pickaxeAquatic", false);
-		aquatic_axe = new ItemROCAxe(AQUATICt, "realmsofchaos:aquatic_axe", "axeAquatic", false);
-		aquatic_shovel = new ItemROCShovel(AQUATICt, "realmsofchaos:aquatic_shovel", "shovelAquatic", false);
+		aquatic_sword = new ItemROCSword(ROCItems.ToolMaterial.AQUATIC, "swordAquatic", false);
+		aquatic_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.AQUATIC, "pickaxeAquatic", false);
+		aquatic_axe = new ItemROCAxe(ROCItems.ToolMaterial.AQUATIC, "axeAquatic", false);
+		aquatic_shovel = new ItemROCShovel(ROCItems.ToolMaterial.AQUATIC, "shovelAquatic", false);
 		
-		neptunite_sword = new ItemROCSword(NEPTUNITEt, "realmsofchaos:neptunite_sword", "swordNeptunite", false);
-		neptunite_pickaxe = new ItemROCPickaxe(NEPTUNITEt, "realmsofchaos:neptunite_pickaxe", "pickaxeNeptunite", false);
-		neptunite_axe = new ItemROCAxe(NEPTUNITEt, "realmsofchaos:neptunite_axe", "axeNeptunite", false);
-		neptunite_shovel = new ItemROCShovel(NEPTUNITEt, "realmsofchaos:neptunite_shovel", "shovelNeptunite", false);
+		neptunite_sword = new ItemROCSword(ROCItems.ToolMaterial.NEPTUNITE, "swordNeptunite", false);
+		neptunite_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.NEPTUNITE, "pickaxeNeptunite", false);
+		neptunite_axe = new ItemROCAxe(ROCItems.ToolMaterial.NEPTUNITE, "axeNeptunite", false);
+		neptunite_shovel = new ItemROCShovel(ROCItems.ToolMaterial.NEPTUNITE, "shovelNeptunite", false);
 		
-		osmaralt_sword = new ItemROCSword(OSMARALTt, "realmsofchaos:osmaralt_sword", "swordOsmaralt", false);
-		osmaralt_axe = new ItemROCAxe(OSMARALTt, "realmsofchaos:osmaralt_axe", "axeOsmaralt", false);
-		osmaralt_pickaxe = new ItemROCPickaxe(OSMARALTt, "realmsofchaos:osmaralt_pickaxe", "pickaxeOsmaralt", false);
-		osmaralt_shovel = new ItemROCShovel(OSMARALTt, "realmsofchaos:osmaralt_shovel", "shovelOsmaralt", false);
+		osmaralt_sword = new ItemROCSword(ROCItems.ToolMaterial.OSMARALT, "swordOsmaralt", false);
+		osmaralt_axe = new ItemROCAxe(ROCItems.ToolMaterial.OSMARALT, "axeOsmaralt", false);
+		osmaralt_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.OSMARALT, "pickaxeOsmaralt", false);
+		osmaralt_shovel = new ItemROCShovel(ROCItems.ToolMaterial.OSMARALT, "shovelOsmaralt", false);
 		
-		fractonite_sword = new ItemROCSword(FRACTONITEt, "realmsofchaos:fractonite_sword", "swordFractonite", false);
-		fractonite_pickaxe = new ItemROCPickaxe(FRACTONITEt, "realmsofchaos:fractonite_pickaxe", "pickaxeFractonite", false);
-		fractonite_axe = new ItemROCAxe(FRACTONITEt, "realmsofchaos:fractonite_axe", "axeFractonite", false);
-		fractonite_shovel = new ItemROCShovel(FRACTONITEt, "realmsofchaos:fractonite_shovel", "shovelFractonite", false);*/
+		fractonite_sword = new ItemROCSword(ROCItems.ToolMaterial.FRACTONITE, "swordFractonite", false);
+		fractonite_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.FRACTONITE, "pickaxeFractonite", false);
+		fractonite_axe = new ItemROCAxe(ROCItems.ToolMaterial.FRACTONITE, "axeFractonite", false);
+		fractonite_shovel = new ItemROCShovel(ROCItems.ToolMaterial.FRACTONITE, "shovelFractonite", false);
 		
 		soybean = new ItemSoybean().register("soybean");
 		raw_scorpion = new ItemROCFood(2, 0.2f, true, "realmsofchaos:raw_scorpion", "scorpionRaw");
@@ -303,15 +293,15 @@ public class ROCItems {
 		osmaralt_cannon = new ItemCannon("cannonOsmaralt", 1150, osmaralt_bullet, 10.5f);
 		fractonite_cannon = new ItemCannon("cannonFractonite", 1300, fractonite_bullet, 12);
 
-		/*diamond_sword = new ItemROCSword(DIAMONDt, "minecraft:diamond_sword", "swordDiamond", true).register("diamond_sword");
-		iron_sword = new ItemROCSword(IRONt, "minecraft:iron_sword", "swordIron", true).register("iron_sword");
-		diamond_axe = new ItemROCAxe(DIAMONDt, "minecraft:diamond_axe", "hatchetDiamond", true).register("diamond_axe");
-		iron_axe = new ItemROCAxe(IRONt, "minecraft:iron_axe", "hatchetIron", true).register("iron_axe");
-		diamond_pickaxe = new ItemROCPickaxe(DIAMONDt, "minecraft:diamond_pickaxe", "pickaxeDiamond", true).register("diamond_pickaxe");
-		iron_pickaxe = new ItemROCPickaxe(IRONt, "minecraft:iron_pickaxe", "pickaxeIron", true).register("iron_pickaxe");
-		diamond_shovel = new ItemROCShovel(DIAMONDt, "minecraft:diamond_shovel", "shovelDiamond", true).register("diamond_shovel");
-		iron_shovel = new ItemROCShovel(IRONt, "minecraft:iron_shovel", "shovelIron", true).register("iron_shovel");
-		iron_helmet = new ItemROCArmor(IRONa, HELMET, "iron", "minecraft:iron_helmet", "helmetIron", 44D).register("iron_helmet");
+		diamond_sword = new ItemROCSword(ROCItems.ToolMaterial.DIAMOND, "swordDiamond", true).register("diamond_sword");
+		iron_sword = new ItemROCSword(ROCItems.ToolMaterial.IRON, "swordIron", true).register("iron_sword");
+		diamond_axe = new ItemROCAxe(ROCItems.ToolMaterial.DIAMOND, "hatchetDiamond", true).register("diamond_axe");
+		iron_axe = new ItemROCAxe(ROCItems.ToolMaterial.IRON, "hatchetIron", true).register("iron_axe");
+		diamond_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.DIAMOND, "pickaxeDiamond", true).register("diamond_pickaxe");
+		iron_pickaxe = new ItemROCPickaxe(ROCItems.ToolMaterial.IRON, "pickaxeIron", true).register("iron_pickaxe");
+		diamond_shovel = new ItemROCShovel(ROCItems.ToolMaterial.DIAMOND, "shovelDiamond", true).register("diamond_shovel");
+		iron_shovel = new ItemROCShovel(ROCItems.ToolMaterial.IRON, "shovelIron", true).register("iron_shovel");
+		/*iron_helmet = new ItemROCArmor(IRONa, HELMET, "iron", "minecraft:iron_helmet", "helmetIron", 44D).register("iron_helmet");
 		iron_chestplate = new ItemROCArmor(IRONa, CHESTPLATE, "iron", "minecraft:iron_chestplate", "chestplateIron", 44D).register("iron_chestplate");
 		iron_leggings = new ItemROCArmor(IRONa, LEGGINGS, "iron", "minecraft:iron_leggings", "leggingsIron", 44D).register("iron_leggings");
 		iron_boots = new ItemROCArmor(IRONa, BOOTS, "iron", "minecraft:iron_boots", "bootsIron", 44D).register("iron_boots");
@@ -320,11 +310,11 @@ public class ROCItems {
 		diamond_leggings = new ItemROCArmor(DIAMONDa, LEGGINGS, "diamond", "minecraft:diamond_leggings", "leggingsDiamond", 52D).register("diamond_leggings");
 		diamond_boots = new ItemROCArmor(DIAMONDa, BOOTS, "diamond", "minecraft:diamond_boots", "bootsDiamond", 52D).register("diamond_boots");*/
 		
-		/*flame_sword.register("flamestone_sword");
+		flame_sword.register("flamestone_sword");
 		aquatic_sword.register("aquatic_sword");
 		neptunite_sword.register("neptunite_sword");
 		osmaralt_sword.register("osmaralt_sword");
-		fractonite_sword.register("fractonite_sword");*/
+		fractonite_sword.register("fractonite_sword");
 
 		citronite_gem.register("citronite_gem");
 		ash_dust.register("ash_dust");
@@ -457,19 +447,50 @@ public class ROCItems {
     }
 	
 	public static enum ToolMaterial{
-		IRONt(250, 6.0f, 0.0f, 14),
-		DIAMONDt(1561, 8.0f, 1.0f, 10),
-		HELIOTROPEt(2651, 9.5f, 2.0f, 10),
-		CITRONITEt(3151, 10.5f, 2.0f, 20),
-		XYLITEt(3651, 12.0f, 3.5f, 15),
-		FLAMEt(2151, 13.5f, 5.0f, 12),
-		NEPTUNITEt(-1, 15.0f, 6.5f, 12),
-		AQUATICt(3651, 17f, 8f, 6),
-		OSMARALTt(4651, 19.5f, 10f, 50),
-		FRACTONITEt(5651, 22f, 12f, 20);
+		IRON(2, 250, 6.0f, 0.0f, 14, Items.iron_ingot),
+		DIAMOND(3, 1561, 8.0f, 1.0f, 10, Items.diamond),
+		HELIOTROPE(4, 2651, 9.5f, 2.0f, 10, ROCItems.heliotrope),
+		CITRONITE(5, 3151, 10.5f, 2.0f, 20, ROCItems.citronite_gem),
+		XYLITE(6, 3651, 12.0f, 3.5f, 15, ROCItems.xylite_ingot),
+		FLAME(7, 2151, 13.5f, 5.0f, 12, ROCItems.flame_stone),
+		NEPTUNITE(8, -1, 15.0f, 6.5f, 12, ROCItems.neptunite_ingot),
+		AQUATIC(9, 3651, 17f, 8f, 6, ROCItems.aquatic_orb),
+		OSMARALT(10, 4651, 19.5f, 10f, 50, ROCItems.osmaralt_ingot),
+		FRACTONITE(11, 5651, 22f, 12f, 20, ROCItems.fractonite_stone);
 		
-		ToolMaterial(int uses, float efficiency, float damage, int enchantability){
-			
+		int harvestLevel; int uses; float efficiency; float damage; int enchantability; Item repairItem;
+		
+		ToolMaterial(int harvestLevel, int uses, float efficiency, float damage, int enchantability, Item repairItem){
+			this.harvestLevel = harvestLevel;
+			this.uses = uses;
+			this.efficiency = efficiency;
+			this.damage = damage;
+			this.enchantability = enchantability;
+			this.repairItem = repairItem;
+		}
+		
+		public float getEfficiency(){
+			return this.efficiency;
+		}
+		
+		public int getMaxUses(){
+			return this.uses;
+		}
+		
+		public float getAttackDamage(){
+			return this.damage;
+		}
+		
+		public int getEnchantability(){
+			return this.enchantability;
+		}
+		
+		public Item getItemForRepair(){
+			return this.repairItem;
+		}
+		
+		public int getHarvestLevel(){
+			return this.harvestLevel;
 		}
 	}
 }

@@ -15,9 +15,9 @@ public class ItemROCAxe extends ItemROCTool
 {	
     private static final Set breaks = Sets.newHashSet(new Block[] {Blocks.planks, Blocks.bookshelf, Blocks.log, Blocks.log2, Blocks.chest, Blocks.pumpkin, Blocks.lit_pumpkin});
 
-    protected ItemROCAxe(Item.ToolMaterial tool, String name, boolean vanilla)
+    protected ItemROCAxe(ROCItems.ToolMaterial tool, String name, boolean vanilla)
     {
-        super(Math.round((tool.getDamageVsEntity() + 4)/2)+1, tool, breaks, name, vanilla);
+        super(Math.round((tool.getAttackDamage() + 4)/2)+1, tool, breaks, name, vanilla);
     }
 
     @Override
