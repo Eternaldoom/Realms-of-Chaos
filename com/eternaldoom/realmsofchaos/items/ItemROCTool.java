@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -23,28 +24,22 @@ import com.google.common.collect.Multimap;
 public class ItemROCTool extends ROCModItem
 {
 	private ToolMaterial t;
-    private Set field_150914_c;
+    private Set breakableSet;
     protected float efficiencyOnProperMaterial = 4.0F;
-    /**
-     * Damage versus entities.
-     */
     private float damageVsEntity;
-    /**
-     * The material this tool is made from.
-     */
     protected Item.ToolMaterial toolMaterial;
 
-    public ItemROCTool(float p_i45333_1_, Item.ToolMaterial tool, Set p_i45333_3_, String name, boolean vanilla)
+    public ItemROCTool(float attackDamage, Item.ToolMaterial material, Set breaks, String name, boolean vanilla)
     {
     	super(name);
-        this.toolMaterial = tool;
-        this.field_150914_c = p_i45333_3_;
+        this.toolMaterial = material;
+        this.breakableSet = breaks;
         this.maxStackSize = 1;
-        this.setMaxDamage(tool.getMaxUses());
-        this.efficiencyOnProperMaterial = tool.getEfficiencyOnProperMaterial();
-        this.damageVsEntity = p_i45333_1_;
-        t = tool;
-        if(!vanilla) setCreativeTab(null); else setCreativeTab(null);
+        this.setMaxDamage(material.getMaxUses());
+        this.efficiencyOnProperMaterial = material.getEfficiencyOnProperMaterial();
+        this.damageVsEntity = attackDamage;
+        t = material;
+        if(!vanilla) setCreativeTab(CreativeTabs.tabBlock); else setCreativeTab(null);//TODO: change when forge comes out
         if (this instanceof ItemROCPickaxe)
         {
             toolClass = "pickaxe";
@@ -78,7 +73,7 @@ public class ItemROCTool extends ROCModItem
     @Override
     public float getStrVsBlock(ItemStack p_150893_1_, Block p_150893_2_)
     {
-        return this.field_150914_c.contains(p_150893_2_) ? this.efficiencyOnProperMaterial : 1.0F;
+        return this.breakableSet.contains(p_150893_2_) ? this.efficiencyOnProperMaterial : 1.0F;
     }
 
     /**

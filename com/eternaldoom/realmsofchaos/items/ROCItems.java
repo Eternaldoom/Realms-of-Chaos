@@ -24,6 +24,7 @@ public class ROCItems {
 	public static final ArmorMaterial AQUATICa = addArmorMaterial("AQUATIC", 3651, 6);
 	public static final ArmorMaterial OSMARALTa = addArmorMaterial("OSMARALT", 5151, 50);
 	public static final ArmorMaterial FRACTONITEa = addArmorMaterial("FRACTONITE", -1, 20);
+	public static final ArmorMaterial DEMONIZEDa = addArmorMaterial("DEMONIZED", -1, 15);
 	
 	/*public static final ToolMaterial IRONt = EnumHelper.addToolMaterial("IRON", 2, 250, 6.0f, 0.0f, 14);
 	public static final ToolMaterial DIAMONDt = EnumHelper.addToolMaterial("DIAMOND", 3, 1561, 8.0f, 1.0f, 10);
@@ -455,4 +456,20 @@ public class ROCItems {
 		return null;
     }
 	
+	public static enum ToolMaterial{
+		IRONt(250, 6.0f, 0.0f, 14),
+		DIAMONDt(1561, 8.0f, 1.0f, 10),
+		HELIOTROPEt(2651, 9.5f, 2.0f, 10),
+		CITRONITEt(3151, 10.5f, 2.0f, 20),
+		XYLITEt(3651, 12.0f, 3.5f, 15),
+		FLAMEt(2151, 13.5f, 5.0f, 12),
+		NEPTUNITEt(-1, 15.0f, 6.5f, 12),
+		AQUATICt(3651, 17f, 8f, 6),
+		OSMARALTt(4651, 19.5f, 10f, 50),
+		FRACTONITEt(5651, 22f, 12f, 20);
+		
+		ToolMaterial(int uses, float efficiency, float damage, int enchantability){
+			
+		}
+	}
 }
