@@ -1,0 +1,53 @@
+{
+    "textures": {
+        "bottom": "realmsofchaos:blocks/display_case_bottom",
+        "top": "blocks/glass",
+        "base_side": "realmsofchaos:blocks/display_case_base_side",
+        "particle": "blocks/sea_lantern"
+    },
+    "elements": [
+        {   "from": [ 4, 0, 4 ],
+            "to": [ 12, 2, 12 ],
+            "faces": {
+                "down":  { "texture": "#bottom" },
+                "up":    { "texture": "#bottom" },
+                "north": { "texture": "#bottom", "uv": [ 0, 14, 8, 16 ] },
+                "south": { "texture": "#bottom", "uv": [ 0, 14, 8, 16 ] },
+                "west":  { "texture": "#bottom", "uv": [ 0, 14, 8, 16 ] },
+                "east":  { "texture": "#bottom", "uv": [ 0, 14, 8, 16 ] }
+            }
+        },
+        {   "from": [ 6, 2, 6 ],
+            "to": [ 10, 8, 10 ],
+            "faces": {
+            "north": { "texture": "#base_side" },
+            "south": { "texture": "#base_side" },
+            "west":  { "texture": "#base_side" },
+            "east":  { "texture": "#base_side" }
+            }
+        },
+        {   "from": [ 0, 8, 0 ],
+            "to": [ 16, 11, 16 ],
+            "faces": {
+            "down":  { "texture": "#particle" },
+            "up":    { "texture": "#particle" },
+            "north": { "texture": "#particle", "cullface": "north" },
+            "south": { "texture": "#particle", "cullface": "south" },
+            "west":  { "texture": "#particle", "cullface": "west" },
+            "east":  { "texture": "#particle", "cullface": "east" }
+            }
+        },
+        {   "from": [ 0, 9, 2 ],
+            "to": [ 12, 14, 14 ],
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5, "rescale": false },
+            "faces": {
+                 "down":  { "texture": "#top" },
+                 "up":    { "texture": "#top" },
+                 "north": { "texture": "#top" },
+                 "south": { "texture": "#top" },
+                 "west":  { "texture": "#top" },
+                 "east":  { "texture": "#top" }
+            }
+        }
+    ]
+}

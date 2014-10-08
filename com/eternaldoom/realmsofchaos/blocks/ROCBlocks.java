@@ -36,6 +36,7 @@ public class ROCBlocks {
     public static ROCModBlock osmaralt_block;
     public static ROCModBlock fake_ice;
     public static ROCModBlock soy_plant;
+    public static BlockDisplayCase display_case;
 	
     //Nether
 	public static ROCModBlock charwood_leaves;
@@ -182,6 +183,7 @@ public class ROCBlocks {
 		frozen_wood_slab_double = new BlockDoubleROCSlab(Material.wood, "slabFrozenWood", 10f, 10.0f, ROCModBlock.soundTypeWood);
 		registerSlab("frozen_wood_slab", "frozen_wood_slab_double", frozen_wood_slab, frozen_wood_slab_double);
 		frozen_sapling = new BlockFrozenSapling().register("frozen_sapling");
+		display_case = new BlockDisplayCase().register("display_case");
 
         //GameRegistry.GameRegistry.registerBlock(water_portal, "water_portal");
 	}

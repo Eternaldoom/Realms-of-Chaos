@@ -3,11 +3,12 @@ package com.eternaldoom.realmsofchaos.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
+import com.eternaldoom.realmsofchaos.blocks.TileEntityDisplayCase;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityFrozenChest;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityNetherChest;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityOceanChest;
+import com.eternaldoom.realmsofchaos.client.blockrenderers.DisplayCaseItemRenderer;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderFrozenChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderNetherChest;
 import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderOceanChest;
@@ -26,8 +27,6 @@ import com.eternaldoom.realmsofchaos.entity.EntityScorpius;
 import com.eternaldoom.realmsofchaos.entity.EntityVoidCrawler;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityBullet;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
-import com.eternaldoom.realmsofchaos.items.ItemCannon;
-import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class Renderers {
 		
@@ -36,7 +35,8 @@ public class Renderers {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOceanChest.class, new RenderOceanChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNetherChest.class, new RenderNetherChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFrozenChest.class, new RenderFrozenChest());
-		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisplayCase.class, new DisplayCaseItemRenderer());
+
 		RenderManager manager = Minecraft.getMinecraft().getRenderManager();
 		
 		manager.entityRenderMap.put(EntityAquaticGolem.class, new RenderAquaticGolem());

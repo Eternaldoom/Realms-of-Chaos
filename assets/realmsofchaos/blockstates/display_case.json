@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "realmsofchaos:display_case" },
+        "facing=south": { "model": "realmsofchaos:display_case", "y": 180 },
+        "facing=west":  { "model": "realmsofchaos:display_case", "y": 270 },
+        "facing=east":  { "model": "realmsofchaos:display_case", "y": 90 }
+    }
+}
