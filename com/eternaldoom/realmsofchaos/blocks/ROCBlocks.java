@@ -195,7 +195,7 @@ public class ROCBlocks {
 	public static Block registerBlock(Block block, Class<? extends ItemBlock> itemclass, String name, Object... itemCtorArgs)
     {
         block = GameRegistry.registerBlock(block, itemclass, name, itemCtorArgs);
-        Item associatedItem = GameRegistry.findItem("ironchest", name);
+        Item associatedItem = GameRegistry.findItem("realmsofchaos", name);
         
         Map itemBlockMap = (Map)ObfuscationReflectionHelper.getPrivateValue(Item.class, null, "BLOCK_TO_ITEM");
         
