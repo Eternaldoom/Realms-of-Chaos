@@ -16,6 +16,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -76,12 +77,12 @@ public class EntityFrozenWarrior extends EntityMob{
     }
     
     @Override
-    protected Item getDropItem()
+    protected void dropFewItems(boolean par1, int par2)
     {
-        Random rand = new Random();
-        int i = rand.nextInt(40);
-        if (i == 2) return ROCItems.fractonite_stone;
-        else return Item.getItemFromBlock(Blocks.air);
+        if(this.rand.nextInt(40) == 0)this.dropItem(ROCItems.fractonite_stone, 1);
+        if(this.rand.nextInt(7) == 0)this.dropItem(ROCItems.fractonite_shard, this.rand.nextInt(3)+1);
+        if(this.rand.nextInt(3) == 0)this.dropItem(Item.getItemFromBlock(Blocks.ice), 1);
+        this.dropItem(Items.snowball, this.rand.nextInt(3)+1);
     }
     
     //TODO: new items for drops probably

@@ -76,6 +76,7 @@ public class ROCItems {
 	
 	public static ROCModItem osmaralt_ingot;
 	public static ROCModItem fractonite_stone;
+	public static ROCModItem fractonite_shard;
 	
 	public static ItemROCArmor fractonite_helmet, fractonite_chestplate, fractonite_leggings, fractonite_boots;
 	public static ItemROCArmor osmaralt_helmet, osmaralt_chestplate, osmaralt_leggings, osmaralt_boots;
@@ -200,6 +201,7 @@ public class ROCItems {
 		
 		osmaralt_ingot = new ROCModItem("ingotOsmaralt");
 		fractonite_stone = new ROCModItem("stoneFractonite");
+		fractonite_shard = new ROCModItem("shardFractonite");
 		
 		/*osmaralt_helmet = new ItemROCArmor(OSMARALTa, HELMET, "osmaralt", "realmsofchaos:osmaralt_helmet", "helmetOsmaralt", 68.25D);
 		osmaralt_chestplate = new ItemROCArmor(OSMARALTa, CHESTPLATE, "osmaralt", "realmsofchaos:osmaralt_chestplate", "chestplateOsmaralt", 68.25D);
@@ -328,6 +330,7 @@ public class ROCItems {
 		neptunite_ingot.register("neptunite_ingot");
 		osmaralt_ingot.register("osmaralt_ingot");
 		fractonite_stone.register("fractonite_stone");
+		fractonite_shard.register("fractonite_shard");
 		
 		raw_scorpion.register("raw_scorpion");
 		cooked_scorpion.register("cooked_scorpion");
