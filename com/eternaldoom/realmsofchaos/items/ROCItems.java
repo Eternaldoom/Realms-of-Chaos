@@ -373,7 +373,7 @@ public class ROCItems {
 		fractonite_helmet.register("fractonite_helmet");
 		fractonite_chestplate.register("fractonite_chestplate");
 		fractonite_leggings.register("fractonite_leggings");
-		fractonite_boots.register("fractonite_boots");
+		fractonite_boots.register("fractonite_boots");*/
 		
 		flame_pickaxe.register("flamestone_pickaxe");
 		flame_axe.register("flamestone_axe");
@@ -393,7 +393,7 @@ public class ROCItems {
 		
 		fractonite_pickaxe.register("fractonite_pickaxe");
 		fractonite_axe.register("fractonite_axe");
-		fractonite_shovel.register("fractonite_shovel");*/
+		fractonite_shovel.register("fractonite_shovel");
 		
 		iron_bow.register("iron_bow");
 		diamond_bow.register("diamond_bow");
