@@ -7,12 +7,16 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockDisplayCase extends BlockContainer{
 	
@@ -44,7 +48,7 @@ public class BlockDisplayCase extends BlockContainer{
 	
 	@Override
 	public int getRenderType(){
-		return 2;
+		return 3;
 	}
 	
 	public BlockDisplayCase register(String name){
@@ -86,8 +90,27 @@ public class BlockDisplayCase extends BlockContainer{
     }
 	
 	@Override
-	public IBlockState getStateFromMeta(int meta)
+	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
+        return this.getDefaultState().withProperty(FACING, placer.func_174811_aO().getOpposite());
+    }
+	
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
+		if(!player.isSneaking() && world.getTileEntity(pos) != null){
+			TileEntityDisplayCase tile = (TileEntityDisplayCase)world.getTileEntity(pos);
+			if(tile.displayItem != Item.getItemFromBlock(Blocks.air)) player.inventory.addItemStackToInventory(new ItemStack(tile.displayItem, 1, tile.displayDamage));
+			if(player.getHeldItem().getItem() != null){
+				tile.displayItem = player.getHeldItem().getItem();
+				tile.displayDamage = player.getHeldItem().getItemDamage();
+			}
+			return true;
+		}
+		return false;
+    }
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta){
         EnumFacing enumfacing = EnumFacing.getFront(meta);
 
         if (enumfacing.getAxis() == EnumFacing.Axis.Y)
@@ -99,14 +122,12 @@ public class BlockDisplayCase extends BlockContainer{
     }
 
     @Override
-    public int getMetaFromState(IBlockState state)
-    {
+    public int getMetaFromState(IBlockState state){
         return ((EnumFacing)state.getValue(FACING)).getIndex();
     }
 
     @Override
-    protected BlockState createBlockState()
-    {
+    protected BlockState createBlockState(){
         return new BlockState(this, new IProperty[] {FACING});
     }
     
