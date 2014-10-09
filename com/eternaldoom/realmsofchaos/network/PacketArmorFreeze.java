@@ -40,7 +40,7 @@ public class PacketArmorFreeze implements IMessage{
 
 		@Override
 		public IMessage onMessage(PacketArmorFreeze message, MessageContext ctx) {
-			
+			System.out.println("HELLO");
 			World w = ctx.getServerHandler().playerEntity.worldObj;
 			int x = (int)Math.round(ctx.getServerHandler().playerEntity.posX);
 			int y = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posY);

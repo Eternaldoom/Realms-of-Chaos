@@ -2,6 +2,7 @@
     "textures": {
         "bottom": "realmsofchaos:blocks/display_case_bottom",
         "top": "blocks/glass",
+        "side": "realmsofchaos:blocks/display_case_side",
         "base_side": "realmsofchaos:blocks/display_case_base_side",
         "particle": "blocks/sea_lantern"
     },
@@ -31,10 +32,10 @@
             "faces": {
             "down":  { "texture": "#particle" },
             "up":    { "texture": "#particle" },
-            "north": { "texture": "#particle", "cullface": "north" },
-            "south": { "texture": "#particle", "cullface": "south" },
-            "west":  { "texture": "#particle", "cullface": "west" },
-            "east":  { "texture": "#particle", "cullface": "east" }
+            "north": { "texture": "#side", "cullface": "north" },
+            "south": { "texture": "#side", "cullface": "south" },
+            "west":  { "texture": "#side", "cullface": "west" },
+            "east":  { "texture": "#side", "cullface": "east" }
             }
         }
     ]

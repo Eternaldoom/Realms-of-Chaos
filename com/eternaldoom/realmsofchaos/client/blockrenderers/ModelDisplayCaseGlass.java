@@ -11,7 +11,7 @@ public class ModelDisplayCaseGlass extends ModelBase{
 	public ModelRenderer glass = new ModelRenderer(this, 0, 0);
 	
 	public ModelDisplayCaseGlass(){
-		this.textureWidth = 32;
+		this.textureWidth = 64;
 		this.textureHeight = 32;
 		
 		this.glass.addBox(2, -5, -14, 12, 4, 12, 0);

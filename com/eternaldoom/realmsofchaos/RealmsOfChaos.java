@@ -32,6 +32,7 @@ import com.eternaldoom.realmsofchaos.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
+import com.eternaldoom.realmsofchaos.network.PacketDisplayCaseItem;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
@@ -65,6 +66,7 @@ public class RealmsOfChaos{
 
         network = NetworkRegistry.INSTANCE.newSimpleChannel("ROCPackets");
         network.registerMessage(PacketArmorFreeze.Handler.class, PacketArmorFreeze.class, 0, Side.SERVER);
+        network.registerMessage(PacketDisplayCaseItem.Handler.class, PacketDisplayCaseItem.class, 1, Side.CLIENT);
         
         ROCBlocks.init();
         ROCItems.init();

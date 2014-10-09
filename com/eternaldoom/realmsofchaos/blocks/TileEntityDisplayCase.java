@@ -1,9 +1,9 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
@@ -25,8 +25,15 @@ public class TileEntityDisplayCase extends TileEntity{
 		super.readFromNBT(tag);
 		String itemName = tag.getString("DisplayItem");
 		this.displayItem = itemName != "" ? Item.getByNameOrId(itemName) : null;
-		System.out.println(this.displayItem.getUnlocalizedName());
 		this.displayDamage = tag.getInteger("DisplayDamage");
+
+	}
+	
+	@Override
+	public Packet getDescriptionPacket(){
+		NBTTagCompound tag = new NBTTagCompound();
+		this.writeToNBT(tag);
+		return new S35PacketUpdateTileEntity(this.getPos(), 3, tag);
 	}
 
 }
