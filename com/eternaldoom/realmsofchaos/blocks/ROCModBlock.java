@@ -22,7 +22,7 @@ public class ROCModBlock extends Block{
 	}
 	
 	public ROCModBlock register(String name){
-		ROCBlocks.registerBlock(this, name);
+		GameRegistry.registerBlock(this, name);
         ROCBlocks.blockNames.add(name);
 		return this;
 	}

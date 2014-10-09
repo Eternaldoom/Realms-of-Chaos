@@ -17,6 +17,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockDisplayCase extends BlockContainer{
 	
@@ -52,7 +53,7 @@ public class BlockDisplayCase extends BlockContainer{
 	}
 	
 	public BlockDisplayCase register(String name){
-		ROCBlocks.registerBlock(this, name);
+		GameRegistry.registerBlock(this, name);
 		ROCBlocks.blockNames.add(name);
 		return this;
 	}
