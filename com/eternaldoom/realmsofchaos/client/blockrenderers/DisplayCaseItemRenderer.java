@@ -1,8 +1,5 @@
 package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,19 +10,21 @@ import net.minecraft.client.renderer.texture.TextureCompass;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.resources.model.ModelManager;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSkull;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.MapData;
 
+import com.eternaldoom.realmsofchaos.blocks.BlockDisplayCase;
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityDisplayCase;
 
 public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
@@ -36,10 +35,9 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
     private ModelDisplayCaseGlass glass = new ModelDisplayCaseGlass();
 
     @Override
-    public void renderTileEntityAt(TileEntity tile, double par2, double par3, double par4, float p_180535_8_, int p_180535_9_)
-    {
+    public void renderTileEntityAt(TileEntity tile, double par2, double par3, double par4, float p_180535_8_, int p_180535_9_){
         GlStateManager.pushMatrix();
-        BlockPos blockpos = tile.getPos();
+        BlockPos pos = tile.getPos();
         double d3 = par2;
         double d4 = par3;
         double d5 = par4;
@@ -60,6 +58,29 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
         GlStateManager.enableRescaleNormal();
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         GlStateManager.translate((float)par2, (float)par3 + 1.0F, (float)par4 + 1.0F);
+        this.bindTexture(new ResourceLocation("realmsofchaos:textures/blocks/display_case_glass.png"));
+        GlStateManager.translate(0.5, 0.5, -0.5);
+        if(tile.getWorld().getBlockState(pos).getBlock() == ROCBlocks.display_case){
+        if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.SOUTH){
+        	GlStateManager.rotate(11.25f, 1, 0, 0);
+        	GlStateManager.translate(0, -0.1, 0.1);
+        }
+        if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.WEST){
+        	GlStateManager.rotate(11.25f, 0, 0, 1);
+        	GlStateManager.translate(-0.1, -0.1, 0);
+        }
+        if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.EAST){
+        	GlStateManager.rotate(-11.25f, 0, 0, 1);
+        	GlStateManager.translate(0.1, -0.1, 0);
+        }
+        if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.NORTH){
+        	GlStateManager.rotate(-11.25f, 1, 0, 0);
+        	GlStateManager.translate(0, -0.1, -0.1);
+        }
+        }
+        
+        GlStateManager.translate(-0.5, -0.5, 0.5);
+
         glass.render();
         GlStateManager.disableRescaleNormal();
         GlStateManager.popMatrix();
@@ -67,6 +88,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
 
     private void renderItem(TileEntityDisplayCase tile)
     {
+    	BlockPos pos = tile.getPos();
         ItemStack itemstack = new ItemStack(tile.displayItem, 1, tile.displayDamage);
 
         if (itemstack != null)
@@ -131,7 +153,23 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
                 GlStateManager.pushAttrib();
                 RenderHelper.enableStandardItemLighting();
                 GlStateManager.translate(0, 0, 1.28);
-                this.renderItem.func_175043_b(entityitem.getEntityItem());
+                GlStateManager.rotate(-45f, 0f, 0f, 1f);
+                if(tile.getWorld().getBlockState(pos).getBlock() == ROCBlocks.display_case){
+                	if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.SOUTH){
+                		GlStateManager.rotate(270f, 0, 0, 1);
+                	}
+                	if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.WEST){
+                		GlStateManager.rotate(180f, 0, 0, 1);
+                	}
+                	if(tile.getWorld().getBlockState(pos).getValue(BlockDisplayCase.FACING) == EnumFacing.NORTH){
+                		GlStateManager.rotate(90f, 0, 0, 1);
+                	}
+                }
+                if(tile.displayItem instanceof ItemBlock){
+                	GlStateManager.translate(0, 0, -2.5);
+                	GlStateManager.rotate(270, 1, 0, 0);
+                }
+                if(tile.displayItem != null)this.renderItem.func_175043_b(entityitem.getEntityItem());
                 RenderHelper.disableStandardItemLighting();
                 GlStateManager.popAttrib();
 
