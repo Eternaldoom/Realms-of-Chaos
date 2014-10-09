@@ -32,9 +32,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
 {
     private static final ResourceLocation mapBackgroundTextures = new ResourceLocation("textures/map/map_background.png");
     private final Minecraft mc = Minecraft.getMinecraft();
-    private final ModelResourceLocation field_177072_f = new ModelResourceLocation("item_frame", "normal");
-    private final ModelResourceLocation field_177073_g = new ModelResourceLocation("item_frame", "map");
-    private RenderItem field_177074_h = Minecraft.getMinecraft().getRenderItem();
+    private RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     private ModelDisplayCaseGlass glass = new ModelDisplayCaseGlass();
 
     @Override
@@ -65,14 +63,6 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
         glass.render();
         GlStateManager.disableRescaleNormal();
         GlStateManager.popMatrix();
-    }
-
-    /**
-     * Returns the location of an entity's texture. Doesn't seem to be called unless you call Render.bindEntityTexture.
-     */
-    protected ResourceLocation getEntityTexture(EntityItemFrame p_110775_1_)
-    {
-        return null;
     }
 
     private void renderItem(TileEntityDisplayCase tile)
@@ -133,7 +123,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
 
                 GlStateManager.scale(0.5F, 0.5F, 0.5F);
 
-                if (!this.field_177074_h.func_175050_a(entityitem.getEntityItem()) || item instanceof ItemSkull)
+                if (!this.renderItem.func_175050_a(entityitem.getEntityItem()) || item instanceof ItemSkull)
                 {
                     GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
                 }
@@ -141,7 +131,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
                 GlStateManager.pushAttrib();
                 RenderHelper.enableStandardItemLighting();
                 GlStateManager.translate(0, 0, 1.28);
-                this.field_177074_h.func_175043_b(entityitem.getEntityItem());
+                this.renderItem.func_175043_b(entityitem.getEntityItem());
                 RenderHelper.disableStandardItemLighting();
                 GlStateManager.popAttrib();
 

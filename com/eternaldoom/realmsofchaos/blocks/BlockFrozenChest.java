@@ -55,7 +55,7 @@ public class BlockFrozenChest extends BlockContainer
 
     public int getRenderType()
     {
-        return 2;
+        return 3;
     }
 
     public void setBlockBoundsBasedOnState(IBlockAccess access, BlockPos pos)

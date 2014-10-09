@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "realmsofchaos:ocean_chest" }
+        "all": { "model": "realmsofchaos:ocean_chest" }
     }
 }
