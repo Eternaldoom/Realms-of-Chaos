@@ -36,18 +36,6 @@
             "west":  { "texture": "#particle", "cullface": "west" },
             "east":  { "texture": "#particle", "cullface": "east" }
             }
-        },
-        {   "from": [ 0, 9, 2 ],
-            "to": [ 12, 14, 14 ],
-            "rotation": { "origin": [ 8, 8, 8 ], "axis": "z", "angle": -22.5, "rescale": false },
-            "faces": {
-                 "down":  { "texture": "#top" },
-                 "up":    { "texture": "#top" },
-                 "north": { "texture": "#top" },
-                 "south": { "texture": "#top" },
-                 "west":  { "texture": "#top" },
-                 "east":  { "texture": "#top" }
-            }
         }
     ]
 }

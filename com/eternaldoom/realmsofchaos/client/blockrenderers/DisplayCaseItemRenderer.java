@@ -1,5 +1,8 @@
 package com.eternaldoom.realmsofchaos.client.blockrenderers;
 
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockRendererDispatcher;
 import net.minecraft.client.renderer.GlStateManager;
@@ -32,7 +35,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
     private final ModelResourceLocation field_177072_f = new ModelResourceLocation("item_frame", "normal");
     private final ModelResourceLocation field_177073_g = new ModelResourceLocation("item_frame", "map");
     private RenderItem field_177074_h = Minecraft.getMinecraft().getRenderItem();
-    private static final String __OBFID = "CL_00001002";
+    private ModelDisplayCaseGlass glass = new ModelDisplayCaseGlass();
 
     @Override
     public void renderTileEntityAt(TileEntity tile, double par2, double par3, double par4, float p_180535_8_, int p_180535_9_)
@@ -53,6 +56,14 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
         GlStateManager.popMatrix();
         GlStateManager.translate(0.0F, 0.0F, 0.4375F);
         this.renderItem((TileEntityDisplayCase)tile);
+        GlStateManager.popMatrix();
+        //Now do the glass
+        GlStateManager.pushMatrix();
+        GlStateManager.enableRescaleNormal();
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+        GlStateManager.translate((float)par2, (float)par3 + 1.0F, (float)par4 + 1.0F);
+        glass.render();
+        GlStateManager.disableRescaleNormal();
         GlStateManager.popMatrix();
     }
 
