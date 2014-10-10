@@ -57,6 +57,7 @@ tile.planksFrozen.name=Frozen Wood Planks
 tile.stairsFrozenWood.name=Frozen Wood Stairs
 tile.slabFrozenWood.name=Frozen Wood Slab
 tile.saplingFrozen.name=Frozen Sapling
+tile.displayCase.name=Display Case
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
@@ -186,6 +187,7 @@ item.tofu.name=Tofu
 item.crystalScorpius.name=Scorpius Crystal
 item.gemMystic.name=Mystic Gem
 item.milkSoy.name=Soy Milk
+item.shardFractonite.name=Fractonite Shard
 
 itemGroup.ROCBlocks=Realms of Chaos Blocks
 itemGroup.ROCItems=Realms of Chaos Items
@@ -200,6 +202,7 @@ entity.VoidCrawler.name=Void Crawler
 entity.GiantFish.name=Giant Fish
 entity.KelpFish.name=Kelp Fish
 entity.Scorpius.name=Scorpius
+entity.FrozenWarrior.name=Frozen Warrior
 
 key.freeze=Fractonite Armor Bonus
 

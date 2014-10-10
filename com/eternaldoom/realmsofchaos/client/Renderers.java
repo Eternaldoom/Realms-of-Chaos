@@ -15,11 +15,13 @@ import com.eternaldoom.realmsofchaos.client.blockrenderers.RenderOceanChest;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderAquaticGolem;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderBullet;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFish;
+import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderFrozenWarrior;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderROCArrow;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpioid;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderScorpius;
 import com.eternaldoom.realmsofchaos.client.entityrenderer.RenderVoidCrawler;
 import com.eternaldoom.realmsofchaos.entity.EntityAquaticGolem;
+import com.eternaldoom.realmsofchaos.entity.EntityFrozenWarrior;
 import com.eternaldoom.realmsofchaos.entity.EntityGiantFish;
 import com.eternaldoom.realmsofchaos.entity.EntityKelpFish;
 import com.eternaldoom.realmsofchaos.entity.EntityScorpioid;
@@ -45,6 +47,7 @@ public class Renderers {
 		manager.entityRenderMap.put(EntityVoidCrawler.class, new RenderVoidCrawler());
 		manager.entityRenderMap.put(EntityGiantFish.class, new RenderFish("giant_fish", 3, 3, 3));
 		manager.entityRenderMap.put(EntityKelpFish.class, new RenderFish("kelp_fish", 0.5f, 0.5f, 1));
+		manager.entityRenderMap.put(EntityFrozenWarrior.class, new RenderFrozenWarrior());
 
 		manager.entityRenderMap.put(EntityROCArrow.class, new RenderROCArrow());
 		manager.entityRenderMap.put(EntityBullet.class, new RenderBullet());

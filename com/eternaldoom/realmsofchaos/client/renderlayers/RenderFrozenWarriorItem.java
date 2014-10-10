@@ -2,7 +2,6 @@ package com.eternaldoom.realmsofchaos.client.renderlayers;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.RendererLivingEntity;
@@ -14,6 +13,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
+import com.eternaldoom.realmsofchaos.client.entityrenderer.ModelFrozenWarrior;
+
 public class RenderFrozenWarriorItem implements LayerRenderer
 {
     private final RendererLivingEntity entityRenderer;
@@ -23,17 +24,22 @@ public class RenderFrozenWarriorItem implements LayerRenderer
         this.entityRenderer = p_i46115_1_;
     }
 
-    @Override
-    public void doRenderLayer(EntityLivingBase entity, float p_177141_2_, float p_177141_3_, float p_177141_4_, float p_177141_5_, float p_177141_6_, float p_177141_7_, float p_177141_8_)
+    public void doRenderLayer(EntityLivingBase p_177141_1_, float p_177141_2_, float p_177141_3_, float p_177141_4_, float p_177141_5_, float p_177141_6_, float p_177141_7_, float p_177141_8_)
     {
-        ItemStack itemstack = entity.getHeldItem();
+        ItemStack itemstack = p_177141_1_.getHeldItem();
 
         if (itemstack != null)
         {
             GlStateManager.pushMatrix();
 
-            ((ModelBiped)this.entityRenderer.getMainModel()).postRenderHiddenArm(0.0625F);//TODO: change the model
+            ((ModelFrozenWarrior)this.entityRenderer.getMainModel()).postRenderHiddenRightArm(0.0625F);
             GlStateManager.translate(-0.0625F, 0.4375F, 0.0625F);
+            GlStateManager.rotate(-22, 1, 0, 0);
+
+            if (p_177141_1_ instanceof EntityPlayer && ((EntityPlayer)p_177141_1_).fishEntity != null)
+            {
+                itemstack = new ItemStack(Items.fishing_rod, 0);
+            }
 
             Item item = itemstack.getItem();
             Minecraft minecraft = Minecraft.getMinecraft();
@@ -47,7 +53,29 @@ public class RenderFrozenWarriorItem implements LayerRenderer
                 GlStateManager.scale(-f8, -f8, f8);
             }
 
-            minecraft.getItemRenderer().renderItem(entity, itemstack, ItemCameraTransforms.TransformType.THIRD_PERSON);
+            minecraft.getItemRenderer().renderItem(p_177141_1_, itemstack, ItemCameraTransforms.TransformType.THIRD_PERSON);
+            GlStateManager.popMatrix();
+            GlStateManager.pushMatrix();
+
+            ((ModelFrozenWarrior)this.entityRenderer.getMainModel()).postRenderHiddenLeftArm(0.0625F);
+            GlStateManager.translate(0.0625F, 0.4375F, 0.0625F);
+            GlStateManager.rotate(-22, 1, 0, 0);
+
+            if (p_177141_1_ instanceof EntityPlayer && ((EntityPlayer)p_177141_1_).fishEntity != null)
+            {
+                itemstack = new ItemStack(Items.fishing_rod, 0);
+            }
+
+            if (item instanceof ItemBlock && Block.getBlockFromItem(item).getRenderType() == 2)
+            {
+                GlStateManager.translate(0.0F, 0.1875F, -0.3125F);
+                GlStateManager.rotate(20.0F, 1.0F, 0.0F, 0.0F);
+                GlStateManager.rotate(45.0F, 0.0F, 1.0F, 0.0F);
+                float f8 = 0.375F;
+                GlStateManager.scale(-f8, -f8, f8);
+            }
+
+            minecraft.getItemRenderer().renderItem(p_177141_1_, itemstack, ItemCameraTransforms.TransformType.THIRD_PERSON);
             GlStateManager.popMatrix();
         }
     }
