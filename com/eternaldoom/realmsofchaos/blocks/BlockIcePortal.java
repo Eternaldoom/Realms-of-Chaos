@@ -30,20 +30,20 @@ public class BlockIcePortal extends ROCModBlock{
 		if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP)))
         {
             EntityPlayerMP thePlayer = (EntityPlayerMP)entity;
-            if (thePlayer.timeUntilPortal > 0)
+            //if (thePlayer.timeUntilPortal > 0)
+            //{
+                //thePlayer.timeUntilPortal = 10;
+            //}
+            /*else */if (thePlayer.dimension != RealmsOfChaos.iceDimID)
             {
-                thePlayer.timeUntilPortal = 10;
-            }
-            else if (thePlayer.dimension != RealmsOfChaos.iceDimID)
-            {
-                thePlayer.timeUntilPortal = 10;
-                //thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.iceDimID, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.iceDimID)));
+                //thePlayer.timeUntilPortal = 10;
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.iceDimID/*, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.iceDimID))*/);
             }
             
             else if (thePlayer.dimension == RealmsOfChaos.iceDimID)
             {
                 thePlayer.timeUntilPortal = 10;
-                //thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(0)));
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0/*, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(0))*/);
             }
         }
     }
