@@ -99,6 +99,11 @@ public class ROCBlocks {
     public static BlockROCSlab frozen_wood_slab_double;
     public static ROCModBlock frozen_sapling;
     
+    //Demonized Mountains
+    public static ROCModBlock demon_stone;
+    public static ROCModBlock demon_cobblestone;
+    public static ROCModBlock demonized_block;
+    
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
 	public static void init(){
@@ -184,6 +189,7 @@ public class ROCBlocks {
 		registerSlab("frozen_wood_slab", "frozen_wood_slab_double", frozen_wood_slab, frozen_wood_slab_double);
 		frozen_sapling = new BlockFrozenSapling().register("frozen_sapling");
 		display_case = new BlockDisplayCase().register("display_case");
+		demon_stone = new BlockDemonStone().register("demon_stone");
 
         //GameRegistry.GameRegistry.registerBlock(water_portal, "water_portal");
 	}

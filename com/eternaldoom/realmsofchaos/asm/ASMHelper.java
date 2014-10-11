@@ -5,7 +5,7 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.MethodNode;
 
-public class CoreUtils
+public class ASMHelper
 {
 	public static ClassNode getClassNode(byte[] classBytes)
 	{

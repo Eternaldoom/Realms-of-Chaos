@@ -21,7 +21,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-import com.eternaldoom.realmsofchaos.asm.ModelNames;
+import com.eternaldoom.realmsofchaos.asm.CoreMethods;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
@@ -72,8 +72,8 @@ public class RealmsOfChaos{
         
         ROCBlocks.init();
         
-        ModelNames.addVariantName(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new String[]{"realmsofchaos:oceanstone_bricks", "realmsofchaos:cracked_oceanstone_bricks", "realmsofchaos:chiseled_oceanstone_bricks"});
-        ModelNames.addVariantName(Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks), new String[]{"realmsofchaos:frozen_stone_bricks", "realmsofchaos:cracked_frozen_stone_bricks", "realmsofchaos:chiseled_frozen_stone_bricks"});
+        CoreMethods.addVariantName(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new String[]{"realmsofchaos:oceanstone_bricks", "realmsofchaos:cracked_oceanstone_bricks", "realmsofchaos:chiseled_oceanstone_bricks"});
+        CoreMethods.addVariantName(Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks), new String[]{"realmsofchaos:frozen_stone_bricks", "realmsofchaos:cracked_frozen_stone_bricks", "realmsofchaos:chiseled_frozen_stone_bricks"});
 
         ROCItems.init();
         TERegistry.init();
