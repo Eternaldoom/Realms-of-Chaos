@@ -61,7 +61,7 @@ public class ROCTransformer implements IClassTransformer
 		if (name.equals(NHPCName.replace("/", "."))){
 			LogManager.getLogger().info("About to patch handleUpdateTileEntity() in class NetHandlerPlayClient (cee)");
 			ClassNode classnode = ASMHelper.getClassNode(clazz);
-			MethodNode teMethodNode = ASMHelper.getMethodNode(classnode, handleUpdateTileEntityName, "(Lnet/minecraft/network/play/server/S35PacketUpdateTileEntity;)V");
+			MethodNode teMethodNode = ASMHelper.getMethodNode(classnode, handleUpdateTileEntityName, "(L" + tileEntityPacketName +";)V");
 
 			InsnList instructions = new InsnList();
 			
