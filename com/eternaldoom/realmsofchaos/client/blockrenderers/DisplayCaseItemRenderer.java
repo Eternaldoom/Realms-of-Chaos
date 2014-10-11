@@ -14,6 +14,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemMap;
 import net.minecraft.item.ItemSkull;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -106,6 +107,9 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
             {
                 Minecraft.getMinecraft().getRenderManager().renderEngine.bindTexture(mapBackgroundTextures);
                 GlStateManager.rotate(180.0F, 0.0F, 0.0F, 1.0F);
+                GlStateManager.rotate(45f, 0f, 0f, 1f);
+                GlStateManager.translate(0, 0, -0.64);
+                GlStateManager.scale(0.65, 0.65, 0.65);
                 float f = 0.0078125F;
                 GlStateManager.scale(f, f, f);
                 GlStateManager.translate(-64.0F, -64.0F, 0.0F);

@@ -2,6 +2,8 @@ package com.eternaldoom.realmsofchaos.asm;
 
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
 public class ROCLoadingPlugin implements IFMLLoadingPlugin
@@ -9,7 +11,7 @@ public class ROCLoadingPlugin implements IFMLLoadingPlugin
     @Override
     public String[] getASMTransformerClass()
     {
-	    System.out.println("HELLO THERE!");
+	    LogManager.getLogger().info("Loading Coremod...");
 	    return new String[] { ROCTransformer.class.getName() };
     }
 
