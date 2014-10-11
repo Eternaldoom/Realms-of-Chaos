@@ -3,6 +3,7 @@ package com.eternaldoom.realmsofchaos;
 import java.lang.reflect.InvocationTargetException;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
+import com.eternaldoom.realmsofchaos.asm.ModelNames;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
@@ -69,6 +71,10 @@ public class RealmsOfChaos{
         network.registerMessage(PacketDisplayCaseItem.Handler.class, PacketDisplayCaseItem.class, 1, Side.CLIENT);
         
         ROCBlocks.init();
+        
+        ModelNames.addVariantName(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new String[]{"realmsofchaos:oceanstone_bricks", "realmsofchaos:cracked_oceanstone_bricks", "realmsofchaos:chiseled_oceanstone_bricks"});
+        ModelNames.addVariantName(Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks), new String[]{"realmsofchaos:frozen_stone_bricks", "realmsofchaos:cracked_frozen_stone_bricks", "realmsofchaos:chiseled_frozen_stone_bricks"});
+
         ROCItems.init();
         TERegistry.init();
         GameRegistry.registerWorldGenerator(new OverworldGen(), 1);

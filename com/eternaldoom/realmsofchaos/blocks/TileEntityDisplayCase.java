@@ -7,7 +7,9 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class TileEntityDisplayCase extends TileEntity{
+import com.eternaldoom.realmsofchaos.IPacketTileEntity;
+
+public class TileEntityDisplayCase extends TileEntity implements IPacketTileEntity{
 	
 	public Item displayItem;
 	public int displayDamage;
@@ -34,6 +36,11 @@ public class TileEntityDisplayCase extends TileEntity{
 		NBTTagCompound tag = new NBTTagCompound();
 		this.writeToNBT(tag);
 		return new S35PacketUpdateTileEntity(this.getPos(), 3, tag);
+	}
+
+	@Override
+	public void onPacket(S35PacketUpdateTileEntity packet) {
+		this.readFromNBT(packet.getNbtCompound());
 	}
 
 }
