@@ -58,6 +58,10 @@ tile.stairsFrozenWood.name=Frozen Wood Stairs
 tile.slabFrozenWood.name=Frozen Wood Slab
 tile.saplingFrozen.name=Frozen Sapling
 tile.displayCase.name=Display Case
+tile.stoneDemon.name=Demon Stone
+tile.cobblestoneDemon.name=Demon Cobblestone
+tile.oreDemonized.name=Demonized Ore
+tile.blockDemonized.name=Demonized Block
 
 item.gemCitronite.name=Citronite Gem
 item.dustAsh.name=Ash Dust
@@ -188,6 +192,8 @@ item.crystalScorpius.name=Scorpius Crystal
 item.gemMystic.name=Mystic Gem
 item.milkSoy.name=Soy Milk
 item.shardFractonite.name=Fractonite Shard
+item.ingotEmbolite.name=Embolite Ingot
+item.gemDemonized.name=Demonized Gem
 
 itemGroup.ROCBlocks=Realms of Chaos Blocks
 itemGroup.ROCItems=Realms of Chaos Items

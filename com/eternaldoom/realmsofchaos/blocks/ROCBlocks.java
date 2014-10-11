@@ -102,6 +102,7 @@ public class ROCBlocks {
     //Demonized Mountains
     public static ROCModBlock demon_stone;
     public static ROCModBlock demon_cobblestone;
+    public static ROCModBlock demonized_ore;
     public static ROCModBlock demonized_block;
     
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
@@ -190,6 +191,9 @@ public class ROCBlocks {
 		frozen_sapling = new BlockFrozenSapling().register("frozen_sapling");
 		display_case = new BlockDisplayCase().register("display_case");
 		demon_stone = new BlockDemonStone().register("demon_stone");
+		demon_cobblestone = new ROCModBlock(Material.rock, "cobblestoneDemon", 22f, 12f, ROCModBlock.soundTypePiston).register("demon_cobblestone");
+		demonized_ore = new ROCModBlock(Material.rock, "oreDemonized", 24f, 1000000f, ROCModBlock.soundTypePiston).register("demonized_ore");
+		demonized_block = new ROCModBlock(Material.rock, "blockDemonized", 24f, 1000000f, ROCModBlock.SLIME_SOUND).register("demonized_block");
 
         //GameRegistry.GameRegistry.registerBlock(water_portal, "water_portal");
 	}

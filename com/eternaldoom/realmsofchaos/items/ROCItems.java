@@ -136,6 +136,9 @@ public class ROCItems {
 	//Nether
 	public static ROCModItem ash_dust;
 	public static ROCModItem flame_stone;
+	
+	public static ROCModItem demonized_gem;
+	public static ROCModItem embolite_ingot;
 		
 	public static void init(){
 		citronite_gem = new ROCModItem("gemCitronite");
@@ -202,6 +205,8 @@ public class ROCItems {
 		osmaralt_ingot = new ROCModItem("ingotOsmaralt");
 		fractonite_stone = new ROCModItem("stoneFractonite");
 		fractonite_shard = new ROCModItem("shardFractonite");
+		demonized_gem = new ROCModItem("gemDemonized");
+		embolite_ingot = new ROCModItem("ingotEmbolite");
 		
 		/*osmaralt_helmet = new ItemROCArmor(OSMARALTa, HELMET, "osmaralt", "realmsofchaos:osmaralt_helmet", "helmetOsmaralt", 68.25D);
 		osmaralt_chestplate = new ItemROCArmor(OSMARALTa, CHESTPLATE, "osmaralt", "realmsofchaos:osmaralt_chestplate", "chestplateOsmaralt", 68.25D);
@@ -331,6 +336,8 @@ public class ROCItems {
 		osmaralt_ingot.register("osmaralt_ingot");
 		fractonite_stone.register("fractonite_stone");
 		fractonite_shard.register("fractonite_shard");
+		demonized_gem.register("demonized_gem");
+		embolite_ingot.register("embolite_ingot");
 		
 		raw_scorpion.register("raw_scorpion");
 		cooked_scorpion.register("cooked_scorpion");
