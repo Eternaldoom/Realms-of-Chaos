@@ -21,13 +21,10 @@ public class ItemROCBow extends ROCModItem
     private Item ammo;
     public float damage;
     
-    //TODO: figure out a way to use the different pulling textures. Thanks a lot, Mojang!
-
     public ItemROCBow(String name, Item parAmmo, int durability, float damage)
     {
     	super(name);
         this.maxStackSize = 1;
-        this.setMaxDamage(384);
         this.setCreativeTab(CreativeTabs.tabBlock);
         this.setMaxDamage(durability);
         this.ammo = parAmmo;
@@ -38,10 +35,10 @@ public class ItemROCBow extends ROCModItem
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int time)
     {
     	int maxItemUse = getMaxItemUseDuration(stack) - time;
-        /*ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled()) return;
-        maxItemUse = event.charge;*/
+        //ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
+        //MinecraftForge.EVENT_BUS.post(event);
+        //if (event.isCanceled()) return;
+        //maxItemUse = event.charge;
         boolean infiniteAmmo = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
         if (infiniteAmmo || player.inventory.hasItem(ammo)) {
             float scaledItemUse = (float) maxItemUse / 20.0F;
@@ -79,18 +76,24 @@ public class ItemROCBow extends ROCModItem
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-    	/*ArrowNockEvent event = new ArrowNockEvent(player, stack);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return event.result;
-        }*/
+    	//ArrowNockEvent event = new ArrowNockEvent(player, stack);
+        //MinecraftForge.EVENT_BUS.post(event);
+       // if (event.isCanceled())
+       // {
+        //    return event.result;
+        //}
 
         if (player.capabilities.isCreativeMode || player.inventory.hasItem(ammo))
         {
             player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         }
 
+        return stack;
+    }
+    
+    @Override
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn)
+    {
         return stack;
     }
     
@@ -105,16 +108,5 @@ public class ItemROCBow extends ROCModItem
     	if(this.getMaxDamage() == -1) list.add(EnumChatFormatting.BLUE + "Infinite Uses");
     	else list.add(EnumChatFormatting.GREEN + "" + (stack.getMaxDamage() - stack.getItemDamage()) + " Uses Remaining");
     	list.add(EnumChatFormatting.RED + "" + damage + " Minimum Ranged Damage");
-    }
-    
-    @Override
-    public boolean isFull3D(){
-    	return true;
-    }
-    
-    @Override
-    public ItemROCBow register(String name){
-    	GameRegistry.registerItem(this, name);
-    	return this;
     }
 }

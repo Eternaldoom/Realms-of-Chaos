@@ -12,7 +12,6 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldInsnNode;
 import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
@@ -28,6 +27,14 @@ public class ROCTransformer implements IClassTransformer
 	private static String handleUpdateTileEntityName;
 	private static String tileEntityName;
 	private static String tileEntityPacketName;
+	private static String renderItemName;
+	private static String itemMethodName;
+	private static String itemName;
+	private static String entityPlayerName;
+	private static String itemStackName;
+	private static String modelResourceLocationName;
+	private static String entityLivingBaseName;
+	private static String cameraTransformTypeName;
 	
 	//Set the values/obf mappings
 	static
@@ -53,6 +60,15 @@ public class ROCTransformer implements IClassTransformer
 		bakeryName = isObf ? "cxh" : "net/minecraft/client/resources/model/ModelBakery";
 		registerVariantNamesName = isObf ? "e" : "registerVariantNames";
 		variantNames = isObf ? "u" : "variantNames";
+		
+		renderItemName = isObf ? "cqh" : "net/minecraft/client/renderer/entity/RenderItem";
+		itemMethodName = isObf ? "a" : "func_175049_a";
+		itemName = isObf ? "alq" : "net/minecraft/item/Item";
+		entityPlayerName = isObf ? "ahd" : "net/minecraft/entity/player/EntityPlayer";
+		itemStackName = isObf ? "amj" : "net/minecraft/item/ItemStack";
+		modelResourceLocationName = isObf ? "cxl" : "net/minecraft/client/resources/model/ModelResourceLocation";
+		entityLivingBaseName = isObf ? "xm" : "net/minecraft/entity/EntityLivingBase";
+		cameraTransformTypeName = isObf ? "cmz" : "net/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType";
 	}
 	
 	@Override
@@ -89,6 +105,25 @@ public class ROCTransformer implements IClassTransformer
 			LogManager.getLogger().info("Successfully patched " + bakeryName + ".");
 			return ASMHelper.getBytes(classNode);
 	    }
+		
+		if (name.equals(renderItemName.replace("/", "."))){
+			LogManager.getLogger().info("About to patch func_175049_a() in class RenderItem (cqh)");
+			ClassNode classNode = ASMHelper.getClassNode(clazz);
+			MethodNode renderMethodNode = ASMHelper.getMethodNode(classNode, itemMethodName, "(L" + itemStackName + ";L" + entityLivingBaseName + ";L" + cameraTransformTypeName + ";)V");
+			
+			InsnList instructions = new InsnList();
+			
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 5));
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 6));
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 1));
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 7));
+			instructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/eternaldoom/realmsofchaos/asm/CoreMethods", "getBowTextures", "(L" + entityPlayerName + ";L" + itemName + ";L" + itemStackName + ";L" + modelResourceLocationName + ";)L" + modelResourceLocationName + ";", false));
+			instructions.add(new VarInsnNode(Opcodes.ASTORE, 7));
+			
+			renderMethodNode.instructions.insertBefore(getRenderItemInsertionPoint(renderMethodNode), instructions);
+			LogManager.getLogger().info("Successfully patched " + renderItemName + ".");
+			return ASMHelper.getBytes(classNode);
+	    }
 		return clazz;
 	}
 	
@@ -123,4 +158,20 @@ public class ROCTransformer implements IClassTransformer
 		throw new RuntimeException("Couldn't find the insertion point for registerVariantsNames(). Update to the latest version of the mod.");
     }
 	
+	private AbstractInsnNode getRenderItemInsertionPoint(MethodNode methodNode)
+    {
+		Iterator<AbstractInsnNode> iterator = methodNode.instructions.iterator();
+		AbstractInsnNode returnNode = null;
+		
+		while (iterator.hasNext())
+		{
+			AbstractInsnNode currentNode = iterator.next();
+			
+			if (currentNode.getOpcode() == Opcodes.ACONST_NULL) returnNode = currentNode.getNext().getNext();
+		}
+		
+		if (returnNode != null) return returnNode;
+		
+		throw new RuntimeException("Couldn't find the insertion point for func_175049_a(). Update to the latest version of the mod.");
+    }
 }

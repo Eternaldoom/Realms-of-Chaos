@@ -71,11 +71,13 @@ public class RealmsOfChaos{
         network.registerMessage(PacketDisplayCaseItem.Handler.class, PacketDisplayCaseItem.class, 1, Side.CLIENT);
         
         ROCBlocks.init();
+        ROCItems.init();
         
         CoreMethods.addVariantName(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new String[]{"realmsofchaos:oceanstone_bricks", "realmsofchaos:cracked_oceanstone_bricks", "realmsofchaos:chiseled_oceanstone_bricks"});
         CoreMethods.addVariantName(Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks), new String[]{"realmsofchaos:frozen_stone_bricks", "realmsofchaos:cracked_frozen_stone_bricks", "realmsofchaos:chiseled_frozen_stone_bricks"});
+        
+        CoreMethods.addVariantName(ROCItems.iron_bow, new String[] {"realmsofchaos:iron_bow", "realmsofchaos:iron_bow_pulling_0", "realmsofchaos:iron_bow_pulling_1", "realmsofchaos:iron_bow_pulling_2"});
 
-        ROCItems.init();
         TERegistry.init();
         GameRegistry.registerWorldGenerator(new OverworldGen(), 1);
         OverworldCrafting.initRecipes();

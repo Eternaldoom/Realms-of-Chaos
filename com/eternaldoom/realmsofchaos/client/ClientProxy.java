@@ -1,6 +1,8 @@
 package com.eternaldoom.realmsofchaos.client;
 
 
+import org.apache.logging.log4j.LogManager;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelShapes;
@@ -27,6 +29,7 @@ public class ClientProxy {
 		
 		for(String name : ROCItems.itemList){
 		    registerItem(GameRegistry.findItem("realmsofchaos", name), "realmsofchaos:"+name);
+		    LogManager.getLogger().info(name);
 		}
 		
 		for(String name : ROCBlocks.blockNames){
@@ -34,6 +37,10 @@ public class ClientProxy {
 			registerItem(i, "realmsofchaos:"+name);
         }
 		
+		registerItem(ROCItems.iron_bow, 1, "realmsofchaos:iron_bow_pulling_0");
+		registerItem(ROCItems.iron_bow, 2, "realmsofchaos:iron_bow_pulling_1");
+		registerItem(ROCItems.iron_bow, 3, "realmsofchaos:iron_bow_pulling_2");
+				
 		Item oceanstone_bricks = GameRegistry.findItem("realmsofchaos", "oceanstone_bricks");
 		Item frozen_stone_bricks = GameRegistry.findItem("realmsofchaos", "frozen_stone_bricks");
 				
@@ -43,6 +50,7 @@ public class ClientProxy {
 		registerItem(frozen_stone_bricks, 0, "realmsofchaos:frozen_stone_bricks");
 		registerItem(frozen_stone_bricks, 1, "realmsofchaos:cracked_frozen_stone_bricks");
 		registerItem(frozen_stone_bricks, 2, "realmsofchaos:chiseled_frozen_stone_bricks");
+		
 
 	}
 	
