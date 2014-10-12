@@ -180,7 +180,7 @@ public class BlockExtractor extends BlockContainer {
     
     public Block register(String name){
     	GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+        ROCBlocks.blockList.add(name);
     	return this;
     }
     

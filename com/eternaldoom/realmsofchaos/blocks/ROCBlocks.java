@@ -18,7 +18,7 @@ import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModStoneBrick;
 
 public class ROCBlocks {
     
-    public static List<String> blockNames = new ArrayList<String>();
+    public static List<String> blockList = new ArrayList<String>();
     
 	//Overworld
 	public static ROCModBlock citronite_ore;
@@ -201,6 +201,6 @@ public class ROCBlocks {
 	public static void registerSlab(String name, String name2, BlockROCSlab one, BlockROCSlab two){
 		GameRegistry.registerBlock(two, ItemBlockModSlab.class, name2, new Object[]{one, two});
 		GameRegistry.registerBlock(one, ItemBlockModSlab.class, name, new Object[]{one, two});
-        blockNames.add(name);
+        blockList.add(name);
 	}
 }

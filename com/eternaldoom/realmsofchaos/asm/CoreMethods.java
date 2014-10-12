@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
@@ -18,6 +16,7 @@ import net.minecraft.world.WorldProviderEnd;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.WorldProviderSurface;
 
+import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityDisplayCase;
 import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.items.ItemROCBow;
@@ -66,6 +65,16 @@ public class CoreMethods {
                 location = new ModelResourceLocation(Item.itemRegistry.getNameForObject(item) + "_pulling_0", "inventory");
             }
         }
+		
+		if(item == Item.getItemFromBlock(ROCBlocks.oceanstone_bricks)){
+			if(stack.getItemDamage() == 1)location = new ModelResourceLocation("realmsofchaos:cracked_oceanstone_bricks", "inventory");
+			if(stack.getItemDamage() == 2)location = new ModelResourceLocation("realmsofchaos:chiseled_oceanstone_bricks", "inventory");
+		}
+		
+		if(item == Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks)){
+			if(stack.getItemDamage() == 1)location = new ModelResourceLocation("realmsofchaos:cracked_frozen_stone_bricks", "inventory");
+			if(stack.getItemDamage() == 2)location = new ModelResourceLocation("realmsofchaos:chiseled_frozen_stone_bricks", "inventory");
+		}
 		return location;
 	}
 	

@@ -12,6 +12,7 @@ import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 public class ROCItems {
     
     public static List<String> itemList = new ArrayList<String>();
+    public static List<String> bowList = new ArrayList<String>();
 	
 	public static final int HELMET = 0, CHESTPLATE = 1, LEGGINGS = 2, BOOTS = 3;
 	

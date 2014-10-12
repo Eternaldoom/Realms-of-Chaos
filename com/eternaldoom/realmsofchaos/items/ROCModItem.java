@@ -17,6 +17,7 @@ public class ROCModItem extends Item{
 	public ROCModItem register(String name){
 		GameRegistry.registerItem(this, name);
 		ROCItems.itemList.add(name);
+		if(this instanceof ItemROCBow) ROCItems.bowList.add(name);
 		return this;
 	}
 }

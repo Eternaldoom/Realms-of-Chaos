@@ -25,7 +25,7 @@ public class BlockOceanGlassPane extends BlockPane{
 	
 	public BlockOceanGlassPane register(String name){
 		GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+        ROCBlocks.blockList.add(name);
 		return this;
 	}
 }

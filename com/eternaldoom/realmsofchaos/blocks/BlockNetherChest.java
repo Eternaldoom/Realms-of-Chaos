@@ -563,7 +563,7 @@ public class BlockNetherChest extends BlockContainer
 
 	public BlockNetherChest register(String name) {
 		GameRegistry.registerBlock(this, name);
-        ROCBlocks.blockNames.add(name);
+        ROCBlocks.blockList.add(name);
 		return this;
 	}
 }
