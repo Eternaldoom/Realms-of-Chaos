@@ -4,21 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.WorldProviderEnd;
-import net.minecraft.world.WorldProviderHell;
-import net.minecraft.world.WorldProviderSurface;
+import net.minecraft.world.IBlockAccess;
 
-import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TileEntityDisplayCase;
-import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.items.ItemROCBow;
 import com.google.common.collect.Lists;
 
@@ -60,6 +59,13 @@ public class CoreMethods {
             }
         }
 		return location;
+	}
+	
+	public static void renderCustomBlockType(IBlockState state, BlockPos pos, WorldRenderer worldrenderer, IBlockAccess world){
+		worldrenderer.addVertex(pos.getX(), pos.getY()+2, pos.getZ());
+		worldrenderer.addVertex(pos.getX()+1, pos.getY()+2, pos.getZ());
+		worldrenderer.addVertex(pos.getX()+1, pos.getY()+2, pos.getZ()+1);
+		worldrenderer.addVertex(pos.getX(), pos.getY()+2, pos.getZ()+1);
 	}
 	
 }

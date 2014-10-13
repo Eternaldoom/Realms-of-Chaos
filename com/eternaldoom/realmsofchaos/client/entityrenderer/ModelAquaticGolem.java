@@ -20,9 +20,7 @@ public class ModelAquaticGolem extends ModelBase
   {
     textureWidth = 128;
     textureHeight = 64;
-    
-    System.out.println("HELLO THERE");
-    
+        
       Shape1 = new ModelRenderer(this, 32, 1);
       Shape1.addBox(0F, 0F, 0F, 0, 8, 7);
       Shape1.setRotationPoint(0F, 1F, 2F);

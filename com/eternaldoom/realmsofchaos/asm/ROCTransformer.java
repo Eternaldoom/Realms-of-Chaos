@@ -35,6 +35,12 @@ public class ROCTransformer implements IClassTransformer
 	private static String modelResourceLocationName;
 	private static String entityLivingBaseName;
 	private static String cameraTransformTypeName;
+	private static String blockRendererDispatcherName;
+	private static String renderBlockName;
+	private static String iBlockStateName;
+	private static String blockPosName;
+	private static String ibaName;
+	private static String worldRendererName;
 	
 	//Set the values/obf mappings
 	static
@@ -69,6 +75,13 @@ public class ROCTransformer implements IClassTransformer
 		modelResourceLocationName = isObf ? "cxl" : "net/minecraft/client/resources/model/ModelResourceLocation";
 		entityLivingBaseName = isObf ? "xm" : "net/minecraft/entity/EntityLivingBase";
 		cameraTransformTypeName = isObf ? "cmz" : "net/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType";
+		
+		blockRendererDispatcherName = isObf ? "cll" : "net/minecraft/client/renderer/BlockRendererDispatcher";
+		renderBlockName = isObf ? "a" : "func_175018_a";
+		blockPosName = isObf ? "dt" : "net/minecraft/util/BlockPos";
+		iBlockStateName = isObf ? "bec" : "net/minecraft/block/state/IBlockState";
+		ibaName = isObf ? "ard" : "net/minecraft/world/IBlockAccess";
+		worldRendererName = isObf ? "civ" : "net/minecraft/client/renderer/WorldRenderer";
 	}
 	
 	@Override
@@ -124,6 +137,24 @@ public class ROCTransformer implements IClassTransformer
 			LogManager.getLogger().info("Successfully patched " + renderItemName + ".");
 			return ASMHelper.getBytes(classNode);
 	    }
+		
+		if (name.equals(blockRendererDispatcherName.replace("/", "."))){
+			LogManager.getLogger().info("About to patch renderBlock() in class BlockRendererDispatcher (cll)");
+			ClassNode classNode = ASMHelper.getClassNode(clazz);
+			MethodNode renderMethodNode = ASMHelper.getMethodNode(classNode, renderBlockName, "(L" + iBlockStateName + ";L" + blockPosName + ";L" + ibaName + ";L" + worldRendererName + ";)Z");
+			
+			InsnList instructions = new InsnList();
+			
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 1));
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 2));
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 4));
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 3));
+			instructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/eternaldoom/realmsofchaos/asm/CoreMethods", "renderCustomBlockType", "(L" + iBlockStateName + ";L" + blockPosName + ";L" + worldRendererName + ";L" + ibaName + ";)V", false));
+			
+			renderMethodNode.instructions.insertBefore(getBlockRendererInsertionPoint(renderMethodNode), instructions);
+			LogManager.getLogger().info("Successfully patched " + blockRendererDispatcherName + ".");
+			return ASMHelper.getBytes(classNode);
+	    }
 		return clazz;
 	}
 	
@@ -173,5 +204,22 @@ public class ROCTransformer implements IClassTransformer
 		if (returnNode != null) return returnNode;
 		
 		throw new RuntimeException("Couldn't find the insertion point for func_175049_a(). Update to the latest version of the mod.");
+    }
+	
+	private AbstractInsnNode getBlockRendererInsertionPoint(MethodNode methodNode)
+    {
+		Iterator<AbstractInsnNode> iterator = methodNode.instructions.iterator();
+		AbstractInsnNode returnNode = null;
+		
+		while (iterator.hasNext())
+		{
+			AbstractInsnNode currentNode = iterator.next();
+			
+			if (currentNode.getOpcode() == Opcodes.TABLESWITCH) returnNode = currentNode.getNext().getNext().getNext().getNext().getNext();
+		}
+		
+		if (returnNode != null) return returnNode;
+		
+		throw new RuntimeException("Couldn't find the insertion point for renderBlock(). Update to the latest version of the mod.");
     }
 }
