@@ -1,9 +1,6 @@
 package com.eternaldoom.realmsofchaos;
 
-import java.lang.reflect.InvocationTargetException;
-
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -12,7 +9,6 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,7 +17,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-import com.eternaldoom.realmsofchaos.asm.CoreMethods;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 import com.eternaldoom.realmsofchaos.blocks.TERegistry;
 import com.eternaldoom.realmsofchaos.client.ClientProxy;
@@ -34,7 +29,6 @@ import com.eternaldoom.realmsofchaos.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
-import com.eternaldoom.realmsofchaos.network.PacketDisplayCaseItem;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
@@ -68,7 +62,6 @@ public class RealmsOfChaos{
 
         network = NetworkRegistry.INSTANCE.newSimpleChannel("ROCPackets");
         network.registerMessage(PacketArmorFreeze.Handler.class, PacketArmorFreeze.class, 0, Side.SERVER);
-        network.registerMessage(PacketDisplayCaseItem.Handler.class, PacketDisplayCaseItem.class, 1, Side.CLIENT);
         
         ROCBlocks.init();
         ROCItems.init();

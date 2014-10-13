@@ -90,7 +90,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
     private void renderItem(TileEntityDisplayCase tile)
     {
     	BlockPos pos = tile.getPos();
-        ItemStack itemstack = new ItemStack(tile.displayItem, 1, tile.displayDamage);
+        ItemStack itemstack = tile.displayItem;
 
         if (itemstack != null)
         {
@@ -169,7 +169,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
                 		GlStateManager.rotate(90f, 0, 0, 1);
                 	}
                 }
-                if(tile.displayItem instanceof ItemBlock){
+                if(tile.displayItem.getItem() instanceof ItemBlock){
                 	GlStateManager.translate(0, 0, -2.5);
                 	GlStateManager.rotate(270, 1, 0, 0);
                 }

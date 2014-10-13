@@ -102,15 +102,13 @@ public class BlockDisplayCase extends BlockContainer{
     {
 		if(!player.isSneaking() && world.getTileEntity(pos) != null){
 			TileEntityDisplayCase tile = (TileEntityDisplayCase)world.getTileEntity(pos);
-			if(tile.displayItem != null) player.inventory.addItemStackToInventory(new ItemStack(tile.displayItem, 1, tile.displayDamage));
-			Item i = tile.displayItem;
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() != i){
-				tile.displayItem = player.getHeldItem().getItem();
-				tile.displayDamage = player.getHeldItem().getItemDamage();
-				if(player.getHeldItem().getItem() != i)player.getHeldItem().stackSize--;
+			if(tile.displayItem != null) player.inventory.addItemStackToInventory(tile.displayItem);
+			ItemStack i = tile.displayItem != null ? tile.displayItem : new ItemStack(Blocks.air);
+			if(player.getHeldItem() != null && player.getHeldItem().getItem() != i.getItem()){
+				tile.displayItem = player.getHeldItem();
+				if(player.getHeldItem() != null && player.getHeldItem().getItem() != i.getItem())player.getHeldItem().stackSize--;
 			}else{
 				tile.displayItem = null;
-				tile.displayDamage = 0;
 			}
 			return true;
 		}
