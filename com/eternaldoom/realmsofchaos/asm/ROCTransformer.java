@@ -21,9 +21,6 @@ public class ROCTransformer implements IClassTransformer
 	private static boolean isObf;
 	
 	private static String NHPCName;
-	private static String registerVariantNamesName;
-	private static String variantNames;
-	private static String bakeryName;
 	private static String handleUpdateTileEntityName;
 	private static String tileEntityName;
 	private static String tileEntityPacketName;
@@ -57,10 +54,6 @@ public class ROCTransformer implements IClassTransformer
 		tileEntityName = isObf ? "bcm" : "net/minecraft/tileentity/TileEntity";
 		tileEntityPacketName = isObf ? "iu" : "net/minecraft/network/play/server/S35PacketUpdateTileEntity";
 		
-		bakeryName = isObf ? "cxh" : "net/minecraft/client/resources/model/ModelBakery";
-		registerVariantNamesName = isObf ? "e" : "registerVariantNames";
-		variantNames = isObf ? "u" : "variantNames";
-		
 		renderItemName = isObf ? "cqh" : "net/minecraft/client/renderer/entity/RenderItem";
 		itemMethodName = isObf ? "a" : "func_175049_a";
 		itemName = isObf ? "alq" : "net/minecraft/item/Item";
@@ -88,22 +81,6 @@ public class ROCTransformer implements IClassTransformer
 			teMethodNode.instructions.insertBefore(getTEInsertionPoint(teMethodNode), instructions);
 			LogManager.getLogger().info("Successfully patched " + NHPCName + ".");
 			return ASMHelper.getBytes(classnode);
-	    }
-		
-		if (name.equals(bakeryName.replace("/", "."))){
-			LogManager.getLogger().info("About to patch registerVariantNames() in class ModelBakery (cxh)");
-			ClassNode classNode = ASMHelper.getClassNode(clazz);
-			MethodNode variantsMethodNode = ASMHelper.getMethodNode(classNode, registerVariantNamesName, "()V");
-			
-			InsnList instructions = new InsnList();
-			
-			instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-			instructions.add(new FieldInsnNode(Opcodes.GETFIELD, bakeryName, variantNames, "Ljava/util/Map;"));
-			instructions.add(new FieldInsnNode(Opcodes.GETSTATIC, "com/eternaldoom/realmsofchaos/asm/CoreMethods", "variantNames", "Ljava/util/HashMap;"));
-			instructions.add(new MethodInsnNode(Opcodes.INVOKEINTERFACE, "java/util/Map", "putAll", "(Ljava/util/Map;)V", true));
-			variantsMethodNode.instructions.insertBefore(getVariantsInsertionPoint(variantsMethodNode), instructions);
-			LogManager.getLogger().info("Successfully patched " + bakeryName + ".");
-			return ASMHelper.getBytes(classNode);
 	    }
 		
 		if (name.equals(renderItemName.replace("/", "."))){
@@ -140,23 +117,6 @@ public class ROCTransformer implements IClassTransformer
 	if (returnNode != null) return returnNode;
 	throw new RuntimeException("Couldn't find the insertion point for handleUpdateTileEntity(S35PacketUpdateTileEntity). Update to the latest version of the mod.");
 	}
-	
-	private AbstractInsnNode getVariantsInsertionPoint(MethodNode methodNode)
-    {
-		Iterator<AbstractInsnNode> iterator = methodNode.instructions.iterator();
-		AbstractInsnNode returnNode = null;
-		
-		while (iterator.hasNext())
-		{
-			AbstractInsnNode currentNode = iterator.next();
-			
-			if (currentNode.getOpcode() == Opcodes.RETURN) returnNode = currentNode;
-		}
-		
-		if (returnNode != null) return returnNode;
-		
-		throw new RuntimeException("Couldn't find the insertion point for registerVariantsNames(). Update to the latest version of the mod.");
-    }
 	
 	private AbstractInsnNode getRenderItemInsertionPoint(MethodNode methodNode)
     {

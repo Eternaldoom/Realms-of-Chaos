@@ -4,13 +4,12 @@ package com.eternaldoom.realmsofchaos.client;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import org.apache.logging.log4j.LogManager;
 
 import com.eternaldoom.realmsofchaos.asm.CoreMethods;
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
@@ -57,11 +56,11 @@ public class ClientProxy {
 	
 	public static void preInit(){
 		
-		CoreMethods.addVariantName(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new String[]{"realmsofchaos:oceanstone_bricks", "realmsofchaos:cracked_oceanstone_bricks", "realmsofchaos:chiseled_oceanstone_bricks"});
-        CoreMethods.addVariantName(Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks), new String[]{"realmsofchaos:frozen_stone_bricks", "realmsofchaos:cracked_frozen_stone_bricks", "realmsofchaos:chiseled_frozen_stone_bricks"});
+		ModelBakery.addVariantName(Item.getItemFromBlock(ROCBlocks.oceanstone_bricks), new String[]{"realmsofchaos:oceanstone_bricks", "realmsofchaos:cracked_oceanstone_bricks", "realmsofchaos:chiseled_oceanstone_bricks"});
+        ModelBakery.addVariantName(Item.getItemFromBlock(ROCBlocks.frozen_stone_bricks), new String[]{"realmsofchaos:frozen_stone_bricks", "realmsofchaos:cracked_frozen_stone_bricks", "realmsofchaos:chiseled_frozen_stone_bricks"});
         
         for(String name : ROCItems.bowList){
-        	CoreMethods.addVariantName(GameRegistry.findItem("realmsofchaos", name), new String[] {"realmsofchaos:" + name, "realmsofchaos:" + name + "_pulling_0", "realmsofchaos:" + name + "_pulling_1", "realmsofchaos:" + name + "_pulling_2"});
+        	ModelBakery.addVariantName(GameRegistry.findItem("realmsofchaos", name), new String[] {"realmsofchaos:" + name, "realmsofchaos:" + name + "_pulling_0", "realmsofchaos:" + name + "_pulling_1", "realmsofchaos:" + name + "_pulling_2"});
         }
 		/*try{
 			InputStream is = DevCapes.getInstance().getStreamForURL(new URL("https://dl.dropboxusercontent.com/s/b1dc1vykv0hfseg/capes.json"));
