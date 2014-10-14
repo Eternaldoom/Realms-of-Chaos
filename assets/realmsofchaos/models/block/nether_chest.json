@@ -9,6 +9,6 @@
                  "faces": {
                  "east":  { "uv": [ 0, 0, 0, 0 ], "texture": "#texture" }
                  }
-                 }
-                 ]
+                }
+        ]
 }

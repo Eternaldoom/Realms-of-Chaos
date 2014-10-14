@@ -5,8 +5,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -59,13 +60,6 @@ public class CoreMethods {
             }
         }
 		return location;
-	}
-	
-	public static void renderCustomBlockType(IBlockState state, BlockPos pos, WorldRenderer worldrenderer, IBlockAccess world){
-		worldrenderer.addVertex(pos.getX(), pos.getY()+2, pos.getZ());
-		worldrenderer.addVertex(pos.getX()+1, pos.getY()+2, pos.getZ());
-		worldrenderer.addVertex(pos.getX()+1, pos.getY()+2, pos.getZ()+1);
-		worldrenderer.addVertex(pos.getX(), pos.getY()+2, pos.getZ()+1);
 	}
 	
 }

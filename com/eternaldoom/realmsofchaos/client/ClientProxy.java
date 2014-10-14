@@ -26,7 +26,6 @@ public class ClientProxy {
 		
 		for(String name : ROCItems.itemList){
 		    registerItem(GameRegistry.findItem("realmsofchaos", name), "realmsofchaos:"+name);
-		    LogManager.getLogger().info(name);
 		}
 		
 		for(String name : ROCBlocks.blockList){
