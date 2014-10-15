@@ -25,7 +25,7 @@ public class TileEntityDisplayCase extends TileEntity{
 		NBTTagCompound itemTag = tag.getCompoundTag("DisplayItem");
 		if(itemTag != null && !itemTag.hasNoTags()){
 			this.displayItem = ItemStack.loadItemStackFromNBT(itemTag);
-			this.displayItem.stackSize = 1;
+			if(this.displayItem != null)this.displayItem.stackSize = 1;
 		}
 
 	}

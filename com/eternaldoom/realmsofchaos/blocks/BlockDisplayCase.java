@@ -104,15 +104,16 @@ public class BlockDisplayCase extends BlockContainer{
 			TileEntityDisplayCase tile = (TileEntityDisplayCase) world.getTileEntity(pos);
 			ItemStack display = tile.displayItem;
 			Item NULL_ITEM = Item.getItemFromBlock(Blocks.air);
+			ItemStack itemToAdd = null;
 			
 			if(display != null && player.getHeldItem() != null && display.getItem() != NULL_ITEM){
 				ItemStack newitem = player.getHeldItem();
 				newitem.stackSize = 1;
 				player.getHeldItem().stackSize--;
-				player.inventory.addItemStackToInventory(display);
+				itemToAdd = display;
 				tile.displayItem = newitem;
 			}else if(display != null && player.getHeldItem() == null && display.getItem() != NULL_ITEM){
-				player.inventory.addItemStackToInventory(display);
+				itemToAdd = display;
 				tile.displayItem = null;
 		    }else if(display == null && player.getHeldItem() == null){
 			}else{
@@ -122,6 +123,7 @@ public class BlockDisplayCase extends BlockContainer{
 				tile.displayItem = newitem;
 			}
 			
+			if(itemToAdd != null)player.inventory.addItemStackToInventory(itemToAdd);
 			return true;
 			
 		}
