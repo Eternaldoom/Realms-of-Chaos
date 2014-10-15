@@ -101,16 +101,29 @@ public class BlockDisplayCase extends BlockContainer{
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
 		if(!player.isSneaking() && world.getTileEntity(pos) != null){
-			TileEntityDisplayCase tile = (TileEntityDisplayCase)world.getTileEntity(pos);
-			if(tile.displayItem != null) player.inventory.addItemStackToInventory(tile.displayItem);
-			ItemStack i = tile.displayItem != null ? tile.displayItem : new ItemStack(Blocks.air);
-			if(player.getHeldItem() != null && player.getHeldItem().getItem() != i.getItem()){
-				tile.displayItem = player.getHeldItem();
-				if(player.getHeldItem() != null && player.getHeldItem().getItem() != i.getItem())player.getHeldItem().stackSize--;
-			}else{
+			TileEntityDisplayCase tile = (TileEntityDisplayCase) world.getTileEntity(pos);
+			ItemStack display = tile.displayItem;
+			Item NULL_ITEM = Item.getItemFromBlock(Blocks.air);
+			
+			if(display != null && player.getHeldItem() != null && display.getItem() != NULL_ITEM){
+				ItemStack newitem = player.getHeldItem();
+				newitem.stackSize = 1;
+				player.getHeldItem().stackSize--;
+				player.inventory.addItemStackToInventory(display);
+				tile.displayItem = newitem;
+			}else if(display != null && player.getHeldItem() == null && display.getItem() != NULL_ITEM){
+				player.inventory.addItemStackToInventory(display);
 				tile.displayItem = null;
+		    }else if(display == null && player.getHeldItem() == null){
+			}else{
+				ItemStack newitem = player.getHeldItem();
+				newitem.stackSize = 1;
+				if(player.getHeldItem() != null)player.getHeldItem().stackSize--;
+				tile.displayItem = newitem;
 			}
+			
 			return true;
+			
 		}
 		return false;
     }
