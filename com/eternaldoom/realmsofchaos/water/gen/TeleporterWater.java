@@ -32,14 +32,14 @@ public class TeleporterWater extends Teleporter
     }
 
     @Override
-    public void func_180266_a(Entity par1Entity, float par2)
+    public void placeInPortal(Entity par1Entity, float par2)
     {
         if (this.worldServerInstance.provider.getDimensionId() != 1)
         {
-            if (!this.func_180620_b(par1Entity, par2))
+            if (!this.placeInExistingPortal(par1Entity, par2))
             {
                 this.makePortal(par1Entity);
-                this.func_180620_b(par1Entity, par2);
+                this.placeInExistingPortal(par1Entity, par2);
             }
         }
         else
@@ -109,7 +109,7 @@ public class TeleporterWater extends Teleporter
     }
 
     @Override
-    public boolean func_180620_b(Entity par1Entity, float par2)
+    public boolean placeInExistingPortal(Entity par1Entity, float par2)
     {
         short short1 = 128;
         double d3 = -1.0D;

@@ -38,7 +38,7 @@ public class HDImageBuffer implements IImageBuffer {
     }
 
     @Override
-    public void func_152634_a() {
+    public void skinAvailable() {
     }
 
 

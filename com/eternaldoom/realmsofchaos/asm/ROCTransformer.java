@@ -55,7 +55,7 @@ public class ROCTransformer implements IClassTransformer
 		tileEntityPacketName = isObf ? "iu" : "net/minecraft/network/play/server/S35PacketUpdateTileEntity";
 		
 		renderItemName = isObf ? "cqh" : "net/minecraft/client/renderer/entity/RenderItem";
-		itemMethodName = isObf ? "a" : "func_175049_a";
+		itemMethodName = isObf ? "a" : "getModelNameFromUseState";
 		itemName = isObf ? "alq" : "net/minecraft/item/Item";
 		entityPlayerName = isObf ? "ahd" : "net/minecraft/entity/player/EntityPlayer";
 		itemStackName = isObf ? "amj" : "net/minecraft/item/ItemStack";
@@ -84,7 +84,7 @@ public class ROCTransformer implements IClassTransformer
 	    }
 		
 		if (name.equals(renderItemName.replace("/", "."))){
-			LogManager.getLogger().info("About to patch func_175049_a() in class RenderItem (cqh)");
+			LogManager.getLogger().info("About to patch getModelNameFromUseState() in class RenderItem (cqh)");
 			ClassNode classNode = ASMHelper.getClassNode(clazz);
 			MethodNode renderMethodNode = ASMHelper.getMethodNode(classNode, itemMethodName, "(L" + itemStackName + ";L" + entityLivingBaseName + ";L" + cameraTransformTypeName + ";)V");
 			
@@ -132,6 +132,6 @@ public class ROCTransformer implements IClassTransformer
 		
 		if (returnNode != null) return returnNode;
 		
-		throw new RuntimeException("Couldn't find the insertion point for func_175049_a(). Update to the latest version of the mod.");
+		throw new RuntimeException("Couldn't find the insertion point for getModelNameFromUseState(). Update to the latest version of the mod.");
     }
 }

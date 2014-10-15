@@ -48,7 +48,7 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	
 	public boolean canBlockStay(World world, BlockPos pos)
     {
-		return world.getBlockState(pos.offsetDown()).getBlock() == Blocks.farmland && world.getLight(pos) > 7;
+		return world.getBlockState(pos.down()).getBlock() == Blocks.farmland && world.getLight(pos) > 7;
     }
 	
 	@Override
@@ -66,7 +66,7 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	private void growPlant(World world, BlockPos pos, IBlockState state){
 		int stage = ((Integer)state.getValue(GROWTHSTAGE)).intValue()+1;
 		if(stage > 3) stage = 3;
-		if(stage < 4 && ((Integer)world.getBlockState(pos.offsetDown()).getValue(BlockFarmland.field_176531_a)).intValue() > 0) world.setBlockState(pos, state.withProperty(GROWTHSTAGE, stage));
+		if(stage < 4 && ((Integer)world.getBlockState(pos.down()).getValue(BlockFarmland.MOISTURE)).intValue() > 0) world.setBlockState(pos, state.withProperty(GROWTHSTAGE, stage));
 	}
 	
 	@Override
@@ -112,7 +112,7 @@ public class BlockSoyPlant extends ROCModBlock implements IGrowable{
 	}
 
 	@Override
-	public boolean isStillGrowing(World world, BlockPos pos, IBlockState state, boolean p_149851_5_) {
+	public boolean canGrow(World world, BlockPos pos, IBlockState state, boolean p_149851_5_) {
 		return ((Integer)state.getValue(GROWTHSTAGE)).intValue() < 3;
 	}
 

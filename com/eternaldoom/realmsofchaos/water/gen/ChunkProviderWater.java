@@ -404,7 +404,7 @@ public class ChunkProviderWater implements IChunkProvider
             }
         }
 
-        biomegenbase.func_180624_a(this.worldObj, this.rand, new BlockPos(k, 0, l));
+        biomegenbase.decorate(this.worldObj, this.rand, new BlockPos(k, 0, l));
         SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
         blockpos = blockpos.add(8, 0, 8);
 
@@ -412,15 +412,15 @@ public class ChunkProviderWater implements IChunkProvider
         {
             for (l1 = 0; l1 < 16; ++l1)
             {
-                BlockPos blockpos1 = this.worldObj.func_175725_q(blockpos.add(k1, 0, l1));
-                BlockPos blockpos2 = blockpos1.offsetDown();
+                BlockPos blockpos1 = this.worldObj.getPrecipitationHeight(blockpos.add(k1, 0, l1));
+                BlockPos blockpos2 = blockpos1.down();
 
                 if (this.worldObj.func_175675_v(blockpos2))
                 {
                     this.worldObj.setBlockState(blockpos2, Blocks.ice.getDefaultState(), 2);
                 }
 
-                if (this.worldObj.func_175708_f(blockpos1, true))
+                if (this.worldObj.canSnowAt(blockpos1, true))
                 {
                     this.worldObj.setBlockState(blockpos1, Blocks.snow_layer.getDefaultState(), 2);
                 }
@@ -507,7 +507,7 @@ public class ChunkProviderWater implements IChunkProvider
     }
 
     @Override
-    public BlockPos func_180513_a(World worldIn, String p_180513_2_, BlockPos p_180513_3_)
+    public BlockPos getStrongholdGen(World worldIn, String p_180513_2_, BlockPos p_180513_3_)
     {
     	return null;
     }
@@ -518,6 +518,7 @@ public class ChunkProviderWater implements IChunkProvider
         return 0;
     }
 
+    @Override
     public void func_180514_a(Chunk p_180514_1_, int p_180514_2_, int p_180514_3_)
     {
 
@@ -532,7 +533,8 @@ public class ChunkProviderWater implements IChunkProvider
         }
     }
 
-    public Chunk func_177459_a(BlockPos p_177459_1_)
+    @Override
+    public Chunk provideChunk(BlockPos p_177459_1_)
     {
         return this.provideChunk(p_177459_1_.getX() >> 4, p_177459_1_.getZ() >> 4);
     }

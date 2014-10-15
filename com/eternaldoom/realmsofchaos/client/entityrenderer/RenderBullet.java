@@ -32,7 +32,7 @@ public class RenderBullet extends RenderSnowball{
         GlStateManager.rotate(-this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
         GlStateManager.rotate(this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
         this.bindTexture(TextureMap.locationBlocksTexture);
-        this.itemRenderer.func_175043_b(this.func_177082_d((EntityBullet) p_76986_1_));
+        this.itemRenderer.renderItemModel(this.func_177082_d((EntityBullet) p_76986_1_));
         GlStateManager.disableRescaleNormal();
         GlStateManager.popMatrix();
     }

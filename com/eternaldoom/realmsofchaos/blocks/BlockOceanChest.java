@@ -68,7 +68,7 @@ public class BlockOceanChest extends BlockContainer
     @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-        return this.getDefaultState().withProperty(FACING_PROP, placer.func_174811_aO());
+        return this.getDefaultState().withProperty(FACING_PROP, placer.getHorizontalFacing());
     }
 
     @Override
@@ -76,10 +76,10 @@ public class BlockOceanChest extends BlockContainer
     {
         EnumFacing enumfacing = EnumFacing.getHorizontal(MathHelper.floor_double((double)(placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
         state = state.withProperty(FACING_PROP, enumfacing);
-        BlockPos blockpos1 = pos.offsetNorth();
-        BlockPos blockpos2 = pos.offsetSouth();
-        BlockPos blockpos3 = pos.offsetWest();
-        BlockPos blockpos4 = pos.offsetEast();
+        BlockPos blockpos1 = pos.north();
+        BlockPos blockpos2 = pos.south();
+        BlockPos blockpos3 = pos.west();
+        BlockPos blockpos4 = pos.east();
         boolean flag = this == worldIn.getBlockState(blockpos1).getBlock();
         boolean flag1 = this == worldIn.getBlockState(blockpos2).getBlock();
         boolean flag2 = this == worldIn.getBlockState(blockpos3).getBlock();
@@ -135,10 +135,10 @@ public class BlockOceanChest extends BlockContainer
         }
         else
         {
-            IBlockState iblockstate1 = worldIn.getBlockState(p_176455_2_.offsetNorth());
-            IBlockState iblockstate2 = worldIn.getBlockState(p_176455_2_.offsetSouth());
-            IBlockState iblockstate3 = worldIn.getBlockState(p_176455_2_.offsetWest());
-            IBlockState iblockstate4 = worldIn.getBlockState(p_176455_2_.offsetEast());
+            IBlockState iblockstate1 = worldIn.getBlockState(p_176455_2_.north());
+            IBlockState iblockstate2 = worldIn.getBlockState(p_176455_2_.south());
+            IBlockState iblockstate3 = worldIn.getBlockState(p_176455_2_.west());
+            IBlockState iblockstate4 = worldIn.getBlockState(p_176455_2_.east());
             EnumFacing enumfacing = (EnumFacing)p_176455_3_.getValue(FACING_PROP);
             Block block = iblockstate1.getBlock();
             Block block1 = iblockstate2.getBlock();
@@ -152,9 +152,9 @@ public class BlockOceanChest extends BlockContainer
 
                 if (block2 == this || block3 == this)
                 {
-                    BlockPos blockpos2 = block2 == this ? p_176455_2_.offsetWest() : p_176455_2_.offsetEast();
-                    IBlockState iblockstate7 = worldIn.getBlockState(blockpos2.offsetNorth());
-                    IBlockState iblockstate8 = worldIn.getBlockState(blockpos2.offsetSouth());
+                    BlockPos blockpos2 = block2 == this ? p_176455_2_.west() : p_176455_2_.east();
+                    IBlockState iblockstate7 = worldIn.getBlockState(blockpos2.north());
+                    IBlockState iblockstate8 = worldIn.getBlockState(blockpos2.south());
                     enumfacing = EnumFacing.SOUTH;
                     EnumFacing enumfacing2;
 
@@ -188,9 +188,9 @@ public class BlockOceanChest extends BlockContainer
             }
             else
             {
-                BlockPos blockpos1 = block == this ? p_176455_2_.offsetNorth() : p_176455_2_.offsetSouth();
-                IBlockState iblockstate5 = worldIn.getBlockState(blockpos1.offsetWest());
-                IBlockState iblockstate6 = worldIn.getBlockState(blockpos1.offsetEast());
+                BlockPos blockpos1 = block == this ? p_176455_2_.north() : p_176455_2_.south();
+                IBlockState iblockstate5 = worldIn.getBlockState(blockpos1.west());
+                IBlockState iblockstate6 = worldIn.getBlockState(blockpos1.east());
                 enumfacing = EnumFacing.EAST;
                 EnumFacing enumfacing1;
 
@@ -285,10 +285,10 @@ public class BlockOceanChest extends BlockContainer
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
     {
         int i = 0;
-        BlockPos blockpos1 = pos.offsetWest();
-        BlockPos blockpos2 = pos.offsetEast();
-        BlockPos blockpos3 = pos.offsetNorth();
-        BlockPos blockpos4 = pos.offsetSouth();
+        BlockPos blockpos1 = pos.west();
+        BlockPos blockpos2 = pos.east();
+        BlockPos blockpos3 = pos.north();
+        BlockPos blockpos4 = pos.south();
 
         if (worldIn.getBlockState(blockpos1).getBlock() == this)
         {
@@ -453,7 +453,7 @@ public class BlockOceanChest extends BlockContainer
 
     private boolean isBelowSolidBlock(World worldIn, BlockPos p_176456_2_)
     {
-        return worldIn.getBlockState(p_176456_2_.offsetUp()).getBlock().isNormalCube();
+        return worldIn.getBlockState(p_176456_2_.up()).getBlock().isNormalCube();
     }
 
     @Override

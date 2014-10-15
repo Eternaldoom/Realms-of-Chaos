@@ -26,7 +26,7 @@ public class TileEntityFrozenChest extends TileEntityChest{
             --this.numPlayersUsing;
             this.worldObj.addBlockEvent(this.getPos(), this.getBlockType(), 1, this.numPlayersUsing);
             this.worldObj.notifyNeighborsOfStateChange(this.pos, this.getBlockType());
-            this.worldObj.notifyNeighborsOfStateChange(this.pos.offsetDown(), this.getBlockType());
+            this.worldObj.notifyNeighborsOfStateChange(this.pos.down(), this.getBlockType());
         }
     }
 	

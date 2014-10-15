@@ -77,7 +77,7 @@ public class BiomeGenIceRuins extends BiomeGenBase
 
                         if (k1 < 63 && (iblockstate == null || iblockstate.getBlock().getMaterial() == Material.air))
                         {
-                            if (this.func_180626_a(new BlockPos(p_180628_4_, k1, p_180628_5_)) < 0.15F)
+                            if (this.getFloatTemperature(new BlockPos(p_180628_4_, k1, p_180628_5_)) < 0.15F)
                             {
                                 iblockstate = Blocks.ice.getDefaultState();
                             }
@@ -112,7 +112,7 @@ public class BiomeGenIceRuins extends BiomeGenBase
                         if (k == 0 && iblockstate1.getBlock() == Blocks.sand)
                         {
                             k = p_180628_2_.nextInt(4) + Math.max(0, k1 - 63);
-                            iblockstate1 = iblockstate1.getValue(BlockSand.VARIANT_PROP) == BlockSand.EnumType.RED_SAND ? Blocks.red_sandstone.getDefaultState() : Blocks.sandstone.getDefaultState();
+                            iblockstate1 = iblockstate1.getValue(BlockSand.VARIANT) == BlockSand.EnumType.RED_SAND ? Blocks.red_sandstone.getDefaultState() : Blocks.sandstone.getDefaultState();
                         }
                     }
                 }

@@ -29,7 +29,7 @@ public class WorldGenWaterPlants extends WorldGenerator
         {
         	BlockPos randPos = new BlockPos(i + rand.nextInt(12) - rand.nextInt(12), j + rand.nextInt(12) - rand.nextInt(12), k + rand.nextInt(12) - rand.nextInt(12));
 
-            if (world.getBlockState(randPos).getBlock() == Blocks.water && randPos.getY() < 100 && world.getBlockState(randPos.offsetDown()).getBlock() == ROCBlocks.ocean_stone)
+            if (world.getBlockState(randPos).getBlock() == Blocks.water && randPos.getY() < 100 && world.getBlockState(randPos.down()).getBlock() == ROCBlocks.ocean_stone)
             {
                 world.setBlockState(pos, plant.getStateFromMeta(meta), 2);
             }

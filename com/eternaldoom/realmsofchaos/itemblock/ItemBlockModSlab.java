@@ -46,7 +46,7 @@ public class ItemBlockModSlab extends ItemBlock
      */
     public String getUnlocalizedName(ItemStack stack)
     {
-        return this.field_150949_c.getFullSlabName(stack.getMetadata());
+        return this.field_150949_c.getUnlocalizedName(stack.getMetadata());
     }
 
     /**
@@ -61,18 +61,18 @@ public class ItemBlockModSlab extends ItemBlock
         {
             return false;
         }
-        else if (!playerIn.func_175151_a(pos.offset(side), side, stack))
+        else if (!playerIn.canPlayerEdit(pos.offset(side), side, stack))
         {
             return false;
         }
         else
         {
-            Object object = this.field_150949_c.func_176553_a(stack);
+            Object object = this.field_150949_c.getVariant(stack);
             IBlockState iblockstate = worldIn.getBlockState(pos);
 
             if (iblockstate.getBlock() == this.field_150949_c)
             {
-                BlockSlab.EnumBlockHalf enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF_PROP);
+                BlockSlab.EnumBlockHalf enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF);
 
                 if ((side == EnumFacing.UP && enumblockhalf == BlockSlab.EnumBlockHalf.BOTTOM || side == EnumFacing.DOWN && enumblockhalf == BlockSlab.EnumBlockHalf.TOP))
                 {
@@ -96,12 +96,12 @@ public class ItemBlockModSlab extends ItemBlock
     public boolean canPlaceBlockOnSide(World worldIn, BlockPos p_179222_2_, EnumFacing p_179222_3_, EntityPlayer p_179222_4_, ItemStack p_179222_5_)
     {
         BlockPos blockpos1 = p_179222_2_;
-        Object object = this.field_150949_c.func_176553_a(p_179222_5_);
+        Object object = this.field_150949_c.getVariant(p_179222_5_);
         IBlockState iblockstate = worldIn.getBlockState(p_179222_2_);
 
         if (iblockstate.getBlock() == this.field_150949_c)
         {
-            boolean flag = iblockstate.getValue(BlockSlab.HALF_PROP) == BlockSlab.EnumBlockHalf.TOP;
+            boolean flag = iblockstate.getValue(BlockSlab.HALF) == BlockSlab.EnumBlockHalf.TOP;
 
             if ((p_179222_3_ == EnumFacing.UP && !flag || p_179222_3_ == EnumFacing.DOWN && flag))
             {

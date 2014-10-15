@@ -30,7 +30,7 @@ public class ItemSeaweed extends ROCModItem
             side = EnumFacing.UP;
         }
 
-        if (!player.func_175151_a(pos.offsetUp(), side, stack))
+        if (!player.canPlayerEdit(pos.up(), side, stack))
         {
             return false;
         }
@@ -40,10 +40,10 @@ public class ItemSeaweed extends ROCModItem
         }
         else
         {
-        	if((block == ROCBlocks.seaweed || block == ROCBlocks.ocean_stone) && world.getBlockState(pos.offsetUp()).getBlock() == Blocks.water && world.getBlockState(pos.offsetUp(2)).getBlock() != Blocks.air){
-                if (world.setBlockState(pos.offsetUp(), this.theblock.getDefaultState(), 2))
+        	if((block == ROCBlocks.seaweed || block == ROCBlocks.ocean_stone) && world.getBlockState(pos.up()).getBlock() == Blocks.water && world.getBlockState(pos.up(2)).getBlock() != Blocks.air){
+                if (world.setBlockState(pos.up(), this.theblock.getDefaultState(), 2))
                 {
-                    if (world.getBlockState(pos.offsetUp()).getBlock() == this.theblock)
+                    if (world.getBlockState(pos.up()).getBlock() == this.theblock)
                     {
                         this.theblock.onBlockPlacedBy(world, pos, this.theblock.getDefaultState(), player, stack);
                     }

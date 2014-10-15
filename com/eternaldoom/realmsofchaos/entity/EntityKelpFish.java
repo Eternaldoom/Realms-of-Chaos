@@ -155,7 +155,7 @@ public class EntityKelpFish extends EntityAmbientCreature {
 
 		if (this.worldObj.getBlockState(new BlockPos(this.spawnPosition.getX(),
 				this.spawnPosition.getY(), this.spawnPosition.getZ())).getBlock() == Blocks.air) {
-			this.spawnPosition.offsetDown(5);
+			this.spawnPosition.down(5);
 		}
 
 		if (this.worldObj.getBlockState(new BlockPos((int) this.posX,

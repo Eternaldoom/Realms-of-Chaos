@@ -46,7 +46,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
         GlStateManager.rotate(90.0F, 1F, 0.0F, 0.0F);
         Minecraft.getMinecraft().getRenderManager().renderEngine.bindTexture(TextureMap.locationBlocksTexture);
         BlockRendererDispatcher blockrendererdispatcher = this.mc.getBlockRendererDispatcher();
-        ModelManager modelmanager = blockrendererdispatcher.func_175023_a().func_178126_b();
+        ModelManager modelmanager = blockrendererdispatcher.getBlockModelShapes().getModelManager();
 
         GlStateManager.pushMatrix();
         GlStateManager.translate(-0.5F, -0.5F, -0.5F);
@@ -173,7 +173,7 @@ public class DisplayCaseItemRenderer extends TileEntitySpecialRenderer
                 	GlStateManager.translate(0, 0, -2.5);
                 	GlStateManager.rotate(270, 1, 0, 0);
                 }
-                if(tile.displayItem != null)this.renderItem.func_175043_b(entityitem.getEntityItem());
+                if(tile.displayItem != null)this.renderItem.renderItemModel(entityitem.getEntityItem());
                 RenderHelper.disableStandardItemLighting();
                 GlStateManager.popAttrib();
 

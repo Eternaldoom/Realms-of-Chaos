@@ -104,7 +104,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
         }
     }
 
-    public void func_180518_a(int p_180518_1_, int p_180518_2_, ChunkPrimer p_180518_3_)
+    public void setBlocksInChunk(int p_180518_1_, int p_180518_2_, ChunkPrimer p_180518_3_)
     {
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, p_180518_1_ * 4 - 2, p_180518_2_ * 4 - 2, 10, 10);
         this.func_147423_a(p_180518_1_ * 4, 0, p_180518_2_ * 4);
@@ -192,7 +192,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
     {
         this.rand.setSeed((long)p_73154_1_ * 341873128712L + (long)p_73154_2_ * 132897987541L);
         ChunkPrimer chunkprimer = new ChunkPrimer();
-        this.func_180518_a(p_73154_1_, p_73154_2_, chunkprimer);
+        this.setBlocksInChunk(p_73154_1_, p_73154_2_, chunkprimer);
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, p_73154_1_ * 16, p_73154_2_ * 16, 16, 16);
         this.func_180517_a(p_73154_1_, p_73154_2_, chunkprimer, this.biomesForGeneration);
 
@@ -406,7 +406,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
             }
         }
 
-        biomegenbase.func_180624_a(this.worldObj, this.rand, new BlockPos(k, 0, l));
+        biomegenbase.decorate(this.worldObj, this.rand, new BlockPos(k, 0, l));
         SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
         blockpos = blockpos.add(8, 0, 8);
 
@@ -414,15 +414,15 @@ public class ChunkProviderIceRuins implements IChunkProvider
         {
             for (l1 = 0; l1 < 16; ++l1)
             {
-                BlockPos blockpos1 = this.worldObj.func_175725_q(blockpos.add(k1, 0, l1));
-                BlockPos blockpos2 = blockpos1.offsetDown();
+                BlockPos blockpos1 = this.worldObj.getPrecipitationHeight(blockpos.add(k1, 0, l1));
+                BlockPos blockpos2 = blockpos1.down();
 
                 if (this.worldObj.func_175675_v(blockpos2))
                 {
                     this.worldObj.setBlockState(blockpos2, Blocks.ice.getDefaultState(), 2);
                 }
 
-                if (this.worldObj.func_175708_f(blockpos1, true))
+                if (this.worldObj.canSnowAt(blockpos1, true))
                 {
                     this.worldObj.setBlockState(blockpos1, Blocks.snow_layer.getDefaultState(), 2);
                 }
@@ -509,7 +509,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
     }
 
     @Override
-    public BlockPos func_180513_a(World worldIn, String p_180513_2_, BlockPos p_180513_3_)
+    public BlockPos getStrongholdGen(World worldIn, String p_180513_2_, BlockPos p_180513_3_)
     {
     	return null;
     }
@@ -520,6 +520,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
         return 0;
     }
 
+    @Override
     public void func_180514_a(Chunk p_180514_1_, int p_180514_2_, int p_180514_3_)
     {
 
@@ -534,7 +535,8 @@ public class ChunkProviderIceRuins implements IChunkProvider
         }
     }
 
-    public Chunk func_177459_a(BlockPos p_177459_1_)
+    @Override
+    public Chunk provideChunk(BlockPos p_177459_1_)
     {
         return this.provideChunk(p_177459_1_.getX() >> 4, p_177459_1_.getZ() >> 4);
     }

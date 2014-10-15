@@ -376,7 +376,7 @@ public class EntityROCArrow extends EntityArrow
                 }
                 else
                 {
-                	BlockPos bp1 = movingobjectposition.func_178782_a();
+                	BlockPos bp1 = movingobjectposition.getBlockPos();
                     this.xTile = bp1.getX();
                     this.yTile = bp1.getY();
                     this.zTile = bp1.getZ();

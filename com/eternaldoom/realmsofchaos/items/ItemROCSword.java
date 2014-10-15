@@ -53,7 +53,7 @@ public class ItemROCSword extends ItemSword{
 	}
 	
 	@Override
-	public float func_150931_i()
+	public float getDamageVsEntity()
     {
         return this.t.getAttackDamage();
     }

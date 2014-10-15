@@ -39,18 +39,18 @@ public class BlockROCSlab extends BlockSlab
     }
     
     @Override
-    public String getFullSlabName(int p_150002_1_)
+    public String getUnlocalizedName(int meta)
     {
         return super.getUnlocalizedName();
     }
     
     @Override
-	public IProperty func_176551_l() {
+	public IProperty getVariantProperty() {
 		return null;
 	}
 
     @Override
-    public Object func_176553_a(ItemStack p_176553_1_)
+    public Object getVariant(ItemStack p_176553_1_)
     {
         return null;
     }
@@ -60,7 +60,7 @@ public class BlockROCSlab extends BlockSlab
     {
      
     	IBlockState iblockstate = this.getDefaultState();
-    	if(!this.isDouble())iblockstate = iblockstate.withProperty(HALF_PROP, (meta) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
+    	if(!this.isDouble())iblockstate = iblockstate.withProperty(HALF, (meta) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
 
         return iblockstate;
     }
@@ -71,7 +71,7 @@ public class BlockROCSlab extends BlockSlab
         byte b0 = 0;
         int i = b0;
 
-        if (!this.isDouble() && state.getValue(HALF_PROP) == BlockSlab.EnumBlockHalf.TOP)
+        if (!this.isDouble() && state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP)
         {
             i |= 8;
         }
@@ -82,7 +82,7 @@ public class BlockROCSlab extends BlockSlab
     @Override
     protected BlockState createBlockState()
     {
-        return this.isDouble() ? new BlockState(this, new IProperty[] {}): new BlockState(this, new IProperty[] {HALF_PROP});
+        return this.isDouble() ? new BlockState(this, new IProperty[] {}): new BlockState(this, new IProperty[] {HALF});
     }
 
     @Override

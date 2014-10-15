@@ -55,7 +55,7 @@ public class BlockFrozenSapling extends ROCModBlock{
 	
 	public boolean canBlockStay(World w, BlockPos pos)
     {
-        if (w.getBlockState(pos.offsetDown()).getBlock() == Blocks.snow){
+        if (w.getBlockState(pos.down()).getBlock() == Blocks.snow){
         	return true;
         }
        return false;
