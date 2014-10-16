@@ -34,7 +34,7 @@ import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
 public class RealmsOfChaos{
 	public static final String MODID = "realmsofchaos";
-	public static final String VERSION = "Alpha 1.0 pre 1";
+	public static final String VERSION = "Alpha 1.1";
 	
 	@Instance(MODID)
 	public static RealmsOfChaos instance;

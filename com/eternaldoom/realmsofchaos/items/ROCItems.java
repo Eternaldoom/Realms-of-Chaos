@@ -467,7 +467,8 @@ public class ROCItems {
 		NEPTUNITE(8, -1, 15.0f, 6.5f, 12, ROCItems.neptunite_ingot),
 		AQUATIC(9, 3651, 17f, 8f, 6, ROCItems.aquatic_orb),
 		OSMARALT(10, 4651, 19.5f, 10f, 50, ROCItems.osmaralt_ingot),
-		FRACTONITE(11, 5651, 22f, 12f, 20, ROCItems.fractonite_stone);
+		FRACTONITE(11, 5651, 22f, 12f, 20, ROCItems.fractonite_stone),
+		DEMONIZED(12, 5151, 24f, 14f, 15, ROCItems.demonized_gem);
 		
 		int harvestLevel; int uses; float efficiency; float damage; int enchantability; Item repairItem;
 		
