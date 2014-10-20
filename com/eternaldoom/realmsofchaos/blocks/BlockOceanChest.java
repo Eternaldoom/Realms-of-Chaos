@@ -56,7 +56,7 @@ public class BlockOceanChest extends BlockContainer
     @Override
     public int getRenderType()
     {
-        return 3;
+        return 2;
     }
 
     @Override

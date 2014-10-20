@@ -12,6 +12,7 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldInsnNode;
 import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.InsnNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
@@ -19,6 +20,8 @@ import org.objectweb.asm.tree.VarInsnNode;
 public class ROCTransformer implements IClassTransformer
 {
 	private static boolean isObf;
+	
+	private boolean foundOnce = false;
 	
 	private static String NHPCName;
 	private static String handleUpdateTileEntityName;
@@ -32,6 +35,10 @@ public class ROCTransformer implements IClassTransformer
 	private static String modelResourceLocationName;
 	private static String entityLivingBaseName;
 	private static String cameraTransformTypeName;
+	private static String iBlockStateName;
+	private static String blockModelShapesName;
+	private static String getTextureName;
+	private static String textureAtlasSpriteName;
 		
 	//Set the values/obf mappings
 	static
@@ -62,6 +69,11 @@ public class ROCTransformer implements IClassTransformer
 		modelResourceLocationName = isObf ? "cxl" : "net/minecraft/client/resources/model/ModelResourceLocation";
 		entityLivingBaseName = isObf ? "xm" : "net/minecraft/entity/EntityLivingBase";
 		cameraTransformTypeName = isObf ? "cmz" : "net/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType";
+		
+		iBlockStateName = isObf ? "bec" : "net/minecraft/block/state/IBlockState";
+		blockModelShapesName = isObf ? "clc" : "net/minecraft/client/renderer/BlockModelShapes";
+		getTextureName = isObf ? "a" : "getTexture";
+		textureAtlasSpriteName = isObf ? "cue" : "net/minecraft/client/renderer/texture/TextureAtlasSprite";
 	}
 	
 	@Override
@@ -101,6 +113,23 @@ public class ROCTransformer implements IClassTransformer
 			LogManager.getLogger().info("Successfully patched " + renderItemName + ".");
 			return ASMHelper.getBytes(classNode);
 	    }
+		
+		if (name.equals(blockModelShapesName.replace("/", "."))){
+			LogManager.getLogger().info("About to patch getTexture() in class BlockModelShapes (clc)");
+			ClassNode classNode = ASMHelper.getClassNode(clazz);
+			MethodNode renderMethodNode = ASMHelper.getMethodNode(classNode, getTextureName, "(L" + iBlockStateName + ";)L" + textureAtlasSpriteName + ";");
+			
+			InsnList instructions = new InsnList();
+			
+			instructions.add(new VarInsnNode(Opcodes.ALOAD, 1));
+			instructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/eternaldoom/realmsofchaos/asm/CoreMethods", "getTexture", "(L" + iBlockStateName + ";)L" + textureAtlasSpriteName + ";", false));
+			instructions.add(new InsnNode(Opcodes.ARETURN));
+			
+			renderMethodNode.instructions.insertBefore(getBlockModelShapesInsertionPoint(renderMethodNode), instructions);
+			LogManager.getLogger().info("Successfully patched " + blockModelShapesName + ".");
+			return ASMHelper.getBytes(classNode);
+	    }
+		
 		return clazz;
 	}
 	
@@ -133,5 +162,23 @@ public class ROCTransformer implements IClassTransformer
 		if (returnNode != null) return returnNode;
 		
 		throw new RuntimeException("Couldn't find the insertion point for getModelNameFromUseState(). Update to the latest version of the mod.");
+    }
+	
+	private AbstractInsnNode getBlockModelShapesInsertionPoint(MethodNode methodNode)
+    {
+		Iterator<AbstractInsnNode> iterator = methodNode.instructions.iterator();
+		AbstractInsnNode returnNode = null;
+		
+		while (iterator.hasNext())
+		{
+			AbstractInsnNode currentNode = iterator.next();
+			
+			if (currentNode.getOpcode() == Opcodes.INVOKEINTERFACE && !foundOnce) foundOnce = true;
+			if (currentNode.getOpcode() == Opcodes.INVOKEINTERFACE && foundOnce)returnNode = currentNode.getPrevious();
+		}
+		
+		if (returnNode != null) return returnNode;
+		
+		throw new RuntimeException("Couldn't find the insertion point for getTexture(). Update to the latest version of the mod.");
     }
 }
