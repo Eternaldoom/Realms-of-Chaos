@@ -8,5 +8,6 @@ public class TERegistry {
 		GameRegistry.registerTileEntity(TileEntityOceanChest.class, "OceanChest");
 		GameRegistry.registerTileEntity(TileEntityNetherChest.class, "NetherChest");
 		GameRegistry.registerTileEntity(TileEntityDisplayCase.class, "DisplayCase");
+		GameRegistry.registerTileEntity(TileEntityFrozenChest.class, "FrozenChest");
 	}
 }
