@@ -112,22 +112,22 @@ public class BlockDisplayCase extends BlockContainer{
 				player.getHeldItem().stackSize--;
 				itemToAdd = display;
 				tile.displayItem = newitem;
+				if(itemToAdd != null)player.inventory.addItemStackToInventory(itemToAdd);
 			}else if(display != null && player.getHeldItem() == null && display.getItem() != NULL_ITEM){
 				itemToAdd = display;
 				tile.displayItem = null;
+				if(itemToAdd != null)player.inventory.addItemStackToInventory(itemToAdd);
 		    }else if(display == null && player.getHeldItem() == null){
 			}else{
 				ItemStack newitem = player.getHeldItem();
 				newitem.stackSize = 1;
 				if(player.getHeldItem() != null)player.getHeldItem().stackSize--;
 				tile.displayItem = newitem;
+
 			}
-			
-			if(itemToAdd != null)player.inventory.addItemStackToInventory(itemToAdd);
-			return true;
-			
+						
 		}
-		return false;
+		return true;
     }
 	
 	@Override
