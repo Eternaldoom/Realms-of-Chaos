@@ -1,6 +1,10 @@
 package com.eternaldoom.realmsofchaos.event;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -11,88 +15,37 @@ import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class ItemReplaceEvent {
 	
+	protected static Map<Item, Item> toReplace = new HashMap<Item, Item>();
+	
+	static{
+		toReplace.put(Items.iron_sword, ROCItems.iron_sword);
+		toReplace.put(Items.diamond_sword, ROCItems.diamond_sword);
+		toReplace.put(Items.iron_axe, ROCItems.iron_axe);
+		toReplace.put(Items.diamond_axe, ROCItems.diamond_axe);
+		toReplace.put(Items.iron_pickaxe, ROCItems.iron_pickaxe);
+		toReplace.put(Items.diamond_pickaxe, ROCItems.diamond_pickaxe);
+		toReplace.put(Items.iron_shovel, ROCItems.iron_shovel);
+		toReplace.put(Items.diamond_shovel, ROCItems.diamond_shovel);
+		toReplace.put(Items.iron_helmet, ROCItems.iron_helmet);
+		toReplace.put(Items.iron_chestplate, ROCItems.iron_chestplate);
+		toReplace.put(Items.iron_leggings, ROCItems.iron_leggings);
+		toReplace.put(Items.iron_boots, ROCItems.iron_boots);
+		toReplace.put(Items.diamond_helmet, ROCItems.diamond_helmet);
+		toReplace.put(Items.diamond_chestplate, ROCItems.diamond_chestplate);
+		toReplace.put(Items.diamond_leggings, ROCItems.diamond_leggings);
+		toReplace.put(Items.diamond_boots, ROCItems.diamond_boots);
+	}
+	
 	@SubscribeEvent
 	public void onTickEvent(PlayerTickEvent evt){
 		for (int i = 0; i < 35; i++){
 			if (evt.player.inventory.getStackInSlot(i) != null){
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_sword){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_sword);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_sword));
-				}
-					
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_sword){
-					evt.player.inventory.consumeInventoryItem(Items.iron_sword);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_sword));
-				}
 				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_axe){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_axe);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_axe));
-				}
-					
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_axe){
-					evt.player.inventory.consumeInventoryItem(Items.iron_axe);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_axe));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_pickaxe){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_pickaxe);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_pickaxe));
-				}
-					
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_pickaxe){
-					evt.player.inventory.consumeInventoryItem(Items.iron_pickaxe);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_pickaxe));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_shovel){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_shovel);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_shovel));
-				}
-					
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_shovel){
-					evt.player.inventory.consumeInventoryItem(Items.iron_shovel);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_shovel));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_helmet){
-					evt.player.inventory.consumeInventoryItem(Items.iron_helmet);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_helmet));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_chestplate){
-					evt.player.inventory.consumeInventoryItem(Items.iron_chestplate);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_chestplate));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_leggings){
-					evt.player.inventory.consumeInventoryItem(Items.iron_leggings);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_leggings));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.iron_boots){
-					evt.player.inventory.consumeInventoryItem(Items.iron_boots);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.iron_boots));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_helmet){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_helmet);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_helmet));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_chestplate){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_chestplate);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_chestplate));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_leggings){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_leggings);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_leggings));
-				}
-				
-				if(evt.player.inventory.getStackInSlot(i).getItem() == Items.diamond_boots){
-					evt.player.inventory.consumeInventoryItem(Items.diamond_boots);
-					evt.player.inventory.setInventorySlotContents(i, new ItemStack(ROCItems.diamond_boots));
+				if(toReplace.containsKey(evt.player.inventory.getStackInSlot(i).getItem())){
+					Item item = toReplace.get(evt.player.inventory.getStackInSlot(i).getItem());
+					ItemStack newStack = evt.player.inventory.getStackInSlot(i).copy();
+					newStack.setItem(item);
+					evt.player.inventory.setInventorySlotContents(i, newStack);
 				}
 				
 				if(evt.player.inventory.getStackInSlot(i).getItem() == ROCItems.scorpion_stone_active){
