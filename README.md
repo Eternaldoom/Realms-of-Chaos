@@ -13,4 +13,6 @@ LegoShokwave123 [textures]
 
 ExtremeSquid [textures]
 
+Paraphanalien [models and textures]
+
 Download and more info at forum thread [here](http://www.minecraftforge.net/forum/index.php/topic,22986.0.html)

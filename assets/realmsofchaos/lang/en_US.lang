@@ -209,6 +209,7 @@ entity.GiantFish.name=Giant Fish
 entity.KelpFish.name=Kelp Fish
 entity.Scorpius.name=Scorpius
 entity.FrozenWarrior.name=Frozen Warrior
+entity.Stag.name=Stag
 
 key.freeze=Fractonite Armor Bonus
 

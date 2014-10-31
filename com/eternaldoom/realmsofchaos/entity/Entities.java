@@ -18,6 +18,7 @@ public class Entities {
 		EntityRegistry.registerGlobalEntityID(EntityGiantFish.class, "GiantFish", EntityRegistry.findGlobalUniqueEntityId(), 0x66B69C, 0x48B0BE);
 		EntityRegistry.registerGlobalEntityID(EntityKelpFish.class, "KelpFish", EntityRegistry.findGlobalUniqueEntityId(), 0x54B8DD, 0x34898D);
 		EntityRegistry.registerGlobalEntityID(EntityFrozenWarrior.class, "FrozenWarrior", EntityRegistry.findGlobalUniqueEntityId(), 0x94D4FF, 0xE0EAFF);
+		EntityRegistry.registerGlobalEntityID(EntityStag.class, "Stag", EntityRegistry.findGlobalUniqueEntityId(), 0xD8DFD6, 0x808174);
 
 		//Bosses
 		EntityRegistry.registerGlobalEntityID(EntityScorpius.class, "Scorpius", EntityRegistry.findGlobalUniqueEntityId());
