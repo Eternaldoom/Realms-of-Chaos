@@ -1,5 +1,5 @@
 {
-    "parent": "realmsofchaos:block/citronite_ore",
+    "parent": "realmsofchaos:block/xylite_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
