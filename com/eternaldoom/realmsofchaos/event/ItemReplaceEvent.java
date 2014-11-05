@@ -26,14 +26,14 @@ public class ItemReplaceEvent {
 		toReplace.put(Items.diamond_pickaxe, ROCItems.diamond_pickaxe);
 		toReplace.put(Items.iron_shovel, ROCItems.iron_shovel);
 		toReplace.put(Items.diamond_shovel, ROCItems.diamond_shovel);
-		toReplace.put(Items.iron_helmet, ROCItems.iron_helmet);
+		/*toReplace.put(Items.iron_helmet, ROCItems.iron_helmet);
 		toReplace.put(Items.iron_chestplate, ROCItems.iron_chestplate);
 		toReplace.put(Items.iron_leggings, ROCItems.iron_leggings);
 		toReplace.put(Items.iron_boots, ROCItems.iron_boots);
 		toReplace.put(Items.diamond_helmet, ROCItems.diamond_helmet);
 		toReplace.put(Items.diamond_chestplate, ROCItems.diamond_chestplate);
 		toReplace.put(Items.diamond_leggings, ROCItems.diamond_leggings);
-		toReplace.put(Items.diamond_boots, ROCItems.diamond_boots);
+		toReplace.put(Items.diamond_boots, ROCItems.diamond_boots);*/
 	}
 	
 	@SubscribeEvent
