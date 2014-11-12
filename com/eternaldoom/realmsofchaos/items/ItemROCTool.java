@@ -64,9 +64,9 @@ public class ItemROCTool extends ItemTool
         
         infoList.add(EnumChatFormatting.RED + "" + this.toolMaterial.getEfficiency() + " Efficiency");
         
-		if (this instanceof ItemROCPickaxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/4) + " Attack Damage");
-		if (this instanceof ItemROCAxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/4) + " Attack Damage");
-		if (this instanceof ItemROCShovel) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/5) + " Attack Damage");
+		if (this instanceof ItemROCPickaxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/4 + 1) + " Attack Damage");
+		if (this instanceof ItemROCAxe) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/4 + 1) + " Attack Damage");
+		if (this instanceof ItemROCShovel) infoList.add(EnumChatFormatting.DARK_RED + "" + Math.round((toolMaterial.getAttackDamage() + 4.0f)/5 + 1) + " Attack Damage");
     }
     
     @Override
