@@ -11,17 +11,16 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 
-public class ItemROCTool extends ROCModItem
+public class ItemROCTool extends ItemTool
 {
     private Set breakableSet;
     protected float efficiencyOnProperMaterial = 4.0F;
@@ -30,7 +29,8 @@ public class ItemROCTool extends ROCModItem
 
     public ItemROCTool(float attackDamage, ROCItems.ToolMaterial material, Set breaks, String name, boolean vanilla)
     {
-    	super(name);
+    	super(attackDamage, ToolMaterial.STONE, breaks);
+    	setUnlocalizedName(name);
         this.toolMaterial = material;
         this.breakableSet = breaks;
         this.maxStackSize = 1;
@@ -75,10 +75,6 @@ public class ItemROCTool extends ROCModItem
         return this.breakableSet.contains(p_150893_2_) ? this.efficiencyOnProperMaterial : 1.0F;
     }
 
-    /**
-     * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
-     * the damage on the stack.
-     */
     @Override
     public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
     {
@@ -97,9 +93,6 @@ public class ItemROCTool extends ROCModItem
         return true;
     }
 
-    /**
-     * Returns True is the item is renderer in full 3D when hold.
-     */
     @Override
     @SideOnly(Side.CLIENT)
     public boolean isFull3D()
@@ -107,30 +100,29 @@ public class ItemROCTool extends ROCModItem
         return true;
     }
 
-    public ROCItems.ToolMaterial getToolMaterial()
+    public ROCItems.ToolMaterial getNewToolMaterial()
     {
         return this.toolMaterial;
     }
+    
+    @Override
+    public Item.ToolMaterial getToolMaterial()
+    {
+        return Item.ToolMaterial.STONE;
+    }
 
-    /**
-     * Return the enchantability factor of the item, most of the time is based on material.
-     */
+    
     @Override
     public int getItemEnchantability()
     {
         return this.toolMaterial.getEnchantability();
     }
 
-    /**
-     * Return the name for this tool's material.
-     */
     public String getToolMaterialName()
     {
         return this.toolMaterial.toString();
     }
 
-
-    @Override
     public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
     {
         return this.toolMaterial.getItemForRepair() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
