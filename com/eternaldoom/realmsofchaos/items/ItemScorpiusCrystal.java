@@ -19,7 +19,7 @@ public class ItemScorpiusCrystal extends ROCModItem{
 	
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float par8, float par9, float par10){
-		if(!world.isRemote && player.canPlayerEdit(pos, side, stack) && side == EnumFacing.UP){
+		if(!world.isRemote && player.func_175151_a(pos, side, stack) && side == EnumFacing.UP){
 			EntityScorpius boss = new EntityScorpius(world);
 			boss.setPosition(pos.getX(), pos.getY()+1, pos.getZ());
 			world.spawnEntityInWorld(boss);

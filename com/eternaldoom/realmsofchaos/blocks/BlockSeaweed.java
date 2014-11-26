@@ -35,12 +35,12 @@ public class BlockSeaweed extends ROCModBlock{
 	@Override
 	public boolean canPlaceBlockAt(World world, BlockPos pos)
     {
-        return super.canPlaceBlockAt(world, pos) && world.getBlockState(pos.down()).getBlock() == ROCBlocks.ocean_stone && world.getBlockState(pos).getBlock() == Blocks.water;
+        return super.canPlaceBlockAt(world, pos) && world.getBlockState(pos.offsetDown()).getBlock() == ROCBlocks.ocean_stone && world.getBlockState(pos).getBlock() == Blocks.water;
     }
 	
 	public boolean canBlockStay(World world, BlockPos pos)
     {
-		return (world.getBlockState(pos.north()).getBlock() == Blocks.water || world.getBlockState(pos.north()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.west()).getBlock() == Blocks.water || world.getBlockState(pos.west()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.south()).getBlock() == Blocks.water || world.getBlockState(pos.south()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.east()).getBlock() == Blocks.water || world.getBlockState(pos.east()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.down()).getBlock() == ROCBlocks.ocean_stone || world.getBlockState(pos.down()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.up()).getBlock() == Blocks.water || world.getBlockState(pos.up()).getBlock() == ROCBlocks.seaweed);
+		return (world.getBlockState(pos.offsetNorth()).getBlock() == Blocks.water || world.getBlockState(pos.offsetNorth()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.offsetWest()).getBlock() == Blocks.water || world.getBlockState(pos.offsetWest()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.offsetSouth()).getBlock() == Blocks.water || world.getBlockState(pos.offsetSouth()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.offsetEast()).getBlock() == Blocks.water || world.getBlockState(pos.offsetEast()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.offsetDown()).getBlock() == ROCBlocks.ocean_stone || world.getBlockState(pos.offsetDown()).getBlock() == ROCBlocks.seaweed) && (world.getBlockState(pos.offsetUp()).getBlock() == Blocks.water || world.getBlockState(pos.offsetUp()).getBlock() == ROCBlocks.seaweed);
     }
 	
 	@Override
@@ -66,7 +66,7 @@ public class BlockSeaweed extends ROCModBlock{
 	
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand){
-		if(this.canBlockStay(world, pos) && this.canBlockStay(world, pos.up()) && world.getBlockState(pos.down(10)) != ROCBlocks.seaweed) world.setBlockState(pos.up(), ROCBlocks.seaweed.getDefaultState());
+		if(this.canBlockStay(world, pos) && this.canBlockStay(world, pos.offsetUp()) && world.getBlockState(pos.offsetDown(10)) != ROCBlocks.seaweed) world.setBlockState(pos.offsetUp(), ROCBlocks.seaweed.getDefaultState());
 		if(!this.canBlockStay(world, pos)){
 			world.setBlockState(pos, Blocks.water.getDefaultState());
 			this.dropBlockAsItem(world, pos, this.getDefaultState(), 0);
@@ -75,8 +75,8 @@ public class BlockSeaweed extends ROCModBlock{
 	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-		world.scheduleUpdate(pos.up(), this, 1);
-		world.scheduleUpdate(pos.down(), this, 1);
+		world.scheduleUpdate(pos.offsetUp(), this, 1);
+		world.scheduleUpdate(pos.offsetDown(), this, 1);
 	}
 	
 	@Override

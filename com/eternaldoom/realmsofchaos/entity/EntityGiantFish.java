@@ -111,7 +111,7 @@ public class EntityGiantFish extends EntityMob
             }
             
             if(this.worldObj.getBlockState(new BlockPos(this.spawnPosition.getX(), this.spawnPosition.getY(), this.spawnPosition.getZ())).getBlock() == Blocks.air){
-            	this.spawnPosition.down(5);
+            	this.spawnPosition.offsetDown(5);
             }
             
             if(this.angry && this.entityToAttack != null){
@@ -139,7 +139,7 @@ public class EntityGiantFish extends EntityMob
     @Override
     public boolean attackEntityFrom(DamageSource source, float p_70097_2_)
     {
-        if (this.isEntityInvulnerable(source))
+        if (this.func_180431_b(source))
         {
             return false;
         }

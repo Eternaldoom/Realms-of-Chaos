@@ -68,7 +68,7 @@ public class BlockOceanChest extends BlockContainer
     @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-        return this.getDefaultState().withProperty(FACING_PROP, placer.getHorizontalFacing());
+        return this.getDefaultState().withProperty(FACING_PROP, placer.func_174811_aO());
     }
 
     @Override
@@ -76,10 +76,10 @@ public class BlockOceanChest extends BlockContainer
     {
         EnumFacing enumfacing = EnumFacing.getHorizontal(MathHelper.floor_double((double)(placer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
         state = state.withProperty(FACING_PROP, enumfacing);
-        BlockPos blockpos1 = pos.north();
-        BlockPos blockpos2 = pos.south();
-        BlockPos blockpos3 = pos.west();
-        BlockPos blockpos4 = pos.east();
+        BlockPos blockpos1 = pos.offsetNorth();
+        BlockPos blockpos2 = pos.offsetSouth();
+        BlockPos blockpos3 = pos.offsetWest();
+        BlockPos blockpos4 = pos.offsetEast();
         boolean flag = this == worldIn.getBlockState(blockpos1).getBlock();
         boolean flag1 = this == worldIn.getBlockState(blockpos2).getBlock();
         boolean flag2 = this == worldIn.getBlockState(blockpos3).getBlock();
@@ -279,7 +279,7 @@ public class BlockOceanChest extends BlockContainer
 
     private boolean isBelowSolidBlock(World worldIn, BlockPos p_176456_2_)
     {
-        return worldIn.getBlockState(p_176456_2_.up()).getBlock().isNormalCube();
+        return worldIn.getBlockState(p_176456_2_.offsetUp()).getBlock().isNormalCube();
     }
 
     @Override

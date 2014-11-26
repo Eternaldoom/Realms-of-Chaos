@@ -10,11 +10,11 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
-
-public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
+public class ItemROCArmor extends ItemArmor implements ISpecialArmor {
 
 	public String texture;
 	public boolean vanilla;
@@ -36,7 +36,7 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 		damageReduction = fullReduction / 4;
 	}
 
-	/*@Override
+	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot,
 			String type) {
 		if (!vanilla) {
@@ -57,7 +57,7 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 						+ "_layer_1.png";
 			}
 		}
-	}*/
+	}
 
 	public ItemROCArmor register(String name) {
 		GameRegistry.registerItem(this, name);
@@ -79,7 +79,7 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 				+ "% Damage Reduction");
 	}
 
-	/*@Override
+	@Override
 	public ArmorProperties getProperties(EntityLivingBase player,
 			ItemStack armor, DamageSource source, double damage, int slot) {
 		return new ISpecialArmor.ArmorProperties(0, damageReduction / 100,
@@ -96,5 +96,5 @@ public class ItemROCArmor extends ItemArmor/* implements ISpecialArmor */{
 			DamageSource source, int damage, int slot) {
 		if (!source.isFireDamage() && !source.isMagicDamage())
 			stack.damageItem(1, entity);
-	}*/
+	}
 }

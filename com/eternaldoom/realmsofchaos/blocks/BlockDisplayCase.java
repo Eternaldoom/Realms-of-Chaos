@@ -65,10 +65,10 @@ public class BlockDisplayCase extends BlockContainer{
     {
 		if (!world.isRemote)
         {
-            Block block = world.getBlockState(pos.north()).getBlock();
-            Block block1 = world.getBlockState(pos.south()).getBlock();
-            Block block2 = world.getBlockState(pos.west()).getBlock();
-            Block block3 = world.getBlockState(pos.east()).getBlock();
+            Block block = world.getBlockState(pos.offsetNorth()).getBlock();
+            Block block1 = world.getBlockState(pos.offsetSouth()).getBlock();
+            Block block2 = world.getBlockState(pos.offsetWest()).getBlock();
+            Block block3 = world.getBlockState(pos.offsetEast()).getBlock();
             EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
 
             if (enumfacing == EnumFacing.NORTH && block.isFullBlock() && !block1.isFullBlock())
@@ -94,7 +94,7 @@ public class BlockDisplayCase extends BlockContainer{
 	
 	@Override
 	public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer){
-        return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+        return this.getDefaultState().withProperty(FACING, placer.func_174811_aO().getOpposite());
     }
 	
 	@Override

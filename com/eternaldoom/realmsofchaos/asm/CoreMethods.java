@@ -21,15 +21,6 @@ import com.eternaldoom.realmsofchaos.items.ItemROCBow;
 
 public class CoreMethods {
 	
-	public static HashMap<Item, ArrayList<String>> variantNames = new HashMap();
-	
-	/**Syncs the data for custom TileEntities to the client.*/
-	public static void handleTileEntityPackets(TileEntity tile, S35PacketUpdateTileEntity packet){
-		if(tile instanceof TileEntityDisplayCase){
-			tile.readFromNBT(packet.getNbtCompound());
-		}
-	}
-	
 	/**Inserted into RenderItem to allow for customized textures based on use time.*/
 	public static ModelResourceLocation getBowTextures(EntityPlayer player, Item item, ItemStack stack, ModelResourceLocation location){
 		if (item instanceof ItemROCBow && player.getItemInUse() != null)
@@ -55,18 +46,18 @@ public class CoreMethods {
 	
 	/**Inserted into BlockModelShapes to allow for textured particles for blocks that don't need models.*/
 	public static TextureAtlasSprite getTexture(IBlockState state){
-		IBakedModel model = Minecraft.getMinecraft().getBlockRendererDispatcher().getBlockModelShapes().getModelForState(state);
+		IBakedModel model = Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178125_b(state);
 		
 		if(state.getBlock() == ROCBlocks.frozen_chest){
-			return Minecraft.getMinecraft().getBlockRendererDispatcher().getBlockModelShapes().getModelManager().getTextureMap().getAtlasSprite("minecraft:blocks/ice");
+			return Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178126_b().func_174952_b().getAtlasSprite("minecraft:blocks/ice");
 		}
 		
 		if(state.getBlock() == ROCBlocks.ocean_chest){
-			return Minecraft.getMinecraft().getBlockRendererDispatcher().getBlockModelShapes().getModelManager().getTextureMap().getAtlasSprite("realmsofchaos:blocks/ocean_chest_top");
+			return Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178126_b().func_174952_b().getAtlasSprite("realmsofchaos:blocks/ocean_chest_top");
 		}
 		
 		if(state.getBlock() == ROCBlocks.nether_chest){
-			return Minecraft.getMinecraft().getBlockRendererDispatcher().getBlockModelShapes().getModelManager().getTextureMap().getAtlasSprite("realmsofchaos:blocks/nether_chest_top");
+			return Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178126_b().func_174952_b().getAtlasSprite("realmsofchaos:blocks/nether_chest_top");
 		}
 		
 		return model.getTexture();

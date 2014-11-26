@@ -363,7 +363,7 @@ public class TileEntityExtractor extends TileEntity implements ISidedInventory, 
 	}
 
 	@Override
-	public void clear() {
+	public void clearInventory() {
 		for (int i = 0; i < this.furnaceItemStacks.length; ++i)
         {
             this.furnaceItemStacks[i] = null;

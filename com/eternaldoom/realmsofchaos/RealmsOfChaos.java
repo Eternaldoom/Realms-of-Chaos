@@ -5,6 +5,8 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -25,11 +27,17 @@ import com.eternaldoom.realmsofchaos.entity.Entities;
 import com.eternaldoom.realmsofchaos.event.ArmorBonusEvent;
 import com.eternaldoom.realmsofchaos.event.ItemReplaceEvent;
 import com.eternaldoom.realmsofchaos.event.KeyPress;
+import com.eternaldoom.realmsofchaos.event.OreDropEvent;
+import com.eternaldoom.realmsofchaos.event.OverlayEvent;
+import com.eternaldoom.realmsofchaos.event.PortalFixEvent;
+import com.eternaldoom.realmsofchaos.event.TooltipEvent;
 import com.eternaldoom.realmsofchaos.gen.OverworldGen;
 import com.eternaldoom.realmsofchaos.iceruins.gen.BiomeGenIceRuins;
+import com.eternaldoom.realmsofchaos.iceruins.gen.WorldProviderIceRuins;
 import com.eternaldoom.realmsofchaos.items.ROCItems;
 import com.eternaldoom.realmsofchaos.network.PacketArmorFreeze;
 import com.eternaldoom.realmsofchaos.water.gen.BiomeGenWater;
+import com.eternaldoom.realmsofchaos.water.gen.WorldProviderWater;
 
 @Mod(modid = RealmsOfChaos.MODID, version = RealmsOfChaos.VERSION)
 public class RealmsOfChaos{
@@ -52,10 +60,10 @@ public class RealmsOfChaos{
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt){
 		System.out.println("[Realms of Chaos] Initializing mod.");
-		/*DimensionManager.registerProviderType(waterDimID, WorldProviderWater.class, true);
+		DimensionManager.registerProviderType(waterDimID, WorldProviderWater.class, true);
         DimensionManager.registerDimension(waterDimID, waterDimID);
         DimensionManager.registerProviderType(iceDimID, WorldProviderIceRuins.class, true);
-        DimensionManager.registerDimension(iceDimID, iceDimID);*/
+        DimensionManager.registerDimension(iceDimID, iceDimID);
 		
         waterBiome = new BiomeGenWater(55).setColor(48).setBiomeName("Water Biome").setTheHeight(new BiomeGenBase.Height(-1.8f, 1.0f));  
         iceBiome = new BiomeGenIceRuins(56).setColor(48).setBiomeName("Ice Ruins").setTheHeight(new BiomeGenBase.Height(0.2f, 0.2f)).setEnableSnow().setTemperatureRainfall(0.0f, 0.5f);  
@@ -74,12 +82,12 @@ public class RealmsOfChaos{
         NetworkRegistry.INSTANCE.registerGuiHandler(RealmsOfChaos.instance, new GUIHandler());
         FMLCommonHandler.instance().bus().register(new ItemReplaceEvent());
         FMLCommonHandler.instance().bus().register(new ArmorBonusEvent());
-        /*MinecraftForge.EVENT_BUS.register(new TooltipEvent());
+        MinecraftForge.EVENT_BUS.register(new TooltipEvent());
         MinecraftForge.EVENT_BUS.register(new PortalFixEvent());
-        MinecraftForge.EVENT_BUS.register(new OreDropEvent());*/
+        MinecraftForge.EVENT_BUS.register(new OreDropEvent());
         
         if(FMLCommonHandler.instance().getSide().isClient()){
-            //MinecraftForge.EVENT_BUS.register(new OverlayEvent());
+            MinecraftForge.EVENT_BUS.register(new OverlayEvent());
             FMLCommonHandler.instance().bus().register(new KeyPress());
         }
 	}

@@ -99,7 +99,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
         if (p_i45636_5_ != null)
         {
             this.settings = ChunkProviderSettings.Factory.func_177865_a(p_i45636_5_).func_177864_b();
-            this.field_177476_s = this.settings.useLavaOceans ? Blocks.lava : Blocks.ice;
+            this.field_177476_s = this.settings.field_177778_E ? Blocks.lava : Blocks.ice;
         }
     }
 
@@ -196,22 +196,22 @@ public class ChunkProviderIceRuins implements IChunkProvider
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, p_73154_1_ * 16, p_73154_2_ * 16, 16, 16);
         this.func_180517_a(p_73154_1_, p_73154_2_, chunkprimer, this.biomesForGeneration);
 
-        if (this.settings.useCaves)
+        if (this.settings.field_177839_r)
         {
             this.caveGenerator.func_175792_a(this, this.worldObj, p_73154_1_, p_73154_2_, chunkprimer);
         }
 
-        if (this.settings.useRavines)
+        if (this.settings.field_177850_z)
         {
             this.ravineGenerator.func_175792_a(this, this.worldObj, p_73154_1_, p_73154_2_, chunkprimer);
         }
 
-        if (this.settings.useTemples && this.mapFeaturesEnabled)
+        if (this.settings.field_177854_x && this.mapFeaturesEnabled)
         {
             this.scatteredFeatureGenerator.func_175792_a(this, this.worldObj, p_73154_1_, p_73154_2_, chunkprimer);
         }
 
-        if (this.settings.useMonuments && this.mapFeaturesEnabled)
+        if (this.settings.field_177852_y && this.mapFeaturesEnabled)
         {
             this.field_177474_A.func_175792_a(this, this.worldObj, p_73154_1_, p_73154_2_, chunkprimer);
         }
@@ -230,10 +230,10 @@ public class ChunkProviderIceRuins implements IChunkProvider
 
     private void func_147423_a(int p_147423_1_, int p_147423_2_, int p_147423_3_)
     {
-        this.field_147426_g = this.noiseGen6.generateNoiseOctaves(this.field_147426_g, p_147423_1_, p_147423_3_, 5, 5, (double)this.settings.depthNoiseScaleX, (double)this.settings.depthNoiseScaleZ, (double)this.settings.depthNoiseScaleExponent);
-        float f = this.settings.coordinateScale;
-        float f1 = this.settings.heightScale;
-        this.field_147427_d = this.noiseGen3.generateNoiseOctaves(this.field_147427_d, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)(f / this.settings.mainNoiseScaleX), (double)(f1 / this.settings.mainNoiseScaleY), (double)(f / this.settings.mainNoiseScaleZ));
+        this.field_147426_g = this.noiseGen6.generateNoiseOctaves(this.field_147426_g, p_147423_1_, p_147423_3_, 5, 5, (double)this.settings.field_177808_e, (double)this.settings.field_177803_f, (double)this.settings.field_177804_g);
+        float f = this.settings.field_177811_a;
+        float f1 = this.settings.field_177809_b;
+        this.field_147427_d = this.noiseGen3.generateNoiseOctaves(this.field_147427_d, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)(f / this.settings.field_177825_h), (double)(f1 / this.settings.field_177827_i), (double)(f / this.settings.field_177821_j));
         this.field_147428_e = this.noiseGen1.generateNoiseOctaves(this.field_147428_e, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)f, (double)f1, (double)f);
         this.field_147425_f = this.noiseGen2.generateNoiseOctaves(this.field_147425_f, p_147423_1_, p_147423_2_, p_147423_3_, 5, 33, 5, (double)f, (double)f1, (double)f);
         boolean flag1 = false;
@@ -256,8 +256,8 @@ public class ChunkProviderIceRuins implements IChunkProvider
                     for (int i2 = -b0; i2 <= b0; ++i2)
                     {
                         BiomeGenBase biomegenbase1 = this.biomesForGeneration[j1 + l1 + 2 + (k1 + i2 + 2) * 10];
-                        float f5 = this.settings.biomeDepthOffSet + biomegenbase1.minHeight * this.settings.biomeDepthWeight;
-                        float f6 = this.settings.biomeScaleOffset + biomegenbase1.maxHeight * this.settings.biomeScaleWeight;
+                        float f5 = this.settings.field_177813_n + biomegenbase1.minHeight * this.settings.field_177819_m;
+                        float f6 = this.settings.field_177843_p + biomegenbase1.maxHeight * this.settings.field_177815_o;
 
                         if (this.theWorldType == WorldType.AMPLIFIED && f5 > 0.0F)
                         {
@@ -317,20 +317,20 @@ public class ChunkProviderIceRuins implements IChunkProvider
                 double d8 = (double)f3;
                 double d9 = (double)f2;
                 d8 += d7 * 0.2D;
-                d8 = d8 * (double)this.settings.baseSize / 8.0D;
-                double d0 = (double)this.settings.baseSize + d8 * 4.0D;
+                d8 = d8 * (double)this.settings.field_177823_k / 8.0D;
+                double d0 = (double)this.settings.field_177823_k + d8 * 4.0D;
 
                 for (int j2 = 0; j2 < 33; ++j2)
                 {
-                    double d1 = ((double)j2 - d0) * (double)this.settings.stretchY * 128.0D / 256.0D / d9;
+                    double d1 = ((double)j2 - d0) * (double)this.settings.field_177817_l * 128.0D / 256.0D / d9;
 
                     if (d1 < 0.0D)
                     {
                         d1 *= 4.0D;
                     }
 
-                    double d2 = this.field_147428_e[l] / (double)this.settings.lowerLimitScale;
-                    double d3 = this.field_147425_f[l] / (double)this.settings.upperLimitScale;
+                    double d2 = this.field_147428_e[l] / (double)this.settings.field_177806_d;
+                    double d3 = this.field_147425_f[l] / (double)this.settings.field_177810_c;
                     double d4 = (this.field_147427_d[l] / 10.0D + 1.0D) / 2.0D;
                     double d5 = MathHelper.denormalizeClamp(d2, d3, d4) - d1;
 
@@ -375,12 +375,12 @@ public class ChunkProviderIceRuins implements IChunkProvider
         ChunkCoordIntPair chunkcoordintpair = new ChunkCoordIntPair(p_73153_2_, p_73153_3_);
 
 
-        if (this.settings.useTemples && this.mapFeaturesEnabled)
+        if (this.settings.field_177854_x && this.mapFeaturesEnabled)
         {
             this.scatteredFeatureGenerator.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
         }
 
-        if (this.settings.useMonuments && this.mapFeaturesEnabled)
+        if (this.settings.field_177852_y && this.mapFeaturesEnabled)
         {
             this.field_177474_A.func_175794_a(this.worldObj, this.rand, chunkcoordintpair);
         }
@@ -394,19 +394,19 @@ public class ChunkProviderIceRuins implements IChunkProvider
             i2 = this.rand.nextInt(16) + 8;
             (new WorldGenLakes(Blocks.ice)).generate(this.worldObj, this.rand, blockpos.add(k1, l1, i2));
 
-        if (!flag && this.rand.nextInt(this.settings.lavaLakeChance / 10) == 0 && this.settings.useLavaLakes)
+        if (!flag && this.rand.nextInt(this.settings.field_177777_D / 10) == 0 && this.settings.field_177783_C)
         {
             k1 = this.rand.nextInt(16) + 8;
             l1 = this.rand.nextInt(this.rand.nextInt(248) + 8);
             i2 = this.rand.nextInt(16) + 8;
 
-            if (l1 < 63 || this.rand.nextInt(this.settings.lavaLakeChance / 8) == 0)
+            if (l1 < 63 || this.rand.nextInt(this.settings.field_177777_D / 8) == 0)
             {
                 (new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, blockpos.add(k1, l1, i2));
             }
         }
 
-        biomegenbase.decorate(this.worldObj, this.rand, new BlockPos(k, 0, l));
+        biomegenbase.func_180624_a(this.worldObj, this.rand, new BlockPos(k, 0, l));
         SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
         blockpos = blockpos.add(8, 0, 8);
 
@@ -414,15 +414,15 @@ public class ChunkProviderIceRuins implements IChunkProvider
         {
             for (l1 = 0; l1 < 16; ++l1)
             {
-                BlockPos blockpos1 = this.worldObj.getPrecipitationHeight(blockpos.add(k1, 0, l1));
-                BlockPos blockpos2 = blockpos1.down();
+                BlockPos blockpos1 = this.worldObj.func_175725_q(blockpos.add(k1, 0, l1));
+                BlockPos blockpos2 = blockpos1.offsetDown();
 
                 if (this.worldObj.func_175675_v(blockpos2))
                 {
                     this.worldObj.setBlockState(blockpos2, Blocks.ice.getDefaultState(), 2);
                 }
 
-                if (this.worldObj.canSnowAt(blockpos1, true))
+                if (this.worldObj.func_175708_f(blockpos1, true))
                 {
                     this.worldObj.setBlockState(blockpos1, Blocks.snow_layer.getDefaultState(), 2);
                 }
@@ -436,7 +436,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
     {
         boolean flag = false;
 
-        if (this.settings.useMonuments && this.mapFeaturesEnabled && p_177460_2_.getInhabitedTime() < 3600L)
+        if (this.settings.field_177852_y && this.mapFeaturesEnabled && p_177460_2_.getInhabitedTime() < 3600L)
         {
             flag |= this.field_177474_A.func_175794_a(this.worldObj, this.rand, new ChunkCoordIntPair(p_177460_3_, p_177460_4_));
         }
@@ -499,7 +499,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
                 return this.scatteredFeatureGenerator.getScatteredFeatureSpawnList();
             }
 
-            if (p_177458_1_ == EnumCreatureType.MONSTER && this.settings.useMonuments && this.field_177474_A.func_175796_a(this.worldObj, p_177458_2_))
+            if (p_177458_1_ == EnumCreatureType.MONSTER && this.settings.field_177852_y && this.field_177474_A.func_175796_a(this.worldObj, p_177458_2_))
             {
                 return this.field_177474_A.func_175799_b();
             }
@@ -509,7 +509,7 @@ public class ChunkProviderIceRuins implements IChunkProvider
     }
 
     @Override
-    public BlockPos getStrongholdGen(World worldIn, String p_180513_2_, BlockPos p_180513_3_)
+    public BlockPos func_180513_a(World worldIn, String p_180513_2_, BlockPos p_180513_3_)//getStrongholdGen
     {
     	return null;
     }
@@ -521,22 +521,22 @@ public class ChunkProviderIceRuins implements IChunkProvider
     }
 
     @Override
-    public void recreateStructures(Chunk p_180514_1_, int p_180514_2_, int p_180514_3_)
+    public void func_180514_a(Chunk p_180514_1_, int p_180514_2_, int p_180514_3_)//recreateStructures
     {
 
-        if (this.settings.useTemples && this.mapFeaturesEnabled)
+        if (this.settings.field_177854_x && this.mapFeaturesEnabled)
         {
             this.scatteredFeatureGenerator.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
 
-        if (this.settings.useMonuments && this.mapFeaturesEnabled)
+        if (this.settings.field_177852_y && this.mapFeaturesEnabled)
         {
             this.field_177474_A.func_175792_a(this, this.worldObj, p_180514_2_, p_180514_3_, (ChunkPrimer)null);
         }
     }
 
     @Override
-    public Chunk provideChunk(BlockPos p_177459_1_)
+    public Chunk func_177459_a(BlockPos p_177459_1_)//provideChunk
     {
         return this.provideChunk(p_177459_1_.getX() >> 4, p_177459_1_.getZ() >> 4);
     }

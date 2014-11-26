@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.event;
 
 import net.minecraft.item.ItemBow;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.eternaldoom.realmsofchaos.items.ItemROCSword;
@@ -10,7 +11,7 @@ import com.eternaldoom.realmsofchaos.items.ROCItems;
 
 public class TooltipEvent {
 	
-	/*@SubscribeEvent
+	@SubscribeEvent
 	public void tooltipEvent(ItemTooltipEvent evt){
 		if (evt.itemStack.getItem() instanceof ItemROCSword){
 			for(int i = 0; i < evt.toolTip.size(); i++){
@@ -39,5 +40,5 @@ public class TooltipEvent {
 			evt.toolTip.add(EnumChatFormatting.DARK_AQUA + "Allows higher level");
 			evt.toolTip.add(EnumChatFormatting.DARK_AQUA + "ores to be mined.");
 		}
-	}*/
+	}
 }

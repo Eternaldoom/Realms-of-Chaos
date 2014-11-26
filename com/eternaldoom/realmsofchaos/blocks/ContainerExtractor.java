@@ -41,9 +41,9 @@ public class ContainerExtractor extends Container
     }
 
     @Override
-    public void addCraftingToCrafters(ICrafting par1ICrafting)
+    public void onCraftGuiOpened(ICrafting par1ICrafting)//addCraftingToCrafters
     {
-        super.addCraftingToCrafters(par1ICrafting);
+        super.onCraftGuiOpened(par1ICrafting);
         par1ICrafting.sendProgressBarUpdate(this, 0, this.furnace.furnaceCookTime);
         par1ICrafting.sendProgressBarUpdate(this, 1, this.furnace.furnaceBurnTime);
         par1ICrafting.sendProgressBarUpdate(this, 2, this.furnace.currentItemBurnTime);

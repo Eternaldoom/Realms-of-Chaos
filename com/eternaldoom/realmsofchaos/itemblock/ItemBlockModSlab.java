@@ -20,7 +20,6 @@ public class ItemBlockModSlab extends ItemBlock
 {
     private final BlockSlab field_150949_c;
     private final BlockSlab field_179226_c;
-    private static final String __OBFID = "CL_00000071";
 
     public ItemBlockModSlab(Block p_i45782_1_, BlockROCSlab p_i45782_2_, BlockDoubleROCSlab p_i45782_3_)
     {
@@ -31,48 +30,37 @@ public class ItemBlockModSlab extends ItemBlock
         this.setHasSubtypes(true);
     }
 
-    /**
-     * Converts the given ItemStack damage value into a metadata value to be placed in the world when this Item is
-     * placed as a Block (mostly used with ItemBlocks).
-     */
+    @Override
     public int getMetadata(int damage)
     {
         return damage;
     }
 
-    /**
-     * Returns the unlocalized name of this item. This version accepts an ItemStack so different stacks can have
-     * different names based on their damage or NBT.
-     */
+    @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-        return this.field_150949_c.getUnlocalizedName(stack.getMetadata());
+        return this.field_150949_c.getFullSlabName(stack.getMetadata());
     }
 
-    /**
-     * Called when a Block is right-clicked with this Item
-     *  
-     * @param pos The block being right-clicked
-     * @param side The side being right-clicked
-     */
+    @Override
     public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
     {
         if (stack.stackSize == 0)
         {
             return false;
         }
-        else if (!playerIn.canPlayerEdit(pos.offset(side), side, stack))
+        else if (!playerIn.func_175151_a(pos.offset(side), side, stack))
         {
             return false;
         }
         else
         {
-            Object object = this.field_150949_c.getVariant(stack);
+            Object object = this.field_150949_c.func_176553_a(stack);
             IBlockState iblockstate = worldIn.getBlockState(pos);
 
             if (iblockstate.getBlock() == this.field_150949_c)
             {
-                BlockSlab.EnumBlockHalf enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF);
+                BlockSlab.EnumBlockHalf enumblockhalf = (BlockSlab.EnumBlockHalf)iblockstate.getValue(BlockSlab.HALF_PROP);
 
                 if ((side == EnumFacing.UP && enumblockhalf == BlockSlab.EnumBlockHalf.BOTTOM || side == EnumFacing.DOWN && enumblockhalf == BlockSlab.EnumBlockHalf.TOP))
                 {
@@ -96,12 +84,12 @@ public class ItemBlockModSlab extends ItemBlock
     public boolean canPlaceBlockOnSide(World worldIn, BlockPos p_179222_2_, EnumFacing p_179222_3_, EntityPlayer p_179222_4_, ItemStack p_179222_5_)
     {
         BlockPos blockpos1 = p_179222_2_;
-        Object object = this.field_150949_c.getVariant(p_179222_5_);
+        Object object = this.field_150949_c.func_176553_a(p_179222_5_);
         IBlockState iblockstate = worldIn.getBlockState(p_179222_2_);
 
         if (iblockstate.getBlock() == this.field_150949_c)
         {
-            boolean flag = iblockstate.getValue(BlockSlab.HALF) == BlockSlab.EnumBlockHalf.TOP;
+            boolean flag = iblockstate.getValue(BlockSlab.HALF_PROP) == BlockSlab.EnumBlockHalf.TOP;
 
             if ((p_179222_3_ == EnumFacing.UP && !flag || p_179222_3_ == EnumFacing.DOWN && flag))
             {
