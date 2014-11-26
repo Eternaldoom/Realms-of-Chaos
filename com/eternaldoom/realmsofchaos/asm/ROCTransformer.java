@@ -53,7 +53,7 @@ public class ROCTransformer implements IClassTransformer
 		isObf = obfuscated;
 				
 		renderItemName = isObf ? "cqh" : "net/minecraft/client/renderer/entity/RenderItem";
-		itemMethodName = isObf ? "a" : "getModelNameFromUseState";
+		itemMethodName = isObf ? "a" : "func_175049_a";
 		itemName = isObf ? "alq" : "net/minecraft/item/Item";
 		entityPlayerName = isObf ? "ahd" : "net/minecraft/entity/player/EntityPlayer";
 		itemStackName = isObf ? "amj" : "net/minecraft/item/ItemStack";
@@ -63,7 +63,7 @@ public class ROCTransformer implements IClassTransformer
 		
 		iBlockStateName = isObf ? "bec" : "net/minecraft/block/state/IBlockState";
 		blockModelShapesName = isObf ? "clc" : "net/minecraft/client/renderer/BlockModelShapes";
-		getTextureName = isObf ? "a" : "getTexture";
+		getTextureName = isObf ? "a" : "func_178122_a";
 		textureAtlasSpriteName = isObf ? "cue" : "net/minecraft/client/renderer/texture/TextureAtlasSprite";
 	}
 	

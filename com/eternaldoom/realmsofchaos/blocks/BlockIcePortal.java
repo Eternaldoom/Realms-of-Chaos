@@ -1,6 +1,5 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -15,6 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.RealmsOfChaos;
+import com.eternaldoom.realmsofchaos.iceruins.gen.TeleporterIceRuins;
 
 public class BlockIcePortal extends ROCModBlock{
 	
@@ -30,20 +30,20 @@ public class BlockIcePortal extends ROCModBlock{
 		if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP)))
         {
             EntityPlayerMP thePlayer = (EntityPlayerMP)entity;
-            //if (thePlayer.timeUntilPortal > 0)
-            //{
-                //thePlayer.timeUntilPortal = 10;
-            //}
-            /*else */if (thePlayer.dimension != RealmsOfChaos.iceDimID)
+            if (thePlayer.timeUntilPortal > 0)
             {
-                //thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.iceDimID/*, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.iceDimID))*/);
+                thePlayer.timeUntilPortal = 10;
+            }
+            else if (thePlayer.dimension != RealmsOfChaos.iceDimID)
+            {
+                thePlayer.timeUntilPortal = 10;
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, RealmsOfChaos.iceDimID, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(RealmsOfChaos.iceDimID)));
             }
             
             else if (thePlayer.dimension == RealmsOfChaos.iceDimID)
             {
                 thePlayer.timeUntilPortal = 10;
-                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0/*, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(0))*/);
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterIceRuins(thePlayer.mcServer.worldServerForDimension(0)));
             }
         }
     }
