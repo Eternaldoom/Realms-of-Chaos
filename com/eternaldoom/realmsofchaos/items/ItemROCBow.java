@@ -11,9 +11,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
-import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 
 public class ItemROCBow extends ROCModItem
@@ -35,10 +36,10 @@ public class ItemROCBow extends ROCModItem
     public void onPlayerStoppedUsing(ItemStack stack, World world, EntityPlayer player, int time)
     {
     	int maxItemUse = getMaxItemUseDuration(stack) - time;
-        //ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
-        //MinecraftForge.EVENT_BUS.post(event);
-        //if (event.isCanceled()) return;
-        //maxItemUse = event.charge;
+        ArrowLooseEvent event = new ArrowLooseEvent(player, stack, maxItemUse);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled()) return;
+        maxItemUse = event.charge;
         boolean infiniteAmmo = player.capabilities.isCreativeMode || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, stack) > 0;
         if (infiniteAmmo || player.inventory.hasItem(ammo)) {
             float scaledItemUse = (float) maxItemUse / 20.0F;
@@ -76,12 +77,12 @@ public class ItemROCBow extends ROCModItem
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-    	//ArrowNockEvent event = new ArrowNockEvent(player, stack);
-        //MinecraftForge.EVENT_BUS.post(event);
-       // if (event.isCanceled())
-       // {
-        //    return event.result;
-        //}
+    	ArrowNockEvent event = new ArrowNockEvent(player, stack);
+        MinecraftForge.EVENT_BUS.post(event);
+        if (event.isCanceled())
+        {
+            return event.result;
+        }
 
         if (player.capabilities.isCreativeMode || player.inventory.hasItem(ammo))
         {

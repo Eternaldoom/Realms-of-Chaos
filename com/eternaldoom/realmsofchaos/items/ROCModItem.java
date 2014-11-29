@@ -11,7 +11,7 @@ public class ROCModItem extends Item{
 	public ROCModItem(String name){
 		super();
 		setUnlocalizedName(name);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.tabBlock/*ROCTabs.Items*/);
 	}
 
 	public ROCModItem register(String name){

@@ -167,7 +167,7 @@ public class EntityGiantFish extends EntityMob
     @Override
     public boolean getCanSpawnHere()
     {
-        int i = MathHelper.floor_double(this.getBoundingBox().minY);
+        int i = MathHelper.floor_double(this.posY);
 
         if (i >= 120) return false;
         if(this.rand.nextInt(70000) != 2)return false;
@@ -176,7 +176,7 @@ public class EntityGiantFish extends EntityMob
             int j = MathHelper.floor_double(this.posX);
             int k = MathHelper.floor_double(this.posZ);
             
-            return this.worldObj.checkNoEntityCollision(this.getBoundingBox()) && this.worldObj.getCollidingBoundingBoxes(this, this.getBoundingBox()).isEmpty();
+            return this.worldObj.checkNoEntityCollision(this.getEntityBoundingBox()) && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox()).isEmpty();
         }
     }
     

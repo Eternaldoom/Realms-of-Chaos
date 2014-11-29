@@ -182,10 +182,10 @@ public class EntityKelpFish extends EntityAmbientCreature {
 	@Override
 	public boolean getCanSpawnHere() {
 		int i = MathHelper.floor_double(this.posX);
-		int j = MathHelper.floor_double(this.getBoundingBox().minY);
+		int j = MathHelper.floor_double(this.posY);
 		int k = MathHelper.floor_double(this.posZ);
 
-			return this.worldObj.checkNoEntityCollision(this.getBoundingBox())
+			return this.worldObj.checkNoEntityCollision(this.getEntityBoundingBox())
 					&& this.worldObj.getBlockState(new BlockPos(i, j, k)) == ROCBlocks.seaweed;
 	}
 

@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import com.eternaldoom.realmsofchaos.ROCTabs;
 import com.google.common.collect.Multimap;
 
 public class ItemROCTool extends ItemTool
@@ -38,7 +39,7 @@ public class ItemROCTool extends ItemTool
         this.efficiencyOnProperMaterial = material.getEfficiency();
         this.damageVsEntity = attackDamage;
         toolMaterial = material;
-        if(!vanilla) setCreativeTab(CreativeTabs.tabBlock); else setCreativeTab(null);//TODO: change when forge comes out
+        if(!vanilla) setCreativeTab(CreativeTabs.tabBlock/*ROCTabs.Tools*/); else setCreativeTab(null);
         if (this instanceof ItemROCPickaxe)
         {
             toolClass = "pickaxe";

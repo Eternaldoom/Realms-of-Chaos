@@ -94,6 +94,6 @@ public class EntityAquaticGolem extends EntityMob{
     @Override
     public boolean getCanSpawnHere()
     {
-        return this.worldObj.getDifficulty() != EnumDifficulty.PEACEFUL && !this.worldObj.isAnyLiquid(this.getBoundingBox());
+        return this.worldObj.getDifficulty() != EnumDifficulty.PEACEFUL && !this.worldObj.isAnyLiquid(this.getEntityBoundingBox());
     }
 }

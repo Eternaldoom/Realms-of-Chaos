@@ -15,7 +15,7 @@ public class ROCModBlock extends Block{
 		this.setUnlocalizedName(name);
 		this.setHardness(hard);
 		this.setResistance(resist);
-		this.setCreativeTab(CreativeTabs.tabBlock);
+		this.setCreativeTab(CreativeTabs.tabBlock/*ROCTabs.Blocks*/);
 		this.setStepSound(sound);
 		
 		blockName = name;

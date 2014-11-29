@@ -25,10 +25,11 @@ public class ItemROCArmor extends ItemArmor implements ISpecialArmor {
 			String type, String name, double fullReduction) {
 		super(par1armorMaterial, 3, piece);
 		setUnlocalizedName(name);
-		if (par1armorMaterial == ROCItems.IRONa || par1armorMaterial == ROCItems.DIAMONDa){
-			setCreativeTab(null);
-			vanilla = true;
-		}else{setCreativeTab(CreativeTabs.tabBlock); vanilla = false;}
+		//if (par1armorMaterial == ROCItems.IRONa || par1armorMaterial == ROCItems.DIAMONDa){
+			//setCreativeTab(null);
+			//vanilla = true;
+		//}else{
+		setCreativeTab(CreativeTabs.tabBlock); vanilla = false;//}
 
 		texture = type;
 		a = par1armorMaterial;
