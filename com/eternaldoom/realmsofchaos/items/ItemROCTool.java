@@ -28,8 +28,7 @@ public class ItemROCTool extends ItemTool
     private float damageVsEntity;
     public ROCItems.ToolMaterial toolMaterial;
 
-    public ItemROCTool(float attackDamage, ROCItems.ToolMaterial material, Set breaks, String name, boolean vanilla)
-    {
+    public ItemROCTool(float attackDamage, ROCItems.ToolMaterial material, Set breaks, String name, boolean vanilla) {
     	super(attackDamage, ToolMaterial.STONE, breaks);
     	setUnlocalizedName(name);
         this.toolMaterial = material;
@@ -71,21 +70,18 @@ public class ItemROCTool extends ItemTool
     }
     
     @Override
-    public float getStrVsBlock(ItemStack p_150893_1_, Block p_150893_2_)
-    {
+    public float getStrVsBlock(ItemStack p_150893_1_, Block p_150893_2_) {
         return this.breakableSet.contains(p_150893_2_) ? this.efficiencyOnProperMaterial : 1.0F;
     }
 
     @Override
-    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase)
-    {
-        par1ItemStack.damageItem(2, par3EntityLivingBase);
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLivingBase, EntityLivingBase par3EntityLivingBase) {
+        par1ItemStack.damageItem(1, par3EntityLivingBase);
         return true;
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, BlockPos pos, EntityLivingBase p_150894_7_)
-    {
+    public boolean onBlockDestroyed(ItemStack p_150894_1_, World p_150894_2_, Block p_150894_3_, BlockPos pos, EntityLivingBase p_150894_7_) {
         if ((double)p_150894_3_.getBlockHardness(p_150894_2_, pos) != 0.0D)
         {
             p_150894_1_.damageItem(1, p_150894_7_);
@@ -96,36 +92,30 @@ public class ItemROCTool extends ItemTool
 
     @Override
     @SideOnly(Side.CLIENT)
-    public boolean isFull3D()
-    {
+    public boolean isFull3D() {
         return true;
     }
 
-    public ROCItems.ToolMaterial getNewToolMaterial()
-    {
+    public ROCItems.ToolMaterial getNewToolMaterial() {
         return this.toolMaterial;
     }
     
     @Override
-    public Item.ToolMaterial getToolMaterial()
-    {
+    public Item.ToolMaterial getToolMaterial() {
         return Item.ToolMaterial.STONE;
     }
 
     
     @Override
-    public int getItemEnchantability()
-    {
+    public int getItemEnchantability(){
         return this.toolMaterial.getEnchantability();
     }
 
-    public String getToolMaterialName()
-    {
+    public String getToolMaterialName() {
         return this.toolMaterial.toString();
     }
 
-    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-    {
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
         return this.toolMaterial.getItemForRepair() == par2ItemStack.getItem() ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
     }
 

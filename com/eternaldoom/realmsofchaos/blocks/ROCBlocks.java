@@ -1,16 +1,12 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.eternaldoom.realmsofchaos.itemblock.ItemBlockModSlab;
@@ -54,7 +50,7 @@ public class ROCBlocks {
 	public static BlockNetherChest nether_chest;
     
     //Ocean
-    //public static Fluid waterportal;
+    public static Fluid waterportal;
     public static ROCModBlock ocean_stone;
     public static BlockROCStairs oceanstone_stairs;
     public static BlockROCSlab oceanstone_slab;
@@ -108,8 +104,8 @@ public class ROCBlocks {
     private static String[] modStoneBricksTextures = {null, "cracked", "carved"};
 
 	public static void init(){
-		//waterportal = new FluidWaterPortal();
-		//FluidRegistry.registerFluid(waterportal);
+		waterportal = new FluidWaterPortal();
+		FluidRegistry.registerFluid(waterportal);
 		
 		citronite_ore = new BlockCitroniteOre().register("citronite_ore");
 		charwood_leaves = new BlockCharwoodLeaves().register("charwood_leaves");
@@ -134,7 +130,7 @@ public class ROCBlocks {
         xylite_block = new BlockXylite();
         heliotrope_ore = new ROCModBlock(Material.rock, "oreHeliotrope", 5.0f, 14.5f, ROCModBlock.soundTypePiston).register("heliotrope_ore");
         heliotrope_block = new ROCModBlock(Material.rock, "blockHeliotrope", 5.5f, 1000000.0f, ROCModBlock.soundTypePiston).register("heliotrope_block");
-        //water_portal = new BlockWaterPortal();
+        water_portal = new BlockWaterPortal();
         ocean_stone = new BlockOceanStone();
         oceanstone_stairs = new BlockROCStairs(ocean_stone, ocean_stone.getDefaultState(), "stairsOceanstone").register("oceanstone_stairs");
         oceanstone_slab = new BlockROCSlab(Material.rock, "slabOceanstone", 0.4f, 1.0f, ROCModBlock.soundTypePiston);
@@ -195,7 +191,8 @@ public class ROCBlocks {
 		demonized_ore = new ROCModBlock(Material.rock, "oreDemonized", 24f, 1000000f, ROCModBlock.soundTypePiston).register("demonized_ore");
 		demonized_block = new ROCModBlock(Material.rock, "blockDemonized", 24f, 1000000f, ROCModBlock.SLIME_SOUND).register("demonized_block");
 
-        //GameRegistry.GameRegistry.registerBlock(water_portal, "water_portal");
+        GameRegistry.registerBlock(water_portal, "water_portal");
+        blockList.add("water_portal");
 	}
 	
 	public static void registerSlab(String name, String name2, BlockROCSlab one, BlockROCSlab two){

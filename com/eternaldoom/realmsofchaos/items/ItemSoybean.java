@@ -1,59 +1,49 @@
 package com.eternaldoom.realmsofchaos.items;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockDoublePlant.EnumPlantType;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 
 import com.eternaldoom.realmsofchaos.blocks.ROCBlocks;
 
-public class ItemSoybean extends ROCModItem /*implements IPlantable*/{
+public class ItemSoybean extends ROCModItem implements IPlantable {
 
 	public ItemSoybean() {
 		super("soybean");
 	}
 
-	/*@Override
-	public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+	@Override
+	public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
 		return EnumPlantType.Crop;
 	}
 
 	@Override
-	public Block getPlant(IBlockAccess world, int x, int y, int z) {
-		return ROCBlocks.soy_plant;
-	}
-
-	@Override
-	public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
-		return 0;
+	public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+		return ROCBlocks.soy_plant.getDefaultState();
 	}
 	
 	@Override
-    public boolean onItemUse(ItemStack parItemStack, EntityPlayer parPlayer, World parWorld, int parX, int parY, int parZ, int par7, float par8, float par9, float par10)
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float par8, float par9, float par10)
     {
-        if (par7 != 1)
-        {
-            return false;
-        }
-        else if (parPlayer.canPlayerEdit(parX, parY+1, parZ, par7, parItemStack))
-        {
-            if (parWorld.getBlock(parX, parY, parZ).canSustainPlant(parWorld, parX, parY, parZ, ForgeDirection.UP, this) && parWorld.isAirBlock(parX, parY+1, parZ))
-            {
-                parWorld.setBlock(parX, parY+1, parZ, ROCBlocks.soy_plant);
-                --parItemStack.stackSize;
+        if (side != EnumFacing.UP) return false;
+        
+        else if (player.func_175151_a(pos.offsetUp(), side, stack)) {
+            if (world.getBlockState(pos).getBlock().canSustainPlant(world, pos, EnumFacing.UP, this) && world.isAirBlock(pos.offsetUp())) {
+                world.setBlockState(pos.offsetUp(), ROCBlocks.soy_plant.getDefaultState());
+                --stack.stackSize;
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        else
-        {
+        } else {
             return false;
         }
-    }*/
+    }
 
 }

@@ -2,6 +2,7 @@ package com.eternaldoom.realmsofchaos.items;
 
 import java.util.List;
 
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -10,10 +11,13 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 
@@ -102,6 +106,27 @@ public class ItemROCBow extends ROCModItem
     public int getItemEnchantability()
     {
         return 1;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    @Override
+    public ModelResourceLocation getModel(ItemStack stack, EntityPlayer player, int useRemaining) {
+    	if (stack.getItem() instanceof ItemROCBow && player.getItemInUse() != null) {
+            int i = stack.getMaxItemUseDuration() - player.getItemInUseCount();
+            if (i >= 18)
+            {
+                return new ModelResourceLocation(Item.itemRegistry.getNameForObject(stack.getItem()) + "_pulling_2", "inventory");
+            }
+            else if (i > 13)
+            {
+                return new ModelResourceLocation(Item.itemRegistry.getNameForObject(stack.getItem()) + "_pulling_1", "inventory");
+            }
+            else if (i > 0)
+            {
+                return new ModelResourceLocation(Item.itemRegistry.getNameForObject(stack.getItem()) + "_pulling_0", "inventory");
+            }
+        }
+		return null;
     }
     
     @Override

@@ -23,14 +23,14 @@ public class WorldGenBigRuins extends WorldGenerator {
 		int i = pos.getX(), j = pos.getY(), k = pos.getZ();
     	helperWorld = world;
     	
-		if (world.getBlockState(pos.add(0, -3, 0)) == Blocks.snow
-				&& world.getBlockState(pos.add(35, -2, 0)) == Blocks.snow
-				&& world.getBlockState(pos.add(0, -2, 35)) == Blocks.snow
-				&& world.getBlockState(pos.add(35, -2, 35)) == Blocks.snow
-				&& world.getBlockState(pos.add(0, 1, 0)) == Blocks.air
-				&& world.getBlockState(pos.add(35, 1, 0)) == Blocks.air
-				&& world.getBlockState(pos.add(0, 1, 35)) == Blocks.air
-				&& world.getBlockState(pos.add(35, 1, 35)) == Blocks.air) {
+		if (world.getBlockState(pos.add(0, -3, 0)).getBlock() == Blocks.snow
+				&& world.getBlockState(pos.add(35, -2, 0)).getBlock() == Blocks.snow
+				&& world.getBlockState(pos.add(0, -2, 35)).getBlock() == Blocks.snow
+				&& world.getBlockState(pos.add(35, -2, 35)).getBlock() == Blocks.snow
+				&& world.getBlockState(pos.add(0, 1, 0)).getBlock() == Blocks.air
+				&& world.getBlockState(pos.add(35, 1, 0)).getBlock() == Blocks.air
+				&& world.getBlockState(pos.add(0, 1, 35)).getBlock() == Blocks.air
+				&& world.getBlockState(pos.add(35, 1, 35)).getBlock() == Blocks.air) {
 			setBlock(i + 0, j + 6, k + 0, Blocks.packed_ice);
 			setBlock(i + 0, j + 6, k + 19, Blocks.packed_ice);
 			setBlock(i + 0, j + 6, k + 35, Blocks.packed_ice);

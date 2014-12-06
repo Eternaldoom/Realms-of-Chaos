@@ -23,14 +23,6 @@ public class ROCTransformer implements IClassTransformer
 	
 	private boolean foundOnce = false;
 	
-	private static String renderItemName;
-	private static String itemMethodName;
-	private static String itemName;
-	private static String entityPlayerName;
-	private static String itemStackName;
-	private static String modelResourceLocationName;
-	private static String entityLivingBaseName;
-	private static String cameraTransformTypeName;
 	private static String iBlockStateName;
 	private static String blockModelShapesName;
 	private static String getTextureName;
@@ -51,15 +43,6 @@ public class ROCTransformer implements IClassTransformer
 		}
 		
 		isObf = obfuscated;
-				
-		renderItemName = isObf ? "cqh" : "net/minecraft/client/renderer/entity/RenderItem";
-		itemMethodName = isObf ? "a" : "func_175049_a";
-		itemName = isObf ? "alq" : "net/minecraft/item/Item";
-		entityPlayerName = isObf ? "ahd" : "net/minecraft/entity/player/EntityPlayer";
-		itemStackName = isObf ? "amj" : "net/minecraft/item/ItemStack";
-		modelResourceLocationName = isObf ? "cxl" : "net/minecraft/client/resources/model/ModelResourceLocation";
-		entityLivingBaseName = isObf ? "xm" : "net/minecraft/entity/EntityLivingBase";
-		cameraTransformTypeName = isObf ? "cmz" : "net/minecraft/client/renderer/block/model/ItemCameraTransforms$TransformType";
 		
 		iBlockStateName = isObf ? "bec" : "net/minecraft/block/state/IBlockState";
 		blockModelShapesName = isObf ? "clc" : "net/minecraft/client/renderer/BlockModelShapes";
@@ -69,26 +52,6 @@ public class ROCTransformer implements IClassTransformer
 	
 	@Override
 	public byte[] transform(String name, String transformedName, byte[] clazz) {
-		
-		if (name.equals(renderItemName.replace("/", "."))){
-			LogManager.getLogger().info("About to patch getModelNameFromUseState() in class RenderItem (cqh)");
-			ClassNode classNode = ASMHelper.getClassNode(clazz);
-			MethodNode renderMethodNode = ASMHelper.getMethodNode(classNode, itemMethodName, "(L" + itemStackName + ";L" + entityLivingBaseName + ";L" + cameraTransformTypeName + ";)V");
-			
-			InsnList instructions = new InsnList();
-			
-			instructions.add(new VarInsnNode(Opcodes.ALOAD, 5));
-			instructions.add(new VarInsnNode(Opcodes.ALOAD, 6));
-			instructions.add(new VarInsnNode(Opcodes.ALOAD, 1));
-			instructions.add(new VarInsnNode(Opcodes.ALOAD, 7));
-			instructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "com/eternaldoom/realmsofchaos/asm/CoreMethods", "getBowTextures", "(L" + entityPlayerName + ";L" + itemName + ";L" + itemStackName + ";L" + modelResourceLocationName + ";)L" + modelResourceLocationName + ";", false));
-			instructions.add(new VarInsnNode(Opcodes.ASTORE, 7));
-			
-			renderMethodNode.instructions.insertBefore(getRenderItemInsertionPoint(renderMethodNode), instructions);
-			LogManager.getLogger().info("Successfully patched " + renderItemName + ".");
-			return ASMHelper.getBytes(classNode);
-	    }
-		
 		if (name.equals(blockModelShapesName.replace("/", "."))){
 			LogManager.getLogger().info("About to patch getTexture() in class BlockModelShapes (clc)");
 			ClassNode classNode = ASMHelper.getClassNode(clazz);
@@ -107,37 +70,6 @@ public class ROCTransformer implements IClassTransformer
 		
 		return clazz;
 	}
-	
-	private AbstractInsnNode getTEInsertionPoint(MethodNode methodNode){
-	Iterator<AbstractInsnNode> iterator = methodNode.instructions.iterator();
-	AbstractInsnNode returnNode = null;
-	
-	while (iterator.hasNext()){
-		AbstractInsnNode currentNode = iterator.next();
-		
-		if (currentNode.getOpcode() == Opcodes.ISTORE) returnNode = currentNode.getNext();
-	}
-	
-	if (returnNode != null) return returnNode;
-	throw new RuntimeException("Couldn't find the insertion point for handleUpdateTileEntity(S35PacketUpdateTileEntity). Update to the latest version of the mod.");
-	}
-	
-	private AbstractInsnNode getRenderItemInsertionPoint(MethodNode methodNode)
-    {
-		Iterator<AbstractInsnNode> iterator = methodNode.instructions.iterator();
-		AbstractInsnNode returnNode = null;
-		
-		while (iterator.hasNext())
-		{
-			AbstractInsnNode currentNode = iterator.next();
-			
-			if (currentNode.getOpcode() == Opcodes.ACONST_NULL) returnNode = currentNode.getNext().getNext();
-		}
-		
-		if (returnNode != null) return returnNode;
-		
-		throw new RuntimeException("Couldn't find the insertion point for getModelNameFromUseState(). Update to the latest version of the mod.");
-    }
 	
 	private AbstractInsnNode getBlockModelShapesInsertionPoint(MethodNode methodNode)
     {

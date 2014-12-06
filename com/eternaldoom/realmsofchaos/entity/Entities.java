@@ -1,5 +1,7 @@
 package com.eternaldoom.realmsofchaos.entity;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -10,24 +12,24 @@ import com.eternaldoom.realmsofchaos.entity.projectile.EntityROCArrow;
 
 public class Entities {
 	
+	private static int entityID = 0;
+	private static int globalEntityID = 1840;
+	
 	public static void preinit(){
 		//Mobs
-		EntityRegistry.registerGlobalEntityID(EntityAquaticGolem.class, "AquaticGolem", EntityRegistry.findGlobalUniqueEntityId(), 0x7AE8FF, 0x47FFE2);
-		EntityRegistry.registerGlobalEntityID(EntityScorpioid.class, "Scorpioid", EntityRegistry.findGlobalUniqueEntityId(), 0xFF361C, 0x880007);
-		EntityRegistry.registerGlobalEntityID(EntityVoidCrawler.class, "VoidCrawler", EntityRegistry.findGlobalUniqueEntityId(), 0x666D68, 0x52E9E9);
-		EntityRegistry.registerGlobalEntityID(EntityGiantFish.class, "GiantFish", EntityRegistry.findGlobalUniqueEntityId(), 0x66B69C, 0x48B0BE);
-		EntityRegistry.registerGlobalEntityID(EntityKelpFish.class, "KelpFish", EntityRegistry.findGlobalUniqueEntityId(), 0x54B8DD, 0x34898D);
-		EntityRegistry.registerGlobalEntityID(EntityFrozenWarrior.class, "FrozenWarrior", EntityRegistry.findGlobalUniqueEntityId(), 0x94D4FF, 0xE0EAFF);
-		EntityRegistry.registerGlobalEntityID(EntityStag.class, "Stag", EntityRegistry.findGlobalUniqueEntityId(), 0xD8DFD6, 0x808174);
+		registerMob(EntityAquaticGolem.class, "AquaticGolem", 0x7AE8FF, 0x47FFE2);
+		registerMob(EntityScorpioid.class, "Scorpioid", 0xFF361C, 0x880007);
+		registerMob(EntityVoidCrawler.class, "VoidCrawler", 0x666D68, 0x52E9E9);
+		registerMob(EntityGiantFish.class, "GiantFish", 0x66B69C, 0x48B0BE);
+		registerMob(EntityKelpFish.class, "KelpFish", 0x54B8DD, 0x34898D);
+		registerMob(EntityFrozenWarrior.class, "FrozenWarrior", 0x94D4FF, 0xE0EAFF);
+		registerMob(EntityStag.class, "Stag", 0xD8DFD6, 0x808174);
 
 		//Bosses
-		EntityRegistry.registerGlobalEntityID(EntityScorpius.class, "Scorpius", EntityRegistry.findGlobalUniqueEntityId());
+		registerSpecial(EntityScorpius.class, "Scorpius");
 
-		EntityRegistry.registerGlobalEntityID(EntityROCArrow.class, "ROCArrow", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityROCArrow.class, "ROCArrow", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
-		
-		EntityRegistry.registerGlobalEntityID(EntityBullet.class, "ROCBullet", EntityRegistry.findGlobalUniqueEntityId());
-		EntityRegistry.registerModEntity(EntityBullet.class, "ROCBullet", EntityRegistry.findGlobalUniqueEntityId(), RealmsOfChaos.instance, 64, 1, true);
+		registerSpecial(EntityROCArrow.class, "ROCArrow");
+		registerSpecial(EntityBullet.class, "ROCBullet");
 		
 		for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++)
 	    {
@@ -40,5 +42,15 @@ public class Entities {
 	}
 	
 	public static void init(){
+	}
+	
+	private static void registerMob(Class<? extends Entity> entity, String name, int foregroundEgg, int backgroundEgg) {
+		EntityRegistry.registerModEntity(entity, name, entityID++, RealmsOfChaos.instance, 80, 5, true);
+		EntityList.addMapping(entity, name, globalEntityID++, foregroundEgg, backgroundEgg);
+	}
+	
+	private static void registerSpecial(Class<? extends Entity> entity, String name) {
+		EntityRegistry.registerModEntity(entity, name, entityID++, RealmsOfChaos.instance, 80, 5, true);
+		EntityList.addMapping(entity, name, globalEntityID++);
 	}
 }

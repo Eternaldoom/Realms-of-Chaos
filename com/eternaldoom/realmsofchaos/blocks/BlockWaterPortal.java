@@ -1,17 +1,27 @@
 package com.eternaldoom.realmsofchaos.blocks;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.BlockFluidClassic;
 
-public class BlockWaterPortal /*extends BlockFluidClassic*/{
+import com.eternaldoom.realmsofchaos.RealmsOfChaos;
+import com.eternaldoom.realmsofchaos.water.gen.TeleporterWater;
+
+
+public class BlockWaterPortal extends BlockFluidClassic {
 	
-	/*public BlockWaterPortal() {
+	public BlockWaterPortal() {
 		super(ROCBlocks.waterportal, Material.water);
-		setBlockName("portalWater");
-		setBlockTextureName("realmsofchaos:water_portal");
+		setUnlocalizedName("portalWater");
 		setBlockUnbreakable();
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World p_149670_1_, int p_149670_2_, int p_149670_3_, int p_149670_4_, Entity entity)
+	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
 		if ((entity.ridingEntity == null) && (entity.riddenByEntity == null) && ((entity instanceof EntityPlayerMP)))
         {
@@ -32,6 +42,6 @@ public class BlockWaterPortal /*extends BlockFluidClassic*/{
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterWater(thePlayer.mcServer.worldServerForDimension(0)));
             }
         }
-    }*/
+    }
 
 }

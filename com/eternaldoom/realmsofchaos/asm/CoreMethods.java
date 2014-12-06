@@ -21,29 +21,6 @@ import com.eternaldoom.realmsofchaos.items.ItemROCBow;
 
 public class CoreMethods {
 	
-	/**Inserted into RenderItem to allow for customized textures based on use time.*/
-	public static ModelResourceLocation getBowTextures(EntityPlayer player, Item item, ItemStack stack, ModelResourceLocation location){
-		if (item instanceof ItemROCBow && player.getItemInUse() != null)
-        {
-	        location = new ModelResourceLocation(((ResourceLocation) Item.itemRegistry.getNameForObject(item)).toString(), "inventory");
-
-            int i = stack.getMaxItemUseDuration() - player.getItemInUseCount();
-            if (i >= 18)
-            {
-                location = new ModelResourceLocation(Item.itemRegistry.getNameForObject(item) + "_pulling_2", "inventory");
-            }
-            else if (i > 13)
-            {
-                location = new ModelResourceLocation(Item.itemRegistry.getNameForObject(item) + "_pulling_1", "inventory");
-            }
-            else if (i > 0)
-            {
-                location = new ModelResourceLocation(Item.itemRegistry.getNameForObject(item) + "_pulling_0", "inventory");
-            }
-        }
-		return location;
-	}
-	
 	/**Inserted into BlockModelShapes to allow for textured particles for blocks that don't need models.*/
 	public static TextureAtlasSprite getTexture(IBlockState state){
 		IBakedModel model = Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178125_b(state);
@@ -58,6 +35,10 @@ public class CoreMethods {
 		
 		if(state.getBlock() == ROCBlocks.nether_chest){
 			return Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178126_b().func_174952_b().getAtlasSprite("realmsofchaos:blocks/nether_chest_top");
+		}
+		
+		if(state.getBlock() == ROCBlocks.soy_plant){
+			return Minecraft.getMinecraft().getBlockRendererDispatcher().func_175023_a().func_178126_b().func_174952_b().getAtlasSprite("realmsofchaos:blocks/soy_plant_2");
 		}
 		
 		return model.getTexture();
